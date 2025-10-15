@@ -1,231 +1,297 @@
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FM Tech - Soluciones Digitales para tu Negocio</title>
+    <title>FM Tech - Soluciones Digitales Modernas</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Poppins', sans-serif;
+            background-color: #111111;
+            color: #E5E7EB; /* light gray */
+            background-image: radial-gradient(circle at top right, rgba(59, 130, 246, 0.1), transparent 40%),
+                              radial-gradient(circle at bottom left, rgba(59, 130, 246, 0.1), transparent 50%);
+            background-attachment: fixed;
         }
-        /* Estilo para el enlace de navegación activo (opcional con scrollspy) */
-        .nav-link.active {
-            color: #3b82f6; /* blue-500 */
+        .glass-effect {
+            background: rgba(18, 18, 18, 0.6);
+            -webkit-backdrop-filter: blur(15px);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
-        .floating-whatsapp {
+        .card-glow {
+             box-shadow: 0 0 45px rgba(59, 130, 246, 0.1);
+        }
+        .brand-text {
+            color: #60a5fa; /* A nice, modern blue */
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        .whatsapp-container {
             position: fixed;
             bottom: 30px;
             right: 30px;
-            border-radius: 50%;
+            z-index: 100;
+            text-align: center;
+        }
+        .whatsapp-float {
             width: 60px;
             height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
-            z-index: 1000;
-            transition: transform 0.2s ease-in-out;
-            background-color: #25D366;
+            background-color: transparent;
+            transition: transform 0.3s ease;
+            display: block;
+            margin: 0 auto;
         }
-        .floating-whatsapp:hover {
+        .whatsapp-float:hover {
             transform: scale(1.1);
         }
+        .whatsapp-float img {
+            width: 100%;
+            height: auto;
+        }
+        .whatsapp-text {
+            color: white;
+            font-size: 12px;
+            font-weight: 600;
+            margin-top: 5px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+        }
+        .footer-link {
+            transition: text-shadow 0.3s ease;
+        }
+        .footer-link:hover {
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.7);
+        }
+        
+        /* Unified "Glass" Button Style */
+        .action-button {
+            color: white;
+            font-weight: 600;
+            padding: 0.85rem 2.25rem;
+            border-radius: 9999px;
+            transition: all 0.3s ease;
+            display: inline-block;
+            font-size: 1rem;
+            letter-spacing: 0.05em;
+            background: rgba(59, 130, 246, 0.15);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(59, 130, 246, 0.4);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .action-button:hover {
+            transform: scale(1.05) translateY(-2px);
+            background: rgba(59, 130, 246, 0.25);
+            box-shadow: 0 0 25px rgba(59, 130, 246, 0.4);
+        }
+        
         .plan-feature {
             display: flex;
             align-items: center;
-            gap: 0.75rem; /* 12px */
-            margin-bottom: 0.5rem; /* 8px */
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        /* Scroll animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
+            will-change: opacity, transform;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
-<body class="bg-slate-900 text-gray-300">
+<body class="bg-black text-gray-200">
 
-    <!-- Header y Navegación -->
-    <header class="bg-slate-900/80 backdrop-blur-sm sticky top-0 z-50 border-b border-slate-700">
+    <!-- WhatsApp Floating Button -->
+    <div class="whatsapp-container">
+        <a href="https://wa.me/573044301112" class="whatsapp-float" target="_blank">
+            <img src="images/whatsapp-logo.png" alt="Contactar por WhatsApp">
+        </a>
+        <p class="whatsapp-text">¡Hablemos!</p>
+    </div>
+
+    <!-- Header -->
+    <header class="glass-effect shadow-lg sticky top-0 z-50">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
             <a href="#home" class="text-2xl font-bold text-white">
-                FM<span class="text-blue-500">Tech</span>
+                FM<span class="brand-text">Tech</span>
             </a>
-            <div class="hidden md:flex space-x-6 items-center">
-                <a href="#home" class="nav-link hover:text-blue-500 transition-colors duration-300 active">Inicio</a>
-                <a href="#plans" class="nav-link hover:text-blue-500 transition-colors duration-300">Planes</a>
-                <a href="#about" class="nav-link hover:text-blue-500 transition-colors duration-300">Sobre Nosotros</a>
-                <a href="#contact" class="nav-link hover:text-blue-500 transition-colors duration-300">Contacto</a>
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex space-x-8 text-sm font-medium">
+                <a href="#home" class="text-gray-300 hover:text-white transition duration-300">Inicio</a>
+                <a href="#plans" class="text-gray-300 hover:text-white transition duration-300">Planes</a>
+                <a href="#about" class="text-gray-300 hover:text-white transition duration-300">Sobre Nosotros</a>
+                <a href="#contact" class="text-gray-300 hover:text-white transition duration-300">Contacto</a>
             </div>
+            <!-- Mobile Menu Button -->
             <div class="md:hidden">
                 <button id="menu-btn" class="text-white focus:outline-none">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
                 </button>
             </div>
         </nav>
-        <!-- Menú Móvil -->
-        <div id="mobile-menu" class="hidden md:hidden bg-slate-800">
-            <a href="#home" class="block py-2 px-6 text-sm hover:bg-slate-700">Inicio</a>
-            <a href="#plans" class="block py-2 px-6 text-sm hover:bg-slate-700">Planes</a>
-            <a href="#about" class="block py-2 px-6 text-sm hover:bg-slate-700">Sobre Nosotros</a>
-            <a href="#contact" class="block py-2 px-6 text-sm hover:bg-slate-700">Contacto</a>
-        </div>
     </header>
 
-    <main class="container mx-auto px-6">
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden fixed inset-0 bg-black bg-opacity-95 z-40 flex flex-col items-center justify-center space-y-8">
+        <a href="#home" class="mobile-menu-link text-2xl text-gray-300 hover:text-white">Inicio</a>
+        <a href="#plans" class="mobile-menu-link text-2xl text-gray-300 hover:text-white">Planes</a>
+        <a href="#about" class="mobile-menu-link text-2xl text-gray-300 hover:text-white">Sobre Nosotros</a>
+        <a href="#contact" class="mobile-menu-link text-2xl text-gray-300 hover:text-white">Contacto</a>
+    </div>
 
-        <!-- Sección de Inicio (Hero) -->
-        <section id="home" class="text-center py-20 md:py-32">
-            <div class="max-w-4xl mx-auto">
-                <h1 class="text-4xl md:text-6xl font-black text-white leading-tight mb-4">
-                    Transformamos tu <span class="text-blue-500">Negocio</span> con Tecnología y Presencia Digital
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="py-20 md:py-32">
+            <div class="container mx-auto px-6 text-center reveal">
+                <h1 class="text-4xl md:text-6xl font-bold text-white leading-tight mb-4">
+                    Transformamos tu Negocio con <span class="brand-text">Presencia Digital</span>
                 </h1>
-                <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto">
+                <p class="text-lg text-gray-400 mb-8 max-w-3xl mx-auto">
                     Creamos sitios web y soluciones digitales a medida que impulsan el crecimiento de pequeños y medianos negocios.
                 </p>
-                <div class="flex flex-col sm:flex-row justify-center gap-4">
-                    <a href="#plans" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg transition-transform transform hover:scale-105">
-                        Ver Nuestros Planes
-                    </a>
-                    <a href="#contact" class="bg-slate-700 hover:bg-slate-600 text-white font-bold py-3 px-8 rounded-lg transition-transform transform hover:scale-105">
-                        Contáctanos
-                    </a>
+                <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6">
+                    <a href="#plans" class="action-button">Ver Nuestros Planes</a>
+                    <a href="#contact" class="action-button">Contáctanos</a>
                 </div>
             </div>
         </section>
 
-        <!-- Sección de Planes (Nueva) -->
+        <!-- Plans Section -->
         <section id="plans" class="py-20">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-white">Planes a la Medida de tu Negocio</h2>
-                <p class="text-md text-gray-400 mt-2">Elige el paquete perfecto para empezar o llevar tu negocio al siguiente nivel.</p>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Plan 1: Landing Page -->
-                <div class="bg-slate-800 p-8 rounded-lg border border-slate-700 flex flex-col">
-                    <h3 class="text-2xl font-bold text-blue-400 mb-4">Landing Page</h3>
-                    <div class="flex-grow text-gray-400 text-sm">
-                        <p class="plan-feature"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-400" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg> 4 Bloques de navegación</p>
-                        <p class="plan-feature"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-400" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg> 1 Banner y Formulario de contacto</p>
-                        <p class="plan-feature"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-400" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg> Diseño 100% personalizado y responsive</p>
-                        <p class="plan-feature"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-400" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg> Hosting, Dominio y SSL Incluidos</p>
-                        <p class="plan-feature"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-400" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg> Galería (hasta 15 imágenes) y video</p>
-                        <p class="plan-feature"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-400" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg> Integración Google Analytics y Pixel Ads</p>
-                    </div>
-                    <a href="#contact" class="mt-8 w-full bg-slate-700 hover:bg-slate-600 text-white font-bold py-3 px-6 rounded-lg text-center transition-colors">Cotizar</a>
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16 reveal">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white">Planes a la Medida de tu Negocio</h2>
+                    <p class="text-md text-gray-400 mt-2">Elige el paquete perfecto para empezar o llevar tu negocio al siguiente nivel.</p>
                 </div>
-
-                <!-- Plan 2: Paquete Crecimiento -->
-                <div class="bg-slate-800 p-8 rounded-lg border-2 border-blue-500 flex flex-col relative">
-                    <span class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-blue-500 text-white text-xs font-bold px-3 py-1 rounded-full">MÁS POPULAR</span>
-                    <h3 class="text-2xl font-bold text-blue-400 mb-4">Paquete Crecimiento</h3>
-                    <div class="flex-grow text-gray-400 text-sm">
-                        <p class="plan-feature"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-400" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg> 8 Secciones de navegación</p>
-                        <p class="plan-feature"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-400" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg> 3 Banners y Formulario de contacto</p>
-                        <p class="plan-feature"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-400" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg> Diseño 100% personalizado y responsive</p>
-                        <p class="plan-feature"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-400" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg> Hosting, Dominio y SSL Incluidos</p>
-                        <p class="plan-feature"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-400" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg> Botón de llamada y WhatsApp</p>
-                        <p class="plan-feature"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-400" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg> Integración Google, Pixel Ads y Facebook</p>
-                    </div>
-                    <a href="#contact" class="mt-8 w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg text-center transition-colors">Cotizar</a>
-                </div>
-
-                <!-- Plan 3: Empresarial -->
-                <div class="bg-slate-800 p-8 rounded-lg border border-slate-700 flex flex-col">
-                    <h3 class="text-2xl font-bold text-blue-400 mb-4">Empresarial</h3>
-                    <div class="flex-grow text-gray-400 text-sm">
-                        <p class="plan-feature"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-400" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg> 14 Secciones de navegación</p>
-                        <p class="plan-feature"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-400" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg> 5 Banners y Formulario de contacto</p>
-                        <p class="plan-feature"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-400" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg> Carga de hasta 50 productos/servicios</p>
-                        <p class="plan-feature"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-400" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg> Módulo de blog administrable</p>
-                        <p class="plan-feature"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-400" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg> Barra de búsqueda</p>
-                        <p class="plan-feature"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-400" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg> Todo lo del plan Crecimiento</p>
-                    </div>
-                    <a href="#contact" class="mt-8 w-full bg-slate-700 hover:bg-slate-600 text-white font-bold py-3 px-6 rounded-lg text-center transition-colors">Cotizar</a>
-                </div>
-
-                <!-- Plan 4: Tienda Virtual -->
-                <div class="bg-slate-800 p-8 rounded-lg border border-slate-700 flex flex-col">
-                    <h3 class="text-2xl font-bold text-blue-400 mb-4">Tienda Virtual</h3>
-                    <div class="flex-grow text-gray-400 text-sm">
-                        <p class="plan-feature"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-400" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg> Hasta 16 Secciones de navegación</p>
-                        <p class="plan-feature"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-400" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg> 5 Banners y Formulario de contacto</p>
-                        <p class="plan-feature"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-400" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg> Carrito de compras</p>
-                        <p class="plan-feature"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-400" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg> Integración de Pagos Online (ePayco)</p>
-                        <p class="plan-feature"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-400" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg> Carga de hasta 50 productos</p>
-                        <p class="plan-feature"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-400" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg> Todo lo del plan Empresarial</p>
-                    </div>
-                    <a href="#contact" class="mt-8 w-full bg-slate-700 hover:bg-slate-600 text-white font-bold py-3 px-6 rounded-lg text-center transition-colors">Cotizar</a>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Plan Cards -->
+                    <div class="glass-effect card-glow p-8 rounded-2xl flex flex-col reveal transform hover:-translate-y-2 transition-transform duration-300"><h3 class="text-2xl font-bold brand-text mb-4">Landing Page</h3><div class="flex-grow text-gray-400 text-sm space-y-3">...</div><a href="#contact" class="mt-8 action-button text-center">Cotizar</a></div>
+                    <div class="glass-effect card-glow p-8 rounded-2xl flex flex-col reveal transform hover:-translate-y-2 transition-transform duration-300 border-2 border-blue-500/50"><h3 class="text-2xl font-bold brand-text mb-4">Paquete Crecimiento</h3><div class="flex-grow text-gray-400 text-sm space-y-3">...</div><a href="#contact" class="mt-8 action-button text-center">Cotizar</a></div>
+                    <div class="glass-effect card-glow p-8 rounded-2xl flex flex-col reveal transform hover:-translate-y-2 transition-transform duration-300"><h3 class="text-2xl font-bold brand-text mb-4">Empresarial</h3><div class="flex-grow text-gray-400 text-sm space-y-3">...</div><a href="#contact" class="mt-8 action-button text-center">Cotizar</a></div>
+                    <div class="glass-effect card-glow p-8 rounded-2xl flex flex-col reveal transform hover:-translate-y-2 transition-transform duration-300"><h3 class="text-2xl font-bold brand-text mb-4">Tienda Virtual</h3><div class="flex-grow text-gray-400 text-sm space-y-3">...</div><a href="#contact" class="mt-8 action-button text-center">Cotizar</a></div>
                 </div>
             </div>
         </section>
 
-        <!-- Sección Sobre Nosotros -->
+        <!-- About Us Section -->
         <section id="about" class="py-20">
-             <div class="max-w-4xl mx-auto text-center">
-                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Sobre Nosotros</h2>
-                <div class="w-24 h-1 bg-blue-500 mx-auto mb-8 rounded"></div>
-                <p class="text-lg text-gray-300 leading-relaxed">
-                    En <strong>FM Tech</strong>, nacimos de la pasión por la tecnología y la convicción de que todas las empresas, sin importar su tamaño, merecen una presencia digital de primer nivel. Entendemos los desafíos que enfrentan las PYMES en un mundo cada vez más competitivo.
-                </p>
-                <p class="text-lg text-gray-300 leading-relaxed mt-4">
-                    Nuestra misión es ser tu aliado estratégico, no solo un proveedor. Queremos apoyar a los pequeños y medianos negocios a conectar con sus clientes, optimizar sus procesos y expandir su alcance a través de soluciones digitales innovadoras y accesibles. Creemos en el trabajo cercano, la transparencia y los resultados medibles. Tu éxito es nuestro éxito.
-                </p>
-            </div>
-        </section>
-
-        <!-- Sección de Contacto -->
-        <section id="contact" class="py-20 text-center">
-            <h2 class="text-3xl md:text-4xl font-bold text-white">Hablemos de tu Proyecto</h2>
-            <p class="text-md text-gray-400 mt-2 mb-8">Estamos listos para ayudarte a llevar tu negocio al siguiente nivel.</p>
-            <a href="mailto:frankmercadotech@gmail.com" class="inline-flex items-center justify-center gap-3 bg-slate-800 border border-slate-700 text-white font-bold py-4 px-8 rounded-lg text-lg hover:bg-slate-700 transition-colors">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                </svg>
-                frankmercadotech@gmail.com
-            </a>
-            <div class="mt-10">
-                <p class="text-white font-semibold mb-4">Síguenos en nuestras redes:</p>
-                <div class="flex justify-center gap-6">
-                    <a href="https://instagram.com/frankmercadotech" target="_blank" class="text-gray-400 hover:text-blue-500 transition-colors">
-                         <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.689-.073-4.948-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.79 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44 1.441-.645 1.441-1.44-.645-1.44-1.441-1.44z"/></svg>
-                    </a>
-                    <a href="https://x.com/frankmercadotech" target="_blank" class="text-gray-400 hover:text-blue-500 transition-colors">
-                       <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-                    </a>
+            <div class="container mx-auto px-6 reveal">
+                <div class="glass-effect rounded-2xl p-8 md:p-12 max-w-4xl mx-auto text-center">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Sobre Nosotros</h2>
+                    <p class="text-lg text-gray-300 leading-relaxed">
+                        En <strong class="font-semibold text-white">FM Tech</strong>, nacimos de la pasión por la tecnología y la convicción de que todas las empresas, sin importar su tamaño, merecen una presencia digital de primer nivel. Entendemos los desafíos que enfrentan las PYMES en un mundo cada vez más competitivo.
+                    </p>
+                    <p class="text-lg text-gray-300 leading-relaxed mt-4">
+                        Nuestra misión es ser tu aliado estratégico, no solo un proveedor. Queremos apoyar a los negocios a conectar con sus clientes, optimizar sus procesos y expandir su alcance a través de soluciones digitales innovadoras y accesibles.
+                    </p>
                 </div>
             </div>
         </section>
 
+        <!-- Contact Section -->
+        <section id="contact" class="py-20">
+            <div class="container mx-auto px-6 text-center reveal">
+                 <h2 class="text-3xl font-bold mb-4 text-white">Hablemos de tu Proyecto</h2>
+                 <p class="text-gray-400 mb-8 max-w-2xl mx-auto">Estamos listos para ayudarte a llevar tu negocio al siguiente nivel.</p>
+                 <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6">
+                    <a href="mailto:frankmercadotech@gmail.com" class="action-button">
+                        Enviar un Correo
+                    </a>
+                </div>
+            </div>
+        </section>
     </main>
 
     <!-- Footer -->
-    <footer class="border-t border-slate-700 mt-10">
-        <div class="container mx-auto px-6 py-6 text-center text-gray-500">
-            <p>&copy; 2024 FM Tech. Todos los derechos reservados. Diseñado para impulsar tu negocio.</p>
+    <footer class="bg-black text-gray-500 py-16">
+        <div class="container mx-auto px-6 text-center text-sm flex flex-col items-center reveal">
+             <div class="mb-6 flex justify-center gap-6">
+                 <a href="https://instagram.com/frankmercadotech" target="_blank" class="transition-transform duration-300 hover:scale-110">
+                    <img src="images/instagram.png" alt="Instagram FM Tech" class="w-8 h-8">
+                </a>
+                <a href="https://x.com/frankmercadotech" target="_blank" class="transition-transform duration-300 hover:scale-110">
+                   <svg class="w-8 h-8 text-gray-400" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                </a>
+            </div>
+            <p>&copy; 2025 FM Tech. Todos los derechos reservados.</p>
         </div>
     </footer>
-    
-    <!-- Botón flotante de WhatsApp -->
-    <a href="https://wa.me/573044301112?text=Hola,%20estoy%20interesado%20en%20sus%20servicios%20digitales." class="floating-whatsapp" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">
-        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.894 11.892-1.99 0-3.903-.52-5.586-1.459L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.886-.001 2.225.651 4.315 1.731 6.086l.001.004l-1.27 4.625l4.75-1.249z"/></svg>
-    </a>
 
     <script>
-        // Lógica para el menú móvil
+        // Scroll Reveal Animation
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        revealElements.forEach(element => {
+            revealObserver.observe(element);
+        });
+
+        // Mobile Menu Toggle
         const menuBtn = document.getElementById('menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
-        const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+        const mobileMenuLinks = document.querySelectorAll('.mobile-menu-link');
 
         menuBtn.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
         });
         
-        // Cerrar menú móvil al hacer clic en un enlace
         mobileMenuLinks.forEach(link => {
             link.addEventListener('click', () => {
                 mobileMenu.classList.add('hidden');
             });
         });
+
+        // Fill Plan Details (to avoid repetition in HTML)
+        const planDetails = {
+            landing: [
+                "4 Bloques de navegación", "1 Banner y Formulario de contacto", "Diseño 100% personalizado y responsive",
+                "Hosting, Dominio y SSL Incluidos", "Galería (hasta 15 imágenes) y video", "Integración Google Analytics y Pixel Ads"
+            ],
+            crecimiento: [
+                "8 Secciones de navegación", "3 Banners y Formulario de contacto", "Diseño 100% personalizado y responsive",
+                "Hosting, Dominio y SSL Incluidos", "Botón de llamada y WhatsApp", "Integración Google, Pixel Ads y Facebook"
+            ],
+            empresarial: [
+                "14 Secciones de navegación", "5 Banners y Formulario de contacto", "Carga de hasta 50 productos/servicios",
+                "Módulo de blog administrable", "Barra de búsqueda", "Todo lo del plan Crecimiento"
+            ],
+            tienda: [
+                "Hasta 16 Secciones de navegación", "5 Banners y Formulario de contacto", "Carrito de compras",
+                "Integración de Pagos Online (ePayco)", "Carga de hasta 50 productos", "Todo lo del plan Empresarial"
+            ]
+        };
+
+        const planContainers = document.querySelectorAll('.grid > .glass-effect');
+        planContainers.forEach((container, index) => {
+            const planKey = Object.keys(planDetails)[index];
+            const detailsHtml = planDetails[planKey].map(detail => `
+                <p class="plan-feature">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-400 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>
+                    <span>${detail}</span>
+                </p>
+            `).join('');
+            const detailsContainer = container.querySelector('.flex-grow');
+            detailsContainer.innerHTML = detailsHtml;
+        });
+
     </script>
 </body>
 </html>
