@@ -3,136 +3,154 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FM Tech - Soluciones Digitales Modernas</title>
+    <title>FM Tech - Sitios Web para Negocios Locales</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #111111;
-            color: #E5E7EB; /* light gray */
-            background-image: radial-gradient(circle at top right, rgba(59, 130, 246, 0.1), transparent 40%),
-                              radial-gradient(circle at bottom left, rgba(59, 130, 246, 0.1), transparent 50%);
+            font-family: 'DM Sans', sans-serif;
+            background-color: #0D1117; /* GitHub Dark Dimmed */
+            color: #C9D1D9; /* Light gray */
+            background-image: radial-gradient(circle at top right, rgba(52, 120, 240, 0.1), transparent 40%),
+                              radial-gradient(circle at bottom left, rgba(52, 120, 240, 0.1), transparent 50%);
             background-attachment: fixed;
+            overflow-x: hidden; /* Prevent horizontal scroll from animations */
         }
         .glass-effect {
-            background: rgba(18, 18, 18, 0.6);
+            background: rgba(13, 17, 23, 0.7);
             -webkit-backdrop-filter: blur(15px);
             backdrop-filter: blur(15px);
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
         .card-glow {
-             box-shadow: 0 0 45px rgba(59, 130, 246, 0.1);
+             box-shadow: 0 0 50px rgba(52, 120, 240, 0.1);
         }
         .brand-text {
-            color: #60a5fa; /* A nice, modern blue */
+            color: #58A6FF; /* Blue color for accents */
         }
         html {
             scroll-behavior: smooth;
         }
-        .whatsapp-container {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            z-index: 100;
-            text-align: center;
-        }
-        .whatsapp-float {
-            width: 60px;
-            height: 60px;
-            background-color: transparent;
-            transition: transform 0.3s ease;
-            display: block;
-            margin: 0 auto;
-        }
-        .whatsapp-float:hover {
-            transform: scale(1.1);
-        }
-        .whatsapp-float img {
-            width: 100%;
-            height: auto;
-        }
-        .whatsapp-text {
-            color: white;
-            font-size: 12px;
-            font-weight: 600;
-            margin-top: 5px;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
-        }
-        .footer-link {
-            transition: text-shadow 0.3s ease;
-        }
-        .footer-link:hover {
-            text-shadow: 0 0 8px rgba(255, 255, 255, 0.7);
-        }
-        
-        /* Unified "Glass" Button Style */
         .action-button {
             color: white;
-            font-weight: 600;
+            font-weight: 500;
             padding: 0.85rem 2.25rem;
             border-radius: 9999px;
             transition: all 0.3s ease;
             display: inline-block;
             font-size: 1rem;
-            letter-spacing: 0.05em;
-            background: rgba(59, 130, 246, 0.15);
+            letter-spacing: 0.025em;
+            background: rgba(52, 120, 240, 0.15);
             -webkit-backdrop-filter: blur(10px);
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(59, 130, 246, 0.4);
+            border: 1px solid rgba(52, 120, 240, 0.4);
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
         .action-button:hover {
             transform: scale(1.05) translateY(-2px);
-            background: rgba(59, 130, 246, 0.25);
-            box-shadow: 0 0 25px rgba(59, 130, 246, 0.4);
+            background: rgba(52, 120, 240, 0.25);
+            box-shadow: 0 0 25px rgba(52, 120, 240, 0.4);
         }
-        
-        .plan-feature {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            margin-bottom: 0.75rem;
+        .logo-text {
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 700;
+            font-size: 1.75rem;
+            letter-spacing: -0.05em;
         }
-        
-        /* Scroll animations */
+
+        /* Animations */
         .reveal {
             opacity: 0;
-            transform: translateY(30px);
             transition: opacity 1s ease-out, transform 1s ease-out;
             will-change: opacity, transform;
         }
+        .reveal-up { transform: translateY(50px); }
+        .reveal-left { transform: translateX(-50px); }
+        .reveal-right { transform: translateX(50px); }
+
         .reveal.visible {
             opacity: 1;
-            transform: translateY(0);
+            transform: translateY(0) translateX(0);
+        }
+        
+        /* Testimonial & Blog Carousel */
+        @keyframes scroll-testimonials {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(calc(-24rem * 9)); } /* card width * number of cards */
+        }
+        @keyframes scroll-blog {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(calc(-26rem * 6)); }
+        }
+        .slider {
+            overflow: hidden;
+            padding: 2rem 0;
+            position: relative;
+            width: 100%;
+        }
+        .slider::before,
+        .slider::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 10rem;
+            z-index: 2;
+        }
+        .slider::before {
+            left: 0;
+            background: linear-gradient(to left, rgba(13, 17, 23, 0), #0D1117);
+        }
+        .slider::after {
+            right: 0;
+            background: linear-gradient(to right, rgba(13, 17, 23, 0), #0D1117);
+        }
+        .slider-testimonials .slide-track {
+            display: flex;
+            width: calc(24rem * 18); /* card width * (number of cards * 2) */
+            animation: scroll-testimonials 40s linear infinite;
+        }
+         .slider-blog .slide-track {
+            display: flex;
+            width: calc(26rem * 12);
+            animation: scroll-blog 60s linear infinite;
+        }
+        .slider:hover .slide-track {
+            animation-play-state: paused;
+        }
+        .slide-testimonial {
+            width: 24rem;
+            flex-shrink: 0;
+            padding: 0 1rem;
+        }
+        .slide-blog {
+            width: 26rem;
+            flex-shrink: 0;
+            padding: 0 1rem;
+        }
+        .blog-content {
+            transition: max-height 0.5s ease-in-out;
         }
     </style>
 </head>
-<body class="bg-black text-gray-200">
-
-    <!-- WhatsApp Floating Button -->
-    <div class="whatsapp-container">
-        <a href="https://wa.me/573044301112" class="whatsapp-float" target="_blank">
-            <img src="images/whatsapp-logo.png" alt="Contactar por WhatsApp">
-        </a>
-        <p class="whatsapp-text">¡Hablemos!</p>
-    </div>
+<body class="bg-gray-900 text-gray-200">
 
     <!-- Header -->
     <header class="glass-effect shadow-lg sticky top-0 z-50">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#home" class="text-2xl font-bold text-white">
-                FM<span class="brand-text">Tech</span>
+             <a href="#inicio" class="logo-text text-white">
+                FM <span class="brand-text">Tech</span>
             </a>
             <!-- Desktop Menu -->
             <div class="hidden md:flex space-x-8 text-sm font-medium">
-                <a href="#home" class="text-gray-300 hover:text-white transition duration-300">Inicio</a>
-                <a href="#plans" class="text-gray-300 hover:text-white transition duration-300">Planes</a>
-                <a href="#about" class="text-gray-300 hover:text-white transition duration-300">Sobre Nosotros</a>
-                <a href="#contact" class="text-gray-300 hover:text-white transition duration-300">Contacto</a>
+                <a href="#soluciones" class="text-gray-300 hover:text-white transition duration-300">Soluciones</a>
+                <a href="#proyectos" class="text-gray-300 hover:text-white transition duration-300">Proyectos</a>
+                <a href="#clientes" class="text-gray-300 hover:text-white transition duration-300">Clientes</a>
+                 <a href="#blog" class="text-gray-300 hover:text-white transition duration-300">Consejos</a>
+                <a href="#contacto" class="text-gray-300 hover:text-white transition duration-300">Contacto</a>
             </div>
             <!-- Mobile Menu Button -->
             <div class="md:hidden">
@@ -145,70 +163,198 @@
 
     <!-- Mobile Menu -->
     <div id="mobile-menu" class="hidden fixed inset-0 bg-black bg-opacity-95 z-40 flex flex-col items-center justify-center space-y-8">
-        <a href="#home" class="mobile-menu-link text-2xl text-gray-300 hover:text-white">Inicio</a>
-        <a href="#plans" class="mobile-menu-link text-2xl text-gray-300 hover:text-white">Planes</a>
-        <a href="#about" class="mobile-menu-link text-2xl text-gray-300 hover:text-white">Sobre Nosotros</a>
-        <a href="#contact" class="mobile-menu-link text-2xl text-gray-300 hover:text-white">Contacto</a>
+        <a href="#soluciones" class="mobile-menu-link text-2xl text-gray-300 hover:text-white">Soluciones</a>
+        <a href="#proyectos" class="mobile-menu-link text-2xl text-gray-300 hover:text-white">Proyectos</a>
+        <a href="#clientes" class="mobile-menu-link text-2xl text-gray-300 hover:text-white">Clientes</a>
+        <a href="#blog" class="mobile-menu-link text-2xl text-gray-300 hover:text-white">Consejos</a>
+        <a href="#contacto" class="mobile-menu-link text-2xl text-gray-300 hover:text-white">Contacto</a>
     </div>
 
     <main>
         <!-- Hero Section -->
-        <section id="home" class="py-20 md:py-32">
-            <div class="container mx-auto px-6 text-center reveal">
+        <section id="inicio" class="py-24 md:py-40">
+            <div class="container mx-auto px-6 text-center reveal reveal-up">
                 <h1 class="text-4xl md:text-6xl font-bold text-white leading-tight mb-4">
-                    Transformamos tu Negocio con <span class="brand-text">Presencia Digital</span>
+                    La Página Web que tu Negocio <br class="hidden md:block"> Necesita para <span class="brand-text">Crecer</span>
                 </h1>
                 <p class="text-lg text-gray-400 mb-8 max-w-3xl mx-auto">
-                    Creamos sitios web y soluciones digitales a medida que impulsan el crecimiento de pequeños y medianos negocios.
+                    Diseñamos sitios web profesionales y efectivos para negocios locales, ayudándote a destacar y atraer más clientes.
                 </p>
-                <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6">
-                    <a href="#plans" class="action-button">Ver Nuestros Planes</a>
-                    <a href="#contact" class="action-button">Contáctanos</a>
+                 <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6">
+                    <a href="#proyectos" class="action-button">Ver Nuestro Trabajo</a>
+                    <a href="#contacto" class="action-button">Solicitar Asesoría Gratuita</a>
                 </div>
             </div>
         </section>
 
-        <!-- Plans Section -->
-        <section id="plans" class="py-20">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-16 reveal">
-                    <h2 class="text-3xl md:text-4xl font-bold text-white">Planes a la Medida de tu Negocio</h2>
-                    <p class="text-md text-gray-400 mt-2">Elige el paquete perfecto para empezar o llevar tu negocio al siguiente nivel.</p>
+        <!-- Why Choose Us Section -->
+        <section id="porque-elegirnos" class="py-20 bg-black bg-opacity-20">
+            <div class="container mx-auto px-6 text-center">
+                <div class="reveal reveal-up mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white">¿Por Qué Elegir FM Tech?</h2>
+                    <p class="text-md text-gray-400 mt-2">Tu éxito es nuestro principal objetivo.</p>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <!-- Plan Cards -->
-                    <div class="glass-effect card-glow p-8 rounded-2xl flex flex-col reveal transform hover:-translate-y-2 transition-transform duration-300"><h3 class="text-2xl font-bold brand-text mb-4">Landing Page</h3><div class="flex-grow text-gray-400 text-sm space-y-3">...</div><a href="#contact" class="mt-8 action-button text-center">Cotizar</a></div>
-                    <div class="glass-effect card-glow p-8 rounded-2xl flex flex-col reveal transform hover:-translate-y-2 transition-transform duration-300 border-2 border-blue-500/50"><h3 class="text-2xl font-bold brand-text mb-4">Paquete Crecimiento</h3><div class="flex-grow text-gray-400 text-sm space-y-3">...</div><a href="#contact" class="mt-8 action-button text-center">Cotizar</a></div>
-                    <div class="glass-effect card-glow p-8 rounded-2xl flex flex-col reveal transform hover:-translate-y-2 transition-transform duration-300"><h3 class="text-2xl font-bold brand-text mb-4">Empresarial</h3><div class="flex-grow text-gray-400 text-sm space-y-3">...</div><a href="#contact" class="mt-8 action-button text-center">Cotizar</a></div>
-                    <div class="glass-effect card-glow p-8 rounded-2xl flex flex-col reveal transform hover:-translate-y-2 transition-transform duration-300"><h3 class="text-2xl font-bold brand-text mb-4">Tienda Virtual</h3><div class="flex-grow text-gray-400 text-sm space-y-3">...</div><a href="#contact" class="mt-8 action-button text-center">Cotizar</a></div>
+                    <div class="glass-effect card-glow p-8 rounded-2xl text-center transform hover:-translate-y-2 transition-transform duration-300 reveal reveal-up">
+                        <h3 class="text-xl font-bold mb-2 brand-text">Precios Justos</h3>
+                        <p class="text-gray-400">Ofrecemos soluciones de alta calidad sin costos ocultos. Una inversión inteligente con un retorno claro para tu negocio.</p>
+                    </div>
+                     <div class="glass-effect card-glow p-8 rounded-2xl text-center transform hover:-translate-y-2 transition-transform duration-300 reveal reveal-up" style="transition-delay: 200ms;">
+                        <h3 class="text-xl font-bold mb-2 brand-text">Velocidad y Rendimiento</h3>
+                        <p class="text-gray-400">Sitios web optimizados para cargar rápidamente, mejorando la experiencia del usuario y tu ranking en los motores de búsqueda.</p>
+                    </div>
+                    <div class="glass-effect card-glow p-8 rounded-2xl text-center transform hover:-translate-y-2 transition-transform duration-300 reveal reveal-up" style="transition-delay: 400ms;">
+                        <h3 class="text-xl font-bold mb-2 brand-text">Enfoque en Conversión</h3>
+                        <p class="text-gray-400">Diseñamos cada elemento con un objetivo claro: convertir visitantes en clientes y aumentar tus ventas de manera medible.</p>
+                    </div>
+                    <div class="glass-effect card-glow p-8 rounded-2xl text-center transform hover:-translate-y-2 transition-transform duration-300 reveal reveal-up" style="transition-delay: 600ms;">
+                        <h3 class="text-xl font-bold mb-2 brand-text">Soporte Continuo</h3>
+                        <p class="text-gray-400">No desaparecemos tras el lanzamiento. Ofrecemos soporte y asesoría para que tu sitio siga creciendo contigo y tu negocio.</p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- About Us Section -->
-        <section id="about" class="py-20">
-            <div class="container mx-auto px-6 reveal">
-                <div class="glass-effect rounded-2xl p-8 md:p-12 max-w-4xl mx-auto text-center">
-                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Sobre Nosotros</h2>
-                    <p class="text-lg text-gray-300 leading-relaxed">
-                        En <strong class="font-semibold text-white">FM Tech</strong>, nacimos de la pasión por la tecnología y la convicción de que todas las empresas, sin importar su tamaño, merecen una presencia digital de primer nivel. Entendemos los desafíos que enfrentan las PYMES en un mundo cada vez más competitivo.
-                    </p>
-                    <p class="text-lg text-gray-300 leading-relaxed mt-4">
-                        Nuestra misión es ser tu aliado estratégico, no solo un proveedor. Queremos apoyar a los negocios a conectar con sus clientes, optimizar sus procesos y expandir su alcance a través de soluciones digitales innovadoras y accesibles.
-                    </p>
+        <!-- Solutions Section -->
+        <section id="soluciones" class="py-20">
+            <div class="container mx-auto px-6 text-center">
+                <div class="reveal reveal-up mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white">Soluciones Digitales a tu Medida</h2>
+                    <p class="text-md text-gray-400 mt-2">No solo creamos sitios web, construimos herramientas para tu éxito.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="glass-effect card-glow p-8 rounded-2xl text-left transform hover:-translate-y-2 transition-transform duration-300 reveal reveal-up">
+                        <h3 class="text-xl font-bold mb-2 brand-text">Páginas Web Informativas</h3>
+                        <p class="text-gray-400">Tu carta de presentación digital. Mostramos tus servicios e información de contacto de forma profesional para generar confianza. Ideal para consultorios, restaurantes y profesionales.</p>
+                    </div>
+                     <div class="glass-effect card-glow p-8 rounded-2xl text-left transform hover:-translate-y-2 transition-transform duration-300 reveal reveal-up" style="transition-delay: 200ms;">
+                        <h3 class="text-xl font-bold mb-2 brand-text">Tiendas Online (E-commerce)</h3>
+                        <p class="text-gray-400">Creamos catálogos virtuales atractivos con gestión de pedidos simplificada vía WhatsApp. Perfecto para boutiques, tiendas de productos artesanales y negocios que digitalizan sus ventas.</p>
+                    </div>
+                    <div class="glass-effect card-glow p-8 rounded-2xl text-left transform hover:-translate-y-2 transition-transform duration-300 reveal reveal-up" style="transition-delay: 400ms;">
+                        <h3 class="text-xl font-bold mb-2 brand-text">Landing Pages de Alto Impacto</h3>
+                        <p class="text-gray-400">Páginas optimizadas para campañas, diseñadas para capturar la atención y convertir visitantes en clientes. Esencial para promociones, eventos o validar ideas.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="proyectos" class="py-20 overflow-hidden">
+            <div class="container mx-auto px-6">
+                <div class="text-center reveal reveal-up mb-20">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white">Proyectos Recientes</h2>
+                    <p class="text-md text-gray-400 mt-2">La prueba de nuestro compromiso con la calidad y el diseño.</p>
+                </div>
+
+                <div class="space-y-20 md:space-y-32">
+                    <!-- Project 1 -->
+                    <div class="flex flex-col md:flex-row items-center gap-8 md:gap-16">
+                        <div class="md:w-1/2 reveal reveal-left">
+                            <h3 class="text-3xl font-bold text-white">Elan Parfums</h3>
+                            <p class="text-gray-400 mt-4 text-lg">E-commerce y catálogo virtual para una tienda de perfumes, enfocado en la elegancia y una experiencia de usuario premium.</p>
+                             <a href="#" class="action-button mt-6">Ver Proyecto</a>
+                        </div>
+                        <div class="md:w-1/2 reveal reveal-right">
+                           <img src="images/proyecto (1).png" alt="Proyecto Elan Parfums" class="w-full h-auto rounded-lg shadow-2xl">
+                        </div>
+                    </div>
+                    <!-- Project 2 -->
+                     <div class="flex flex-col md:flex-row-reverse items-center gap-8 md:gap-16">
+                        <div class="md:w-1/2 reveal reveal-right">
+                            <h3 class="text-3xl font-bold text-white">Dental Studio</h3>
+                            <p class="text-gray-400 mt-4 text-lg">Sitio web corporativo para una clínica dental, destacando la profesionalidad, la tecnología y facilitando la agenda de citas.</p>
+                             <a href="#" class="action-button mt-6">Ver Proyecto</a>
+                        </div>
+                        <div class="md:w-1/2 reveal reveal-left">
+                           <img src="images/proyecto (2).png" alt="Proyecto Dental Studio" class="w-full h-auto rounded-lg shadow-2xl">
+                        </div>
+                    </div>
+                     <!-- Project 3 -->
+                    <div class="flex flex-col md:flex-row items-center gap-8 md:gap-16">
+                        <div class="md:w-1/2 reveal reveal-left">
+                            <h3 class="text-3xl font-bold text-white">Sonrisa Da Silva</h3>
+                            <p class="text-gray-400 mt-4 text-lg">Página web para odontología estética, con un diseño moderno, paleta de colores distintiva y un fuerte enfoque en la conversión de pacientes.</p>
+                             <a href="#" class="action-button mt-6">Ver Proyecto</a>
+                        </div>
+                        <div class="md:w-1/2 reveal reveal-right">
+                           <img src="images/proyecto (3).png" alt="Proyecto Sonrisa Da Silva" class="w-full h-auto rounded-lg shadow-2xl">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Testimonials Section -->
+        <section id="clientes" class="py-20">
+            <div class="container mx-auto px-6 text-center">
+                <div class="reveal reveal-up mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white">Lo que Dicen Nuestros Clientes</h2>
+                    <p class="mt-4 text-lg text-gray-400">La confianza y los resultados son nuestra mejor carta de presentación.</p>
+                </div>
+            </div>
+            <div class="slider slider-testimonials">
+                <div class="slide-track">
+                    <!-- Slides -->
+                    <div class="slide-testimonial"><div class="glass-effect card-glow h-full p-8 rounded-2xl text-left"><p class="text-gray-300 mb-4 italic">"El nuevo sitio es rápido, moderno y hemos visto un aumento real en las consultas. ¡Totalmente recomendados!"</p><p class="font-bold brand-text text-right">- Dental Studio</p></div></div>
+                    <div class="slide-testimonial"><div class="glass-effect card-glow h-full p-8 rounded-2xl text-left"><p class="text-gray-300 mb-4 italic">"Captaron la esencia de mi marca. La página de perfumes superó mis expectativas y mis clientes la adoran."</p><p class="font-bold brand-text text-right">- Elan Parfums</p></div></div>
+                    <div class="slide-testimonial"><div class="glass-effect card-glow h-full p-8 rounded-2xl text-left"><p class="text-gray-300 mb-4 italic">"Mi café ahora tiene una web increíble. Los clientes pueden ver el menú y la ubicación fácilmente. ¡Un gran acierto!"</p><p class="font-bold brand-text text-right">- Café del Sol</p></div></div>
+                    <div class="slide-testimonial"><div class="glass-effect card-glow h-full p-8 rounded-2xl text-left"><p class="text-gray-300 mb-4 italic">"Profesionalismo y creatividad. Estoy encantada con mi nuevo portafolio web. Justo lo que necesitaba."</p><p class="font-bold brand-text text-right">- Liz Dayana, Modelo</p></div></div>
+                    <div class="slide-testimonial"><div class="glass-effect card-glow h-full p-8 rounded-2xl text-left"><p class="text-gray-300 mb-4 italic">"Nuestra web ahora luce increíblemente profesional. El proceso fue sencillo y el resultado final es impecable."</p><p class="font-bold brand-text text-right">- Sonrisa Da Silva</p></div></div>
+                    <div class="slide-testimonial"><div class="glass-effect card-glow h-full p-8 rounded-2xl text-left"><p class="text-gray-300 mb-4 italic">"FM Tech nos dio la presencia online que nos faltaba. Un diseño limpio que genera confianza en nuestros pacientes."</p><p class="font-bold brand-text text-right">- ProDontos</p></div></div>
+                    <div class="slide-testimonial"><div class="glass-effect card-glow h-full p-8 rounded-2xl text-left"><p class="text-gray-300 mb-4 italic">"Como entrenador personal, necesitaba una web clara y directa. FM Tech lo logró. Mis clientes pueden agendar clases fácilmente."</p><p class="font-bold brand-text text-right">- Fit Coach Mike</p></div></div>
+                    <div class="slide-testimonial"><div class="glass-effect card-glow h-full p-8 rounded-2xl text-left"><p class="text-gray-300 mb-4 italic">"El sitio web para mi consultorio de medicina estética transmite el lujo y la seriedad que buscaba. ¡Excelente trabajo!"</p><p class="font-bold brand-text text-right">- Dra. Kimberling Jimenez</p></div></div>
+                    <div class="slide-testimonial"><div class="glass-effect card-glow h-full p-8 rounded-2xl text-left"><p class="text-gray-300 mb-4 italic">"Nuestra boutique ahora tiene un catálogo online precioso. Las ventas por WhatsApp se han disparado gracias a la nueva web."</p><p class="font-bold brand-text text-right">- Moda Chic Boutique</p></div></div>
+                    <!-- Duplicated Slides -->
+                    <div class="slide-testimonial"><div class="glass-effect card-glow h-full p-8 rounded-2xl text-left"><p class="text-gray-300 mb-4 italic">"El nuevo sitio es rápido, moderno y hemos visto un aumento real en las consultas. ¡Totalmente recomendados!"</p><p class="font-bold brand-text text-right">- Dental Studio</p></div></div>
+                    <div class="slide-testimonial"><div class="glass-effect card-glow h-full p-8 rounded-2xl text-left"><p class="text-gray-300 mb-4 italic">"Captaron la esencia de mi marca. La página de perfumes superó mis expectativas y mis clientes la adoran."</p><p class="font-bold brand-text text-right">- Elan Parfums</p></div></div>
+                    <div class="slide-testimonial"><div class="glass-effect card-glow h-full p-8 rounded-2xl text-left"><p class="text-gray-300 mb-4 italic">"Mi café ahora tiene una web increíble. Los clientes pueden ver el menú y la ubicación fácilmente. ¡Un gran acierto!"</p><p class="font-bold brand-text text-right">- Café del Sol</p></div></div>
+                    <div class="slide-testimonial"><div class="glass-effect card-glow h-full p-8 rounded-2xl text-left"><p class="text-gray-300 mb-4 italic">"Profesionalismo y creatividad. Estoy encantada con mi nuevo portafolio web. Justo lo que necesitaba."</p><p class="font-bold brand-text text-right">- Liz Dayana, Modelo</p></div></div>
+                    <div class="slide-testimonial"><div class="glass-effect card-glow h-full p-8 rounded-2xl text-left"><p class="text-gray-300 mb-4 italic">"Nuestra web ahora luce increíblemente profesional. El proceso fue sencillo y el resultado final es impecable."</p><p class="font-bold brand-text text-right">- Sonrisa Da Silva</p></div></div>
+                    <div class="slide-testimonial"><div class="glass-effect card-glow h-full p-8 rounded-2xl text-left"><p class="text-gray-300 mb-4 italic">"FM Tech nos dio la presencia online que nos faltaba. Un diseño limpio que genera confianza en nuestros pacientes."</p><p class="font-bold brand-text text-right">- ProDontos</p></div></div>
+                    <div class="slide-testimonial"><div class="glass-effect card-glow h-full p-8 rounded-2xl text-left"><p class="text-gray-300 mb-4 italic">"Como entrenador personal, necesitaba una web clara y directa. FM Tech lo logró. Mis clientes pueden agendar clases fácilmente."</p><p class="font-bold brand-text text-right">- Fit Coach Mike</p></div></div>
+                    <div class="slide-testimonial"><div class="glass-effect card-glow h-full p-8 rounded-2xl text-left"><p class="text-gray-300 mb-4 italic">"El sitio web para mi consultorio de medicina estética transmite el lujo y la seriedad que buscaba. ¡Excelente trabajo!"</p><p class="font-bold brand-text text-right">- Dra. Kimberling Jimenez</p></div></div>
+                    <div class="slide-testimonial"><div class="glass-effect card-glow h-full p-8 rounded-2xl text-left"><p class="text-gray-300 mb-4 italic">"Nuestra boutique ahora tiene un catálogo online precioso. Las ventas por WhatsApp se han disparado gracias a la nueva web."</p><p class="font-bold brand-text text-right">- Moda Chic Boutique</p></div></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blog Section -->
+        <section id="blog" class="py-20">
+             <div class="container mx-auto px-6 text-center">
+                <div class="reveal reveal-up mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white">Impulsa tu Negocio: Consejos de Marketing</h2>
+                    <p class="mt-4 text-lg text-gray-400">Pequeñas guías y artículos para ayudarte a crecer en el mundo digital.</p>
+                </div>
+            </div>
+            <div class="slider slider-blog">
+                <div class="slide-track">
+                    <!-- Blog Slides -->
+                    <div class="slide-blog"><div class="blog-card glass-effect card-glow h-full p-8 rounded-2xl text-left cursor-pointer"><h3 class="text-xl font-bold mb-2 brand-text">5 Razones por las que Necesitas una Web</h3><div class="blog-content overflow-hidden" style="max-height: 5.5rem;"><p class="text-gray-400 mb-4">Descubre cómo una página web profesional puede aumentar tu visibilidad, credibilidad y ventas...</p><div class="blog-extra-content"><p class="text-gray-400 mt-2">Una web te da una vitrina 24/7, te diferencia de la competencia que solo usa redes sociales y te permite capturar datos de clientes potenciales de forma automatizada.</p></div></div><span class="font-semibold text-white hover:brand-text text-sm mt-2 inline-block">Leer más...</span></div></div>
+                    <div class="slide-blog"><div class="blog-card glass-effect card-glow h-full p-8 rounded-2xl text-left cursor-pointer"><h3 class="text-xl font-bold mb-2 brand-text">Google Mi Negocio: Tu Mejor Aliado Local</h3><div class="blog-content overflow-hidden" style="max-height: 5.5rem;"><p class="text-gray-400 mb-4">Aprende a configurar y optimizar tu perfil para aparecer primero en las búsquedas locales y en Google Maps...</p><div class="blog-extra-content"><p class="text-gray-400 mt-2">Completa todos los campos, sube fotos de alta calidad regularmente y, lo más importante, pide a tus clientes satisfechos que dejen reseñas. Esto dispara tu relevancia local.</p></div></div><span class="font-semibold text-white hover:brand-text text-sm mt-2 inline-block">Leer más...</span></div></div>
+                    <div class="slide-blog"><div class="blog-card glass-effect card-glow h-full p-8 rounded-2xl text-left cursor-pointer"><h3 class="text-xl font-bold mb-2 brand-text">Usa WhatsApp para Vender Más</h3><div class="blog-content overflow-hidden" style="max-height: 5.5rem;"><p class="text-gray-400 mb-4">Transforma tu WhatsApp en una máquina de ventas con catálogos, respuestas rápidas y un servicio al cliente excepcional...</p><div class="blog-extra-content"><p class="text-gray-400 mt-2">Configura WhatsApp Business, crea un catálogo de tus productos o servicios y usa las respuestas automáticas para atender consultas frecuentes al instante. La cercanía vende.</p></div></div><span class="font-semibold text-white hover:brand-text text-sm mt-2 inline-block">Leer más...</span></div></div>
+                    <div class="slide-blog"><div class="blog-card glass-effect card-glow h-full p-8 rounded-2xl text-left cursor-pointer"><h3 class="text-xl font-bold mb-2 brand-text">Imágenes de Calidad: Tu Vendedor Silencioso</h3><div class="blog-content overflow-hidden" style="max-height: 5.5rem;"><p class="text-gray-400 mb-4">La primera impresión cuenta. Fotos y videos profesionales no son un lujo, son una necesidad para transmitir confianza...</p><div class="blog-extra-content"><p class="text-gray-400 mt-2">Invierte en una sesión de fotos de tus productos, tu local o tu equipo. Las imágenes de alta calidad aumentan la percepción de valor y ayudan al cliente a tomar la decisión de compra.</p></div></div><span class="font-semibold text-white hover:brand-text text-sm mt-2 inline-block">Leer más...</span></div></div>
+                    <div class="slide-blog"><div class="blog-card glass-effect card-glow h-full p-8 rounded-2xl text-left cursor-pointer"><h3 class="text-xl font-bold mb-2 brand-text">SEO para Principiantes: 3 Trucos Fáciles</h3><div class="blog-content overflow-hidden" style="max-height: 5.5rem;"><p class="text-gray-400 mb-4">Aparecer en Google no es magia negra. Comienza con estos 3 simples pasos para mejorar tu posicionamiento...</p><div class="blog-extra-content"><p class="text-gray-400 mt-2">1. Identifica las palabras clave que usarían tus clientes. 2. Úsalas naturalmente en los títulos y textos de tu web. 3. Asegúrate de que tu web cargue rápido. ¡Con eso ya superas a gran parte de tu competencia!</p></div></div><span class="font-semibold text-white hover:brand-text text-sm mt-2 inline-block">Leer más...</span></div></div>
+                    <div class="slide-blog"><div class="blog-card glass-effect card-glow h-full p-8 rounded-2xl text-left cursor-pointer"><h3 class="text-xl font-bold mb-2 brand-text">¿Blog o Redes Sociales? La Duda Eterna</h3><div class="blog-content overflow-hidden" style="max-height: 5.5rem;"><p class="text-gray-400 mb-4">Ambos son importantes, pero sirven para cosas distintas. Descubre dónde enfocar tus esfuerzos para maximizar resultados...</p><div class="blog-extra-content"><p class="text-gray-400 mt-2">Usa las redes sociales para crear comunidad e interacciones diarias. Usa el blog en tu web para crear contenido de valor que perdura en el tiempo y atrae clientes desde Google durante meses o años.</p></div></div><span class="font-semibold text-white hover:brand-text text-sm mt-2 inline-block">Leer más...</span></div></div>
+                    <!-- Duplicated Slides -->
+                    <div class="slide-blog"><div class="blog-card glass-effect card-glow h-full p-8 rounded-2xl text-left cursor-pointer"><h3 class="text-xl font-bold mb-2 brand-text">5 Razones por las que Necesitas una Web</h3><div class="blog-content overflow-hidden" style="max-height: 5.5rem;"><p class="text-gray-400 mb-4">Descubre cómo una página web profesional puede aumentar tu visibilidad, credibilidad y ventas...</p><div class="blog-extra-content"><p class="text-gray-400 mt-2">Una web te da una vitrina 24/7, te diferencia de la competencia que solo usa redes sociales y te permite capturar datos de clientes potenciales de forma automatizada.</p></div></div><span class="font-semibold text-white hover:brand-text text-sm mt-2 inline-block">Leer más...</span></div></div>
+                    <div class="slide-blog"><div class="blog-card glass-effect card-glow h-full p-8 rounded-2xl text-left cursor-pointer"><h3 class="text-xl font-bold mb-2 brand-text">Google Mi Negocio: Tu Mejor Aliado Local</h3><div class="blog-content overflow-hidden" style="max-height: 5.5rem;"><p class="text-gray-400 mb-4">Aprende a configurar y optimizar tu perfil para aparecer primero en las búsquedas locales y en Google Maps...</p><div class="blog-extra-content"><p class="text-gray-400 mt-2">Completa todos los campos, sube fotos de alta calidad regularmente y, lo más importante, pide a tus clientes satisfechos que dejen reseñas. Esto dispara tu relevancia local.</p></div></div><span class="font-semibold text-white hover:brand-text text-sm mt-2 inline-block">Leer más...</span></div></div>
+                    <div class="slide-blog"><div class="blog-card glass-effect card-glow h-full p-8 rounded-2xl text-left cursor-pointer"><h3 class="text-xl font-bold mb-2 brand-text">Usa WhatsApp para Vender Más</h3><div class="blog-content overflow-hidden" style="max-height: 5.5rem;"><p class="text-gray-400 mb-4">Transforma tu WhatsApp en una máquina de ventas con catálogos, respuestas rápidas y un servicio al cliente excepcional...</p><div class="blog-extra-content"><p class="text-gray-400 mt-2">Configura WhatsApp Business, crea un catálogo de tus productos o servicios y usa las respuestas automáticas para atender consultas frecuentes al instante. La cercanía vende.</p></div></div><span class="font-semibold text-white hover:brand-text text-sm mt-2 inline-block">Leer más...</span></div></div>
+                    <div class="slide-blog"><div class="blog-card glass-effect card-glow h-full p-8 rounded-2xl text-left cursor-pointer"><h3 class="text-xl font-bold mb-2 brand-text">Imágenes de Calidad: Tu Vendedor Silencioso</h3><div class="blog-content overflow-hidden" style="max-height: 5.5rem;"><p class="text-gray-400 mb-4">La primera impresión cuenta. Fotos y videos profesionales no son un lujo, son una necesidad para transmitir confianza...</p><div class="blog-extra-content"><p class="text-gray-400 mt-2">Invierte en una sesión de fotos de tus productos, tu local o tu equipo. Las imágenes de alta calidad aumentan la percepción de valor y ayudan al cliente a tomar la decisión de compra.</p></div></div><span class="font-semibold text-white hover:brand-text text-sm mt-2 inline-block">Leer más...</span></div></div>
+                    <div class="slide-blog"><div class="blog-card glass-effect card-glow h-full p-8 rounded-2xl text-left cursor-pointer"><h3 class="text-xl font-bold mb-2 brand-text">SEO para Principiantes: 3 Trucos Fáciles</h3><div class="blog-content overflow-hidden" style="max-height: 5.5rem;"><p class="text-gray-400 mb-4">Aparecer en Google no es magia negra. Comienza con estos 3 simples pasos para mejorar tu posicionamiento...</p><div class="blog-extra-content"><p class="text-gray-400 mt-2">1. Identifica las palabras clave que usarían tus clientes. 2. Úsalas naturalmente en los títulos y textos de tu web. 3. Asegúrate de que tu web cargue rápido. ¡Con eso ya superas a gran parte de tu competencia!</p></div></div><span class="font-semibold text-white hover:brand-text text-sm mt-2 inline-block">Leer más...</span></div></div>
+                    <div class="slide-blog"><div class="blog-card glass-effect card-glow h-full p-8 rounded-2xl text-left cursor-pointer"><h3 class="text-xl font-bold mb-2 brand-text">¿Blog o Redes Sociales? La Duda Eterna</h3><div class="blog-content overflow-hidden" style="max-height: 5.5rem;"><p class="text-gray-400 mb-4">Ambos son importantes, pero sirven para cosas distintas. Descubre dónde enfocar tus esfuerzos para maximizar resultados...</p><div class="blog-extra-content"><p class="text-gray-400 mt-2">Usa las redes sociales para crear comunidad e interacciones diarias. Usa el blog en tu web para crear contenido de valor que perdura en el tiempo y atrae clientes desde Google durante meses o años.</p></div></div><span class="font-semibold text-white hover:brand-text text-sm mt-2 inline-block">Leer más...</span></div></div>
                 </div>
             </div>
         </section>
 
         <!-- Contact Section -->
-        <section id="contact" class="py-20">
-            <div class="container mx-auto px-6 text-center reveal">
-                 <h2 class="text-3xl font-bold mb-4 text-white">Hablemos de tu Proyecto</h2>
-                 <p class="text-gray-400 mb-8 max-w-2xl mx-auto">Estamos listos para ayudarte a llevar tu negocio al siguiente nivel.</p>
+        <section id="contacto" class="py-20">
+            <div class="container mx-auto px-6 text-center reveal reveal-up">
+                 <h2 class="text-3xl font-bold mb-4 text-white">¿Listo para llevar tu negocio al siguiente nivel?</h2>
+                 <p class="text-gray-400 mb-8 max-w-2xl mx-auto">Hablemos de tu proyecto. Ofrecemos una asesoría gratuita para entender tus necesidades y proponerte la mejor solución digital.</p>
                  <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6">
-                    <a href="mailto:frankmercadotech@gmail.com" class="action-button">
-                        Enviar un Correo
-                    </a>
+                    <a href="https://wa.me/573044301112" target="_blank" class="action-button">Chatear por WhatsApp</a>
+                    <a href="mailto:frankmercadotech@gmail.com" class="action-button">Enviar un Correo</a>
                 </div>
             </div>
         </section>
@@ -216,15 +362,20 @@
 
     <!-- Footer -->
     <footer class="bg-black text-gray-500 py-16">
-        <div class="container mx-auto px-6 text-center text-sm flex flex-col items-center reveal">
+        <div class="container mx-auto px-6 text-center text-sm flex flex-col items-center reveal reveal-up">
+             <div class="flex flex-wrap justify-center gap-x-6 gap-y-2 mb-8">
+                <a href="#soluciones" class="text-gray-400 hover:text-white transition-colors duration-300">Soluciones</a>
+                <a href="#proyectos" class="text-gray-400 hover:text-white transition-colors duration-300">Proyectos</a>
+                <a href="#clientes" class="text-gray-400 hover:text-white transition-colors duration-300">Clientes</a>
+                <a href="#blog" class="text-gray-400 hover:text-white transition-colors duration-300">Consejos</a>
+                <a href="#contacto" class="text-gray-400 hover:text-white transition-colors duration-300">Contacto</a>
+            </div>
              <div class="mb-6 flex justify-center gap-6">
-                 <a href="https://instagram.com/frankmercadotech" target="_blank" class="transition-transform duration-300 hover:scale-110">
-                    <img src="images/instagram.png" alt="Instagram FM Tech" class="w-8 h-8">
-                </a>
-                <a href="https://x.com/frankmercadotech" target="_blank" class="transition-transform duration-300 hover:scale-110">
-                   <svg class="w-8 h-8 text-gray-400" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                 <a href="https://www.instagram.com/frankmercado.tech/" target="_blank" class="transition-transform duration-300 hover:scale-110">
+                    <img src="images/instagram.png" alt="Instagram FM Tech" class="w-12 h-12">
                 </a>
             </div>
+            <p class="mb-4"><strong>Email:</strong> <a href="mailto:frankmercadotech@gmail.com" class="hover:text-white">frankmercadotech@gmail.com</a></p>
             <p>&copy; 2025 FM Tech. Todos los derechos reservados.</p>
         </div>
     </footer>
@@ -236,10 +387,11 @@
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
-                    observer.unobserve(entry.target);
+                } else {
+                    entry.target.classList.remove('visible');
                 }
             });
-        }, { threshold: 0.1 });
+        }, { threshold: 0.2 });
         revealElements.forEach(element => {
             revealObserver.observe(element);
         });
@@ -247,7 +399,7 @@
         // Mobile Menu Toggle
         const menuBtn = document.getElementById('menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
-        const mobileMenuLinks = document.querySelectorAll('.mobile-menu-link');
+        const mobileMenuLinks = document.querySelectorAll('.mobile-menu-link, nav a');
 
         menuBtn.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
@@ -255,43 +407,29 @@
         
         mobileMenuLinks.forEach(link => {
             link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                }
             });
         });
 
-        // Fill Plan Details (to avoid repetition in HTML)
-        const planDetails = {
-            landing: [
-                "4 Bloques de navegación", "1 Banner y Formulario de contacto", "Diseño 100% personalizado y responsive",
-                "Hosting, Dominio y SSL Incluidos", "Galería (hasta 15 imágenes) y video", "Integración Google Analytics y Pixel Ads"
-            ],
-            crecimiento: [
-                "8 Secciones de navegación", "3 Banners y Formulario de contacto", "Diseño 100% personalizado y responsive",
-                "Hosting, Dominio y SSL Incluidos", "Botón de llamada y WhatsApp", "Integración Google, Pixel Ads y Facebook"
-            ],
-            empresarial: [
-                "14 Secciones de navegación", "5 Banners y Formulario de contacto", "Carga de hasta 50 productos/servicios",
-                "Módulo de blog administrable", "Barra de búsqueda", "Todo lo del plan Crecimiento"
-            ],
-            tienda: [
-                "Hasta 16 Secciones de navegación", "5 Banners y Formulario de contacto", "Carrito de compras",
-                "Integración de Pagos Online (ePayco)", "Carga de hasta 50 productos", "Todo lo del plan Empresarial"
-            ]
-        };
+        // Blog Card Accordion
+        const blogCards = document.querySelectorAll('.blog-card');
+        blogCards.forEach(card => {
+            card.addEventListener('click', () => {
+                const content = card.querySelector('.blog-content');
+                const readMoreText = card.querySelector('span');
+                const isExpanded = content.style.maxHeight && content.style.maxHeight !== '5.5rem';
 
-        const planContainers = document.querySelectorAll('.grid > .glass-effect');
-        planContainers.forEach((container, index) => {
-            const planKey = Object.keys(planDetails)[index];
-            const detailsHtml = planDetails[planKey].map(detail => `
-                <p class="plan-feature">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-400 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>
-                    <span>${detail}</span>
-                </p>
-            `).join('');
-            const detailsContainer = container.querySelector('.flex-grow');
-            detailsContainer.innerHTML = detailsHtml;
+                if (isExpanded) {
+                    content.style.maxHeight = '5.5rem';
+                    readMoreText.textContent = 'Leer más...';
+                } else {
+                    content.style.maxHeight = content.scrollHeight + 'px';
+                    readMoreText.textContent = 'Leer menos...';
+                }
+            });
         });
-
     </script>
 </body>
 </html>
