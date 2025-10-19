@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio - FM Tech</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background-color: #0D1117;
+            color: #C9D1D9;
+        }
+        .brand-text { color: #58A6FF; }
+        .logo-text { font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 1.75rem; letter-spacing: -0.05em; }
+        .action-button {
+            background-color: #2563EB;
+            color: white;
+            font-weight: 500;
+            padding: 0.75rem 2rem;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        .action-button:hover {
+            background-color: #1D4ED8;
+            transform: translateY(-2px);
+        }
+        .lang-switcher a.active { color: #58A6FF; font-weight: 700; }
+        .reveal { opacity: 0; transition: opacity 1s ease-out, transform 1s ease-out; transform: translateY(50px); }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-200">
+    <header class="bg-opacity-80 backdrop-blur-lg shadow-lg sticky top-0 z-50 border-b border-gray-800">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+             <a href="index.html" class="logo-text text-white">FM <span class="brand-text">Tech</span></a>
+            <div class="flex items-center space-x-8">
+                <a href="index.html" data-translate-key="nav_home" class="hidden md:block text-gray-300 hover:text-white transition duration-300">Inicio</a>
+                <div class="hidden md:flex items-center space-x-4 text-sm font-semibold lang-switcher">
+                    <a href="#" id="lang-en" class="text-gray-400 hover:text-white transition">EN</a>
+                    <span class="text-gray-600">|</span>
+                    <a href="#" id="lang-es" class="text-gray-400 hover:text-white transition">ES</a>
+                </div>
+                <a href="index.html#contacto" data-translate-key="nav_contact" class="action-button">Contacto</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="py-20 md:py-32">
+            <div class="container mx-auto px-6">
+                <div class="text-center reveal">
+                    <h1 data-translate-key="portfolio_title" class="text-4xl md:text-6xl font-bold text-white mb-4">Nuestro Portafolio</h1>
+                    <p data-translate-key="portfolio_subtitle" class="text-lg text-gray-400 max-w-3xl mx-auto">Explora una selección de nuestros proyectos. Cada sitio web está diseñado para resolver problemas específicos, comunicar valor y generar resultados.</p>
+                </div>
+
+                <div class="mt-20 grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div class="reveal"><a href="https://williscustomyachts.com/" target="_blank"><img src="images/proyecto (3).png" class="rounded-lg shadow-2xl mb-4 transition-transform duration-300 hover:scale-105"></a><h3 data-translate-key="p1_title" class="text-2xl font-bold brand-text">Willis Custom Yachts</h3><p data-translate-key="p1_desc" class="mt-2 text-gray-400">Desarrollo de un sitio web de lujo para un constructor de yates de pesca deportiva. El diseño se centra en la artesanía, la ingeniería de precisión y la exclusividad, utilizando fotografía de alta calidad y una navegación intuitiva para mostrar sus proyectos y servicios.</p></div>
+                    <div class="reveal"><a href="https://www.chesapeakeshipbuilding.com/" target="_blank"><img src="images/proyecto (4).png" class="rounded-lg shadow-2xl mb-4 transition-transform duration-300 hover:scale-105"></a><h3 data-translate-key="p2_title" class="text-2xl font-bold brand-text">Chesapeake Shipbuilding</h3><p data-translate-key="p2_desc" class="mt-2 text-gray-400">Web corporativa para uno de los astilleros más exitosos de EE. UU. El sitio transmite confianza y escala, mostrando su capacidad para construir barcos comerciales complejos y destacando su historia y su cartera de proyectos a gran escala.</p></div>
+                    <div class="reveal"><a href="https://www.hoffmancosmetics.com/" target="_blank"><img src="images/proyecto (9).png" class="rounded-lg shadow-2xl mb-4 transition-transform duration-300 hover:scale-105"></a><h3 data-translate-key="p3_title" class="text-2xl font-bold brand-text">Hoffman Cosmetics</h3><p data-translate-key="p3_desc" class="mt-2 text-gray-400">Diseño web minimalista y elegante para una clínica de odontología cosmética en Chicago. El enfoque está en la estética, los resultados visuales (casos de estudio) y una experiencia de usuario premium que facilita la programación de citas.</p></div>
+                    <div class="reveal"><a href="https://www.oaklandsmiledental.com/" target="_blank"><img src="images/proyecto (8).png" class="rounded-lg shadow-2xl mb-4 transition-transform duration-300 hover:scale-105"></a><h3 data-translate-key="p4_title" class="text-2xl font-bold brand-text">Oakland Smile Dental</h3><p data-translate-key="p4_desc" class="mt-2 text-gray-400">Sitio web amigable y profesional para una clínica dental familiar. El diseño está optimizado para la conversión de pacientes locales, con llamadas a la acción claras, información de servicios accesible y un enfoque en la confianza y el cuidado del paciente.</p></div>
+                    <div class="reveal"><a href="https://institutodebuceocomercial.lat/" target="_blank"><img src="images/proyecto (2).png" class="rounded-lg shadow-2xl mb-4 transition-transform duration-300 hover:scale-105"></a><h3 data-translate-key="p5_title" class="text-2xl font-bold brand-text">TechDiving</h3><p data-translate-key="p5_desc" class="mt-2 text-gray-400">Sitio web para un instituto de buceo comercial, presentando su historia, cursos y oportunidades de carrera para futuros profesionales.</p></div>
+                    <div class="reveal"><a href="https://devlinboat.com/" target="_blank"><img src="images/proyecto (1).png" class="rounded-lg shadow-2xl mb-4 transition-transform duration-300 hover:scale-105"></a><h3 data-translate-key="p6_title" class="text-2xl font-bold brand-text">Devlin Designing Boat Builders</h3><p data-translate-key="p6_desc" class="mt-2 text-gray-400">Sitio web para un reconocido diseñador y constructor de barcos. La página funciona como un catálogo detallado de sus diseños, tienda de planos y escaparate de sus proyectos personalizados, enfocado en una comunidad nicho de entusiastas de la navegación.</p></div>
+                    <div class="reveal"><a href="https://www.scaranoboat.com/" target="_blank"><img src="images/proyecto (6).png" class="rounded-lg shadow-2xl mb-4 transition-transform duration-300 hover:scale-105"></a><h3 data-translate-key="p7_title" class="text-2xl font-bold brand-text">Scarano Boat Building</h3><p data-translate-key="p7_desc" class="mt-2 text-gray-400">Página web para un astillero con más de 35 años de experiencia en el diseño y construcción de embarcaciones. El sitio destaca su herencia, su portafolio diverso y su capacidad técnica tanto en embarcaciones modernas como históricas.</p></div>
+                    <div class="reveal"><a href="https://genoadesign.com/" target="_blank"><img src="images/proyecto (5).png" class="rounded-lg shadow-2xl mb-4 transition-transform duration-300 hover:scale-105"></a><h3 data-translate-key="p8_title" class="text-2xl font-bold brand-text">Genoa Design International</h3><p data-translate-key="p8_desc" class="mt-2 text-gray-400">Web corporativa B2B para una firma de diseño e ingeniería naval. El enfoque es profesional y técnico, orientado a atraer talento (reclutamiento) y a mostrar su experiencia en modelado 3D y diseño de producción para la industria naval global.</p></div>
+                    <div class="reveal"><a href="https://tbailey.com/" target="_blank"><img src="images/proyecto (7).png" class="rounded-lg shadow-2xl mb-4 transition-transform duration-300 hover:scale-105"></a><h3 data-translate-key="p9_title" class="text-2xl font-bold brand-text">TBailey LLC</h3><p data-translate-key="p9_desc" class="mt-2 text-gray-400">Sitio web para una empresa de fabricación industrial pesada, especializada en proyectos marinos y de infraestructura. La web comunica escala, capacidad y seguridad, dirigida a clientes corporativos y gubernamentales de alto nivel.</p></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-black text-gray-400 py-16 border-t border-gray-800">
+        <div class="container mx-auto px-6 text-center text-sm"><p>&copy; 2025 FM Tech. <span data-translate-key="footer_rights">Todos los derechos reservados.</span></p></div>
+    </footer>
+    <script>
+        const translations = {
+            en: {
+                nav_home: "Home",
+                nav_contact: "Contact",
+                portfolio_title: "Our Portfolio",
+                portfolio_subtitle: "Explore a selection of our projects. Each website is designed to solve specific problems, communicate value, and generate results.",
+                p1_title: "Willis Custom Yachts", p1_desc: "Development of a luxury website for a custom sportfishing yacht builder. The design focuses on craftsmanship, precision engineering, and exclusivity, using high-quality photography and intuitive navigation to showcase their projects and services.",
+                p2_title: "Chesapeake Shipbuilding", p2_desc: "Corporate web for one of the most successful shipyards in the USA. The site conveys trust and scale, showcasing their ability to build complex commercial vessels and highlighting their history and large-scale project portfolio.",
+                p3_title: "Hoffman Cosmetics", p3_desc: "Minimalist and elegant web design for a cosmetic dentistry clinic in Chicago. The focus is on aesthetics, visual results (case studies), and a premium user experience that facilitates appointment scheduling.",
+                p4_title: "Oakland Smile Dental", p4_desc: "A friendly and professional website for a family dental clinic. The design is optimized for local patient conversion, with clear calls-to-action, accessible service information, and a focus on trust and patient care.",
+                p5_title: "TechDiving", p5_desc: "Website for a commercial diving institute, showcasing its history, courses, and career opportunities for future professionals.",
+                p6_title: "Devlin Designing Boat Builders", p6_desc: "Website for a renowned boat designer and builder. The page functions as a detailed catalog of his designs, a plan store, and a showcase of his custom projects, aimed at a niche community of boating enthusiasts.",
+                p7_title: "Scarano Boat Building", p7_desc: "A website for a shipyard with over 35 years of experience in vessel design and construction. The site highlights its heritage, diverse portfolio, and technical capabilities in both modern and historical vessels.",
+                p8_title: "Genoa Design International", p8_desc: "B2B corporate web for a naval design and engineering firm. The focus is professional and technical, aimed at attracting talent (recruitment) and showcasing their expertise in 3D modeling and production design for the global naval industry.",
+                p9_title: "TBailey LLC", p9_desc: "Website for a heavy industrial fabrication company, specializing in marine and infrastructure projects. The site communicates scale, capability, and safety, targeting high-level corporate and government clients.",
+                footer_rights: "All rights reserved."
+            },
+            es: {
+                nav_home: "Inicio",
+                nav_contact: "Contacto",
+                portfolio_title: "Nuestro Portafolio",
+                portfolio_subtitle: "Explora una selección de nuestros proyectos. Cada sitio web está diseñado para resolver problemas específicos, comunicar valor y generar resultados.",
+                p1_title: "Willis Custom Yachts", p1_desc: "Desarrollo de un sitio web de lujo para un constructor de yates de pesca deportiva personalizados. El diseño se centra en la artesanía, la ingeniería de precisión y la exclusividad, utilizando fotografía de alta calidad y una navegación intuitiva para mostrar sus proyectos y servicios.",
+                p2_title: "Chesapeake Shipbuilding", p2_desc: "Web corporativa para uno de los astilleros más exitosos de EE. UU. El sitio transmite confianza y escala, mostrando su capacidad para construir barcos comerciales complejos y destacando su historia y su cartera de proyectos a gran escala.",
+                p3_title: "Hoffman Cosmetics", p3_desc: "Diseño web minimalista y elegante para una clínica de odontología cosmética en Chicago. El enfoque está en la estética, los resultados visuales (casos de estudio) y una experiencia de usuario premium que facilita la programación de citas.",
+                p4_title: "Oakland Smile Dental", p4_desc: "Sitio web amigable y profesional para una clínica dental familiar. El diseño está optimizado para la conversión de pacientes locales, con llamadas a la acción claras, información de servicios accesible y un enfoque en la confianza y el cuidado del paciente.",
+                p5_title: "TechDiving", p5_desc: "Sitio web para un instituto de buceo comercial, presentando su historia, cursos y oportunidades de carrera para futuros profesionales.",
+                p6_title: "Devlin Designing Boat Builders", p6_desc: "Sitio web para un reconocido diseñador y constructor de barcos. La página funciona como un catálogo detallado de sus diseños, tienda de planos y escaparate de sus proyectos personalizados, enfocado en una comunidad nicho de entusiastas de la navegación.",
+                p7_title: "Scarano Boat Building", p7_desc: "Página web para un astillero con más de 35 años de experiencia en el diseño y construcción de embarcaciones. El sitio destaca su herencia, su portafolio diverso y su capacidad técnica tanto en embarcaciones modernas como históricas.",
+                p8_title: "Genoa Design International", p8_desc: "Web corporativa B2B para una firma de diseño e ingeniería naval. El enfoque es profesional y técnico, orientado a atraer talento (reclutamiento) y a mostrar su experiencia en modelado 3D y diseño de producción para la industria naval global.",
+                p9_title: "TBailey LLC", p9_desc: "Sitio web para una empresa de fabricación industrial pesada, especializada en proyectos marinos y de infraestructura. La web comunica escala, capacidad y seguridad, dirigida a clientes corporativos y gubernamentales de alto nivel.",
+                footer_rights: "Todos los derechos reservados."
+            }
+        };
+
+        function setLanguage(lang) {
+            localStorage.setItem('preferredLang', lang);
+            document.documentElement.lang = lang;
+            document.querySelectorAll('[data-translate-key]').forEach(element => {
+                const key = element.getAttribute('data-translate-key');
+                if (translations[lang] && translations[lang][key]) {
+                    element.innerHTML = translations[lang][key];
+                }
+            });
+            document.querySelectorAll('.lang-switcher a').forEach(a => a.classList.remove('active'));
+            document.querySelector(`#lang-${lang}`).classList.add('active');
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('preferredLang');
+            const userLang = navigator.language.split('-')[0];
+            setLanguage(savedLang || (userLang === 'es' ? 'es' : 'en'));
+            
+            document.getElementById('lang-en').addEventListener('click', (e) => { e.preventDefault(); setLanguage('en'); });
+            document.getElementById('lang-es').addEventListener('click', (e) => { e.preventDefault(); setLanguage('es'); });
+            
+            const revealElements = document.querySelectorAll('.reveal');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) entry.target.classList.add('visible');
+                });
+            }, { threshold: 0.1 });
+            revealElements.forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+</html>
+

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FM Tech - Sitios Web para Negocios Locales</title>
+    <title>FM Tech - Sitios Web para Negocios</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,425 +12,327 @@
     <style>
         body {
             font-family: 'DM Sans', sans-serif;
-            background-color: #0D1117; /* GitHub Dark Dimmed */
-            color: #C9D1D9; /* Light gray */
-            background-image: radial-gradient(circle at top right, rgba(52, 120, 240, 0.1), transparent 40%),
-                              radial-gradient(circle at bottom left, rgba(52, 120, 240, 0.1), transparent 50%);
+            background-color: #0D1117;
+            color: #C9D1D9;
+            background-image: radial-gradient(circle at top right, rgba(52, 120, 240, 0.05), transparent 40%),
+                              radial-gradient(circle at bottom left, rgba(52, 120, 240, 0.05), transparent 50%);
             background-attachment: fixed;
-            overflow-x: hidden; /* Prevent horizontal scroll from animations */
+            overflow-x: hidden;
         }
-        .glass-effect {
-            background: rgba(13, 17, 23, 0.7);
-            -webkit-backdrop-filter: blur(15px);
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        .card-glow {
-             box-shadow: 0 0 50px rgba(52, 120, 240, 0.1);
-        }
-        .brand-text {
-            color: #58A6FF; /* Blue color for accents */
-        }
-        html {
-            scroll-behavior: smooth;
-        }
+        .dark-bg { background-color: #010409; }
+        .brand-text { color: #58A6FF; }
+        html { scroll-behavior: smooth; }
         .action-button {
+            background-color: #2563EB;
             color: white;
             font-weight: 500;
-            padding: 0.85rem 2.25rem;
-            border-radius: 9999px;
+            padding: 0.75rem 2rem;
+            border-radius: 0.5rem;
             transition: all 0.3s ease;
             display: inline-block;
-            font-size: 1rem;
-            letter-spacing: 0.025em;
-            background: rgba(52, 120, 240, 0.15);
-            -webkit-backdrop-filter: blur(10px);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(52, 120, 240, 0.4);
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
         .action-button:hover {
-            transform: scale(1.05) translateY(-2px);
-            background: rgba(52, 120, 240, 0.25);
-            box-shadow: 0 0 25px rgba(52, 120, 240, 0.4);
+            background-color: #1D4ED8;
+            transform: translateY(-2px);
         }
-        .logo-text {
-            font-family: 'DM Sans', sans-serif;
-            font-weight: 700;
-            font-size: 1.75rem;
-            letter-spacing: -0.05em;
+        .secondary-button {
+             background-color: transparent;
+             border: 1px solid #3B82F6;
+             color: #3B82F6;
         }
-
-        /* Animations */
-        .reveal {
-            opacity: 0;
-            transition: opacity 1s ease-out, transform 1s ease-out;
-            will-change: opacity, transform;
-        }
+        .secondary-button:hover {
+            background-color: rgba(59, 130, 246, 0.1);
+            color: #58A6FF;
+         }
+        .logo-text { font-weight: 700; font-size: 1.75rem; letter-spacing: -0.05em; }
+        .reveal { opacity: 0; transition: opacity 1s ease-out, transform 1s ease-out; }
         .reveal-up { transform: translateY(50px); }
         .reveal-left { transform: translateX(-50px); }
         .reveal-right { transform: translateX(50px); }
-
-        .reveal.visible {
-            opacity: 1;
-            transform: translateY(0) translateX(0);
-        }
+        .reveal.visible { opacity: 1; transform: translateY(0) translateX(0); }
+        .lang-switcher a.active { color: #58A6FF; font-weight: 700; }
         
-        /* Testimonial & Blog Carousel */
-        @keyframes scroll-testimonials {
+        /* Testimonial Carousel */
+        @keyframes scroll {
             0% { transform: translateX(0); }
-            100% { transform: translateX(calc(-24rem * 9)); } /* card width * number of cards */
+            100% { transform: translateX(calc(-20rem * 9)); } /* card width * number of unique cards */
         }
-        @keyframes scroll-blog {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(calc(-26rem * 6)); }
-        }
-        .slider {
-            overflow: hidden;
-            padding: 2rem 0;
-            position: relative;
-            width: 100%;
-        }
-        .slider::before,
-        .slider::after {
-            content: "";
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            width: 10rem;
-            z-index: 2;
-        }
-        .slider::before {
-            left: 0;
-            background: linear-gradient(to left, rgba(13, 17, 23, 0), #0D1117);
-        }
-        .slider::after {
-            right: 0;
-            background: linear-gradient(to right, rgba(13, 17, 23, 0), #0D1117);
-        }
-        .slider-testimonials .slide-track {
-            display: flex;
-            width: calc(24rem * 18); /* card width * (number of cards * 2) */
-            animation: scroll-testimonials 40s linear infinite;
-        }
-         .slider-blog .slide-track {
-            display: flex;
-            width: calc(26rem * 12);
-            animation: scroll-blog 60s linear infinite;
-        }
-        .slider:hover .slide-track {
-            animation-play-state: paused;
-        }
-        .slide-testimonial {
-            width: 24rem;
-            flex-shrink: 0;
-            padding: 0 1rem;
-        }
-        .slide-blog {
-            width: 26rem;
-            flex-shrink: 0;
-            padding: 0 1rem;
-        }
-        .blog-content {
-            transition: max-height 0.5s ease-in-out;
-        }
+        .slider { overflow: hidden; padding: 2rem 0; position: relative; width: 100%; }
+        .slider::before, .slider::after { content: ""; position: absolute; top: 0; bottom: 0; width: 10rem; z-index: 2; pointer-events: none; }
+        .slider::before { left: 0; background: linear-gradient(to left, rgba(1, 4, 9, 0), #010409); }
+        .slider::after { right: 0; background: linear-gradient(to right, rgba(1, 4, 9, 0), #010409); }
+        .slide-track { display: flex; width: calc(20rem * 18); animation: scroll 40s linear infinite; }
+        .slide { width: 20rem; flex-shrink: 0; padding: 0 1rem; }
     </style>
 </head>
 <body class="bg-gray-900 text-gray-200">
 
-    <!-- Header -->
-    <header class="glass-effect shadow-lg sticky top-0 z-50">
+    <header class="bg-opacity-80 backdrop-blur-lg shadow-lg sticky top-0 z-50 border-b border-gray-800">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-             <a href="#inicio" class="logo-text text-white">
-                FM <span class="brand-text">Tech</span>
-            </a>
-            <!-- Desktop Menu -->
-            <div class="hidden md:flex space-x-8 text-sm font-medium">
-                <a href="#soluciones" class="text-gray-300 hover:text-white transition duration-300">Soluciones</a>
-                <a href="#proyectos" class="text-gray-300 hover:text-white transition duration-300">Proyectos</a>
-                <a href="#clientes" class="text-gray-300 hover:text-white transition duration-300">Clientes</a>
-                 <a href="#blog" class="text-gray-300 hover:text-white transition duration-300">Consejos</a>
-                <a href="#contacto" class="text-gray-300 hover:text-white transition duration-300">Contacto</a>
+             <a href="#inicio" class="logo-text text-white">FM <span class="brand-text">Tech</span></a>
+            <div class="hidden md:flex items-center space-x-8 text-sm font-medium">
+                <a href="#soluciones" data-translate-key="nav_solutions" class="text-gray-300 hover:text-white transition duration-300">Soluciones</a>
+                <a href="portfolio.html" data-translate-key="nav_portfolio" class="text-gray-300 hover:text-white transition duration-300">Portafolio</a>
+                <a href="#clientes" data-translate-key="nav_clients" class="text-gray-300 hover:text-white transition duration-300">Clientes</a>
+                <a href="#blog" data-translate-key="nav_blog" class="text-gray-300 hover:text-white transition duration-300">Consejos</a>
+                <a href="#contacto" data-translate-key="nav_contact" class="text-gray-300 hover:text-white transition duration-300">Contacto</a>
             </div>
-            <!-- Mobile Menu Button -->
+            <div class="hidden md:flex items-center space-x-4 text-sm font-semibold lang-switcher">
+                <a href="#" id="lang-en" class="text-gray-400 hover:text-white transition">EN</a>
+                <span class="text-gray-600">|</span>
+                <a href="#" id="lang-es" class="text-gray-400 hover:text-white transition">ES</a>
+            </div>
             <div class="md:hidden">
-                <button id="menu-btn" class="text-white focus:outline-none">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
-                </button>
+                <button id="menu-btn" class="text-white focus:outline-none"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg></button>
             </div>
         </nav>
     </header>
 
-    <!-- Mobile Menu -->
     <div id="mobile-menu" class="hidden fixed inset-0 bg-black bg-opacity-95 z-40 flex flex-col items-center justify-center space-y-8">
-        <a href="#soluciones" class="mobile-menu-link text-2xl text-gray-300 hover:text-white">Soluciones</a>
-        <a href="#proyectos" class="mobile-menu-link text-2xl text-gray-300 hover:text-white">Proyectos</a>
-        <a href="#clientes" class="mobile-menu-link text-2xl text-gray-300 hover:text-white">Clientes</a>
-        <a href="#blog" class="mobile-menu-link text-2xl text-gray-300 hover:text-white">Consejos</a>
-        <a href="#contacto" class="mobile-menu-link text-2xl text-gray-300 hover:text-white">Contacto</a>
+        <a href="#soluciones" data-translate-key="nav_solutions" class="mobile-menu-link text-2xl text-gray-300 hover:text-white">Soluciones</a>
+        <a href="portfolio.html" data-translate-key="nav_portfolio" class="mobile-menu-link text-2xl text-gray-300 hover:text-white">Portafolio</a>
+        <a href="#clientes" data-translate-key="nav_clients" class="mobile-menu-link text-2xl text-gray-300 hover:text-white">Clientes</a>
+        <a href="#blog" data-translate-key="nav_blog" class="mobile-menu-link text-2xl text-gray-300 hover:text-white">Consejos</a>
+        <a href="#contacto" data-translate-key="nav_contact" class="mobile-menu-link text-2xl text-gray-300 hover:text-white">Contacto</a>
+        <div class="flex items-center space-x-4 text-lg font-semibold lang-switcher mt-8">
+            <a href="#" id="lang-en-mobile" class="text-gray-400 hover:text-white transition">EN</a>
+            <span class="text-gray-600">|</span>
+            <a href="#" id="lang-es-mobile" class="text-gray-400 hover:text-white transition">ES</a>
+        </div>
     </div>
 
     <main>
-        <!-- Hero Section -->
         <section id="inicio" class="py-24 md:py-40">
             <div class="container mx-auto px-6 text-center reveal reveal-up">
-                <h1 class="text-4xl md:text-6xl font-bold text-white leading-tight mb-4">
-                    La Página Web que tu Negocio <br class="hidden md:block"> Necesita para <span class="brand-text">Crecer</span>
-                </h1>
-                <p class="text-lg text-gray-400 mb-8 max-w-3xl mx-auto">
-                    Diseñamos sitios web profesionales y efectivos para negocios locales, ayudándote a destacar y atraer más clientes.
-                </p>
-                 <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6">
-                    <a href="#proyectos" class="action-button">Ver Nuestro Trabajo</a>
-                    <a href="#contacto" class="action-button">Solicitar Asesoría Gratuita</a>
+                <h1 data-translate-key="hero_title" class="text-4xl md:text-6xl font-bold text-white leading-tight mb-4">La Página Web que tu Negocio Necesita para <span class="brand-text">Crecer</span></h1>
+                <p data-translate-key="hero_subtitle" class="text-lg text-gray-400 mb-8 max-w-3xl mx-auto">Diseñamos sitios web profesionales y efectivos para negocios, ayudándote a destacar y atraer más clientes.</p>
+                <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6">
+                    <a href="portfolio.html" data-translate-key="hero_cta1" class="action-button">Ver Nuestro Trabajo</a>
+                    <a href="#contacto" data-translate-key="hero_cta2" class="action-button secondary-button">Solicitar Asesoría Gratuita</a>
                 </div>
             </div>
         </section>
 
-        <!-- Why Choose Us Section -->
-        <section id="porque-elegirnos" class="py-20 bg-black bg-opacity-20">
-            <div class="container mx-auto px-6 text-center">
-                <div class="reveal reveal-up mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold text-white">¿Por Qué Elegir FM Tech?</h2>
-                    <p class="text-md text-gray-400 mt-2">Tu éxito es nuestro principal objetivo.</p>
+        <section class="py-20 dark-bg">
+            <div class="container mx-auto px-6">
+                <div class="text-center reveal reveal-up mb-16">
+                    <h2 data-translate-key="why_us_title" class="text-3xl md:text-4xl font-bold text-white">¿Por Qué Elegir FM Tech?</h2>
+                    <p data-translate-key="why_us_subtitle" class="text-md text-gray-400 mt-2">Tu éxito es nuestro principal objetivo.</p>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <div class="glass-effect card-glow p-8 rounded-2xl text-center transform hover:-translate-y-2 transition-transform duration-300 reveal reveal-up">
-                        <h3 class="text-xl font-bold mb-2 brand-text">Precios Justos</h3>
-                        <p class="text-gray-400">Ofrecemos soluciones de alta calidad sin costos ocultos. Una inversión inteligente con un retorno claro para tu negocio.</p>
-                    </div>
-                     <div class="glass-effect card-glow p-8 rounded-2xl text-center transform hover:-translate-y-2 transition-transform duration-300 reveal reveal-up" style="transition-delay: 200ms;">
-                        <h3 class="text-xl font-bold mb-2 brand-text">Velocidad y Rendimiento</h3>
-                        <p class="text-gray-400">Sitios web optimizados para cargar rápidamente, mejorando la experiencia del usuario y tu ranking en los motores de búsqueda.</p>
-                    </div>
-                    <div class="glass-effect card-glow p-8 rounded-2xl text-center transform hover:-translate-y-2 transition-transform duration-300 reveal reveal-up" style="transition-delay: 400ms;">
-                        <h3 class="text-xl font-bold mb-2 brand-text">Enfoque en Conversión</h3>
-                        <p class="text-gray-400">Diseñamos cada elemento con un objetivo claro: convertir visitantes en clientes y aumentar tus ventas de manera medible.</p>
-                    </div>
-                    <div class="glass-effect card-glow p-8 rounded-2xl text-center transform hover:-translate-y-2 transition-transform duration-300 reveal reveal-up" style="transition-delay: 600ms;">
-                        <h3 class="text-xl font-bold mb-2 brand-text">Soporte Continuo</h3>
-                        <p class="text-gray-400">No desaparecemos tras el lanzamiento. Ofrecemos soporte y asesoría para que tu sitio siga creciendo contigo y tu negocio.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Solutions Section -->
-        <section id="soluciones" class="py-20">
-            <div class="container mx-auto px-6 text-center">
-                <div class="reveal reveal-up mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold text-white">Soluciones Digitales a tu Medida</h2>
-                    <p class="text-md text-gray-400 mt-2">No solo creamos sitios web, construimos herramientas para tu éxito.</p>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div class="glass-effect card-glow p-8 rounded-2xl text-left transform hover:-translate-y-2 transition-transform duration-300 reveal reveal-up">
-                        <h3 class="text-xl font-bold mb-2 brand-text">Páginas Web Informativas</h3>
-                        <p class="text-gray-400">Tu carta de presentación digital. Mostramos tus servicios e información de contacto de forma profesional para generar confianza. Ideal para consultorios, restaurantes y profesionales.</p>
-                    </div>
-                     <div class="glass-effect card-glow p-8 rounded-2xl text-left transform hover:-translate-y-2 transition-transform duration-300 reveal reveal-up" style="transition-delay: 200ms;">
-                        <h3 class="text-xl font-bold mb-2 brand-text">Tiendas Online (E-commerce)</h3>
-                        <p class="text-gray-400">Creamos catálogos virtuales atractivos con gestión de pedidos simplificada vía WhatsApp. Perfecto para boutiques, tiendas de productos artesanales y negocios que digitalizan sus ventas.</p>
-                    </div>
-                    <div class="glass-effect card-glow p-8 rounded-2xl text-left transform hover:-translate-y-2 transition-transform duration-300 reveal reveal-up" style="transition-delay: 400ms;">
-                        <h3 class="text-xl font-bold mb-2 brand-text">Landing Pages de Alto Impacto</h3>
-                        <p class="text-gray-400">Páginas optimizadas para campañas, diseñadas para capturar la atención y convertir visitantes en clientes. Esencial para promociones, eventos o validar ideas.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Projects Section -->
-        <section id="proyectos" class="py-20 overflow-hidden">
-            <div class="container mx-auto px-6">
-                <div class="text-center reveal reveal-up mb-20">
-                    <h2 class="text-3xl md:text-4xl font-bold text-white">Proyectos Recientes</h2>
-                    <p class="text-md text-gray-400 mt-2">La prueba de nuestro compromiso con la calidad y el diseño.</p>
-                </div>
-
-                <div class="space-y-20 md:space-y-32">
-                    <!-- Project 1 -->
-                    <div class="flex flex-col md:flex-row items-center gap-8 md:gap-16">
-                        <div class="md:w-1/2 reveal reveal-left">
-                            <h3 class="text-3xl font-bold text-white">Elan Parfums</h3>
-                            <p class="text-gray-400 mt-4 text-lg">E-commerce y catálogo virtual para una tienda de perfumes, enfocado en la elegancia y una experiencia de usuario premium.</p>
-                             <a href="#" class="action-button mt-6">Ver Proyecto</a>
-                        </div>
-                        <div class="md:w-1/2 reveal reveal-right">
-                           <img src="images/proyecto (1).png" alt="Proyecto Elan Parfums" class="w-full h-auto rounded-lg shadow-2xl">
-                        </div>
-                    </div>
-                    <!-- Project 2 -->
-                     <div class="flex flex-col md:flex-row-reverse items-center gap-8 md:gap-16">
-                        <div class="md:w-1/2 reveal reveal-right">
-                            <h3 class="text-3xl font-bold text-white">Dental Studio</h3>
-                            <p class="text-gray-400 mt-4 text-lg">Sitio web corporativo para una clínica dental, destacando la profesionalidad, la tecnología y facilitando la agenda de citas.</p>
-                             <a href="#" class="action-button mt-6">Ver Proyecto</a>
-                        </div>
-                        <div class="md:w-1/2 reveal reveal-left">
-                           <img src="images/proyecto (2).png" alt="Proyecto Dental Studio" class="w-full h-auto rounded-lg shadow-2xl">
-                        </div>
-                    </div>
-                     <!-- Project 3 -->
-                    <div class="flex flex-col md:flex-row items-center gap-8 md:gap-16">
-                        <div class="md:w-1/2 reveal reveal-left">
-                            <h3 class="text-3xl font-bold text-white">Sonrisa Da Silva</h3>
-                            <p class="text-gray-400 mt-4 text-lg">Página web para odontología estética, con un diseño moderno, paleta de colores distintiva y un fuerte enfoque en la conversión de pacientes.</p>
-                             <a href="#" class="action-button mt-6">Ver Proyecto</a>
-                        </div>
-                        <div class="md:w-1/2 reveal reveal-right">
-                           <img src="images/proyecto (3).png" alt="Proyecto Sonrisa Da Silva" class="w-full h-auto rounded-lg shadow-2xl">
-                        </div>
-                    </div>
+                    <div class="p-8 text-center reveal reveal-up"><h3 data-translate-key="why_us_item1_title" class="text-xl font-bold mb-2 brand-text">Precios Justos</h3><p data-translate-key="why_us_item1_desc" class="text-gray-400">Ofrecemos soluciones de alta calidad sin costos ocultos. Una inversión inteligente con un retorno claro para tu negocio.</p></div>
+                    <div class="p-8 text-center reveal reveal-up" style="transition-delay: 200ms;"><h3 data-translate-key="why_us_item2_title" class="text-xl font-bold mb-2 brand-text">Velocidad y Rendimiento</h3><p data-translate-key="why_us_item2_desc" class="text-gray-400">Sitios web optimizados para cargar rápidamente, mejorando la experiencia del usuario y tu posicionamiento en Google.</p></div>
+                    <div class="p-8 text-center reveal reveal-up" style="transition-delay: 400ms;"><h3 data-translate-key="why_us_item3_title" class="text-xl font-bold mb-2 brand-text">Enfoque en Conversión</h3><p data-translate-key="why_us_item3_desc" class="text-gray-400">Diseñamos cada elemento con un objetivo claro: convertir visitantes en clientes y aumentar tus ventas de manera medible.</p></div>
+                    <div class="p-8 text-center reveal reveal-up" style="transition-delay: 600ms;"><h3 data-translate-key="why_us_item4_title" class="text-xl font-bold mb-2 brand-text">Soporte Continuo</h3><p data-translate-key="why_us_item4_desc" class="text-gray-400">No desaparecemos tras el lanzamiento. Ofrecemos soporte y asesoría para que tu sitio siga creciendo contigo.</p></div>
                 </div>
             </div>
         </section>
         
-        <!-- Testimonials Section -->
-        <section id="clientes" class="py-20">
+        <section id="proyectos" class="py-20 md:py-32 overflow-hidden">
+            <div class="container mx-auto px-6">
+                <div class="text-center reveal reveal-up mb-20">
+                    <h2 data-translate-key="projects_title" class="text-3xl md:text-4xl font-bold text-white">Proyectos Recientes</h2>
+                    <p data-translate-key="projects_subtitle" class="text-md text-gray-400 mt-2">Una muestra de nuestro compromiso con la calidad y el diseño.</p>
+                </div>
+                <div class="space-y-20 md:space-y-32">
+                    <div class="flex flex-col md:flex-row items-center gap-8 md:gap-16">
+                        <div class="md:w-1/2 reveal reveal-left"><h3 data-translate-key="project_cosmetics_title" class="text-3xl font-bold text-white">Hoffman Cosmetics</h3><p data-translate-key="project_cosmetics_desc" class="text-gray-400 mt-4 text-lg">Diseño web de lujo para una clínica de odontología cosmética en Chicago, enfocado en la elegancia y la experiencia de usuario premium.</p><a href="https://www.hoffmancosmetics.com/" target="_blank" data-translate-key="view_project_btn" class="action-button mt-6">Ver Sitio Web</a></div>
+                        <div class="md:w-1/2 reveal reveal-right"><img src="images/proyecto (9).png" alt="Proyecto Hoffman Cosmetics" class="w-full h-auto rounded-lg shadow-2xl"></div>
+                    </div>
+                    <div class="flex flex-col md:flex-row-reverse items-center gap-8 md:gap-16">
+                        <div class="md:w-1/2 reveal reveal-right"><h3 data-translate-key="project_diving_title" class="text-3xl font-bold text-white">TechDiving</h3><p data-translate-key="project_diving_desc" class="text-gray-400 mt-4 text-lg">Sitio web para un instituto de buceo comercial, presentando su historia, cursos y oportunidades de carrera para futuros profesionales.</p><a href="https://institutodebuceocomercial.lat/" target="_blank" data-translate-key="view_project_btn" class="action-button mt-6">Ver Sitio Web</a></div>
+                        <div class="md:w-1/2 reveal reveal-left"><img src="images/proyecto (2).png" alt="Proyecto TechDiving" class="w-full h-auto rounded-lg shadow-2xl"></div>
+                    </div>
+                    <div class="flex flex-col md:flex-row items-center gap-8 md:gap-16">
+                        <div class="md:w-1/2 reveal reveal-left"><h3 data-translate-key="project_yachts_title" class="text-3xl font-bold text-white">Willis Custom Yachts</h3><p data-translate-key="project_yachts_desc" class="text-gray-400 mt-4 text-lg">Sitio web para un constructor de yates de pesca deportiva personalizados, mostrando la artesanía y la ingeniería de precisión de sus embarcaciones.</p><a href="https://williscustomyachts.com/" target="_blank" data-translate-key="view_project_btn" class="action-button mt-6">Ver Sitio Web</a></div>
+                        <div class="md:w-1/2 reveal reveal-right"><img src="images/proyecto (3).png" alt="Proyecto Willis Custom Yachts" class="w-full h-auto rounded-lg shadow-2xl"></div>
+                    </div>
+                     <div class="flex flex-col md:flex-row-reverse items-center gap-8 md:gap-16">
+                        <div class="md:w-1/2 reveal reveal-right"><h3 data-translate-key="project_genoa_title" class="text-3xl font-bold text-white">Genoa Design</h3><p data-translate-key="project_genoa_desc" class="text-gray-400 mt-4 text-lg">Web corporativa para una firma de diseño e ingeniería naval, enfocada en la innovación en modelado 3D y servicios de producción.</p><a href="https://genoadesign.com/" target="_blank" data-translate-key="view_project_btn" class="action-button mt-6">Ver Sitio Web</a></div>
+                        <div class="md:w-1/2 reveal reveal-left"><img src="images/proyecto (5).png" alt="Proyecto Genoa Design" class="w-full h-auto rounded-lg shadow-2xl"></div>
+                    </div>
+                </div>
+                <div class="text-center mt-20 reveal reveal-up">
+                    <a href="portfolio.html" data-translate-key="view_full_portfolio" class="action-button text-lg">Ver Portafolio Completo</a>
+                </div>
+            </div>
+        </section>
+        
+        <section id="clientes" class="py-20 dark-bg">
             <div class="container mx-auto px-6 text-center">
                 <div class="reveal reveal-up mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-white">Lo que Dicen Nuestros Clientes</h2>
-                    <p class="mt-4 text-lg text-gray-400">La confianza y los resultados son nuestra mejor carta de presentación.</p>
+                    <h2 data-translate-key="clients_title" class="text-3xl md:text-4xl font-bold text-white">Lo que Dicen Nuestros Clientes</h2>
+                    <p data-translate-key="clients_subtitle" class="mt-4 text-lg text-gray-400">La confianza y los resultados son nuestra mejor carta de presentación.</p>
                 </div>
             </div>
-            <div class="slider slider-testimonials">
+            <div class="slider">
                 <div class="slide-track">
-                    <!-- Slides -->
-                    <div class="slide-testimonial"><div class="glass-effect card-glow h-full p-8 rounded-2xl text-left"><p class="text-gray-300 mb-4 italic">"El nuevo sitio es rápido, moderno y hemos visto un aumento real en las consultas. ¡Totalmente recomendados!"</p><p class="font-bold brand-text text-right">- Dental Studio</p></div></div>
-                    <div class="slide-testimonial"><div class="glass-effect card-glow h-full p-8 rounded-2xl text-left"><p class="text-gray-300 mb-4 italic">"Captaron la esencia de mi marca. La página de perfumes superó mis expectativas y mis clientes la adoran."</p><p class="font-bold brand-text text-right">- Elan Parfums</p></div></div>
-                    <div class="slide-testimonial"><div class="glass-effect card-glow h-full p-8 rounded-2xl text-left"><p class="text-gray-300 mb-4 italic">"Mi café ahora tiene una web increíble. Los clientes pueden ver el menú y la ubicación fácilmente. ¡Un gran acierto!"</p><p class="font-bold brand-text text-right">- Café del Sol</p></div></div>
-                    <div class="slide-testimonial"><div class="glass-effect card-glow h-full p-8 rounded-2xl text-left"><p class="text-gray-300 mb-4 italic">"Profesionalismo y creatividad. Estoy encantada con mi nuevo portafolio web. Justo lo que necesitaba."</p><p class="font-bold brand-text text-right">- Liz Dayana, Modelo</p></div></div>
-                    <div class="slide-testimonial"><div class="glass-effect card-glow h-full p-8 rounded-2xl text-left"><p class="text-gray-300 mb-4 italic">"Nuestra web ahora luce increíblemente profesional. El proceso fue sencillo y el resultado final es impecable."</p><p class="font-bold brand-text text-right">- Sonrisa Da Silva</p></div></div>
-                    <div class="slide-testimonial"><div class="glass-effect card-glow h-full p-8 rounded-2xl text-left"><p class="text-gray-300 mb-4 italic">"FM Tech nos dio la presencia online que nos faltaba. Un diseño limpio que genera confianza en nuestros pacientes."</p><p class="font-bold brand-text text-right">- ProDontos</p></div></div>
-                    <div class="slide-testimonial"><div class="glass-effect card-glow h-full p-8 rounded-2xl text-left"><p class="text-gray-300 mb-4 italic">"Como entrenador personal, necesitaba una web clara y directa. FM Tech lo logró. Mis clientes pueden agendar clases fácilmente."</p><p class="font-bold brand-text text-right">- Fit Coach Mike</p></div></div>
-                    <div class="slide-testimonial"><div class="glass-effect card-glow h-full p-8 rounded-2xl text-left"><p class="text-gray-300 mb-4 italic">"El sitio web para mi consultorio de medicina estética transmite el lujo y la seriedad que buscaba. ¡Excelente trabajo!"</p><p class="font-bold brand-text text-right">- Dra. Kimberling Jimenez</p></div></div>
-                    <div class="slide-testimonial"><div class="glass-effect card-glow h-full p-8 rounded-2xl text-left"><p class="text-gray-300 mb-4 italic">"Nuestra boutique ahora tiene un catálogo online precioso. Las ventas por WhatsApp se han disparado gracias a la nueva web."</p><p class="font-bold brand-text text-right">- Moda Chic Boutique</p></div></div>
-                    <!-- Duplicated Slides -->
-                    <div class="slide-testimonial"><div class="glass-effect card-glow h-full p-8 rounded-2xl text-left"><p class="text-gray-300 mb-4 italic">"El nuevo sitio es rápido, moderno y hemos visto un aumento real en las consultas. ¡Totalmente recomendados!"</p><p class="font-bold brand-text text-right">- Dental Studio</p></div></div>
-                    <div class="slide-testimonial"><div class="glass-effect card-glow h-full p-8 rounded-2xl text-left"><p class="text-gray-300 mb-4 italic">"Captaron la esencia de mi marca. La página de perfumes superó mis expectativas y mis clientes la adoran."</p><p class="font-bold brand-text text-right">- Elan Parfums</p></div></div>
-                    <div class="slide-testimonial"><div class="glass-effect card-glow h-full p-8 rounded-2xl text-left"><p class="text-gray-300 mb-4 italic">"Mi café ahora tiene una web increíble. Los clientes pueden ver el menú y la ubicación fácilmente. ¡Un gran acierto!"</p><p class="font-bold brand-text text-right">- Café del Sol</p></div></div>
-                    <div class="slide-testimonial"><div class="glass-effect card-glow h-full p-8 rounded-2xl text-left"><p class="text-gray-300 mb-4 italic">"Profesionalismo y creatividad. Estoy encantada con mi nuevo portafolio web. Justo lo que necesitaba."</p><p class="font-bold brand-text text-right">- Liz Dayana, Modelo</p></div></div>
-                    <div class="slide-testimonial"><div class="glass-effect card-glow h-full p-8 rounded-2xl text-left"><p class="text-gray-300 mb-4 italic">"Nuestra web ahora luce increíblemente profesional. El proceso fue sencillo y el resultado final es impecable."</p><p class="font-bold brand-text text-right">- Sonrisa Da Silva</p></div></div>
-                    <div class="slide-testimonial"><div class="glass-effect card-glow h-full p-8 rounded-2xl text-left"><p class="text-gray-300 mb-4 italic">"FM Tech nos dio la presencia online que nos faltaba. Un diseño limpio que genera confianza en nuestros pacientes."</p><p class="font-bold brand-text text-right">- ProDontos</p></div></div>
-                    <div class="slide-testimonial"><div class="glass-effect card-glow h-full p-8 rounded-2xl text-left"><p class="text-gray-300 mb-4 italic">"Como entrenador personal, necesitaba una web clara y directa. FM Tech lo logró. Mis clientes pueden agendar clases fácilmente."</p><p class="font-bold brand-text text-right">- Fit Coach Mike</p></div></div>
-                    <div class="slide-testimonial"><div class="glass-effect card-glow h-full p-8 rounded-2xl text-left"><p class="text-gray-300 mb-4 italic">"El sitio web para mi consultorio de medicina estética transmite el lujo y la seriedad que buscaba. ¡Excelente trabajo!"</p><p class="font-bold brand-text text-right">- Dra. Kimberling Jimenez</p></div></div>
-                    <div class="slide-testimonial"><div class="glass-effect card-glow h-full p-8 rounded-2xl text-left"><p class="text-gray-300 mb-4 italic">"Nuestra boutique ahora tiene un catálogo online precioso. Las ventas por WhatsApp se han disparado gracias a la nueva web."</p><p class="font-bold brand-text text-right">- Moda Chic Boutique</p></div></div>
+                    <div class="slide"><div class="bg-gray-800 h-full p-6 rounded-lg text-left"><p class="text-gray-300 mb-4 italic text-sm" data-translate-key="t1_text">"El nuevo sitio es rápido, moderno y hemos visto un aumento real en las consultas. ¡Totalmente recomendados!"</p><p class="font-bold brand-text text-right text-sm" data-translate-key="t1_author">- Hoffman Cosmetics</p></div></div>
+                    <div class="slide"><div class="bg-gray-800 h-full p-6 rounded-lg text-left"><p class="text-gray-300 mb-4 italic text-sm" data-translate-key="t2_text">"Profesionalismo de principio a fin. El sitio web de nuestro instituto ahora refleja la calidad de nuestra formación."</p><p class="font-bold brand-text text-right text-sm" data-translate-key="t2_author">- TechDiving</p></div></div>
+                    <div class="slide"><div class="bg-gray-800 h-full p-6 rounded-lg text-left"><p class="text-gray-300 mb-4 italic text-sm" data-translate-key="t3_text">"La web que crearon para nuestro astillero es impresionante. Comunica nuestra herencia y capacidad a la perfección."</p><p class="font-bold brand-text text-right text-sm" data-translate-key="t3_author">- Willis Custom Yachts</p></div></div>
+                    <div class="slide"><div class="bg-gray-800 h-full p-6 rounded-lg text-left"><p class="text-gray-300 mb-4 italic text-sm" data-translate-key="t4_text">"Nuestra web ahora luce increíblemente profesional. El proceso fue sencillo y el resultado final es impecable."</p><p class="font-bold brand-text text-right text-sm" data-translate-key="t4_author">- Genoa Design</p></div></div>
+                    <div class="slide"><div class="bg-gray-800 h-full p-6 rounded-lg text-left"><p class="text-gray-300 mb-4 italic text-sm" data-translate-key="t5_text">"FM Tech nos dio la presencia online que nos faltaba. Un diseño limpio que genera confianza en nuestros pacientes."</p><p class="font-bold brand-text text-right text-sm" data-translate-key="t5_author">- Oakland Smile Dental</p></div></div>
+                    <div class="slide"><div class="bg-gray-800 h-full p-6 rounded-lg text-left"><p class="text-gray-300 mb-4 italic text-sm" data-translate-key="t6_text">"Como fabricante de maquinaria pesada, necesitábamos una web que transmitiera robustez y confianza. Lo lograron con creces."</p><p class="font-bold brand-text text-right text-sm" data-translate-key="t6_author">- TBailey LLC</p></div></div>
+                    <!-- Duplicates -->
+                    <div class="slide"><div class="bg-gray-800 h-full p-6 rounded-lg text-left"><p class="text-gray-300 mb-4 italic text-sm" data-translate-key="t1_text">"El nuevo sitio es rápido, moderno y hemos visto un aumento real en las consultas. ¡Totalmente recomendados!"</p><p class="font-bold brand-text text-right text-sm" data-translate-key="t1_author">- Hoffman Cosmetics</p></div></div>
+                    <div class="slide"><div class="bg-gray-800 h-full p-6 rounded-lg text-left"><p class="text-gray-300 mb-4 italic text-sm" data-translate-key="t2_text">"Profesionalismo de principio a fin. El sitio web de nuestro instituto ahora refleja la calidad de nuestra formación."</p><p class="font-bold brand-text text-right text-sm" data-translate-key="t2_author">- TechDiving</p></div></div>
+                    <div class="slide"><div class="bg-gray-800 h-full p-6 rounded-lg text-left"><p class="text-gray-300 mb-4 italic text-sm" data-translate-key="t3_text">"La web que crearon para nuestro astillero es impresionante. Comunica nuestra herencia y capacidad a la perfección."</p><p class="font-bold brand-text text-right text-sm" data-translate-key="t3_author">- Willis Custom Yachts</p></div></div>
                 </div>
             </div>
         </section>
 
-        <!-- Blog Section -->
         <section id="blog" class="py-20">
-             <div class="container mx-auto px-6 text-center">
-                <div class="reveal reveal-up mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-white">Impulsa tu Negocio: Consejos de Marketing</h2>
-                    <p class="mt-4 text-lg text-gray-400">Pequeñas guías y artículos para ayudarte a crecer en el mundo digital.</p>
+            <div class="container mx-auto px-6 text-center">
+                <div class="reveal reveal-up mb-16">
+                    <h2 data-translate-key="blog_title" class="text-3xl md:text-4xl font-bold text-white">Impulsa tu Negocio: Consejos de Marketing</h2>
+                    <p data-translate-key="blog_subtitle" class="text-md text-gray-400 mt-2">Pequeñas guías y artículos para ayudarte a crecer en el mundo digital.</p>
                 </div>
-            </div>
-            <div class="slider slider-blog">
-                <div class="slide-track">
-                    <!-- Blog Slides -->
-                    <div class="slide-blog"><div class="blog-card glass-effect card-glow h-full p-8 rounded-2xl text-left cursor-pointer"><h3 class="text-xl font-bold mb-2 brand-text">5 Razones por las que Necesitas una Web</h3><div class="blog-content overflow-hidden" style="max-height: 5.5rem;"><p class="text-gray-400 mb-4">Descubre cómo una página web profesional puede aumentar tu visibilidad, credibilidad y ventas...</p><div class="blog-extra-content"><p class="text-gray-400 mt-2">Una web te da una vitrina 24/7, te diferencia de la competencia que solo usa redes sociales y te permite capturar datos de clientes potenciales de forma automatizada.</p></div></div><span class="font-semibold text-white hover:brand-text text-sm mt-2 inline-block">Leer más...</span></div></div>
-                    <div class="slide-blog"><div class="blog-card glass-effect card-glow h-full p-8 rounded-2xl text-left cursor-pointer"><h3 class="text-xl font-bold mb-2 brand-text">Google Mi Negocio: Tu Mejor Aliado Local</h3><div class="blog-content overflow-hidden" style="max-height: 5.5rem;"><p class="text-gray-400 mb-4">Aprende a configurar y optimizar tu perfil para aparecer primero en las búsquedas locales y en Google Maps...</p><div class="blog-extra-content"><p class="text-gray-400 mt-2">Completa todos los campos, sube fotos de alta calidad regularmente y, lo más importante, pide a tus clientes satisfechos que dejen reseñas. Esto dispara tu relevancia local.</p></div></div><span class="font-semibold text-white hover:brand-text text-sm mt-2 inline-block">Leer más...</span></div></div>
-                    <div class="slide-blog"><div class="blog-card glass-effect card-glow h-full p-8 rounded-2xl text-left cursor-pointer"><h3 class="text-xl font-bold mb-2 brand-text">Usa WhatsApp para Vender Más</h3><div class="blog-content overflow-hidden" style="max-height: 5.5rem;"><p class="text-gray-400 mb-4">Transforma tu WhatsApp en una máquina de ventas con catálogos, respuestas rápidas y un servicio al cliente excepcional...</p><div class="blog-extra-content"><p class="text-gray-400 mt-2">Configura WhatsApp Business, crea un catálogo de tus productos o servicios y usa las respuestas automáticas para atender consultas frecuentes al instante. La cercanía vende.</p></div></div><span class="font-semibold text-white hover:brand-text text-sm mt-2 inline-block">Leer más...</span></div></div>
-                    <div class="slide-blog"><div class="blog-card glass-effect card-glow h-full p-8 rounded-2xl text-left cursor-pointer"><h3 class="text-xl font-bold mb-2 brand-text">Imágenes de Calidad: Tu Vendedor Silencioso</h3><div class="blog-content overflow-hidden" style="max-height: 5.5rem;"><p class="text-gray-400 mb-4">La primera impresión cuenta. Fotos y videos profesionales no son un lujo, son una necesidad para transmitir confianza...</p><div class="blog-extra-content"><p class="text-gray-400 mt-2">Invierte en una sesión de fotos de tus productos, tu local o tu equipo. Las imágenes de alta calidad aumentan la percepción de valor y ayudan al cliente a tomar la decisión de compra.</p></div></div><span class="font-semibold text-white hover:brand-text text-sm mt-2 inline-block">Leer más...</span></div></div>
-                    <div class="slide-blog"><div class="blog-card glass-effect card-glow h-full p-8 rounded-2xl text-left cursor-pointer"><h3 class="text-xl font-bold mb-2 brand-text">SEO para Principiantes: 3 Trucos Fáciles</h3><div class="blog-content overflow-hidden" style="max-height: 5.5rem;"><p class="text-gray-400 mb-4">Aparecer en Google no es magia negra. Comienza con estos 3 simples pasos para mejorar tu posicionamiento...</p><div class="blog-extra-content"><p class="text-gray-400 mt-2">1. Identifica las palabras clave que usarían tus clientes. 2. Úsalas naturalmente en los títulos y textos de tu web. 3. Asegúrate de que tu web cargue rápido. ¡Con eso ya superas a gran parte de tu competencia!</p></div></div><span class="font-semibold text-white hover:brand-text text-sm mt-2 inline-block">Leer más...</span></div></div>
-                    <div class="slide-blog"><div class="blog-card glass-effect card-glow h-full p-8 rounded-2xl text-left cursor-pointer"><h3 class="text-xl font-bold mb-2 brand-text">¿Blog o Redes Sociales? La Duda Eterna</h3><div class="blog-content overflow-hidden" style="max-height: 5.5rem;"><p class="text-gray-400 mb-4">Ambos son importantes, pero sirven para cosas distintas. Descubre dónde enfocar tus esfuerzos para maximizar resultados...</p><div class="blog-extra-content"><p class="text-gray-400 mt-2">Usa las redes sociales para crear comunidad e interacciones diarias. Usa el blog en tu web para crear contenido de valor que perdura en el tiempo y atrae clientes desde Google durante meses o años.</p></div></div><span class="font-semibold text-white hover:brand-text text-sm mt-2 inline-block">Leer más...</span></div></div>
-                    <!-- Duplicated Slides -->
-                    <div class="slide-blog"><div class="blog-card glass-effect card-glow h-full p-8 rounded-2xl text-left cursor-pointer"><h3 class="text-xl font-bold mb-2 brand-text">5 Razones por las que Necesitas una Web</h3><div class="blog-content overflow-hidden" style="max-height: 5.5rem;"><p class="text-gray-400 mb-4">Descubre cómo una página web profesional puede aumentar tu visibilidad, credibilidad y ventas...</p><div class="blog-extra-content"><p class="text-gray-400 mt-2">Una web te da una vitrina 24/7, te diferencia de la competencia que solo usa redes sociales y te permite capturar datos de clientes potenciales de forma automatizada.</p></div></div><span class="font-semibold text-white hover:brand-text text-sm mt-2 inline-block">Leer más...</span></div></div>
-                    <div class="slide-blog"><div class="blog-card glass-effect card-glow h-full p-8 rounded-2xl text-left cursor-pointer"><h3 class="text-xl font-bold mb-2 brand-text">Google Mi Negocio: Tu Mejor Aliado Local</h3><div class="blog-content overflow-hidden" style="max-height: 5.5rem;"><p class="text-gray-400 mb-4">Aprende a configurar y optimizar tu perfil para aparecer primero en las búsquedas locales y en Google Maps...</p><div class="blog-extra-content"><p class="text-gray-400 mt-2">Completa todos los campos, sube fotos de alta calidad regularmente y, lo más importante, pide a tus clientes satisfechos que dejen reseñas. Esto dispara tu relevancia local.</p></div></div><span class="font-semibold text-white hover:brand-text text-sm mt-2 inline-block">Leer más...</span></div></div>
-                    <div class="slide-blog"><div class="blog-card glass-effect card-glow h-full p-8 rounded-2xl text-left cursor-pointer"><h3 class="text-xl font-bold mb-2 brand-text">Usa WhatsApp para Vender Más</h3><div class="blog-content overflow-hidden" style="max-height: 5.5rem;"><p class="text-gray-400 mb-4">Transforma tu WhatsApp en una máquina de ventas con catálogos, respuestas rápidas y un servicio al cliente excepcional...</p><div class="blog-extra-content"><p class="text-gray-400 mt-2">Configura WhatsApp Business, crea un catálogo de tus productos o servicios y usa las respuestas automáticas para atender consultas frecuentes al instante. La cercanía vende.</p></div></div><span class="font-semibold text-white hover:brand-text text-sm mt-2 inline-block">Leer más...</span></div></div>
-                    <div class="slide-blog"><div class="blog-card glass-effect card-glow h-full p-8 rounded-2xl text-left cursor-pointer"><h3 class="text-xl font-bold mb-2 brand-text">Imágenes de Calidad: Tu Vendedor Silencioso</h3><div class="blog-content overflow-hidden" style="max-height: 5.5rem;"><p class="text-gray-400 mb-4">La primera impresión cuenta. Fotos y videos profesionales no son un lujo, son una necesidad para transmitir confianza...</p><div class="blog-extra-content"><p class="text-gray-400 mt-2">Invierte en una sesión de fotos de tus productos, tu local o tu equipo. Las imágenes de alta calidad aumentan la percepción de valor y ayudan al cliente a tomar la decisión de compra.</p></div></div><span class="font-semibold text-white hover:brand-text text-sm mt-2 inline-block">Leer más...</span></div></div>
-                    <div class="slide-blog"><div class="blog-card glass-effect card-glow h-full p-8 rounded-2xl text-left cursor-pointer"><h3 class="text-xl font-bold mb-2 brand-text">SEO para Principiantes: 3 Trucos Fáciles</h3><div class="blog-content overflow-hidden" style="max-height: 5.5rem;"><p class="text-gray-400 mb-4">Aparecer en Google no es magia negra. Comienza con estos 3 simples pasos para mejorar tu posicionamiento...</p><div class="blog-extra-content"><p class="text-gray-400 mt-2">1. Identifica las palabras clave que usarían tus clientes. 2. Úsalas naturalmente en los títulos y textos de tu web. 3. Asegúrate de que tu web cargue rápido. ¡Con eso ya superas a gran parte de tu competencia!</p></div></div><span class="font-semibold text-white hover:brand-text text-sm mt-2 inline-block">Leer más...</span></div></div>
-                    <div class="slide-blog"><div class="blog-card glass-effect card-glow h-full p-8 rounded-2xl text-left cursor-pointer"><h3 class="text-xl font-bold mb-2 brand-text">¿Blog o Redes Sociales? La Duda Eterna</h3><div class="blog-content overflow-hidden" style="max-height: 5.5rem;"><p class="text-gray-400 mb-4">Ambos son importantes, pero sirven para cosas distintas. Descubre dónde enfocar tus esfuerzos para maximizar resultados...</p><div class="blog-extra-content"><p class="text-gray-400 mt-2">Usa las redes sociales para crear comunidad e interacciones diarias. Usa el blog en tu web para crear contenido de valor que perdura en el tiempo y atrae clientes desde Google durante meses o años.</p></div></div><span class="font-semibold text-white hover:brand-text text-sm mt-2 inline-block">Leer más...</span></div></div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-gray-800 p-8 rounded-lg text-left reveal reveal-up"><h3 data-translate-key="b1_title" class="text-xl font-bold mb-2 brand-text">5 Razones por las que tu Negocio Necesita una Web en 2025</h3><p data-translate-key="b1_desc" class="text-gray-400 mb-4">Descubre cómo una página web profesional puede aumentar tu visibilidad, credibilidad y ventas.</p><a href="blog.html#post1" data-translate-key="read_more" class="font-semibold text-white hover:brand-text">Leer más &rarr;</a></div>
+                    <div class="bg-gray-800 p-8 rounded-lg text-left reveal reveal-up" style="transition-delay: 200ms;"><h3 data-translate-key="b2_title" class="text-xl font-bold mb-2 brand-text">Google Mi Negocio: Tu Mejor Aliado Local</h3><p data-translate-key="b2_desc" class="text-gray-400 mb-4">Aprende a configurar y optimizar tu perfil para aparecer primero en las búsquedas locales y en Google Maps.</p><a href="blog.html#post2" data-translate-key="read_more" class="font-semibold text-white hover:brand-text">Leer más &rarr;</a></div>
+                    <div class="bg-gray-800 p-8 rounded-lg text-left reveal reveal-up" style="transition-delay: 400ms;"><h3 data-translate-key="b3_title" class="text-xl font-bold mb-2 brand-text">Cómo Usar WhatsApp para Vender Más</h3><p data-translate-key="b3_desc" class="text-gray-400 mb-4">Transforma tu WhatsApp en una máquina de ventas con catálogos, respuestas rápidas y un servicio al cliente excepcional.</p><a href="blog.html#post3" data-translate-key="read_more" class="font-semibold text-white hover:brand-text">Leer más &rarr;</a></div>
                 </div>
             </div>
         </section>
 
-        <!-- Contact Section -->
         <section id="contacto" class="py-20">
             <div class="container mx-auto px-6 text-center reveal reveal-up">
-                 <h2 class="text-3xl font-bold mb-4 text-white">¿Listo para llevar tu negocio al siguiente nivel?</h2>
-                 <p class="text-gray-400 mb-8 max-w-2xl mx-auto">Hablemos de tu proyecto. Ofrecemos una asesoría gratuita para entender tus necesidades y proponerte la mejor solución digital.</p>
+                 <h2 data-translate-key="contact_title" class="text-3xl font-bold mb-4 text-white">¿Listo para llevar tu negocio al siguiente nivel?</h2>
+                 <p data-translate-key="contact_subtitle" class="text-gray-400 mb-8 max-w-2xl mx-auto">Hablemos de tu proyecto. Ofrecemos una asesoría gratuita para entender tus necesidades y proponerte la mejor solución digital.</p>
                  <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6">
-                    <a href="https://wa.me/573044301112" target="_blank" class="action-button">Chatear por WhatsApp</a>
-                    <a href="mailto:frankmercadotech@gmail.com" class="action-button">Enviar un Correo</a>
+                    <a href="https://wa.me/573044301112" target="_blank" data-translate-key="contact_cta1" class="action-button">Chatear por WhatsApp</a>
+                    <a href="mailto:frankmercadotech@gmail.com" data-translate-key="contact_cta2" class="action-button secondary-button">Enviar un Correo</a>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-black text-gray-500 py-16">
+    <footer class="bg-black text-gray-400 py-16 border-t border-gray-800">
         <div class="container mx-auto px-6 text-center text-sm flex flex-col items-center reveal reveal-up">
              <div class="flex flex-wrap justify-center gap-x-6 gap-y-2 mb-8">
-                <a href="#soluciones" class="text-gray-400 hover:text-white transition-colors duration-300">Soluciones</a>
-                <a href="#proyectos" class="text-gray-400 hover:text-white transition-colors duration-300">Proyectos</a>
-                <a href="#clientes" class="text-gray-400 hover:text-white transition-colors duration-300">Clientes</a>
-                <a href="#blog" class="text-gray-400 hover:text-white transition-colors duration-300">Consejos</a>
-                <a href="#contacto" class="text-gray-400 hover:text-white transition-colors duration-300">Contacto</a>
+                <a href="#soluciones" data-translate-key="nav_solutions" class="hover:text-white">Soluciones</a>
+                <a href="portfolio.html" data-translate-key="nav_portfolio" class="hover:text-white">Portafolio</a>
+                <a href="#clientes" data-translate-key="nav_clients" class="hover:text-white">Clientes</a>
+                <a href="#blog" data-translate-key="nav_blog" class="hover:text-white">Consejos</a>
+                <a href="#contacto" data-translate-key="nav_contact" class="hover:text-white">Contacto</a>
             </div>
-             <div class="mb-6 flex justify-center gap-6">
-                 <a href="https://www.instagram.com/frankmercado.tech/" target="_blank" class="transition-transform duration-300 hover:scale-110">
-                    <img src="images/instagram.png" alt="Instagram FM Tech" class="w-12 h-12">
-                </a>
-            </div>
+             <div class="mb-6 flex justify-center gap-6"><a href="https://www.instagram.com/frankmercadotech/" target="_blank" class="transition-transform duration-300 hover:scale-110"><img src="images/instagram.png" alt="Instagram FM Tech" class="w-10 h-10"></a></div>
             <p class="mb-4"><strong>Email:</strong> <a href="mailto:frankmercadotech@gmail.com" class="hover:text-white">frankmercadotech@gmail.com</a></p>
-            <p>&copy; 2025 FM Tech. Todos los derechos reservados.</p>
+            <p>&copy; 2025 FM Tech. <span data-translate-key="footer_rights">Todos los derechos reservados.</span></p>
         </div>
     </footer>
 
     <script>
-        // Scroll Reveal Animation
-        const revealElements = document.querySelectorAll('.reveal');
-        const revealObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                } else {
-                    entry.target.classList.remove('visible');
+        const translations = {
+            en: {
+                nav_solutions: "Solutions", nav_portfolio: "Portfolio", nav_clients: "Clients", nav_blog: "Tips", nav_contact: "Contact",
+                hero_title: "The Website Your Business Needs to <span class='brand-text'>Grow</span>",
+                hero_subtitle: "We design professional and effective websites for businesses, helping you stand out and attract more customers.",
+                hero_cta1: "See Our Work", hero_cta2: "Request Free Consultation",
+                why_us_title: "Why Choose FM Tech?", why_us_subtitle: "Your success is our main goal.",
+                why_us_item1_title: "Fair Prices", why_us_item1_desc: "We offer high-quality solutions with no hidden costs. A smart investment with a clear return for your business.",
+                why_us_item2_title: "Speed & Performance", why_us_item2_desc: "Websites optimized to load quickly, improving user experience and your Google ranking.",
+                why_us_item3_title: "Conversion-Focused", why_us_item3_desc: "We design every element with one goal: to turn visitors into customers and measurably increase your sales.",
+                why_us_item4_title: "Ongoing Support", why_us_item4_desc: "We don't disappear after launch. We offer support and advice so your site continues to grow with you.",
+                projects_title: "Recent Projects", projects_subtitle: "A showcase of our commitment to quality and design.",
+                view_project_btn: "View Website", view_full_portfolio: "View Full Portfolio",
+                project_cosmetics_title: "Hoffman Cosmetics", project_cosmetics_desc: "Luxury web design for a cosmetic dentistry clinic in Chicago, focusing on elegance and a premium user experience.",
+                project_diving_title: "TechDiving", project_diving_desc: "Website for a commercial diving institute, showcasing its history, courses, and career opportunities for future professionals.",
+                project_yachts_title: "Willis Custom Yachts", project_yachts_desc: "Website for a builder of custom sportfishing yachts, showcasing the craftsmanship and precision engineering of their vessels.",
+                project_genoa_title: "Genoa Design", project_genoa_desc: "Corporate web for a naval design and engineering firm, focused on innovation in 3D modeling and production services.",
+                clients_title: "What Our Clients Say", clients_subtitle: "Trust and results are our best introduction.",
+                t1_text: `"The new site is fast, modern, and we've seen a real increase in inquiries. Highly recommended!"`, t1_author: "- Hoffman Cosmetics",
+                t2_text: `"Professionalism from start to finish. Our institute's website now reflects the quality of our training."`, t2_author: "- TechDiving",
+                t3_text: `"The website they created for our shipyard is impressive. It perfectly communicates our heritage and capability."`, t3_author: "- Willis Custom Yachts",
+                t4_text: `"Our website now looks incredibly professional. The process was simple, and the final result is flawless."`, t4_author: "- Genoa Design",
+                t5_text: `"FM Tech gave us the online presence we were missing. A clean design that builds trust with our patients."`, t5_author: "- Oakland Smile Dental",
+                t6_text: `"As a heavy machinery manufacturer, we needed a site that conveyed strength and reliability. They nailed it."`, t6_author: "- TBailey LLC",
+                blog_title: "Boost Your Business: Marketing Tips", blog_subtitle: "Short guides and articles to help you grow in the digital world.",
+                b1_title: "5 Reasons Your Business Needs a Website in 2025", b1_desc: "Discover how a professional website can increase your visibility, credibility, and sales.",
+                b2_title: "Google Business Profile: Your Best Local Ally", b2_desc: "Learn how to set up and optimize your profile to appear first in local searches and on Google Maps.",
+                b3_title: "How to Use WhatsApp to Sell More and Better", b3_desc: "Turn your WhatsApp into a sales machine with catalogs, quick replies, and exceptional customer service.",
+                read_more: "Read more &rarr;",
+                contact_title: "Ready to Take Your Business to the Next Level?", contact_subtitle: "Let's talk about your project. We offer a free consultation to understand your needs and propose the best digital solution.",
+                contact_cta1: "Chat on WhatsApp", contact_cta2: "Send an Email",
+                footer_rights: "All rights reserved."
+            },
+            es: {
+                nav_solutions: "Soluciones", nav_portfolio: "Portafolio", nav_clients: "Clientes", nav_blog: "Consejos", nav_contact: "Contacto",
+                hero_title: "La Página Web que tu Negocio Necesita para <span class='brand-text'>Crecer</span>",
+                hero_subtitle: "Diseñamos sitios web profesionales y efectivos para negocios, ayudándote a destacar y atraer más clientes.",
+                hero_cta1: "Ver Nuestro Trabajo", hero_cta2: "Solicitar Asesoría Gratuita",
+                why_us_title: "¿Por Qué Elegir FM Tech?", why_us_subtitle: "Tu éxito es nuestro principal objetivo.",
+                why_us_item1_title: "Precios Justos", why_us_item1_desc: "Ofrecemos soluciones de alta calidad sin costos ocultos. Una inversión inteligente con un retorno claro para tu negocio.",
+                why_us_item2_title: "Velocidad y Rendimiento", why_us_item2_desc: "Sitios web optimizados para cargar rápidamente, mejorando la experiencia del usuario y tu posicionamiento en Google.",
+                why_us_item3_title: "Enfoque en Conversión", why_us_item3_desc: "Diseñamos cada elemento con un objetivo claro: convertir visitantes en clientes y aumentar tus ventas de manera medible.",
+                why_us_item4_title: "Soporte Continuo", why_us_item4_desc: "No desaparecemos tras el lanzamiento. Ofrecemos soporte y asesoría para que tu sitio siga creciendo contigo.",
+                projects_title: "Proyectos Recientes", projects_subtitle: "Una muestra de nuestro compromiso con la calidad y el diseño.",
+                view_project_btn: "Ver Sitio Web", view_full_portfolio: "Ver Portafolio Completo",
+                project_cosmetics_title: "Hoffman Cosmetics", project_cosmetics_desc: "Diseño web de lujo para una clínica de odontología cosmética en Chicago, enfocado en la elegancia y la experiencia de usuario premium.",
+                project_diving_title: "TechDiving", project_diving_desc: "Sitio web para un instituto de buceo comercial, presentando su historia, cursos y oportunidades de carrera para futuros profesionales.",
+                project_yachts_title: "Willis Custom Yachts", project_yachts_desc: "Sitio web para un constructor de yates de pesca deportiva personalizados, mostrando la artesanía y la ingeniería de precisión de sus embarcaciones.",
+                project_genoa_title: "Genoa Design", project_genoa_desc: "Web corporativa para una firma de diseño e ingeniería naval, enfocada en la innovación en modelado 3D y servicios de producción.",
+                clients_title: "Lo que Dicen Nuestros Clientes", clients_subtitle: "La confianza y los resultados son nuestra mejor carta de presentación.",
+                t1_text: `"El nuevo sitio es rápido, moderno y hemos visto un aumento real en las consultas. ¡Totalmente recomendados!"`, t1_author: "- Hoffman Cosmetics",
+                t2_text: `"Profesionalismo de principio a fin. El sitio web de nuestro instituto ahora refleja la calidad de nuestra formación."`, t2_author: "- TechDiving",
+                t3_text: `"La web que crearon para nuestro astillero es impresionante. Comunica nuestra herencia y capacidad a la perfección."`, t3_author: "- Willis Custom Yachts",
+                t4_text: `"Nuestra web ahora luce increíblemente profesional. El proceso fue sencillo y el resultado final es impecable."`, t4_author: "- Genoa Design",
+                t5_text: `"FM Tech nos dio la presencia online que nos faltaba. Un diseño limpio que genera confianza en nuestros pacientes."`, t5_author: "- Oakland Smile Dental",
+                t6_text: `"Como fabricante de maquinaria pesada, necesitábamos una web que transmitiera robustez y confianza. Lo lograron con creces."`, t6_author: "- TBailey LLC",
+                blog_title: "Impulsa tu Negocio: Consejos de Marketing", blog_subtitle: "Pequeñas guías y artículos para ayudarte a crecer en el mundo digital.",
+                b1_title: "5 Razones por las que tu Negocio Necesita una Web en 2025", b1_desc: "Descubre cómo una página web profesional puede aumentar tu visibilidad, credibilidad y ventas.",
+                b2_title: "Google Mi Negocio: Tu Mejor Aliado Local", b2_desc: "Aprende a configurar y optimizar tu perfil para aparecer primero en las búsquedas locales y en Google Maps.",
+                b3_title: "Cómo Usar WhatsApp para Vender Más", b3_desc: "Transforma tu WhatsApp en una máquina de ventas con catálogos, respuestas rápidas y un servicio al cliente excepcional.",
+                read_more: "Leer más &rarr;",
+                contact_title: "¿Listo para llevar tu negocio al siguiente nivel?", contact_subtitle: "Hablemos de tu proyecto. Ofrecemos una asesoría gratuita para entender tus necesidades y proponerte la mejor solución digital.",
+                contact_cta1: "Chatear por WhatsApp", contact_cta2: "Enviar un Correo",
+                footer_rights: "Todos los derechos reservados."
+            }
+        };
+
+        function setLanguage(lang) {
+            localStorage.setItem('preferredLang', lang);
+            document.documentElement.lang = lang;
+            document.querySelectorAll('[data-translate-key]').forEach(el => {
+                const key = el.getAttribute('data-translate-key');
+                if (translations[lang] && translations[lang][key]) {
+                    el.innerHTML = translations[lang][key];
                 }
             });
-        }, { threshold: 0.2 });
-        revealElements.forEach(element => {
-            revealObserver.observe(element);
-        });
+            document.querySelectorAll('.lang-switcher a').forEach(a => a.classList.remove('active'));
+            document.querySelector(`#lang-${lang}`).classList.add('active');
+            if(document.querySelector(`#lang-${lang}-mobile`)) {
+                 document.querySelector(`#lang-${lang}-mobile`).classList.add('active');
+            }
+        }
 
-        // Mobile Menu Toggle
-        const menuBtn = document.getElementById('menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const mobileMenuLinks = document.querySelectorAll('.mobile-menu-link, nav a');
-
-        menuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-        
-        mobileMenuLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                if (!mobileMenu.classList.contains('hidden')) {
-                    mobileMenu.classList.add('hidden');
-                }
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('preferredLang');
+            const userLang = navigator.language.split('-')[0];
+            setLanguage(savedLang || (userLang === 'es' ? 'es' : 'en'));
+            
+            ['lang-en', 'lang-es', 'lang-en-mobile', 'lang-es-mobile'].forEach(id => {
+                document.getElementById(id).addEventListener('click', (e) => {
+                    e.preventDefault();
+                    setLanguage(id.includes('en') ? 'en' : 'es');
+                });
             });
-        });
+            
+            const revealElements = document.querySelectorAll('.reveal');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) entry.target.classList.add('visible');
+                    else entry.target.classList.remove('visible');
+                });
+            }, { threshold: 0.1 });
+            revealElements.forEach(el => observer.observe(el));
 
-        // Blog Card Accordion
-        const blogCards = document.querySelectorAll('.blog-card');
-        blogCards.forEach(card => {
-            card.addEventListener('click', () => {
-                const content = card.querySelector('.blog-content');
-                const readMoreText = card.querySelector('span');
-                const isExpanded = content.style.maxHeight && content.style.maxHeight !== '5.5rem';
-
-                if (isExpanded) {
-                    content.style.maxHeight = '5.5rem';
-                    readMoreText.textContent = 'Leer más...';
-                } else {
-                    content.style.maxHeight = content.scrollHeight + 'px';
-                    readMoreText.textContent = 'Leer menos...';
-                }
+            const menuBtn = document.getElementById('menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            document.querySelectorAll('.mobile-menu-link, #menu-btn').forEach(el => {
+                el.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
             });
         });
     </script>
 </body>
 </html>
-
