@@ -16,15 +16,49 @@
         .action-button { background-color: #2563EB; color: white; font-weight: 500; padding: 0.75rem 2rem; border-radius: 0.5rem; transition: all 0.3s ease; display: inline-block; }
         .action-button:hover { background-color: #1D4ED8; transform: translateY(-2px); }
         .lang-switcher a.active { color: #58A6FF; font-weight: 700; }
+        
+        /* Estilos del Blog */
         .prose { color: #C9D1D9; max-width: 80ch; }
-        .prose h1 { color: white; font-size: 2.5rem; }
+        .prose h1 { color: white; font-size: 2.5rem; } /* Reducido para consistencia */
         .prose h2 { color: #58A6FF; font-size: 1.875rem; margin-top: 2.5em; border-bottom: 1px solid #30363d; padding-bottom: 0.5rem; }
-        .prose h3 { color: white; font-size: 1.5rem; }
+        .prose h3 { color: white; font-size: 1.5rem; margin-top: 2em; }
         .prose p, .prose li { font-size: 1.125rem; line-height: 1.75; }
-        .prose a { color: #58A6FF; text-decoration: none; }
+        .prose a { color: #58A6FF; text-decoration: none; font-weight: 500; }
         .prose a:hover { text-decoration: underline; }
         .prose strong { color: white; }
-        .prose ul { list-style-type: disc; padding-left: 1.5rem; }
+        .prose ul { list-style-type: disc; padding-left: 1.5rem; margin-top: 1em; }
+        .prose blockquote { border-left: 4px solid #58A6FF; padding-left: 1rem; color: #aab5c0; font-style: italic; }
+        
+        /* Cuadrícula de Artículos */
+        .article-card {
+            background-color: #161B22;
+            border: 1px solid #30363D;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        .article-card:hover {
+            border-color: #58A6FF;
+            transform: translateY(-5px);
+        }
+        .article-card-content {
+            padding: 1.5rem;
+        }
+        .article-card h3 {
+            color: #58A6FF;
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-top: 0; /* Asegurar que no haya margen superior */
+        }
+        .article-card p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #C9D1D9;
+        }
+        .article-card a.read-more {
+            font-weight: 600;
+            color: white;
+        }
     </style>
 </head>
 <body class="bg-gray-900 text-gray-200">
@@ -32,56 +66,150 @@
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
              <a href="index.html" class="logo-text text-white">FM <span class="brand-text">Tech</span></a>
             <div class="flex items-center space-x-8">
-                <a href="index.html" data-translate-key="nav_home" class="hidden md:block text-gray-300 hover:text-white transition duration-300">Inicio</a>
+                <a href="index.html" data-translate-key="nav_home" class="hidden md:block text-gray-300 hover:text-white transition duration-300">Home</a>
                 <div class="hidden md:flex items-center space-x-4 text-sm font-semibold lang-switcher">
                     <a href="#" id="lang-en" class="text-gray-400 hover:text-white transition">EN</a>
                     <span class="text-gray-600">|</span>
                     <a href="#" id="lang-es" class="text-gray-400 hover:text-white transition">ES</a>
                 </div>
-                <a href="index.html#contacto" data-translate-key="nav_contact" class="action-button">Contacto</a>
+                <a href="index.html#contacto" data-translate-key="nav_contact" class="action-button">Contact</a>
             </div>
         </nav>
     </header>
 
     <main class="py-20">
-        <div class="container mx-auto px-6 prose">
-            <h1 data-translate-key="blog_title_page" class="text-center">Consejos de Marketing para Negocios</h1>
+        <div class="container mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto">
+                <h1 data-translate-key="blog_title_page" class="text-4xl md:text-5xl font-bold text-white">Digital Insights & Marketing Tips</h1>
+                <p data-translate-key="blog_subtitle_page" class="text-lg text-gray-400 mt-4">Guides and articles to help you grow your business in the digital world. Here we explore topics on web design, AI, SEO, and more.</p>
+            </div>
 
-            <article id="post1" class="mb-16">
-                <h2 data-translate-key="b1_title">5 Razones por las que tu Negocio Necesita una Web en 2025</h2>
-                <p data-translate-key="b1_full_p1">En la era digital, tu página web es mucho más que una tarjeta de presentación; es tu principal vendedor, tu centro de operaciones y la base de tu credibilidad. Si aún dudas, aquí te damos 5 razones por las que invertir en una web profesional no es una opción, sino una necesidad.</p>
-                <h3 data-translate-key="b1_full_h1">1. Credibilidad y Profesionalismo</h3>
-                <p data-translate-key="b1_full_p2">Los consumidores modernos esperan que los negocios legítimos tengan una presencia online. Un sitio web bien diseñado y funcional te posiciona como una autoridad en tu sector y genera confianza instantánea, diferenciándote de la competencia que solo depende de perfiles en redes sociales.</p>
-                <h3 data-translate-key="b1_full_h2">2. Tu Vitrina Abierta 24/7</h3>
-                <p data-translate-key="b1_full_p3">A diferencia de tu local físico, tu sitio web nunca cierra. Permite que clientes potenciales descubran tus productos, servicios y horarios en cualquier momento y desde cualquier lugar, capturando oportunidades de venta incluso mientras duermes.</p>
-                 <h3 data-translate-key="b1_full_h3">3. Control Total sobre tu Marca</h3>
-                <p data-translate-key="b1_full_p4">En las redes sociales, estás sujeto a sus algoritmos y reglas. En tu propio sitio web, tú tienes el control total del diseño, el mensaje y la experiencia del usuario, asegurando que tu marca se presente exactamente como tú quieres.</p>
-            </article>
+            <!-- Sección de Artículos -->
+            <div class="mt-20 max-w-5xl mx-auto">
+                <!-- Artículo Destacado (Post 4 - IA) -->
+                <article id="post4" class="mb-16 prose max-w-none">
+                    <h2 data-translate-key="b4_title">AI in Web Design: The New Frontier</h2>
+                    <p data-translate-key="b4_full_p1">Artificial Intelligence (AI) is no longer a futuristic concept; it's actively reshaping web design. From personalized user experiences to automated coding, AI is becoming an indispensable tool for creating smarter, more effective, and highly engaging websites.</p>
+                    <h3 data-translate-key="b4_full_h1">1. Hyper-Personalization at Scale</h3>
+                    <p data-translate-key="b4_full_p2">AI algorithms can analyze user behavior in real-time. This allows a website to dynamically change its content, layout, and recommendations to match individual preferences. Imagine an e-commerce site that reorganizes its homepage to show products you're most likely to buy, or a blog that suggests articles based on your previous reading history. This level of personalization dramatically increases engagement and conversion rates.</p>
+                    <h3 data-translate-key="b4_full_h2">2. AI-Powered Chatbots (That Actually Help)</h3>
+                    <p data-translate-key="b4_full_p3">Modern AI chatbots, powered by Natural Language Processing (NLP), are miles ahead of their predecessors. They can understand complex queries, provide instant 24/7 customer support, guide users through sales funnels, and even book appointments. This frees up human resources and provides immediate value to visitors.</p>
+                     <h3 data-translate-key="b4_full_h3">3. Automated Design and A/B Testing</h3>
+                    <p data-translate-key="b4_full_p4">AI tools can generate thousands of design variations in seconds. They can test different button colors, headlines, and layouts simultaneously (a process known as multivariate testing) and learn which combination performs best. This data-driven approach removes guesswork from design, ensuring the final product is optimized for its goals.</p>
+                </article>
 
-            <article id="post2" class="mb-16">
-                <h2 data-translate-key="b2_title">Google Mi Negocio: Tu Mejor Aliado Local</h2>
-                <p data-translate-key="b2_full_p1">Si tienes un negocio local, Google Business Profile (antes Google Mi Negocio) es la herramienta gratuita más poderosa a tu disposición. Optimizar tu perfil puede disparar tu visibilidad en búsquedas locales y en Google Maps, atrayendo clientes que están cerca y listos para comprar.</p>
-                <h3 data-translate-key="b2_full_h1">Pasos Clave para Optimizar tu Perfil</h3>
-                <p data-translate-key="b2_full_p2">Asegúrate de completar cada sección: añade tu dirección, teléfono, horarios y, muy importante, selecciona las categorías correctas para tu negocio. Sube fotos de alta calidad de tu local, productos y equipo. Publica actualizaciones regularmente, como ofertas o eventos. Y lo más crucial: incentiva a tus clientes satisfechos a dejar reseñas. Las valoraciones positivas son el factor más influyente para nuevos clientes.</p>
-            </article>
+                <!-- Cuadrícula de Otros Artículos -->
+                <div class="border-t border-gray-700 pt-12">
+                    <h2 class="text-3xl font-bold text-white text-center mb-12" data-translate-key="more_articles">More Articles</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        
+                        <!-- Artículo (Post 5 - SEO) -->
+                        <div class="article-card">
+                            <div class="article-card-content">
+                                <h3 data-translate-key="b5_title">Beyond Keywords: AI-Powered SEO</h3>
+                                <p class="mt-2 mb-4" data-translate-key="b5_desc">Discover how AI is changing SEO, focusing on user intent and semantic search to rank higher.</p>
+                                <a href="#post5" class="read-more" data-translate-key="read_full_article">Read Full Article &rarr;</a>
+                            </div>
+                        </div>
+                        
+                        <!-- Artículo (Post 1 - 5 Reasons) -->
+                        <div class="article-card">
+                            <div class="article-card-content">
+                                <h3 data-translate-key="b1_title">5 Reasons Your Business Needs a Website in 2025</h3>
+                                <p class="mt-2 mb-4" data-translate-key="b1_desc">Discover how a professional website can increase your visibility, credibility, and sales.</p>
+                                <a href="#post1" class="read-more" data-translate-key="read_full_article">Read Full Article &rarr;</a>
+                            </div>
+                        </div>
 
-            <article id="post3" class="mb-16">
-                <h2 data-translate-key="b3_title">Cómo Usar WhatsApp para Vender Más y Mejor</h2>
-                <p data-translate-key="b3_full_p1">WhatsApp ha dejado de ser solo una app de mensajería para convertirse en una potente herramienta de ventas. Con WhatsApp Business, puedes profesionalizar tu comunicación y cerrar ventas de forma más eficiente.</p>
-                <h3 data-translate-key="b3_full_h1">Estrategias que Funcionan</h3>
-                <p data-translate-key="b3_full_p2"><strong>Crea un Catálogo:</strong> Muestra tus productos o servicios directamente en la app. Cada artículo puede tener su foto, descripción y precio. <strong>Configura Respuestas Rápidas:</strong> Ahorra tiempo guardando mensajes para las preguntas más frecuentes (horarios, métodos de pago, etc.). <strong>Usa las Etiquetas:</strong> Organiza tus chats para saber en qué etapa del proceso de venta se encuentra cada cliente ('Nuevo cliente', 'Pago pendiente', 'Enviado'). Esta organización te permitirá hacer un seguimiento efectivo y no perder ninguna oportunidad.</p>
-            </article>
+                        <!-- Artículo (Post 2 - Google) -->
+                        <div class="article-card">
+                            <div class="article-card-content">
+                                <h3 data-translate-key="b2_title">Google Business Profile: Your Best Local Ally</h3>
+                                <p class="mt-2 mb-4" data-translate-key="b2_desc">Learn how to set up and optimize your profile to appear first in local searches and on Google Maps.</p>
+                                <a href="#post2" class="read-more" data-translate-key="read_full_article">Read Full Article &rarr;</a>
+                            </div>
+                        </div>
+
+                        <!-- Artículo (Post 3 - WhatsApp) -->
+                        <div class="article-card">
+                            <div class="article-card-content">
+                                <h3 data-translate-key="b3_title">How to Use WhatsApp to Sell More</h3>
+                                <p class="mt-2 mb-4" data-translate-key="b3_desc">Turn your WhatsApp into a sales machine with catalogs, quick replies, and exceptional customer service.</p>
+                                <a href="#post3" class="read-more" data-translate-key="read_full_article">Read Full Article &rarr;</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contenido Completo de los Otros Artículos -->
+                <div class="prose max-w-none mt-16">
+                    <article id="post5" class="mb-16 pt-16">
+                        <h2 data-translate-key="b5_title">Beyond Keywords: AI-Powered SEO</h2>
+                        <p data-translate-key="b5_full_p1">Search Engine Optimization (SEO) has evolved far beyond simply stuffing keywords into a page. Today, Google and other search engines use sophisticated AI models to understand the *intent* behind a search query. This means your content strategy needs to be smarter, focusing on quality, context, and user value.</p>
+                        <h3 data-translate-key="b5_full_h1">1. Understanding Semantic Search</h3>
+                        <p data-translate-key="b5_full_p2">AI-driven search engines no longer just match keywords; they understand synonyms, context, and the relationship between topics. This is "semantic search." Instead of writing an article just for "best running shoes," you should create a comprehensive guide that also covers "running shoe types," "how to choose shoes for pronation," and "best running shoe brands 2025." This signals to AI that you are an authority on the *topic*, not just the keyword.</p>
+                        <h3 data-translate-key="b5_full_h2">2. The Rise of E-E-A-T</h3>
+                        <p data-translate-key="b5_full_p3">Google's AI places huge importance on E-E-A-T: Experience, Expertise, Authoritativeness, and Trustworthiness. AI models scan your site for signals of this. Who wrote the content? Do they have credentials? Is the information accurate and supported by other authoritative sources? Building a strong author profile and creating well-researched, trustworthy content is now a primary SEO factor.</p>
+                    </article>
+
+                    <article id="post1" class="mb-16 pt-16">
+                        <h2 data-translate-key="b1_title">5 Reasons Your Business Needs a Website in 2025</h2>
+                        <p data-translate-key="b1_full_p1">In the digital age, your website is much more than a business card; it's your main salesperson, your operations hub, and the foundation of your credibility. If you're still hesitating, here are 5 reasons why investing in a professional website is not an option, but a necessity.</p>
+                        <h3 data-translate-key="b1_full_h1">1. Credibility and Professionalism</h3>
+                        <p data-translate-key="b1_full_p2">Modern consumers expect legitimate businesses to have an online presence. A well-designed and functional website positions you as an authority in your industry and builds instant trust, setting you apart from competitors who rely solely on social media profiles.</p>
+                        <h3 data-translate-key="b1_full_h2">2. Your 24/7 Open Storefront</h3>
+                        <p data-translate-key="b1_full_p3">Unlike your physical location, your website never closes. It allows potential customers to discover your products, services, and hours at any time and from anywhere, capturing sales opportunities even while you sleep.</p>
+                         <h3 data-translate-key="b1_full_h3">3. Full Control Over Your Brand</h3>
+                        <p data-translate-key="b1_full_p4">On social media, you are subject to their algorithms and rules. on your own website, you have full control over the design, message, and user experience, ensuring your brand is presented exactly as you want.</p>
+                    </article>
+
+                    <article id="post2" class="mb-16 pt-16">
+                        <h2 data-translate-key="b2_title">Google Business Profile: Your Best Local Ally</h2>
+                        <p data-translate-key="b2_full_p1">If you own a local business, Google Business Profile (formerly Google My Business) is the most powerful free tool at your disposal. Optimizing your profile can skyrocket your visibility in local searches and on Google Maps, attracting customers who are nearby and ready to buy.</p>
+                        <h3 data-translate-key="b2_full_h1">Key Steps to Optimize Your Profile</h3>
+                        <p data-translate-key="b2_full_p2">Make sure to fill out every section: add your address, phone number, hours, and, very importantly, select the correct categories for your business. Upload high-quality photos of your premises, products, and team. Post regular updates, like offers or events. And most crucially: encourage your satisfied customers to leave reviews. Positive ratings are the most influential factor for new customers.</p>
+                    </article>
+
+                    <article id="post3" class="mb-16 pt-16">
+                        <h2 data-translate-key="b3_title">How to Use WhatsApp to Sell More and Better</h2>
+                        <p data-translate-key="b3_full_p1">WhatsApp has evolved from just a messaging app into a powerful sales tool. With WhatsApp Business, you can professionalize your communication and close sales more efficiently.</p>
+                        <h3 data-translate-key="b3_full_h1">Strategies That Work</h3>
+                        <p data-translate-key="b3_full_p2"><strong>Create a Catalog:</strong> Showcase your products or services directly in the app. Each item can have its own photo, description, and price. <strong>Set Up Quick Replies:</strong> Save time by saving messages for frequently asked questions (hours, payment methods, etc.). <strong>Use Labels:</strong> Organize your chats to know which stage of the sales process each customer is in ('New customer', 'Payment pending', 'Shipped'). This organization will allow you to follow up effectively and not miss any opportunities.</p>
+                    </article>
+                </div>
+
+            </div>
         </div>
     </main>
 
     <footer class="bg-black text-gray-400 py-16 border-t border-gray-800">
-        <div class="container mx-auto px-6 text-center text-sm"><p>&copy; 2025 FM Tech. <span data-translate-key="footer_rights">Todos los derechos reservados.</span></p></div>
+        <div class="container mx-auto px-6 text-center text-sm flex flex-col items-center">
+            <div class="flex flex-wrap justify-center gap-x-6 gap-y-2 mb-8">
+                <a href="index.html" data-translate-key="nav_home" class="hover:text-white">Home</a>
+                <a href="index.html#pricing" data-translate-key="nav_pricing" class="hover:text-white">Pricing</a>
+                <a href="index.html#faq" data-translate-key="nav_faq" class="hover:text-white">FAQs</a>
+                <a href="index.html#contacto" data-translate-key="nav_contact" class="hover:text-white">Contact</a>
+            </div>
+            <!-- Enlaces a Nuevas Páginas Legales -->
+            <div class="flex justify-center gap-x-4 gap-y-2 mb-4 text-xs">
+                <a href="privacy.html" data-translate-key="footer_privacy" class="hover:text-white">Privacy Policy</a>
+                <a href="terms.html" data-translate-key="footer_terms" class="hover:text-white">Terms & Conditions</a>
+            </div>
+            <p>&copy; 2025 FM Tech. <span data-translate-key="footer_rights">All rights reserved.</span></p>
+        </div>
     </footer>
     <script>
         const translations = {
             en: {
-                nav_home: "Home", nav_contact: "Contact", blog_title_page: "Marketing Tips for Businesses",
+                nav_home: "Home", nav_contact: "Contact", nav_pricing: "Pricing", nav_faq: "FAQs",
+                nav_solutions: "Solutions", nav_portfolio: "Portfolio", nav_clients: "Clients", nav_blog: "Tips",
+                blog_title_page: "Digital Insights & Marketing Tips",
+                blog_subtitle_page: "Guides and articles to help you grow your business in the digital world. Here we explore topics on web design, AI, SEO, and more.",
+                more_articles: "More Articles",
+                read_full_article: "Read Full Article &rarr;",
+
                 b1_title: "5 Reasons Your Business Needs a Website in 2025",
+                b1_desc: "Discover how a professional website can increase your visibility, credibility, and sales.",
                 b1_full_p1: "In the digital age, your website is much more than a business card; it's your main salesperson, your operations hub, and the foundation of your credibility. If you're still hesitating, here are 5 reasons why investing in a professional website is not an option, but a necessity.",
                 b1_full_h1: "1. Credibility and Professionalism",
                 b1_full_p2: "Modern consumers expect legitimate businesses to have an online presence. A well-designed and functional website positions you as an authority in your industry and builds instant trust, setting you apart from competitors who rely solely on social media profiles.",
@@ -89,19 +217,51 @@
                 b1_full_p3: "Unlike your physical location, your website never closes. It allows potential customers to discover your products, services, and hours at any time and from anywhere, capturing sales opportunities even while you sleep.",
                 b1_full_h3: "3. Full Control Over Your Brand",
                 b1_full_p4: "On social media, you are subject to their algorithms and rules. on your own website, you have full control over the design, message, and user experience, ensuring your brand is presented exactly as you want.",
+                
                 b2_title: "Google Business Profile: Your Best Local Ally",
+                b2_desc: "Learn how to set up and optimize your profile to appear first in local searches and on Google Maps.",
                 b2_full_p1: "If you own a local business, Google Business Profile (formerly Google My Business) is the most powerful free tool at your disposal. Optimizing your profile can skyrocket your visibility in local searches and on Google Maps, attracting customers who are nearby and ready to buy.",
                 b2_full_h1: "Key Steps to Optimize Your Profile",
                 b2_full_p2: "Make sure to fill out every section: add your address, phone number, hours, and, very importantly, select the correct categories for your business. Upload high-quality photos of your premises, products, and team. Post regular updates, like offers or events. And most crucially: encourage your satisfied customers to leave reviews. Positive ratings are the most influential factor for new customers.",
-                b3_title: "How to Use WhatsApp to Sell More and Better",
+                
+                b3_title: "How to Use WhatsApp to Sell More",
+                b3_desc: "Turn your WhatsApp into a sales machine with catalogs, quick replies, and exceptional customer service.",
                 b3_full_p1: "WhatsApp has evolved from just a messaging app into a powerful sales tool. With WhatsApp Business, you can professionalize your communication and close sales more efficiently.",
                 b3_full_h1: "Strategies That Work",
                 b3_full_p2: "<strong>Create a Catalog:</strong> Showcase your products or services directly in the app. Each item can have its own photo, description, and price. <strong>Set Up Quick Replies:</strong> Save time by saving messages for frequently asked questions (hours, payment methods, etc.). <strong>Use Labels:</strong> Organize your chats to know which stage of the sales process each customer is in ('New customer', 'Payment pending', 'Shipped'). This organization will allow you to follow up effectively and not miss any opportunities.",
+                
+                b4_title: "AI in Web Design: The New Frontier",
+                b4_desc: "Learn how Artificial Intelligence is personalizing user experiences and automating web development.",
+                b4_full_p1: "Artificial Intelligence (AI) is no longer a futuristic concept; it's actively reshaping web design. From personalized user experiences to automated coding, AI is becoming an indispensable tool for creating smarter, more effective, and highly engaging websites.",
+                b4_full_h1: "1. Hyper-Personalization at Scale",
+                b4_full_p2: "AI algorithms can analyze user behavior in real-time. This allows a website to dynamically change its content, layout, and recommendations to match individual preferences. Imagine an e-commerce site that reorganizes its homepage to show products you're most likely to buy, or a blog that suggests articles based on your previous reading history. This level of personalization dramatically increases engagement and conversion rates.",
+                b4_full_h2: "2. AI-Powered Chatbots (That Actually Help)",
+                b4_full_p3: "Modern AI chatbots, powered by Natural Language Processing (NLP), are miles ahead of their predecessors. They can understand complex queries, provide instant 24/7 customer support, guide users through sales funnels, and even book appointments. This frees up human resources and provides immediate value to visitors.",
+                b4_full_h3: "3. Automated Design and A/B Testing",
+                b4_full_p4: "AI tools can generate thousands of design variations in seconds. They can test different button colors, headlines, and layouts simultaneously (a process known as multivariate testing) and learn which combination performs best. This data-driven approach removes guesswork from design, ensuring the final product is optimized for its goals.",
+                
+                b5_title: "Beyond Keywords: AI-Powered SEO",
+                b5_desc: "Discover how AI is changing SEO, focusing on user intent and semantic search to rank higher.",
+                b5_full_p1: "Search Engine Optimization (SEO) has evolved far beyond simply stuffing keywords into a page. Today, Google and other search engines use sophisticated AI models to understand the *intent* behind a search query. This means your content strategy needs to be smarter, focusing on quality, context, and user value.",
+                b5_full_h1: "1. Understanding Semantic Search",
+                b5_full_p2: "AI-driven search engines no longer just match keywords; they understand synonyms, context, and the relationship between topics. This is 'semantic search.' Instead of writing an article just for 'best running shoes,' you should create a comprehensive guide that also covers 'running shoe types,' 'how to choose shoes for pronation,' and 'best running shoe brands 2025.' This signals to AI that you are an authority on the *topic*, not just the keyword.",
+                b5_full_h2: "2. The Rise of E-E-A-T",
+                b5_full_p3: "Google's AI places huge importance on E-E-A-T: Experience, Expertise, Authoritativeness, and Trustworthiness. AI models scan your site for signals of this. Who wrote the content? Do they have credentials? Is the information accurate and supported by other authoritative sources? Building a strong author profile and creating well-researched, trustworthy content is now a primary SEO factor.",
+                
+                footer_privacy: "Privacy Policy",
+                footer_terms: "Terms & Conditions",
                 footer_rights: "All rights reserved."
             },
             es: {
-                nav_home: "Inicio", nav_contact: "Contacto", blog_title_page: "Consejos de Marketing para Negocios",
+                nav_home: "Inicio", nav_contact: "Contacto", nav_pricing: "Planes", nav_faq: "FAQs",
+                nav_solutions: "Soluciones", nav_portfolio: "Portafolio", nav_clients: "Clientes", nav_blog: "Consejos",
+                blog_title_page: "Ideas Digitales y Consejos de Marketing",
+                blog_subtitle_page: "Guías y artículos para ayudarte a crecer tu negocio en el mundo digital. Aquí exploramos temas de diseño web, IA, SEO y más.",
+                more_articles: "Más Artículos",
+                read_full_article: "Leer Artículo Completo &rarr;",
+
                 b1_title: "5 Razones por las que tu Negocio Necesita una Web en 2025",
+                b1_desc: "Descubre cómo una página web profesional puede aumentar tu visibilidad, credibilidad y ventas.",
                 b1_full_p1: "En la era digital, tu página web es mucho más que una tarjeta de presentación; es tu principal vendedor, tu centro de operaciones y la base de tu credibilidad. Si aún dudas, aquí te damos 5 razones por las que invertir en una web profesional no es una opción, sino una necesidad.",
                 b1_full_h1: "1. Credibilidad y Profesionalismo",
                 b1_full_p2: "Los consumidores modernos esperan que los negocios legítimos tengan una presencia online. Un sitio web bien diseñado y funcional te posiciona como una autoridad en tu sector y genera confianza instantánea, diferenciándote de la competencia que solo depende de perfiles en redes sociales.",
@@ -109,14 +269,39 @@
                 b1_full_p3: "A diferencia de tu local físico, tu sitio web nunca cierra. Permite que clientes potenciales descubran tus productos, servicios y horarios en cualquier momento y desde cualquier lugar, capturando oportunidades de venta incluso mientras duermes.",
                 b1_full_h3: "3. Control Total sobre tu Marca",
                 b1_full_p4: "En las redes sociales, estás sujeto a sus algoritmos y reglas. En tu propio sitio web, tú tienes el control total del diseño, el mensaje y la experiencia del usuario, asegurando que tu marca se presente exactamente como tú quieres.",
+
                 b2_title: "Google Mi Negocio: Tu Mejor Aliado Local",
+                b2_desc: "Aprende a configurar y optimizar tu perfil para aparecer primero en las búsquedas locales y en Google Maps.",
                 b2_full_p1: "Si tienes un negocio local, Google Business Profile (antes Google Mi Negocio) es la herramienta gratuita más poderosa a tu disposición. Optimizar tu perfil puede disparar tu visibilidad en búsquedas locales y en Google Maps, atrayendo clientes que están cerca y listos para comprar.",
                 b2_full_h1: "Pasos Clave para Optimizar tu Perfil",
                 b2_full_p2: "Asegúrate de completar cada sección: añade tu dirección, teléfono, horarios y, muy importante, selecciona las categorías correctas para tu negocio. Sube fotos de alta calidad de tu local, productos y equipo. Publica actualizaciones regularmente, como ofertas o eventos. Y lo más crucial: incentiva a tus clientes satisfechos a dejar reseñas. Las valoraciones positivas son el factor más influyente para nuevos clientes.",
-                b3_title: "Cómo Usar WhatsApp para Vender Más y Mejor",
+
+                b3_title: "Cómo Usar WhatsApp para Vender Más",
+                b3_desc: "Transforma tu WhatsApp en una máquina de ventas con catálogos, respuestas rápidas y un servicio al cliente excepcional.",
                 b3_full_p1: "WhatsApp ha dejado de ser solo una app de mensajería para convertirse en una potente herramienta de ventas. Con WhatsApp Business, puedes profesionalizar tu comunicación y cerrar ventas de forma más eficiente.",
                 b3_full_h1: "Estrategias que Funcionan",
                 b3_full_p2: "<strong>Crea un Catálogo:</strong> Muestra tus productos o servicios directamente en la app. Cada artículo puede tener su foto, descripción y precio. <strong>Configura Respuestas Rápidas:</strong> Ahorra tiempo guardando mensajes para las preguntas más frecuentes (horarios, métodos de pago, etc.). <strong>Usa las Etiquetas:</strong> Organiza tus chats para saber en qué etapa del proceso de venta se encuentra cada cliente ('Nuevo cliente', 'Pago pendiente', 'Enviado'). Esta organización te permitirá hacer un seguimiento efectivo y no perder ninguna oportunidad.",
+                
+                b4_title: "IA en Diseño Web: La Nueva Frontera",
+                b4_desc: "Aprende cómo la Inteligencia Artificial está personalizando experiencias de usuario y automatizando el desarrollo web.",
+                b4_full_p1: "La Inteligencia Artificial (IA) ya no es un concepto futurista; está remodelando activamente el diseño web. Desde experiencias de usuario personalizadas hasta codificación automatizada, la IA se está convirtiendo en una herramienta indispensable para crear sitios web más inteligentes, efectivos y atractivos.",
+                b4_full_h1: "1. Hiper-Personalización a Escala",
+                b4_full_p2: "Los algoritmos de IA pueden analizar el comportamiento del usuario en tiempo real. Esto permite que un sitio web cambie dinámicamente su contenido, diseño y recomendaciones para adaptarse a las preferencias individuales. Imagina un sitio de comercio electrónico que reorganiza su página de inicio para mostrar los productos que es más probable que compres, o un blog que sugiere artículos basados en tu historial de lectura. Este nivel de personalización aumenta drásticamente la participación y las tasas de conversión.",
+                b4_full_h2: "2. Chatbots con IA (Que Realmente Ayudan)",
+                b4_full_p3: "Los chatbots de IA modernos, impulsados por Procesamiento de Lenguaje Natural (NLP), están a años luz de sus predecesores. Pueden entender consultas complejas, brindar soporte al cliente instantáneo 24/7, guiar a los usuarios a través de embudos de venta e incluso reservar citas. Esto libera recursos humanos y proporciona valor inmediato a los visitantes.",
+                b4_full_h3: "3. Diseño Automatizado y Pruebas A/B",
+                b4_full_p4: "Las herramientas de IA pueden generar miles de variaciones de diseño en segundos. Pueden probar diferentes colores de botones, titulares y diseños simultáneamente (un proceso conocido como prueba multivariante) y aprender qué combinación funciona mejor. Este enfoque basado en datos elimina las conjeturas del diseño, asegurando que el producto final esté optimizado para sus objetivos.",
+
+                b5_title: "Más Allá de las Keywords: SEO con IA",
+                b5_desc: "Descubre cómo la IA está cambiando el SEO, enfocándose en la intención del usuario y la búsqueda semántica.",
+                b5_full_p1: "La Optimización de Motores de Búsqueda (SEO) ha evolucionado mucho más allá de simplemente rellenar una página con palabras clave. Hoy, Google y otros motores de búsqueda usan sofisticados modelos de IA para entender la *intención* detrás de una consulta de búsqueda. Esto significa que tu estrategia de contenido debe ser más inteligente, centrándose en la calidad, el contexto y el valor para el usuario.",
+                b5_full_h1: "1. Entendiendo la Búsqueda Semántica",
+                b5_full_p2: "Los motores de búsqueda impulsados por IA ya no solo coinciden con palabras clave; entienden sinónimos, contexto y la relación entre temas. Esto es la 'búsqueda semántica'. En lugar de escribir un artículo solo para 'mejores zapatillas para correr', deberías crear una guía completa que también cubra 'tipos de zapatillas para correr', 'cómo elegir zapatillas para pronación' y 'mejores marcas de zapatillas 2025'. Esto le indica a la IA que eres una autoridad en el *tema*, no solo en la palabra clave.",
+                b5_full_h2: "2. El Auge de E-E-A-T",
+                b5_full_p3: "La IA de Google da una importancia enorme a E-E-A-T: Experiencia, Expertise (Conocimiento), Autoridad y Confianza (Trustworthiness). Los modelos de IA escanean tu sitio en busca de señales de esto. ¿Quién escribió el contenido? ¿Tienen credenciales? ¿Es la información precisa y está respaldada por otras fuentes autorizadas? Construir un perfil de autor sólido y crear contenido bien investigado y confiable es ahora un factor de SEO principal.",
+                
+                footer_privacy: "Política de Privacidad",
+                footer_terms: "Términos y Condiciones",
                 footer_rights: "Todos los derechos reservados."
             }
         };
@@ -134,13 +319,50 @@
 
         document.addEventListener('DOMContentLoaded', () => {
             const savedLang = localStorage.getItem('preferredLang');
-            const userLang = navigator.language.split('-')[0];
-            setLanguage(savedLang || (userLang === 'es' ? 'es' : 'en'));
+            // Idioma por defecto 'en'
+            setLanguage(savedLang || 'en');
             
             document.getElementById('lang-en').addEventListener('click', (e) => { e.preventDefault(); setLanguage('en'); });
             document.getElementById('lang-es').addEventListener('click', (e) => { e.preventDefault(); setLanguage('es'); });
+        
+            // --- INICIO: Lógica Menú Móvil ---
+            ['lang-en-mobile', 'lang-es-mobile'].forEach(id => {
+                const el = document.getElementById(id);
+                if(el) {
+                    el.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        setLanguage(id.includes('en') ? 'en' : 'es');
+                        document.getElementById('mobile-menu').classList.add('hidden');
+                    });
+                }
+            });
+
+            const menuBtn = document.getElementById('menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            document.querySelectorAll('.mobile-menu-link, #menu-btn').forEach(el => {
+                el.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            });
+            // --- FIN: Lógica Menú Móvil ---
+
+            // Smooth scroll para los enlaces de artículos
+            document.querySelectorAll('a.read-more').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    const href = this.getAttribute('href');
+                    if (href.startsWith('#')) {
+                        e.preventDefault();
+                        // Asegurarse de que el elemento exista antes de scrollear
+                        const targetElement = document.querySelector(href);
+                        if (targetElement) {
+                            targetElement.scrollIntoView({
+                                behavior: 'smooth'
+                            });
+                        }
+                    }
+                });
+            });
         });
     </script>
 </body>
 </html>
-

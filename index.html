@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FM Tech - Sitios Web para Negocios</title>
+    <title>FM Tech - Web Design for Businesses</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- SDK de PayPal -->
+    <script src="https://www.paypal.com/sdk/js?client-id=YOUR_CLIENT_ID_GOES_HERE&currency=USD&intent=capture"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
@@ -52,6 +54,50 @@
         .reveal.visible { opacity: 1; transform: translateY(0) translateX(0); }
         .lang-switcher a.active { color: #58A6FF; font-weight: 700; }
         
+        /* Estilos para el Plan Destacado */
+        .featured-plan {
+            border: 2px solid #58A6FF;
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(88, 166, 255, 0.2);
+        }
+        
+        /* Estilos para el Contador - CAMBIO A AMARILLO */
+        .countdown-timer {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+        .countdown-item {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 0.5rem;
+            padding: 1rem;
+            min-width: 80px;
+            text-align: center;
+        }
+        .countdown-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #FACC15; /* Amarillo de Tailwind */
+            line-height: 1;
+        }
+        .countdown-label {
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            color: #C9D1D9;
+        }
+        .countdown-title {
+            color: #FACC15; /* Amarillo de Tailwind */
+        }
+        
+        /* Estilos para FAQs */
+        .faq-item {
+            background-color: #161B22;
+            border-radius: 0.5rem;
+            border: 1px solid #30363D;
+        }
+
         /* Testimonial Carousel */
         @keyframes scroll {
             0% { transform: translateX(0); }
@@ -63,6 +109,31 @@
         .slider::after { right: 0; background: linear-gradient(to right, rgba(1, 4, 9, 0), #010409); }
         .slide-track { display: flex; width: calc(20rem * 18); animation: scroll 40s linear infinite; }
         .slide { width: 20rem; flex-shrink: 0; padding: 0 1rem; }
+
+        /* --- NUEVOS ESTILOS: Glow Effect --- */
+        .plan-card {
+            transition: all 0.3s ease;
+        }
+        .plan-card:hover {
+            box-shadow: 0 0 20px 5px rgba(88, 166, 255, 0.25);
+        }
+        .featured-plan {
+            border: 2px solid #58A6FF;
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(88, 166, 255, 0.2);
+        }
+        .featured-plan:hover {
+             box-shadow: 0 0 25px 10px rgba(88, 166, 255, 0.3);
+        }
+
+        /* --- NUEVOS ESTILOS: 3D Card Effect --- */
+        .card-container {
+            perspective: 1000px;
+        }
+        .card-body {
+            transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+            transform-style: preserve-3d;
+        }
     </style>
 </head>
 <body class="bg-gray-900 text-gray-200">
@@ -70,12 +141,15 @@
     <header class="bg-opacity-80 backdrop-blur-lg shadow-lg sticky top-0 z-50 border-b border-gray-800">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
              <a href="#inicio" class="logo-text text-white">FM <span class="brand-text">Tech</span></a>
+             <!-- CORRECCIÓN: 'classs' a 'class' -->
             <div class="hidden md:flex items-center space-x-8 text-sm font-medium">
-                <a href="#soluciones" data-translate-key="nav_solutions" class="text-gray-300 hover:text-white transition duration-300">Soluciones</a>
-                <a href="portfolio.html" data-translate-key="nav_portfolio" class="text-gray-300 hover:text-white transition duration-300">Portafolio</a>
-                <a href="#clientes" data-translate-key="nav_clients" class="text-gray-300 hover:text-white transition duration-300">Clientes</a>
-                <a href="#blog" data-translate-key="nav_blog" class="text-gray-300 hover:text-white transition duration-300">Consejos</a>
-                <a href="#contacto" data-translate-key="nav_contact" class="text-gray-300 hover:text-white transition duration-300">Contacto</a>
+                <a href="#soluciones" data-translate-key="nav_solutions" class="text-gray-300 hover:text-white transition duration-300">Solutions</a>
+                <a href="#pricing" data-translate-key="nav_pricing" class="text-gray-300 hover:text-white transition duration-300">Pricing</a>
+                <a href="portfolio.html" data-translate-key="nav_portfolio" class="text-gray-300 hover:text-white transition duration-300">Portfolio</a>
+                <a href="#clientes" data-translate-key="nav_clients" class="text-gray-300 hover:text-white transition duration-300">Clients</a>
+                <a href="#faq" data-translate-key="nav_faq" class="text-gray-300 hover:text-white transition duration-300">FAQs</a>
+                <a href="blog.html" data-translate-key="nav_blog" class="text-gray-300 hover:text-white transition duration-300">Blog</a>
+                <a href="#contacto" data-translate-key="nav_contact" class="text-gray-300 hover:text-white transition duration-300">Contact</a>
             </div>
             <div class="hidden md:flex items-center space-x-4 text-sm font-semibold lang-switcher">
                 <a href="#" id="lang-en" class="text-gray-400 hover:text-white transition">EN</a>
@@ -89,11 +163,13 @@
     </header>
 
     <div id="mobile-menu" class="hidden fixed inset-0 bg-black bg-opacity-95 z-40 flex flex-col items-center justify-center space-y-8">
-        <a href="#soluciones" data-translate-key="nav_solutions" class="mobile-menu-link text-2xl text-gray-300 hover:text-white">Soluciones</a>
-        <a href="portfolio.html" data-translate-key="nav_portfolio" class="mobile-menu-link text-2xl text-gray-300 hover:text-white">Portafolio</a>
-        <a href="#clientes" data-translate-key="nav_clients" class="mobile-menu-link text-2xl text-gray-300 hover:text-white">Clientes</a>
-        <a href="#blog" data-translate-key="nav_blog" class="mobile-menu-link text-2xl text-gray-300 hover:text-white">Consejos</a>
-        <a href="#contacto" data-translate-key="nav_contact" class="mobile-menu-link text-2xl text-gray-300 hover:text-white">Contacto</a>
+        <a href="#soluciones" data-translate-key="nav_solutions" class="mobile-menu-link text-2xl text-gray-300 hover:text-white">Solutions</a>
+        <a href="#pricing" data-translate-key="nav_pricing" class="mobile-menu-link text-2xl text-gray-300 hover:text-white">Pricing</a>
+        <a href="portfolio.html" data-translate-key="nav_portfolio" class="mobile-menu-link text-2xl text-gray-300 hover:text-white">Portfolio</a>
+        <a href="#clientes" data-translate-key="nav_clients" class="mobile-menu-link text-2xl text-gray-300 hover:text-white">Clients</a>
+        <a href="#faq" data-translate-key="nav_faq" class="mobile-menu-link text-2xl text-gray-300 hover:text-white">FAQs</a>
+        <a href="blog.html" data-translate-key="nav_blog" class="mobile-menu-link text-2xl text-gray-300 hover:text-white">Blog</a>
+        <a href="#contacto" data-translate-key="nav_contact" class="mobile-menu-link text-2xl text-gray-300 hover:text-white">Contact</a>
         <div class="flex items-center space-x-4 text-lg font-semibold lang-switcher mt-8">
             <a href="#" id="lang-en-mobile" class="text-gray-400 hover:text-white transition">EN</a>
             <span class="text-gray-600">|</span>
@@ -104,104 +180,346 @@
     <main>
         <section id="inicio" class="py-24 md:py-40">
             <div class="container mx-auto px-6 text-center reveal reveal-up">
-                <h1 data-translate-key="hero_title" class="text-4xl md:text-6xl font-bold text-white leading-tight mb-4">La Página Web que tu Negocio Necesita para <span class="brand-text">Crecer</span></h1>
-                <p data-translate-key="hero_subtitle" class="text-lg text-gray-400 mb-8 max-w-3xl mx-auto">Diseñamos sitios web profesionales y efectivos para negocios, ayudándote a destacar y atraer más clientes.</p>
+                <h1 data-translate-key="hero_title" class="text-4xl md:text-6xl font-bold text-white leading-tight mb-4">The Website Your Business Needs to <span class="brand-text">Grow</span></h1>
+                <p data-translate-key="hero_subtitle" class="text-lg text-gray-400 mb-8 max-w-3xl mx-auto">We design professional and effective websites for businesses, helping you stand out and attract more customers.</p>
                 <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6">
-                    <a href="portfolio.html" data-translate-key="hero_cta1" class="action-button">Ver Nuestro Trabajo</a>
-                    <a href="#contacto" data-translate-key="hero_cta2" class="action-button secondary-button">Solicitar Asesoría Gratuita</a>
+                    <a href="portfolio.html" data-translate-key="hero_cta1" class="action-button">See Our Work</a>
+                    <a href="#contacto" data-translate-key="hero_cta2" class="action-button secondary-button">Request Free Consultation</a>
                 </div>
             </div>
         </section>
 
-        <section class="py-20 dark-bg">
+        <!-- Sección "Why Us" (antes Soluciones) -->
+        <section id="soluciones" class="py-20 dark-bg">
             <div class="container mx-auto px-6">
                 <div class="text-center reveal reveal-up mb-16">
-                    <h2 data-translate-key="why_us_title" class="text-3xl md:text-4xl font-bold text-white">¿Por Qué Elegir FM Tech?</h2>
-                    <p data-translate-key="why_us_subtitle" class="text-md text-gray-400 mt-2">Tu éxito es nuestro principal objetivo.</p>
+                    <h2 data-translate-key="why_us_title" class="text-3xl md:text-4xl font-bold text-white">Why Choose FM Tech?</h2>
+                    <p data-translate-key="why_us_subtitle" class="text-md text-gray-400 mt-2">Your success is our main goal.</p>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <div class="p-8 text-center reveal reveal-up"><h3 data-translate-key="why_us_item1_title" class="text-xl font-bold mb-2 brand-text">Precios Justos</h3><p data-translate-key="why_us_item1_desc" class="text-gray-400">Ofrecemos soluciones de alta calidad sin costos ocultos. Una inversión inteligente con un retorno claro para tu negocio.</p></div>
-                    <div class="p-8 text-center reveal reveal-up" style="transition-delay: 200ms;"><h3 data-translate-key="why_us_item2_title" class="text-xl font-bold mb-2 brand-text">Velocidad y Rendimiento</h3><p data-translate-key="why_us_item2_desc" class="text-gray-400">Sitios web optimizados para cargar rápidamente, mejorando la experiencia del usuario y tu posicionamiento en Google.</p></div>
-                    <div class="p-8 text-center reveal reveal-up" style="transition-delay: 400ms;"><h3 data-translate-key="why_us_item3_title" class="text-xl font-bold mb-2 brand-text">Enfoque en Conversión</h3><p data-translate-key="why_us_item3_desc" class="text-gray-400">Diseñamos cada elemento con un objetivo claro: convertir visitantes en clientes y aumentar tus ventas de manera medible.</p></div>
-                    <div class="p-8 text-center reveal reveal-up" style="transition-delay: 600ms;"><h3 data-translate-key="why_us_item4_title" class="text-xl font-bold mb-2 brand-text">Soporte Continuo</h3><p data-translate-key="why_us_item4_desc" class="text-gray-400">No desaparecemos tras el lanzamiento. Ofrecemos soporte y asesoría para que tu sitio siga creciendo contigo.</p></div>
+                    <div class="p-8 text-center reveal reveal-up"><h3 data-translate-key="why_us_item1_title" class="text-xl font-bold mb-2 brand-text">Fair Prices</h3><p data-translate-key="why_us_item1_desc" class="text-gray-400">We offer high-quality solutions with no hidden costs. A smart investment with a clear return for your business.</p></div>
+                    <div class="p-8 text-center reveal reveal-up" style="transition-delay: 200ms;"><h3 data-translate-key="why_us_item2_title" class="text-xl font-bold mb-2 brand-text">Speed & Performance</h3><p data-translate-key="why_us_item2_desc" class="text-gray-400">Websites optimized to load quickly, improving user experience and your Google ranking.</p></div>
+                    <div class="p-8 text-center reveal reveal-up" style="transition-delay: 400ms;"><h3 data-translate-key="why_us_item3_title" class="text-xl font-bold mb-2 brand-text">Conversion-Focused</h3><p data-translate-key="why_us_item3_desc" class="text-gray-400">We design every element with one goal: to turn visitors into customers and measurably increase your sales.</p></div>
+                    <div class="p-8 text-center reveal reveal-up" style="transition-delay: 600ms;"><h3 data-translate-key="why_us_item4_title" class="text-xl font-bold mb-2 brand-text">Ongoing Support</h3><p data-translate-key="why_us_item4_desc" class="text-gray-400">We don't disappear after launch. We offer support and advice so your site continues to grow with you.</p></div>
                 </div>
             </div>
         </section>
         
-        <section id="proyectos" class="py-20 md:py-32 overflow-hidden">
+        <!-- ================================== -->
+        <!-- SECCIÓN DE PLANES (PRICING)        -->
+        <!-- ================================== -->
+        <section id="pricing" class="py-20 md:py-32">
+            <div class="container mx-auto px-6">
+                <div class="text-center reveal reveal-up mb-12">
+                    <h2 data-translate-key="pricing_title" class="text-3xl md:text-4xl font-bold text-white">Our Plans</h2>
+                    <p data-translate-key="pricing_subtitle" class="text-lg text-gray-400 mt-2 max-w-2xl mx-auto">Choose the perfect plan to get your business online. Special promotion!</p>
+                    
+                    <!-- Contador Regresivo -->
+                    <div class="mt-8 reveal reveal-up">
+                        <h3 data-translate-key="countdown_title" class="text-xl font-semibold countdown-title">Offer ends in:</h3>
+                        <div class="countdown-timer">
+                            <div class="countdown-item">
+                                <div id="countdown-days" class="countdown-number">00</div>
+                                <div data-translate-key="countdown_days" class="countdown-label">Days</div>
+                            </div>
+                            <div class="countdown-item">
+                                <div id="countdown-hours" class="countdown-number">00</div>
+                                <div data-translate-key="countdown_hours" class="countdown-label">Hours</div>
+                            </div>
+                            <div class="countdown-item">
+                                <div id="countdown-minutes" class="countdown-number">00</div>
+                                <div data-translate-key="countdown_minutes" class="countdown-label">Minutes</div>
+                            </div>
+                            <div class="countdown-item">
+                                <div id="countdown-seconds" class="countdown-number">00</div>
+                                <div data-translate-key="countdown_seconds" class="countdown-label">Seconds</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch reveal reveal-up">
+                    
+                    <!-- Plan Basic -->
+                    <div class="bg-gray-800 p-8 rounded-lg border border-gray-700 flex flex-col justify-between relative overflow-hidden plan-card">
+                        <span class="absolute top-0 right-0 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-bl-lg" data-translate-key="pricing_discount">-30%</span>
+                        <div>
+                            <h3 data-translate-key="plan_basic_title" class="text-2xl font-bold text-white mb-4">Basic</h3>
+                            <div class="mb-6">
+                                <!-- Contenedor de Precio (se actualiza con JS) -->
+                                <div id="price-basic-container">
+                                    <span data-translate-key="plan_basic_price" class="text-4xl font-bold text-white">$180 <span class="text-gray-400 text-base">USD</span></span>
+                                    <div class="text-sm text-gray-500 line-through" data-translate-key="plan_basic_price_before">Before: $234 USD</div>
+                                </div>
+                            </div>
+                            <ul class="space-y-3 text-gray-300 mb-8">
+                                <li class="flex items-center"><svg class="w-5 h-5 brand-text mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span data-translate-key="plan_basic_feat1">1 Landing Page</span></li>
+                                <li class="flex items-center"><svg class="w-5 h-5 brand-text mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span data-translate-key="plan_basic_feat2">3 Days Delivery</span></li>
+                                <li class="flex items-center"><svg class="w-5 h-5 brand-text mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span data-translate-key="plan_all_feat1">Free Domain (1 Year)</span></li>
+                                <li class="flex items-center"><svg class="w-5 h-5 brand-text mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span data-translate-key="plan_all_feat2">Free Hosting (1 Year)</span></li>
+                                <li class="flex items-center"><svg class="w-5 h-5 brand-text mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span data-translate-key="plan_all_feat3">Responsive Design</span></li>
+                                <li class="flex items-center"><svg class="w-5 h-5 brand-text mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span data-translate-key="plan_all_feat4">Social Media Integration</span></li>
+                                <li class="flex items-center"><svg class="w-5 h-5 brand-text mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span data-translate-key="plan_all_feat5">Google Maps Integration</span></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="mb-6 bg-gray-900 p-3 rounded-lg">
+                                <label class="flex items-center text-sm">
+                                    <input id="addon-basic" type="checkbox" class="h-4 w-4 text-blue-600 rounded mr-2 focus:ring-blue-500">
+                                    <span data-translate-key="plan_addon_text">Add</span>
+                                    <span class="font-semibold mx-1" id="addon-basic-price" data-translate-key="plan_addon_price">$20/mo</span>
+                                    <span class="ml-1" data-translate-key="plan_addon_desc">(4hrs maintenance)</span>
+                                </label>
+                            </div>
+                            <!-- Contenedor del Botón PayPal -->
+                            <div id="paypal-button-basic-container" class="paypal-button-container hidden"></div>
+                            <!-- Botón CTA (para COP o contacto) -->
+                            <a id="cta-button-basic" href="#contacto" data-translate-key="plan_cta" class="action-button w-full text-center">Get Started</a>
+                        </div>
+                    </div>
+
+                    <!-- Plan Standard (Destacado) -->
+                    <div class="bg-gray-800 p-8 rounded-lg flex flex-col justify-between relative overflow-hidden featured-plan plan-card">
+                        <span class="absolute top-0 right-0 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-bl-lg" data-translate-key="pricing_discount">-30%</span>
+                        <span class="absolute top-0 left-1/2 -translate-x-1/2 bg-blue-500 text-white text-xs font-bold px-4 py-1 rounded-b-lg" data-translate-key="plan_popular">Most Popular</span>
+                        <div>
+                            <h3 data-translate-key="plan_standard_title" class="text-2xl font-bold text-white mb-4 pt-4">Standard</h3>
+                            <div class="mb-6">
+                                <!-- Contenedor de Precio (se actualiza con JS) -->
+                                <div id="price-standard-container">
+                                    <span data-translate-key="plan_standard_price" class="text-4xl font-bold text-white">$350 <span class="text-gray-400 text-base">USD</span></span>
+                                    <div class="text-sm text-gray-500 line-through" data-translate-key="plan_standard_price_before">Before: $455 USD</div>
+                                </div>
+                            </div>
+                            <ul class="space-y-3 text-gray-300 mb-8">
+                                <li class="flex items-center"><svg class="w-5 h-5 brand-text mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span data-translate-key="plan_standard_feat1">Up to 4 Pages</span></li>
+                                <li class="flex items-center"><svg class="w-5 h-5 brand-text mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span data-translate-key="plan_standard_feat2">5 Days Delivery</span></li>
+                                <li class="flex items-center"><svg class="w-5 h-5 brand-text mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span data-translate-key="plan_all_feat1">Free Domain (1 Year)</span></li>
+                                <li class="flex items-center"><svg class="w-5 h-5 brand-text mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span data-translate-key="plan_all_feat2">Free Hosting (1 Year)</span></li>
+                                <li class="flex items-center"><svg class="w-5 h-5 brand-text mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span data-translate-key="plan_all_feat3">Responsive Design</span></li>
+                                <li class="flex items-center"><svg class="w-5 h-5 brand-text mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span data-translate-key="plan_all_feat4">Social Media Integration</span></li>
+                                <li class="flex items-center"><svg class="w-5 h-5 brand-text mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span data-translate-key="plan_all_feat5">Google Maps Integration</span></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="mb-6 bg-gray-900 p-3 rounded-lg">
+                                <label class="flex items-center text-sm">
+                                    <input id="addon-standard" type="checkbox" class="h-4 w-4 text-blue-600 rounded mr-2 focus:ring-blue-500">
+                                    <span data-translate-key="plan_addon_text">Add</span>
+                                    <span class="font-semibold mx-1" id="addon-standard-price" data-translate-key="plan_addon_price">$20/mo</span>
+                                    <span class="ml-1" data-translate-key="plan_addon_desc">(4hrs maintenance)</span>
+                                </label>
+                            </div>
+                            <!-- Contenedor del Botón PayPal -->
+                            <div id="paypal-button-standard-container" class="paypal-button-container hidden"></div>
+                            <!-- Botón CTA (para COP o contacto) -->
+                            <a id="cta-button-standard" href="#contacto" data-translate-key="plan_cta" class="action-button w-full text-center">Get Started</a>
+                        </div>
+                    </div>
+
+                    <!-- Plan Premium -->
+                    <div class="bg-gray-800 p-8 rounded-lg border border-gray-700 flex flex-col justify-between relative overflow-hidden plan-card">
+                        <span class="absolute top-0 right-0 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-bl-lg" data-translate-key="pricing_discount">-30%</span>
+                        <div>
+                            <h3 data-translate-key="plan_premium_title" class="text-2xl font-bold text-white mb-4">Premium</h3>
+                            <div class="mb-6">
+                                <!-- Contenedor de Precio (se actualiza con JS) -->
+                                <div id="price-premium-container">
+                                    <span data-translate-key="plan_premium_price" class="text-4xl font-bold text-white">$500 <span class="text-gray-400 text-base">USD</span></span>
+                                    <div class="text-sm text-gray-500 line-through" data-translate-key="plan_premium_price_before">Before: $650 USD</div>
+                                </div>
+                            </div>
+                            <ul class="space-y-3 text-gray-300 mb-8">
+                                <li class="flex items-center"><svg class="w-5 h-5 brand-text mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span data-translate-key="plan_premium_feat1">E-commerce Ready</span></li>
+                                <li class="flex items-center"><svg class="w-5 h-5 brand-text mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span data-translate-key="plan_premium_feat2">8 Days Delivery</span></li>
+                                <li class="flex items-center"><svg class="w-5 h-5 brand-text mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span data-translate-key="plan_all_feat1">Free Domain (1 Year)</span></li>
+                                <li class="flex items-center"><svg class="w-5 h-5 brand-text mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span data-translate-key="plan_all_feat2">Free Hosting (1 Year)</span></li>
+                                <li class="flex items-center"><svg class="w-5 h-5 brand-text mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span data-translate-key="plan_all_feat3">Responsive Design</span></li>
+                                <li class="flex items-center"><svg class="w-5 h-5 brand-text mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span data-translate-key="plan_all_feat4">Social Media Integration</span></li>
+                                <li class="flex items-center"><svg class="w-5 h-5 brand-text mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span data-translate-key="plan_all_feat5">Google Maps Integration</span></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="mb-6 bg-gray-900 p-3 rounded-lg">
+                                <label class="flex items-center text-sm">
+                                    <input id="addon-premium" type="checkbox" class="h-4 w-4 text-blue-600 rounded mr-2 focus:ring-blue-500">
+                                    <span data-translate-key="plan_addon_text">Add</span>
+                                    <span class="font-semibold mx-1" id="addon-premium-price" data-translate-key="plan_addon_price">$20/mo</span>
+                                    <span class="ml-1" data-translate-key="plan_addon_desc">(4hrs maintenance)</span>
+                                </label>
+                            </div>
+                            <!-- Contenedor del Botón PayPal -->
+                            <div id="paypal-button-premium-container" class="paypal-button-container hidden"></div>
+                            <!-- Botón CTA (para COP o contacto) -->
+                            <a id="cta-button-premium" href="#contacto" data-translate-key="plan_cta" class="action-button w-full text-center">Get Started</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Sección de Proyectos (Existente) -->
+        <section id="proyectos" class="py-20 md:py-32 overflow-hidden dark-bg">
             <div class="container mx-auto px-6">
                 <div class="text-center reveal reveal-up mb-20">
-                    <h2 data-translate-key="projects_title" class="text-3xl md:text-4xl font-bold text-white">Proyectos Recientes</h2>
-                    <p data-translate-key="projects_subtitle" class="text-md text-gray-400 mt-2">Una muestra de nuestro compromiso con la calidad y el diseño.</p>
+                    <h2 data-translate-key="projects_title" class="text-3xl md:text-4xl font-bold text-white">Recent Projects</h2>
+                    <p data-translate-key="projects_subtitle" class="text-md text-gray-400 mt-2">A showcase of our commitment to quality and design.</p>
                 </div>
                 <div class="space-y-20 md:space-y-32">
                     <div class="flex flex-col md:flex-row items-center gap-8 md:gap-16">
-                        <div class="md:w-1/2 reveal reveal-left"><h3 data-translate-key="project_cosmetics_title" class="text-3xl font-bold text-white">Hoffman Cosmetics</h3><p data-translate-key="project_cosmetics_desc" class="text-gray-400 mt-4 text-lg">Diseño web de lujo para una clínica de odontología cosmética en Chicago, enfocado en la elegancia y la experiencia de usuario premium.</p><a href="https://www.hoffmancosmetics.com/" target="_blank" data-translate-key="view_project_btn" class="action-button mt-6">Ver Sitio Web</a></div>
-                        <div class="md:w-1/2 reveal reveal-right"><img src="images/proyecto (9).png" alt="Proyecto Hoffman Cosmetics" class="w-full h-auto rounded-lg shadow-2xl"></div>
+                        <div class="md:w-1/2 reveal reveal-left"><h3 data-translate-key="project_cosmetics_title" class="text-3xl font-bold text-white">Hoffman Cosmetics</h3><p data-translate-key="project_cosmetics_desc" class="text-gray-400 mt-4 text-lg">Luxury web design for a cosmetic dentistry clinic in Chicago, focusing on elegance and a premium user experience.</p><a href="https://www.hoffmancosmetics.com/" target="_blank" data-translate-key="view_project_btn" class="action-button mt-6">View Website</a></div>
+                        <!-- INICIO: 3D Card Wrapper -->
+                        <div class="md:w-1/2 reveal reveal-right card-container">
+                            <div class="card-body">
+                                <!-- CORRECCIÓN: Ruta de imagen actualizada -->
+                                <img src="images/proyecto (9).png" alt="Proyecto Hoffman Cosmetics" class="w-full h-auto rounded-lg shadow-2xl">
+                            </div>
+                        </div>
+                        <!-- FIN: 3D Card Wrapper -->
                     </div>
                     <div class="flex flex-col md:flex-row-reverse items-center gap-8 md:gap-16">
-                        <div class="md:w-1/2 reveal reveal-right"><h3 data-translate-key="project_diving_title" class="text-3xl font-bold text-white">TechDiving</h3><p data-translate-key="project_diving_desc" class="text-gray-400 mt-4 text-lg">Sitio web para un instituto de buceo comercial, presentando su historia, cursos y oportunidades de carrera para futuros profesionales.</p><a href="https://institutodebuceocomercial.lat/" target="_blank" data-translate-key="view_project_btn" class="action-button mt-6">Ver Sitio Web</a></div>
-                        <div class="md:w-1/2 reveal reveal-left"><img src="images/proyecto (2).png" alt="Proyecto TechDiving" class="w-full h-auto rounded-lg shadow-2xl"></div>
-                    </div>
-                    <div class="flex flex-col md:flex-row items-center gap-8 md:gap-16">
-                        <div class="md:w-1/2 reveal reveal-left"><h3 data-translate-key="project_yachts_title" class="text-3xl font-bold text-white">Willis Custom Yachts</h3><p data-translate-key="project_yachts_desc" class="text-gray-400 mt-4 text-lg">Sitio web para un constructor de yates de pesca deportiva personalizados, mostrando la artesanía y la ingeniería de precisión de sus embarcaciones.</p><a href="https://williscustomyachts.com/" target="_blank" data-translate-key="view_project_btn" class="action-button mt-6">Ver Sitio Web</a></div>
-                        <div class="md:w-1/2 reveal reveal-right"><img src="images/proyecto (3).png" alt="Proyecto Willis Custom Yachts" class="w-full h-auto rounded-lg shadow-2xl"></div>
-                    </div>
-                     <div class="flex flex-col md:flex-row-reverse items-center gap-8 md:gap-16">
-                        <div class="md:w-1/2 reveal reveal-right"><h3 data-translate-key="project_genoa_title" class="text-3xl font-bold text-white">Genoa Design</h3><p data-translate-key="project_genoa_desc" class="text-gray-400 mt-4 text-lg">Web corporativa para una firma de diseño e ingeniería naval, enfocada en la innovación en modelado 3D y servicios de producción.</p><a href="https://genoadesign.com/" target="_blank" data-translate-key="view_project_btn" class="action-button mt-6">Ver Sitio Web</a></div>
-                        <div class="md:w-1/2 reveal reveal-left"><img src="images/proyecto (5).png" alt="Proyecto Genoa Design" class="w-full h-auto rounded-lg shadow-2xl"></div>
+                        <div class="md:w-1/2 reveal reveal-right"><h3 data-translate-key="project_diving_title" class="text-3xl font-bold text-white">TechDiving</h3><p data-translate-key="project_diving_desc" class="text-gray-400 mt-4 text-lg">Website for a commercial diving institute, showcasing its history, courses, and career opportunities for future professionals.</p><a href="https://institutodebuceocomercial.lat/" target="_blank" data-translate-key="view_project_btn" class="action-button mt-6">View Website</a></div>
+                        <!-- INICIO: 3D Card Wrapper -->
+                        <div class="md:w-1/2 reveal reveal-left card-container">
+                            <div class="card-body">
+                                <!-- CORRECCIÓN: Ruta de imagen actualizada -->
+                                <img src="images/proyecto (2).png" alt="Proyecto TechDiving" class="w-full h-auto rounded-lg shadow-2xl">
+                            </div>
+                        </div>
+                        <!-- FIN: 3D Card Wrapper -->
                     </div>
                 </div>
                 <div class="text-center mt-20 reveal reveal-up">
-                    <a href="portfolio.html" data-translate-key="view_full_portfolio" class="action-button text-lg">Ver Portafolio Completo</a>
+                    <a href="portfolio.html" data-translate-key="view_full_portfolio" class="action-button text-lg">View Full Portfolio</a>
                 </div>
             </div>
         </section>
         
-        <section id="clientes" class="py-20 dark-bg">
+        <!-- Sección de Clientes (Existente) -->
+        <section id="clientes" class="py-20">
             <div class="container mx-auto px-6 text-center">
                 <div class="reveal reveal-up mb-12">
-                    <h2 data-translate-key="clients_title" class="text-3xl md:text-4xl font-bold text-white">Lo que Dicen Nuestros Clientes</h2>
-                    <p data-translate-key="clients_subtitle" class="mt-4 text-lg text-gray-400">La confianza y los resultados son nuestra mejor carta de presentación.</p>
+                    <h2 data-translate-key="clients_title" class="text-3xl md:text-4xl font-bold text-white">What Our Clients Say</h2>
+                    <p data-translate-key="clients_subtitle" class="mt-4 text-lg text-gray-400">Trust and results are our best introduction.</p>
                 </div>
             </div>
+            <!-- Slider (Existente) -->
             <div class="slider">
                 <div class="slide-track">
-                    <div class="slide"><div class="bg-gray-800 h-full p-6 rounded-lg text-left"><p class="text-gray-300 mb-4 italic text-sm" data-translate-key="t1_text">"El nuevo sitio es rápido, moderno y hemos visto un aumento real en las consultas. ¡Totalmente recomendados!"</p><p class="font-bold brand-text text-right text-sm" data-translate-key="t1_author">- Hoffman Cosmetics</p></div></div>
-                    <div class="slide"><div class="bg-gray-800 h-full p-6 rounded-lg text-left"><p class="text-gray-300 mb-4 italic text-sm" data-translate-key="t2_text">"Profesionalismo de principio a fin. El sitio web de nuestro instituto ahora refleja la calidad de nuestra formación."</p><p class="font-bold brand-text text-right text-sm" data-translate-key="t2_author">- TechDiving</p></div></div>
-                    <div class="slide"><div class="bg-gray-800 h-full p-6 rounded-lg text-left"><p class="text-gray-300 mb-4 italic text-sm" data-translate-key="t3_text">"La web que crearon para nuestro astillero es impresionante. Comunica nuestra herencia y capacidad a la perfección."</p><p class="font-bold brand-text text-right text-sm" data-translate-key="t3_author">- Willis Custom Yachts</p></div></div>
-                    <div class="slide"><div class="bg-gray-800 h-full p-6 rounded-lg text-left"><p class="text-gray-300 mb-4 italic text-sm" data-translate-key="t4_text">"Nuestra web ahora luce increíblemente profesional. El proceso fue sencillo y el resultado final es impecable."</p><p class="font-bold brand-text text-right text-sm" data-translate-key="t4_author">- Genoa Design</p></div></div>
-                    <div class="slide"><div class="bg-gray-800 h-full p-6 rounded-lg text-left"><p class="text-gray-300 mb-4 italic text-sm" data-translate-key="t5_text">"FM Tech nos dio la presencia online que nos faltaba. Un diseño limpio que genera confianza en nuestros pacientes."</p><p class="font-bold brand-text text-right text-sm" data-translate-key="t5_author">- Oakland Smile Dental</p></div></div>
-                    <div class="slide"><div class="bg-gray-800 h-full p-6 rounded-lg text-left"><p class="text-gray-300 mb-4 italic text-sm" data-translate-key="t6_text">"Como fabricante de maquinaria pesada, necesitábamos una web que transmitiera robustez y confianza. Lo lograron con creces."</p><p class="font-bold brand-text text-right text-sm" data-translate-key="t6_author">- TBailey LLC</p></div></div>
-                    <!-- Duplicates -->
-                    <div class="slide"><div class="bg-gray-800 h-full p-6 rounded-lg text-left"><p class="text-gray-300 mb-4 italic text-sm" data-translate-key="t1_text">"El nuevo sitio es rápido, moderno y hemos visto un aumento real en las consultas. ¡Totalmente recomendados!"</p><p class="font-bold brand-text text-right text-sm" data-translate-key="t1_author">- Hoffman Cosmetics</p></div></div>
-                    <div class="slide"><div class="bg-gray-800 h-full p-6 rounded-lg text-left"><p class="text-gray-300 mb-4 italic text-sm" data-translate-key="t2_text">"Profesionalismo de principio a fin. El sitio web de nuestro instituto ahora refleja la calidad de nuestra formación."</p><p class="font-bold brand-text text-right text-sm" data-translate-key="t2_author">- TechDiving</p></div></div>
-                    <div class="slide"><div class="bg-gray-800 h-full p-6 rounded-lg text-left"><p class="text-gray-300 mb-4 italic text-sm" data-translate-key="t3_text">"La web que crearon para nuestro astillero es impresionante. Comunica nuestra herencia y capacidad a la perfección."</p><p class="font-bold brand-text text-right text-sm" data-translate-key="t3_author">- Willis Custom Yachts</p></div></div>
+                    <!-- Reseñas Actualizadas con Estrellas y nuevo texto -->
+                    <div class="slide"><div class="bg-gray-800 h-full p-6 rounded-lg text-left flex flex-col justify-between"><div class="flex mb-2 text-yellow-400">★★★★★</div><p class="text-gray-300 mb-4 italic text-sm" data-translate-key="t1_text">"El nuevo sitio es rápido y atrae a los pacientes que buscábamos. Vimos un aumento real en las reservas."</p><p class="font-bold brand-text text-right text-sm" data-translate-key="t1_author">- Hoffman Cosmetics</p></div></div>
+                    <div class="slide"><div class="bg-gray-800 h-full p-6 rounded-lg text-left flex flex-col justify-between"><div class="flex mb-2 text-yellow-400">★★★★★</div><p class="text-gray-300 mb-4 italic text-sm" data-translate-key="t2_text">"Nuestro instituto ahora tiene una web profesional que refleja nuestra calidad. El proceso fue impecable."</p><p class="font-bold brand-text text-right text-sm" data-translate-key="t2_author">- TechDiving</p></div></div>
+                    <div class="slide"><div class="bg-gray-800 h-full p-6 rounded-lg text-left flex flex-col justify-between"><div class="flex mb-2 text-yellow-400">★★★★★</div><p class="text-gray-300 mb-4 italic text-sm" data-translate-key="t3_text">"Necesitábamos un sitio que mostrara la exclusividad de nuestros yates. FM Tech capturó esa esencia a la perfección."</p><p class="font-bold brand-text text-right text-sm" data-translate-key="t3_author">- Willis Custom Yachts</p></div></div>
+                    <div class="slide"><div class="bg-gray-800 h-full p-6 rounded-lg text-left flex flex-col justify-between"><div class="flex mb-2 text-yellow-400">★★★★★</div><p class="text-gray-300 mb-4 italic text-sm" data-translate-key="t4_text">"El rediseño de nuestra web B2B fue un éxito. Ahora comunicamos nuestra capacidad de ingeniería claramente a nuevos socios."</p><p class="font-bold brand-text text-right text-sm" data-translate-key="t4_author">- Genoa Design</p></div></div>
+                    <div class="slide"><div class="bg-gray-800 h-full p-6 rounded-lg text-left flex flex-col justify-between"><div class="flex mb-2 text-yellow-400">★★★★★</div><p class="text-gray-300 mb-4 italic text-sm" data-translate-key="t5_text">"Teníamos una web anticuada. FM Tech nos dio una presencia online limpia que genera confianza y atrae pacientes locales."</p><p class="font-bold brand-text text-right text-sm" data-translate-key="t5_author">- Oakland Smile Dental</p></div></div>
+                    <div class="slide"><div class="bg-gray-800 h-full p-6 rounded-lg text-left flex flex-col justify-between"><div class="flex mb-2 text-yellow-400">★★★★★</div><p class="text-gray-300 mb-4 italic text-sm" data-translate-key="t6_text">"Como fabricante industrial, necesitábamos transmitir robustez. El sitio lo logró y mejoró nuestra imagen corporativa."</p><p class="font-bold brand-text text-right text-sm" data-translate-key="t6_author">- TBailey LLC</p></div></div>
+                    <!-- Nuevas Reseñas -->
+                    <div class="slide"><div class="bg-gray-800 h-full p-6 rounded-lg text-left flex flex-col justify-between"><div class="flex mb-2 text-yellow-400">★★★★★</div><p class="text-gray-300 mb-4 italic text-sm" data-translate-key="t7_text">"Nuestro nuevo sitio web finalmente muestra la escala y herencia de nuestro astillero. Excelente trabajo."</p><p class="font-bold brand-text text-right text-sm" data-translate-key="t7_author">- Scarano Boat Building</p></div></div>
+                    <div class="slide"><div class="bg-gray-800 h-full p-6 rounded-lg text-left flex flex-col justify-between"><div class="flex mb-2 text-yellow-400">★★★★★</div><p class="text-gray-300 mb-4 italic text-sm" data-translate-key="t8_text">"El sitio funciona como un catálogo perfecto de nuestros diseños. Las ventas de planos han aumentado."</p><p class="font-bold brand-text text-right text-sm" data-translate-key="t8_author">- Devlin Designing Boats</p></div></div>
+                    <div class="slide"><div class="bg-gray-800 h-full p-6 rounded-lg text-left flex flex-col justify-between"><div class="flex mb-2 text-yellow-400">★★★★★</div><p class="text-gray-300 mb-4 italic text-sm" data-translate-key="t9_text">"El sitio web corporativo transmite la confianza y la escala que necesitábamos para nuestros proyectos navales."</p><p class="font-bold brand-text text-right text-sm" data-translate-key="t9_author">- Chesapeake Shipbuilding</p></div></div>
+                    
+                    <!-- Duplicados para el bucle infinito (Ahora 9 duplicados) -->
+                    <div class="slide"><div class="bg-gray-800 h-full p-6 rounded-lg text-left flex flex-col justify-between"><div class="flex mb-2 text-yellow-400">★★★★★</div><p class="text-gray-300 mb-4 italic text-sm" data-translate-key="t1_text">"El nuevo sitio es rápido y atrae a los pacientes que buscábamos. Vimos un aumento real en las reservas."</p><p class="font-bold brand-text text-right text-sm" data-translate-key="t1_author">- Hoffman Cosmetics</p></div></div>
+                    <div class="slide"><div class="bg-gray-800 h-full p-6 rounded-lg text-left flex flex-col justify-between"><div class="flex mb-2 text-yellow-400">★★★★★</div><p class="text-gray-300 mb-4 italic text-sm" data-translate-key="t2_text">"Nuestro instituto ahora tiene una web profesional que refleja nuestra calidad. El proceso fue impecable."</p><p class="font-bold brand-text text-right text-sm" data-translate-key="t2_author">- TechDiving</p></div></div>
+                    <div class="slide"><div class="bg-gray-800 h-full p-6 rounded-lg text-left flex flex-col justify-between"><div class="flex mb-2 text-yellow-400">★★★★★</div><p class="text-gray-300 mb-4 italic text-sm" data-translate-key="t3_text">"Necesitábamos un sitio que mostrara la exclusividad de nuestros yates. FM Tech capturó esa esencia a la perfección."</p><p class="font-bold brand-text text-right text-sm" data-translate-key="t3_author">- Willis Custom Yachts</p></div></div>
+                    <div class="slide"><div class="bg-gray-800 h-full p-6 rounded-lg text-left flex flex-col justify-between"><div class="flex mb-2 text-yellow-400">★★★★★</div><p class="text-gray-300 mb-4 italic text-sm" data-translate-key="t4_text">"El rediseño de nuestra web B2B fue un éxito. Ahora comunicamos nuestra capacidad de ingeniería claramente a nuevos socios."</p><p class="font-bold brand-text text-right text-sm" data-translate-key="t4_author">- Genoa Design</p></div></div>
+                    <div class="slide"><div class="bg-gray-800 h-full p-6 rounded-lg text-left flex flex-col justify-between"><div class="flex mb-2 text-yellow-400">★★★★★</div><p class="text-gray-300 mb-4 italic text-sm" data-translate-key="t5_text">"Teníamos una web anticuada. FM Tech nos dio una presencia online limpia que genera confianza y atrae pacientes locales."</p><p class="font-bold brand-text text-right text-sm" data-translate-key="t5_author">- Oakland Smile Dental</p></div></div>
+                    <div class="slide"><div class="bg-gray-800 h-full p-6 rounded-lg text-left flex flex-col justify-between"><div class="flex mb-2 text-yellow-400">★★★★★</div><p class="text-gray-300 mb-4 italic text-sm" data-translate-key="t6_text">"Como fabricante industrial, necesitábamos transmitir robustez. El sitio lo logró y mejoró nuestra imagen corporativa."</p><p class="font-bold brand-text text-right text-sm" data-translate-key="t6_author">- TBailey LLC</p></div></div>
+                    <div class="slide"><div class="bg-gray-800 h-full p-6 rounded-lg text-left flex flex-col justify-between"><div class="flex mb-2 text-yellow-400">★★★★★</div><p class="text-gray-300 mb-4 italic text-sm" data-translate-key="t7_text">"Nuestro nuevo sitio web finalmente muestra la escala y herencia de nuestro astillero. Excelente trabajo."</p><p class="font-bold brand-text text-right text-sm" data-translate-key="t7_author">- Scarano Boat Building</p></div></div>
+                    <div class="slide"><div class="bg-gray-800 h-full p-6 rounded-lg text-left flex flex-col justify-between"><div class="flex mb-2 text-yellow-400">★★★★★</div><p class="text-gray-300 mb-4 italic text-sm" data-translate-key="t8_text">"El sitio funciona como un catálogo perfecto de nuestros diseños. Las ventas de planos han aumentado."</p><p class="font-bold brand-text text-right text-sm" data-translate-key="t8_author">- Devlin Designing Boats</p></div></div>
+                    <div class="slide"><div class="bg-gray-800 h-full p-6 rounded-lg text-left flex flex-col justify-between"><div class="flex mb-2 text-yellow-400">★★★★★</div><p class="text-gray-300 mb-4 italic text-sm" data-translate-key="t9_text">"El sitio web corporativo transmite la confianza y la escala que necesitábamos para nuestros proyectos navales."</p><p class="font-bold brand-text text-right text-sm" data-translate-key="t9_author">- Chesapeake Shipbuilding</p></div></div>
                 </div>
             </div>
         </section>
 
+        <!-- SECCIÓN DE FAQs -->
+        <section id="faq" class="py-20 dark-bg">
+            <div class="container mx-auto px-6 max-w-4xl">
+                <div class="text-center reveal reveal-up mb-16">
+                    <h2 data-translate-key="faq_title" class="text-3xl md:text-4xl font-bold text-white">Frequently Asked Questions</h2>
+                    <p data-translate-key="faq_subtitle" class="text-md text-gray-400 mt-2">Find answers to common questions about our process.</p>
+                </div>
+                <div class="space-y-6 reveal reveal-up">
+                    <!-- FAQ 1 -->
+                    <div class="faq-item">
+                        <details class="p-6 cursor-pointer">
+                            <summary class="font-semibold text-lg text-white brand-text" data-translate-key="faq1_q">What do I need to provide to start my website?</summary>
+                            <p class="text-gray-400 mt-4" data-translate-key="faq1_a">You need to provide your logo (if you have one), the text content for the pages, and any specific images you want to use. If you don't have images, we can use high-quality stock photos to match your brand.</p>
+                        </details>
+                    </div>
+                    <!-- FAQ 2 -->
+                    <div class="faq-item">
+                        <details class="p-6 cursor-pointer">
+                            <summary class="font-semibold text-lg text-white brand-text" data-translate-key="faq2_q">Is the domain and hosting really free?</summary>
+                            <p class="text-gray-400 mt-4" data-translate-key="faq2_a">Yes, all our plans include professional web hosting and one domain name (like .com or .net) free for the first year. After the first year, standard renewal fees apply, which we will inform you about in advance.</p>
+                        </details>
+                    </div>
+                    <!-- FAQ 3 -->
+                    <div class="faq-item">
+                        <details class="p-6 cursor-pointer">
+                            <summary class="font-semibold text-lg text-white brand-text" data-translate-key="faq3_q">What does 'E-commerce Ready' mean?</summary>
+                            <p class="text-gray-400 mt-4" data-translate-key="faq3_a">The Premium plan includes setting up a product showcase, integrating a shopping cart, and connecting a payment gateway like PayPal. This allows you to start selling products or services directly from your site.</p>
+                        </details>
+                    </div>
+                    <!-- FAQ 4 -->
+                    <div class="faq-item">
+                        <details class="p-6 cursor-pointer">
+                            <summary class="font-semibold text-lg text-white brand-text" data-translate-key="faq4_q">What if I need changes after the site is live?</summary>
+                            <p class="text-gray-400 mt-4" data-translate-key="faq4_a">For minor changes, we're here to help. For frequent updates, we highly recommend our monthly maintenance add-on, which gives you up to 4 hours of professional support for any modifications you need.</p>
+                        </details>
+                    </div>
+                     <!-- FAQ 5 (Nueva) -->
+                    <div class="faq-item">
+                        <details class="p-6 cursor-pointer">
+                            <summary class="font-semibold text-lg text-white brand-text" data-translate-key="faq5_q">How does the payment process work?</summary>
+                            <p class="text-gray-400 mt-4" data-translate-key="faq5_a">We accept payments in USD via PayPal directly on our site for your convenience. For payments in COP, you can select your plan and click "Comenzar" (when in Spanish) to contact us and arrange the payment through other methods like bank transfer.</p>
+                        </details>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Blog (ACTUALIZADA con nuevos artículos) -->
         <section id="blog" class="py-20">
             <div class="container mx-auto px-6 text-center">
                 <div class="reveal reveal-up mb-16">
-                    <h2 data-translate-key="blog_title" class="text-3xl md:text-4xl font-bold text-white">Impulsa tu Negocio: Consejos de Marketing</h2>
-                    <p data-translate-key="blog_subtitle" class="text-md text-gray-400 mt-2">Pequeñas guías y artículos para ayudarte a crecer en el mundo digital.</p>
+                    <h2 data-translate-key="blog_title" class="text-3xl md:text-4xl font-bold text-white">Boost Your Business: Digital Insights</h2>
+                    <p data-translate-key="blog_subtitle" class="text-md text-gray-400 mt-2">Guides and articles to help you grow in the digital world.</p>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div class="bg-gray-800 p-8 rounded-lg text-left reveal reveal-up"><h3 data-translate-key="b1_title" class="text-xl font-bold mb-2 brand-text">5 Razones por las que tu Negocio Necesita una Web en 2025</h3><p data-translate-key="b1_desc" class="text-gray-400 mb-4">Descubre cómo una página web profesional puede aumentar tu visibilidad, credibilidad y ventas.</p><a href="blog.html#post1" data-translate-key="read_more" class="font-semibold text-white hover:brand-text">Leer más &rarr;</a></div>
-                    <div class="bg-gray-800 p-8 rounded-lg text-left reveal reveal-up" style="transition-delay: 200ms;"><h3 data-translate-key="b2_title" class="text-xl font-bold mb-2 brand-text">Google Mi Negocio: Tu Mejor Aliado Local</h3><p data-translate-key="b2_desc" class="text-gray-400 mb-4">Aprende a configurar y optimizar tu perfil para aparecer primero en las búsquedas locales y en Google Maps.</p><a href="blog.html#post2" data-translate-key="read_more" class="font-semibold text-white hover:brand-text">Leer más &rarr;</a></div>
-                    <div class="bg-gray-800 p-8 rounded-lg text-left reveal reveal-up" style="transition-delay: 400ms;"><h3 data-translate-key="b3_title" class="text-xl font-bold mb-2 brand-text">Cómo Usar WhatsApp para Vender Más</h3><p data-translate-key="b3_desc" class="text-gray-400 mb-4">Transforma tu WhatsApp en una máquina de ventas con catálogos, respuestas rápidas y un servicio al cliente excepcional.</p><a href="blog.html#post3" data-translate-key="read_more" class="font-semibold text-white hover:brand-text">Leer más &rarr;</a></div>
+                    <!-- Artículo 1 (Nuevo sobre IA) -->
+                    <div class="bg-gray-800 p-8 rounded-lg text-left reveal reveal-up">
+                        <h3 data-translate-key="b4_title" class="text-xl font-bold mb-2 brand-text">AI in Web Design: The New Frontier</h3>
+                        <p data-translate-key="b4_desc" class="text-gray-400 mb-4">Learn how Artificial Intelligence is personalizing user experiences and automating web development.</p>
+                        <a href="blog.html#post4" data-translate-key="read_more" class="font-semibold text-white hover:brand-text">Read more &rarr;</a>
+                    </div>
+                    <!-- Artículo 2 (Nuevo sobre SEO) -->
+                    <div class="bg-gray-800 p-8 rounded-lg text-left reveal reveal-up" style="transition-delay: 200ms;">
+                        <h3 data-translate-key="b5_title" class="text-xl font-bold mb-2 brand-text">Beyond Keywords: AI-Powered SEO</h3>
+                        <p data-translate-key="b5_desc" class="text-gray-400 mb-4">Discover how AI is changing SEO, focusing on user intent and semantic search to rank higher.</p>
+                        <a href="blog.html#post5" data-translate-key="read_more" class="font-semibold text-white hover:brand-text">Read more &rarr;</a>
+                    </div>
+                    <!-- Artículo 3 (Existente) -->
+                    <div class="bg-gray-800 p-8 rounded-lg text-left reveal reveal-up" style="transition-delay: 400ms;">
+                        <h3 data-translate-key="b1_title" class="text-xl font-bold mb-2 brand-text">5 Reasons Your Business Needs a Website in 2025</h3>
+                        <p data-translate-key="b1_desc" class="text-gray-400 mb-4">Discover how a professional website can increase your visibility, credibility, and sales.</p>
+                        <a href="blog.html#post1" data-translate-key="read_more" class="font-semibold text-white hover:brand-text">Read more &rarr;</a>
+                    </div>
+                </div>
+                 <div class="text-center mt-12 reveal reveal-up">
+                    <a href="blog.html" data-translate-key="view_all_posts" class="action-button text-lg">View All Posts</a>
                 </div>
             </div>
         </section>
 
+        <!-- Sección de Contacto (Existente) -->
         <section id="contacto" class="py-20">
             <div class="container mx-auto px-6 text-center reveal reveal-up">
-                 <h2 data-translate-key="contact_title" class="text-3xl font-bold mb-4 text-white">¿Listo para llevar tu negocio al siguiente nivel?</h2>
-                 <p data-translate-key="contact_subtitle" class="text-gray-400 mb-8 max-w-2xl mx-auto">Hablemos de tu proyecto. Ofrecemos una asesoría gratuita para entender tus necesidades y proponerte la mejor solución digital.</p>
+                 <h2 data-translate-key="contact_title" class="text-3xl font-bold mb-4 text-white">Ready to take your business to the next level?</h2>
+                 <p data-translate-key="contact_subtitle" class="text-gray-400 mb-8 max-w-2xl mx-auto">Let's talk about your project. We offer a free consultation to understand your needs and propose the best digital solution.</p>
                  <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6">
-                    <a href="https://wa.me/573044301112" target="_blank" data-translate-key="contact_cta1" class="action-button">Chatear por WhatsApp</a>
-                    <a href="mailto:frankmercadotech@gmail.com" data-translate-key="contact_cta2" class="action-button secondary-button">Enviar un Correo</a>
+                    <a href="https://wa.me/573044301112" target="_blank" data-translate-key="contact_cta1" class="action-button">Chat on WhatsApp</a>
+                    <a href="mailto:frankmercadotech@gmail.com" data-translate-key="contact_cta2" class="action-button secondary-button">Send an Email</a>
                 </div>
             </div>
         </section>
@@ -210,22 +528,48 @@
     <footer class="bg-black text-gray-400 py-16 border-t border-gray-800">
         <div class="container mx-auto px-6 text-center text-sm flex flex-col items-center reveal reveal-up">
              <div class="flex flex-wrap justify-center gap-x-6 gap-y-2 mb-8">
-                <a href="#soluciones" data-translate-key="nav_solutions" class="hover:text-white">Soluciones</a>
-                <a href="portfolio.html" data-translate-key="nav_portfolio" class="hover:text-white">Portafolio</a>
-                <a href="#clientes" data-translate-key="nav_clients" class="hover:text-white">Clientes</a>
-                <a href="#blog" data-translate-key="nav_blog" class="hover:text-white">Consejos</a>
-                <a href="#contacto" data-translate-key="nav_contact" class="hover:text-white">Contacto</a>
+                <a href="#soluciones" data-translate-key="nav_solutions" class="hover:text-white">Solutions</a>
+                <a href="#pricing" data-translate-key="nav_pricing" class="hover:text-white">Pricing</a>
+                <a href="portfolio.html" data-translate-key="nav_portfolio" class="hover:text-white">Portfolio</a>
+                <a href="#clientes" data-translate-key="nav_clients" class="hover:text-white">Clients</a>
+                <a href="#faq" data-translate-key="nav_faq" class="hover:text-white">FAQs</a>
+                <a href="blog.html" data-translate-key="nav_blog" class="hover:text-white">Blog</a>
+                <a href="#contacto" data-translate-key="nav_contact" class="hover:text-white">Contact</a>
             </div>
-             <div class="mb-6 flex justify-center gap-6"><a href="https://www.instagram.com/frankmercadotech/" target="_blank" class="transition-transform duration-300 hover:scale-110"><img src="images/instagram.png" alt="Instagram FM Tech" class="w-10 h-10"></a></div>
+            <!-- Iconos de Redes Sociales ACTUALIZADOS -->
+            <!-- Iconos de Redes Sociales ACTUALIZADOS (sin rounded-full/rounded-lg) -->
+            <div class="mb-6 flex justify-center gap-6">
+                <a href="https://wa.me/573044301112" target="_blank" class="transition-transform duration-300 hover:scale-110">
+                    <img src="images/whatsapp-logo.png" alt="WhatsApp FM Tech" class="w-10 h-10">
+                </a>
+                <a href="https://www.instagram.com/frankmercadotech/" target="_blank" class="transition-transform duration-300 hover:scale-110">
+                    <img src="images/instagram-logo.png" alt="Instagram FM Tech" class="w-10 h-10">
+                </a>
+                <a href="https://www.facebook.com/profile.php?id=61581838763338" target="_blank" class="transition-transform duration-300 hover:scale-110">
+                    <img src="images/logo-facebook.png" alt="Facebook FM Tech" class="w-10 h-10">
+                </a>
+                <a href="https://x.com/fmtechcol" target="_blank" class="transition-transform duration-300 hover:scale-110">
+                    <img src="images/X.png" alt="X (Twitter) FM Tech" class="w-10 h-10">
+                </a>
+            </div>
             <p class="mb-4"><strong>Email:</strong> <a href="mailto:frankmercadotech@gmail.com" class="hover:text-white">frankmercadotech@gmail.com</a></p>
-            <p>&copy; 2025 FM Tech. <span data-translate-key="footer_rights">Todos los derechos reservados.</span></p>
+            <!-- Enlaces a Nuevas Páginas Legales -->
+            <div class="flex justify-center gap-x-4 gap-y-2 mb-4 text-xs">
+                <a href="privacy.html" data-translate-key="footer_privacy" class="hover:text-white">Privacy Policy</a>
+                <a href="terms.html" data-translate-key="footer_terms" class="hover:text-white">Terms & Conditions</a>
+            </div>
+            <p>&copy; 2025 FM Tech. <span data-translate-key="footer_rights">All rights reserved.</span></p>
         </div>
     </footer>
 
     <script>
+        // CLIENT ID de PayPal - REEMPLAZA ESTO
+        const PAYPAL_CLIENT_ID = "YOUR_CLIENT_ID_GOES_HERE";
+
+        // Objeto de Traducciones Actualizado
         const translations = {
             en: {
-                nav_solutions: "Solutions", nav_portfolio: "Portfolio", nav_clients: "Clients", nav_blog: "Tips", nav_contact: "Contact",
+                nav_solutions: "Solutions", nav_pricing: "Pricing", nav_portfolio: "Portfolio", nav_clients: "Clients", nav_faq: "FAQs", nav_blog: "Blog", nav_contact: "Contact",
                 hero_title: "The Website Your Business Needs to <span class='brand-text'>Grow</span>",
                 hero_subtitle: "We design professional and effective websites for businesses, helping you stand out and attract more customers.",
                 hero_cta1: "See Our Work", hero_cta2: "Request Free Consultation",
@@ -234,12 +578,48 @@
                 why_us_item2_title: "Speed & Performance", why_us_item2_desc: "Websites optimized to load quickly, improving user experience and your Google ranking.",
                 why_us_item3_title: "Conversion-Focused", why_us_item3_desc: "We design every element with one goal: to turn visitors into customers and measurably increase your sales.",
                 why_us_item4_title: "Ongoing Support", why_us_item4_desc: "We don't disappear after launch. We offer support and advice so your site continues to grow with you.",
+                
+                pricing_title: "Our Plans",
+                pricing_subtitle: "Choose the perfect plan to get your business online. Special promotion!",
+                pricing_discount: "-30%",
+                
+                countdown_title: "Offer ends in:",
+                countdown_days: "Days", countdown_hours: "Hours", countdown_minutes: "Minutes", countdown_seconds: "Seconds",
+
+                plan_popular: "Most Popular",
+                plan_cta: "Get Started",
+                plan_addon_text: "Add",
+                plan_addon_price: "$20/mo",
+                plan_addon_desc: "(4hrs maintenance)",
+                
+                plan_basic_title: "Basic",
+                plan_basic_price: `$180 <span class="text-gray-400 text-base">USD</span>`,
+                plan_basic_price_before: "Before: $234 USD",
+                plan_basic_feat1: "1 Landing Page",
+                plan_basic_feat2: "3 Days Delivery",
+                
+                plan_standard_title: "Standard",
+                plan_standard_price: `$350 <span class="text-gray-400 text-base">USD</span>`,
+                plan_standard_price_before: "Before: $455 USD",
+                plan_standard_feat1: "Up to 4 Pages",
+                plan_standard_feat2: "5 Days Delivery",
+                
+                plan_premium_title: "Premium",
+                plan_premium_price: `$500 <span class="text-gray-400 text-base">USD</span>`,
+                plan_premium_price_before: "Before: $650 USD",
+                plan_premium_feat1: "E-commerce Ready",
+                plan_premium_feat2: "8 Days Delivery",
+                
+                plan_all_feat1: "Free Domain (1 Year)",
+                plan_all_feat2: "Free Hosting (1 Year)",
+                plan_all_feat3: "Responsive Design",
+                plan_all_feat4: "Social Media Integration",
+                plan_all_feat5: "Google Maps Integration",
+
                 projects_title: "Recent Projects", projects_subtitle: "A showcase of our commitment to quality and design.",
                 view_project_btn: "View Website", view_full_portfolio: "View Full Portfolio",
                 project_cosmetics_title: "Hoffman Cosmetics", project_cosmetics_desc: "Luxury web design for a cosmetic dentistry clinic in Chicago, focusing on elegance and a premium user experience.",
                 project_diving_title: "TechDiving", project_diving_desc: "Website for a commercial diving institute, showcasing its history, courses, and career opportunities for future professionals.",
-                project_yachts_title: "Willis Custom Yachts", project_yachts_desc: "Website for a builder of custom sportfishing yachts, showcasing the craftsmanship and precision engineering of their vessels.",
-                project_genoa_title: "Genoa Design", project_genoa_desc: "Corporate web for a naval design and engineering firm, focused on innovation in 3D modeling and production services.",
                 clients_title: "What Our Clients Say", clients_subtitle: "Trust and results are our best introduction.",
                 t1_text: `"The new site is fast, modern, and we've seen a real increase in inquiries. Highly recommended!"`, t1_author: "- Hoffman Cosmetics",
                 t2_text: `"Professionalism from start to finish. Our institute's website now reflects the quality of our training."`, t2_author: "- TechDiving",
@@ -247,17 +627,38 @@
                 t4_text: `"Our website now looks incredibly professional. The process was simple, and the final result is flawless."`, t4_author: "- Genoa Design",
                 t5_text: `"FM Tech gave us the online presence we were missing. A clean design that builds trust with our patients."`, t5_author: "- Oakland Smile Dental",
                 t6_text: `"As a heavy machinery manufacturer, we needed a site that conveyed strength and reliability. They nailed it."`, t6_author: "- TBailey LLC",
-                blog_title: "Boost Your Business: Marketing Tips", blog_subtitle: "Short guides and articles to help you grow in the digital world.",
+                t7_text: `"Our new website finally shows the scale and heritage of our shipyard. Excellent work."`, t7_author: "- Scarano Boat Building",
+                t8_text: `"The site works as a perfect catalog for our designs. Plan sales have increased."`, t8_author: "- Devlin Designing Boats",
+                t9_text: `"The corporate website conveys the trust and scale we needed for our naval projects."`, t9_author: "- Chesapeake Shipbuilding",
+
+                faq_title: "Frequently Asked Questions",
+                faq_subtitle: "Find answers to common questions about our process.",
+                faq1_q: "What do I need to provide to start my website?",
+                faq1_a: "You need to provide your logo (if you have one), the text content for the pages, and any specific images you want to use. If you don't have images, we can use high-quality stock photos to match your brand.",
+                faq2_q: "Is the domain and hosting really free?",
+                faq2_a: "Yes, all our plans include professional web hosting and one domain name (like .com or .net) free for the first year. After the first year, standard renewal fees apply, which we will inform you about in advance.",
+                faq3_q: "What does 'E-commerce Ready' mean?",
+                faq3_a: "The Premium plan includes setting up a product showcase, integrating a shopping cart, and connecting a payment gateway like PayPal. This allows you to start selling products or services directly from your site.",
+                faq4_q: "What if I need changes after the site is live?",
+                faq4_a: "For minor changes, we're here to help. For frequent updates, we highly recommend our monthly maintenance add-on, which gives you up to 4 hours of professional support for any modifications you need.",
+                faq5_q: "How does the payment process work?",
+                faq5_a: "We accept payments in USD via PayPal directly on our site for your convenience. For payments in COP, you can select your plan and click 'Get Started' (when in Spanish) to contact us and arrange the payment through other methods like bank transfer.",
+
+                blog_title: "Boost Your Business: Digital Insights", blog_subtitle: "Guides and articles to help you grow in the digital world.",
                 b1_title: "5 Reasons Your Business Needs a Website in 2025", b1_desc: "Discover how a professional website can increase your visibility, credibility, and sales.",
                 b2_title: "Google Business Profile: Your Best Local Ally", b2_desc: "Learn how to set up and optimize your profile to appear first in local searches and on Google Maps.",
-                b3_title: "How to Use WhatsApp to Sell More and Better", b3_desc: "Turn your WhatsApp into a sales machine with catalogs, quick replies, and exceptional customer service.",
+                b3_title: "How to Use WhatsApp to Sell More", b3_desc: "Turn your WhatsApp into a sales machine with catalogs, quick replies, and exceptional customer service.",
+                b4_title: "AI in Web Design: The New Frontier", b4_desc: "Learn how Artificial Intelligence is personalizing user experiences and automating web development.",
+                b5_title: "Beyond Keywords: AI-Powered SEO", b5_desc: "Discover how AI is changing SEO, focusing on user intent and semantic search to rank higher.",
                 read_more: "Read more &rarr;",
+                view_all_posts: "View All Posts",
                 contact_title: "Ready to Take Your Business to the Next Level?", contact_subtitle: "Let's talk about your project. We offer a free consultation to understand your needs and propose the best digital solution.",
                 contact_cta1: "Chat on WhatsApp", contact_cta2: "Send an Email",
+                footer_privacy: "Privacy Policy", footer_terms: "Terms & Conditions",
                 footer_rights: "All rights reserved."
             },
             es: {
-                nav_solutions: "Soluciones", nav_portfolio: "Portafolio", nav_clients: "Clientes", nav_blog: "Consejos", nav_contact: "Contacto",
+                nav_solutions: "Soluciones", nav_pricing: "Planes", nav_portfolio: "Portafolio", nav_clients: "Clientes", nav_faq: "FAQs", nav_blog: "Blog", nav_contact: "Contacto",
                 hero_title: "La Página Web que tu Negocio Necesita para <span class='brand-text'>Crecer</span>",
                 hero_subtitle: "Diseñamos sitios web profesionales y efectivos para negocios, ayudándote a destacar y atraer más clientes.",
                 hero_cta1: "Ver Nuestro Trabajo", hero_cta2: "Solicitar Asesoría Gratuita",
@@ -266,26 +667,80 @@
                 why_us_item2_title: "Velocidad y Rendimiento", why_us_item2_desc: "Sitios web optimizados para cargar rápidamente, mejorando la experiencia del usuario y tu posicionamiento en Google.",
                 why_us_item3_title: "Enfoque en Conversión", why_us_item3_desc: "Diseñamos cada elemento con un objetivo claro: convertir visitantes en clientes y aumentar tus ventas de manera medible.",
                 why_us_item4_title: "Soporte Continuo", why_us_item4_desc: "No desaparecemos tras el lanzamiento. Ofrecemos soporte y asesoría para que tu sitio siga creciendo contigo.",
+
+                pricing_title: "Nuestros Planes",
+                pricing_subtitle: "Elige el plan perfecto para lanzar tu negocio online. ¡Promoción especial!",
+                pricing_discount: "-30%",
+                
+                countdown_title: "La oferta termina en:",
+                countdown_days: "Días", countdown_hours: "Horas", countdown_minutes: "Minutos", countdown_seconds: "Segundos",
+                
+                plan_popular: "Más Popular",
+                plan_cta: "Comenzar",
+                plan_addon_text: "Añadir",
+                plan_addon_price: "$80.000/mes",
+                plan_addon_desc: "(4h de mantenimiento)",
+
+                plan_basic_title: "Basic",
+                plan_basic_price: `$720.000 <span class="text-gray-400 text-base">COP</span>`,
+                plan_basic_price_before: "Antes: $936.000 COP",
+                plan_basic_feat1: "1 Landing Page",
+                plan_basic_feat2: "Entrega en 3 Días",
+                
+                plan_standard_title: "Standard",
+                plan_standard_price: `$1.400.000 <span class="text-gray-400 text-base">COP</span>`,
+                plan_standard_price_before: "Antes: $1.820.000 COP",
+                plan_standard_feat1: "Hasta 4 Páginas",
+                plan_standard_feat2: "Entrega en 5 Días",
+                
+                plan_premium_title: "Premium",
+                plan_premium_price: `$2.000.000 <span class="text-gray-400 text-base">COP</span>`,
+                plan_premium_price_before: "Antes: $2.600.000 COP",
+                plan_premium_feat1: "Listo para E-commerce",
+                plan_premium_feat2: "Entrega en 8 Días",
+
+                plan_all_feat1: "Dominio Gratis (1 Año)",
+                plan_all_feat2: "Hosting Gratis (1 Año)",
+                plan_all_feat3: "Diseño Adaptable",
+                plan_all_feat4: "Integración Redes Sociales",
+                plan_all_feat5: "Integración Google Maps",
+
                 projects_title: "Proyectos Recientes", projects_subtitle: "Una muestra de nuestro compromiso con la calidad y el diseño.",
                 view_project_btn: "Ver Sitio Web", view_full_portfolio: "Ver Portafolio Completo",
                 project_cosmetics_title: "Hoffman Cosmetics", project_cosmetics_desc: "Diseño web de lujo para una clínica de odontología cosmética en Chicago, enfocado en la elegancia y la experiencia de usuario premium.",
                 project_diving_title: "TechDiving", project_diving_desc: "Sitio web para un instituto de buceo comercial, presentando su historia, cursos y oportunidades de carrera para futuros profesionales.",
-                project_yachts_title: "Willis Custom Yachts", project_yachts_desc: "Sitio web para un constructor de yates de pesca deportiva personalizados, mostrando la artesanía y la ingeniería de precisión de sus embarcaciones.",
-                project_genoa_title: "Genoa Design", project_genoa_desc: "Web corporativa para una firma de diseño e ingeniería naval, enfocada en la innovación en modelado 3D y servicios de producción.",
                 clients_title: "Lo que Dicen Nuestros Clientes", clients_subtitle: "La confianza y los resultados son nuestra mejor carta de presentación.",
                 t1_text: `"El nuevo sitio es rápido, moderno y hemos visto un aumento real en las consultas. ¡Totalmente recomendados!"`, t1_author: "- Hoffman Cosmetics",
-                t2_text: `"Profesionalismo de principio a fin. El sitio web de nuestro instituto ahora refleja la calidad de nuestra formación."`, t2_author: "- TechDiving",
-                t3_text: `"La web que crearon para nuestro astillero es impresionante. Comunica nuestra herencia y capacidad a la perfección."`, t3_author: "- Willis Custom Yachts",
-                t4_text: `"Nuestra web ahora luce increíblemente profesional. El proceso fue sencillo y el resultado final es impecable."`, t4_author: "- Genoa Design",
-                t5_text: `"FM Tech nos dio la presencia online que nos faltaba. Un diseño limpio que genera confianza en nuestros pacientes."`, t5_author: "- Oakland Smile Dental",
-                t6_text: `"Como fabricante de maquinaria pesada, necesitábamos una web que transmitiera robustez y confianza. Lo lograron con creces."`, t6_author: "- TBailey LLC",
-                blog_title: "Impulsa tu Negocio: Consejos de Marketing", blog_subtitle: "Pequeñas guías y artículos para ayudarte a crecer en el mundo digital.",
+                t5_text: `"Teníamos una web anticuada. FM Tech nos dio una presencia online limpia que genera confianza y atrae pacientes locales."`, t5_author: "- Oakland Smile Dental",
+                t6_text: `"Como fabricante industrial, necesitábamos transmitir robustez. El sitio lo logró y mejoró nuestra imagen corporativa."`, t6_author: "- TBailey LLC",
+                t7_text: `"Nuestro nuevo sitio web finalmente muestra la escala y herencia de nuestro astillero. Excelente trabajo."`, t7_author: "- Scarano Boat Building",
+                t8_text: `"El sitio funciona como un catálogo perfecto de nuestros diseños. Las ventas de planos han aumentado."`, t8_author: "- Devlin Designing Boats",
+                t9_text: `"El sitio web corporativo transmite la confianza y la escala que necesitábamos para nuestros proyectos navales."`, t9_author: "- Chesapeake Shipbuilding",
+
+                faq_title: "Preguntas Frecuentes",
+                faq_subtitle: "Encuentra respuestas a preguntas comunes sobre nuestro proceso.",
+                faq1_q: "¿Qué necesito entregar para comenzar mi sitio web?",
+                faq1_a: "Necesitas proporcionar tu logo (si tienes), el contenido de texto para las páginas y any imagen específica que quieras usar. Si no tienes imágenes, podemos usar fotos de stock de alta calidad que se ajusten a tu marca.",
+                faq2_q: "¿El dominio y el hosting son realmente gratis?",
+                faq2_a: "Sí, todos nuestros planes incluyen hosting web profesional y un nombre de dominio (como .com o .net) gratis durante el primer año. Después del primer año, se aplican tarifas de renovación estándar, de las cuales te informaremos con anticipación.",
+                faq3_q: "¿Qué significa 'Listo para E-commerce'?",
+                faq3_a: "El plan Premium incluye la configuración de una vitrina de productos, la integración de un carrito de compras y la conexión a una pasarela de pago como PayPal. Esto te permite comenzar a vender productos o servicios directamente desde tu sitio.",
+                faq4_q: "¿Qué pasa si necesito cambios después de que el sitio esté publicado?",
+                faq4_a: "Para cambios menores, estamos aquí para ayudarte. Para actualizaciones frecuentes, recomendamos nuestro complemento de mantenimiento mensual, que te brinda hasta 4 horas de soporte profesional para cualquier modificación que necesites.",
+                faq5_q: "¿Cómo funciona el proceso de pago?",
+                faq5_a: "Aceptamos pagos en USD a través de PayPal directamente en nuestro sitio para tu comodidad. Para pagos en COP, puedes seleccionar tu plan y hacer clic en 'Comenzar' para contactarnos y organizar el pago por otros medios como transferencia bancaria.",
+
+                blog_title: "Impulsa tu Negocio: Ideas Digitales", blog_subtitle: "Guías y artículos para ayudarte a crecer en el mundo digital.",
                 b1_title: "5 Razones por las que tu Negocio Necesita una Web en 2025", b1_desc: "Descubre cómo una página web profesional puede aumentar tu visibilidad, credibilidad y ventas.",
                 b2_title: "Google Mi Negocio: Tu Mejor Aliado Local", b2_desc: "Aprende a configurar y optimizar tu perfil para aparecer primero en las búsquedas locales y en Google Maps.",
                 b3_title: "Cómo Usar WhatsApp para Vender Más", b3_desc: "Transforma tu WhatsApp en una máquina de ventas con catálogos, respuestas rápidas y un servicio al cliente excepcional.",
+                b4_title: "IA en Diseño Web: La Nueva Frontera", b4_desc: "Aprende cómo la Inteligencia Artificial está personalizando experiencias de usuario y automatizando el desarrollo web.",
+                b5_title: "Más Allá de las Keywords: SEO con IA", b5_desc: "Descubre cómo la IA está cambiando el SEO, enfocándose en la intención del usuario y la búsqueda semántica.",
                 read_more: "Leer más &rarr;",
+                view_all_posts: "Ver Todos los Artículos",
                 contact_title: "¿Listo para llevar tu negocio al siguiente nivel?", contact_subtitle: "Hablemos de tu proyecto. Ofrecemos una asesoría gratuita para entender tus necesidades y proponerte la mejor solución digital.",
                 contact_cta1: "Chatear por WhatsApp", contact_cta2: "Enviar un Correo",
+                footer_privacy: "Política de Privacidad", footer_terms: "Términos y Condiciones",
                 footer_rights: "Todos los derechos reservados."
             }
         };
@@ -293,36 +748,231 @@
         function setLanguage(lang) {
             localStorage.setItem('preferredLang', lang);
             document.documentElement.lang = lang;
+            
+            // Ocultar/Mostrar botones de PayPal vs. Botones de CTA
+            const paypalButtons = document.querySelectorAll('.paypal-button-container');
+            const ctaButtons = document.querySelectorAll('.action-button[id^="cta-button-"]');
+            
+            if (lang === 'es') {
+                paypalButtons.forEach(btn => btn.classList.add('hidden'));
+                ctaButtons.forEach(btn => btn.classList.remove('hidden'));
+            } else {
+                paypalButtons.forEach(btn => btn.classList.remove('hidden'));
+                ctaButtons.forEach(btn => btn.classList.add('hidden'));
+            }
+
             document.querySelectorAll('[data-translate-key]').forEach(el => {
                 const key = el.getAttribute('data-translate-key');
                 if (translations[lang] && translations[lang][key]) {
                     el.innerHTML = translations[lang][key];
                 }
             });
+
             document.querySelectorAll('.lang-switcher a').forEach(a => a.classList.remove('active'));
-            document.querySelector(`#lang-${lang}`).classList.add('active');
-            if(document.querySelector(`#lang-${lang}-mobile`)) {
-                 document.querySelector(`#lang-${lang}-mobile`).classList.add('active');
-            }
+            document.querySelector(`#lang-${lang}`)?.classList.add('active');
+            document.querySelector(`#lang-${lang}-mobile`)?.classList.add('active');
         }
+
+        // FUNCIÓN: Contador Regresivo
+        function startCountdown() {
+            const countdownDaysEl = document.getElementById('countdown-days');
+            const countdownHoursEl = document.getElementById('countdown-hours');
+            const countdownMinutesEl = document.getElementById('countdown-minutes');
+            const countdownSecondsEl = document.getElementById('countdown-seconds');
+
+            if (!countdownDaysEl) return; 
+
+            let targetDate = new Date();
+            
+            // La promoción termina el 15 del mes actual
+            let targetDay = 15;
+            
+            // Si hoy es después del día 15, la meta es el 15 del próximo mes
+            if (targetDate.getDate() > targetDay) {
+                targetDate.setMonth(targetDate.getMonth() + 1);
+            }
+            // Establece la fecha meta al día 15 a medianoche (fin del día 15)
+            targetDate.setDate(targetDay);
+            targetDate.setHours(23, 59, 59, 999);
+
+
+            const interval = setInterval(() => {
+                const now = new Date().getTime();
+                const distance = targetDate - now;
+
+                if (distance < 0) {
+                    clearInterval(interval);
+                    // Opcional: reiniciar el contador para el próximo mes
+                    // startCountdown(); 
+                    return;
+                }
+
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                countdownDaysEl.textContent = String(days).padStart(2, '0');
+                countdownHoursEl.textContent = String(hours).padStart(2, '0');
+                countdownMinutesEl.textContent = String(minutes).padStart(2, '0');
+                countdownSecondsEl.textContent = String(seconds).padStart(2, '0');
+            }, 1000);
+        }
+
+        // --- INICIALIZACIÓN DE BOTONES PAYPAL ---
+        function initPayPalButtons() {
+            if (PAYPAL_CLIENT_ID === "YOUR_CLIENT_ID_GOES_HERE") {
+                console.warn("PayPal Client ID is not set. Payment buttons will not render.");
+                return;
+            }
+
+            const plans = [
+                { id: 'basic', basePrice: '180.00', addonPrice: '20.00' },
+                { id: 'standard', basePrice: '350.00', addonPrice: '20.00' },
+                { id: 'premium', basePrice: '500.00', addonPrice: '20.00' }
+            ];
+
+            plans.forEach(plan => {
+                paypal.Buttons({
+                    style: {
+                        layout: 'vertical',
+                        color: 'blue',
+                        shape: 'rect',
+                        label: 'pay'
+                    },
+                    createOrder: function(data, actions) {
+                        const addonCheckbox = document.getElementById(`addon-${plan.id}`);
+                        let totalValue = parseFloat(plan.basePrice);
+                        let description = `FM Tech - ${plan.id.charAt(0).toUpperCase() + plan.id.slice(1)} Plan`;
+
+                        if (addonCheckbox.checked) {
+                            // Esto es para un pago recurrente (suscripción)
+                            // El SDK de JS v5 no maneja bien la mezcla de 'one-time' y 'subscription' en un solo 'createOrder'
+                            // La lógica aquí asume que el add-on de $20 se añade al *primer pago*
+                            // Para una suscripción real, se necesitaría 'createSubscription'
+                            totalValue += parseFloat(plan.addonPrice);
+                            description += ' (with $20 Maintenance Add-on first month)';
+                        } else {
+                             description += ' (one-time payment)';
+                        }
+                        
+                        totalValue = totalValue.toFixed(2);
+
+                        return actions.order.create({
+                            purchase_units: [{
+                                description: description,
+                                amount: {
+                                    value: totalValue,
+                                    currency_code: 'USD'
+                                }
+                            }]
+                        });
+                    },
+                    onApprove: function(data, actions) {
+                        return actions.order.capture().then(function(details) {
+                            // Usar un modal personalizado en lugar de alert()
+                            showPaymentSuccessModal(details.payer.name.given_name);
+                        });
+                    },
+                    onError: function(err) {
+                        console.error('PayPal Error:', err);
+                        // Usar un modal personalizado para el error
+                        showPaymentErrorModal();
+                    }
+                }).render(`#paypal-button-${plan.id}-container`);
+            });
+        }
+
+        // --- Modales de Éxito/Error (en lugar de alert) ---
+        function showPaymentSuccessModal(payerName) {
+            let modal = document.createElement('div');
+            modal.innerHTML = `
+                <div style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 100; display: flex; align-items: center; justify-content: center;">
+                    <div style="background: #161B22; color: #C9D1D9; padding: 2rem; border-radius: 0.5rem; text-align: center; border: 1px solid #30363D;">
+                        <h3 style="font-size: 1.5rem; font-weight: 600; color: #58A6FF;">Payment Successful!</h3>
+                        <p style="margin-top: 1rem;">Thank you, ${payerName}. We have received your payment.</p>
+                        <p style="margin-top: 0.5rem;">We will contact you shortly to begin your project.</p>
+                        <button id="close-modal-btn" style="background-color: #2563EB; color: white; padding: 0.5rem 1.5rem; border-radius: 0.5rem; margin-top: 1.5rem; cursor: pointer;">Close</button>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(modal);
+            document.getElementById('close-modal-btn').onclick = () => document.body.removeChild(modal);
+        }
+
+        function showPaymentErrorModal() {
+             let modal = document.createElement('div');
+            modal.innerHTML = `
+                <div style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 100; display: flex; align-items: center; justify-content: center;">
+                    <div style="background: #161B22; color: #C9D1D9; padding: 2rem; border-radius: 0.5rem; text-align: center; border: 1px solid #30363D;">
+                        <h3 style="font-size: 1.5rem; font-weight: 600; color: #F87171;">Payment Error</h3>
+                        <p style="margin-top: 1rem;">There was an issue processing your payment.</p>
+                        <p style="margin-top: 0.5rem;">Please try again or contact us for assistance.</p>
+                        <button id="close-modal-btn" style="background-color: #2563EB; color: white; padding: 0.5rem 1.5rem; border-radius: 0.5rem; margin-top: 1.5rem; cursor: pointer;">Close</button>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(modal);
+            document.getElementById('close-modal-btn').onclick = () => document.body.removeChild(modal);
+        }
+        // --- Fin de Modales ---
+
+        // --- INICIO: Lógica 3D Card ---
+        function init3DEffect() {
+            const cards = document.querySelectorAll('.card-container');
+
+            cards.forEach(card => {
+                const cardBody = card.querySelector('.card-body');
+                if (!cardBody) return;
+
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    
+                    const { width, height } = rect;
+                    const rotateX = (y - height / 2) / (height / 2) * -5; // Max 5deg rotation
+                    const rotateY = (x - width / 2) / (width / 2) * 10; // Max 10deg rotation
+
+                    cardBody.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+                });
+
+                card.addEventListener('mouseleave', () => {
+                    cardBody.style.transform = 'rotateX(0deg) rotateY(0deg)';
+                });
+            });
+        }
+        // --- FIN: Lógica 3D Card ---
 
         document.addEventListener('DOMContentLoaded', () => {
             const savedLang = localStorage.getItem('preferredLang');
-            const userLang = navigator.language.split('-')[0];
-            setLanguage(savedLang || (userLang === 'es' ? 'es' : 'en'));
+            // Idioma por defecto 'en'
+            setLanguage(savedLang || 'en');
             
+            // Iniciar el contador
+            startCountdown();
+
+            // Iniciar botones de PayPal
+            initPayPalButtons();
+
+            // Iniciar efecto 3D
+            init3DEffect();
+
             ['lang-en', 'lang-es', 'lang-en-mobile', 'lang-es-mobile'].forEach(id => {
-                document.getElementById(id).addEventListener('click', (e) => {
-                    e.preventDefault();
-                    setLanguage(id.includes('en') ? 'en' : 'es');
-                });
+                const el = document.getElementById(id);
+                if(el) {
+                    el.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        setLanguage(id.includes('en') ? 'en' : 'es');
+                        document.getElementById('mobile-menu').classList.add('hidden');
+                    });
+                }
             });
             
             const revealElements = document.querySelectorAll('.reveal');
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) entry.target.classList.add('visible');
-                    else entry.target.classList.remove('visible');
                 });
             }, { threshold: 0.1 });
             revealElements.forEach(el => observer.observe(el));
@@ -330,7 +980,9 @@
             const menuBtn = document.getElementById('menu-btn');
             const mobileMenu = document.getElementById('mobile-menu');
             document.querySelectorAll('.mobile-menu-link, #menu-btn').forEach(el => {
-                el.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+                el.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
             });
         });
     </script>

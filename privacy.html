@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - FM Tech</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'DM Sans', sans-serif; background-color: #0D1117; color: #C9D1D9; }
+        .brand-text { color: #58A6FF; }
+        .logo-text { font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 1.75rem; letter-spacing: -0.05em; }
+        .action-button { background-color: #2563EB; color: white; font-weight: 500; padding: 0.75rem 2rem; border-radius: 0.5rem; transition: all 0.3s ease; display: inline-block; }
+        .action-button:hover { background-color: #1D4ED8; transform: translateY(-2px); }
+        .lang-switcher a.active { color: #58A6FF; font-weight: 700; }
+        
+        /* Estilos para el texto legal (prose) */
+        .prose { color: #C9D1D9; max-width: 80ch; }
+        .prose h1 { color: white; font-size: 2.5rem; font-weight: 700; }
+        .prose h2 { color: #58A6FF; font-size: 1.875rem; font-weight: 600; margin-top: 2.5em; border-bottom: 1px solid #30363d; padding-bottom: 0.5rem; }
+        .prose h3 { color: white; font-size: 1.5rem; font-weight: 600; }
+        .prose p, .prose li { font-size: 1.125rem; line-height: 1.75; }
+        .prose a { color: #58A6FF; text-decoration: none; }
+        .prose a:hover { text-decoration: underline; }
+        .prose strong { color: white; }
+        .prose ul { list-style-type: disc; padding-left: 1.5rem; }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-200">
+    <!-- Header añadido para consistencia -->
+    <header class="bg-opacity-80 backdrop-blur-lg shadow-lg sticky top-0 z-50 border-b border-gray-800">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+             <a href="index.html" class="logo-text text-white">FM <span class="brand-text">Tech</span></a>
+            <div class="hidden md:flex items-center space-x-8 text-sm font-medium">
+                <a href="index.html#soluciones" data-translate-key="nav_solutions" class="text-gray-300 hover:text-white transition duration-300">Solutions</a>
+                <a href="index.html#pricing" data-translate-key="nav_pricing" class="text-gray-300 hover:text-white transition duration-300">Pricing</a>
+                <a href="portfolio.html" data-translate-key="nav_portfolio" class="text-gray-300 hover:text-white transition duration-300">Portfolio</a>
+                <a href="index.html#clientes" data-translate-key="nav_clients" class="text-gray-300 hover:text-white transition duration-300">Clients</a>
+                <a href="index.html#faq" data-translate-key="nav_faq" class="text-gray-300 hover:text-white transition duration-300">FAQs</a>
+                <a href="blog.html" data-translate-key="nav_blog" class="text-gray-300 hover:text-white transition duration-300">Blog</a>
+                <a href="index.html#contacto" data-translate-key="nav_contact" class="text-gray-300 hover:text-white transition duration-300">Contact</a>
+            </div>
+            <div class="hidden md:flex items-center space-x-4 text-sm font-semibold lang-switcher">
+                    <a href="#" id="lang-en" class="text-gray-400 hover:text-white transition">EN</a>
+                    <span class="text-gray-600">|</span>
+                    <a href="#" id="lang-es" class="text-gray-400 hover:text-white transition">ES</a>
+            </div>
+            <div class="md:hidden">
+                <button id="menu-btn" class="text-white focus:outline-none"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg></button>
+            </div>
+        </nav>
+    </header>
+
+    <div id="mobile-menu" class="hidden fixed inset-0 bg-black bg-opacity-95 z-40 flex flex-col items-center justify-center space-y-8">
+        <a href="index.html#soluciones" data-translate-key="nav_solutions" class="mobile-menu-link text-2xl text-gray-300 hover:text-white">Solutions</a>
+        <a href="index.html#pricing" data-translate-key="nav_pricing" class="mobile-menu-link text-2xl text-gray-300 hover:text-white">Pricing</a>
+        <a href="portfolio.html" data-translate-key="nav_portfolio" class="mobile-menu-link text-2xl text-gray-300 hover:text-white">Portfolio</a>
+        <a href="index.html#clientes" data-translate-key="nav_clients" class="mobile-menu-link text-2xl text-gray-300 hover:text-white">Clients</a>
+        <a href="index.html#faq" data-translate-key="nav_faq" class="mobile-menu-link text-2xl text-gray-300 hover:text-white">FAQs</a>
+        <a href="blog.html" data-translate-key="nav_blog" class="mobile-menu-link text-2xl text-gray-300 hover:text-white">Blog</a>
+        <a href="index.html#contacto" data-translate-key="nav_contact" class="mobile-menu-link text-2xl text-gray-300 hover:text-white">Contact</a>
+        <div class="flex items-center space-x-4 text-lg font-semibold lang-switcher mt-8">
+            <a href="#" id="lang-en-mobile" class="text-gray-400 hover:text-white transition">EN</a>
+            <span class="text-gray-600">|</span>
+            <a href="#" id="lang-es-mobile" class="text-gray-400 hover:text-white transition">ES</a>
+        </div>
+    </div>
+
+    <main class="py-20">
+        <div class="container mx-auto px-6 prose">
+            <h1 data-translate-key="privacy_title">Privacy Policy</h1>
+            <p data-translate-key="last_updated">Last updated: November 5, 2025</p>
+
+            <p data-translate-key="privacy_intro">FM Tech ("us", "we", or "our") operates the fmtech.com website (hereinafter referred to as the "Service"). This page informs you of our policies regarding the collection, use, and disclosure of personal data when you use our Service and the choices you have associated with that data.</p>
+
+            <h2 data-translate-key="info_collection_title">Information Collection and Use</h2>
+            <p data-translate-key="info_collection_desc">We collect several different types of information for various purposes to provide and improve our Service to you.</p>
+            <h3>Types of Data Collected</h3>
+            <h4>Personal Data</h4>
+            <p data-translate-key="personal_data_desc">While using our Service, we may ask you to provide us with certain personally identifiable information that can be used to contact or identify you ("Personal Data"). Personally identifiable information may include, but is not limited to:</p>
+            <ul>
+                <li data-translate-key="data_item1">Email address</li>
+                <li data-translate-key="data_item2">First name and last name</li>
+                <li data-translate-key="data_item3">Phone number</li>
+                <li data-translate-key="data_item4">Cookies and Usage Data</li>
+            </ul>
+            <h4>Usage Data</h4>
+            <p data-translate-key="usage_data_desc">We may also collect information on how the Service is accessed and used ("Usage Data"). This Usage Data may include information such as your computer's Internet Protocol address (e.g. IP address), browser type, browser version, the pages of our Service that you visit, the time and date of your visit, the time spent on those pages, unique device identifiers and other diagnostic data.</p>
+
+            <h2 data-translate-key="use_of_data_title">Use of Data</h2>
+            <p data-translate-key="use_of_data_desc">FM Tech uses the collected data for various purposes:</p>
+            <ul>
+                <li data-translate-key="use_item1">To provide and maintain the Service</li>
+                <li data-translate-key="use_item2">To notify you about changes to our Service</li>
+                <li data-translate-key="use_item3">To provide customer care and support</li>
+                <li data-translate-key="use_item4">To provide analysis or valuable information so that we can improve the Service</li>
+                <li data-translate-key="use_item5">To monitor the usage of the Service</li>
+                <li data-translate-key="use_item6">To detect, prevent and address technical issues</li>
+            </ul>
+
+            <h2 data-translate-key="security_title">Security of Data</h2>
+            <p data-translate-key="security_desc">The security of your data is important to us, but remember that no method of transmission over the Internet, or method of electronic storage is 100% secure. While we strive to use commercially acceptable means to protect your Personal Data, we cannot guarantee its absolute security.</p>
+
+            <h2 data-translate-key="contact_title">Contact Us</h2>
+            <p data-translate-key="contact_desc">If you have any questions about this Privacy Policy, please contact us:</p>
+            <ul>
+                <li>By email: frankmercadotech@gmail.com</li>
+                <li>By visiting this page on our website: <a href="index.html#contacto">fmtech.com/contact</a></li>
+            </ul>
+        </div>
+    </main>
+
+    <!-- Footer añadido para consistencia -->
+    <footer class="bg-black text-gray-400 py-16 border-t border-gray-800">
+        <div class="container mx-auto px-6 text-center text-sm flex flex-col items-center">
+             <div class="flex flex-wrap justify-center gap-x-6 gap-y-2 mb-8">
+                <a href="index.html#soluciones" data-translate-key="nav_solutions" class="hover:text-white">Solutions</a>
+                <a href="index.html#pricing" data-translate-key="nav_pricing" class="hover:text-white">Pricing</a>
+                <a href="portfolio.html" data-translate-key="nav_portfolio" class="hover:text-white">Portfolio</a>
+                <a href="index.html#clientes" data-translate-key="nav_clients" class="hover:text-white">Clients</a>
+                <a href="index.html#faq" data-translate-key="nav_faq" class="hover:text-white">FAQs</a>
+                <a href="blog.html" data-translate-key="nav_blog" class="hover:text-white">Blog</a>
+                <a href="index.html#contacto" data-translate-key="nav_contact" class="hover:text-white">Contact</a>
+            </div>
+            <!-- Iconos de Redes Sociales -->
+            <div class="mb-6 flex justify-center gap-6">
+                <a href="https://wa.me/573044301112" target="_blank" class="transition-transform duration-300 hover:scale-110">
+                    <img src="images/whatsapp-logo.png" alt="WhatsApp FM Tech" class="w-10 h-10" onerror="this.src='https://placehold.co/40x40/000000/FFFFFF?text=WA'">
+                </a>
+                <a href="https://www.instagram.com/frankmercadotech/" target="_blank" class="transition-transform duration-300 hover:scale-110">
+                    <img src="images/instagram-logo.png" alt="Instagram FM Tech" class="w-10 h-10" onerror="this.src='https://placehold.co/40x40/000000/FFFFFF?text=IG'">
+                </a>
+                <a href="https://www.facebook.com/profile.php?id=61581838763338" target="_blank" class="transition-transform duration-300 hover:scale-110">
+                    <img src="images/logo-facebook.png" alt="Facebook FM Tech" class="w-10 h-10" onerror="this.src='https://placehold.co/40x40/000000/FFFFFF?text=FB'">
+                </a>
+                <a href="https://x.com/fmtechcol" target="_blank" class="transition-transform duration-300 hover:scale-110">
+                    <img src="images/X.png" alt="X (Twitter) FM Tech" class="w-10 h-10" onerror="this.src='https://placehold.co/40x40/000000/FFFFFF?text=X'">
+                </a>
+            </div>
+            <p class="mb-4"><strong>Email:</strong> <a href="mailto:frankmercadotech@gmail.com" class="hover:text-white">frankmercadotech@gmail.com</a></p>
+            <!-- Enlaces a Nuevas Páginas Legales -->
+            <div class="flex justify-center gap-x-4 gap-y-2 mb-4 text-xs">
+                <a href="privacy.html" data-translate-key="footer_privacy" class="hover:text-white">Privacy Policy</a>
+                <a href="terms.html" data-translate-key="footer_terms" class="hover:text-white">Terms & Conditions</a>
+            </div>
+            <p>&copy; 2025 FM Tech. <span data-translate-key="footer_rights">All rights reserved.</span></p>
+        </div>
+    </footer>
+
+    <!-- Script de Traducción añadido -->
+    <script>
+        const translations = {
+            en: {
+                nav_home: "Home", 
+                nav_contact: "Contact", 
+                footer_privacy: "Privacy Policy",
+                footer_terms: "Terms & Conditions",
+                footer_rights: "All rights reserved.",
+                nav_solutions: "Solutions", nav_pricing: "Pricing", nav_portfolio: "Portfolio", nav_clients: "Clients", nav_faq: "FAQs", nav_blog: "Blog",
+                
+                privacy_title: "Privacy Policy",
+                last_updated: "Last updated: November 5, 2025",
+                privacy_intro: "FM Tech (\"us\", \"we\", or \"our\") operates the fmtech.com website (hereinafter referred to as the \"Service\"). This page informs you of our policies regarding the collection, use, and disclosure of personal data when you use our Service and the choices you have associated with that data.",
+                
+                info_collection_title: "Information Collection and Use",
+                info_collection_desc: "We collect several different types of information for various purposes to provide and improve our Service to you.",
+                personal_data_desc: "While using our Service, we may ask you to provide us with certain personally identifiable information that can be used to contact or identify you (\"Personal Data\"). Personally identifiable information may include, but is not limited to:",
+                data_item1: "Email address",
+                data_item2: "First name and last name",
+                data_item3: "Phone number",
+                data_item4: "Cookies and Usage Data",
+                usage_data_desc: "We may also collect information on how the Service is accessed and used (\"Usage Data\"). This Usage Data may include information such as your computer's Internet Protocol address (e.g. IP address), browser type, browser version, the pages of our Service that you visit, the time and date of your visit, the time spent on those pages, unique device identifiers and other diagnostic data.",
+                
+                use_of_data_title: "Use of Data",
+                use_of_data_desc: "FM Tech uses the collected data for various purposes:",
+                use_item1: "To provide and maintain the Service",
+                use_item2: "To notify you about changes to our Service",
+                use_item3: "To provide customer care and support",
+                use_item4: "To provide analysis or valuable information so that we can improve the Service",
+                use_item5: "To monitor the usage of the Service",
+                use_item6: "To detect, prevent and address technical issues",
+                
+                security_title: "Security of Data",
+                security_desc: "The security of your data is important to us, but remember that no method of transmission over the Internet, or method of electronic storage is 100% secure. While we strive to use commercially acceptable means to protect your Personal Data, we cannot guarantee its absolute security.",
+                
+                contact_title: "Contact Us",
+                contact_desc: "If you have any questions about this Privacy Policy, please contact us:",
+            },
+            es: {
+                nav_home: "Inicio", 
+                nav_contact: "Contacto", 
+                footer_privacy: "Política de Privacidad",
+                footer_terms: "Términos y Condiciones",
+                footer_rights: "Todos los derechos reservados.",
+                nav_solutions: "Soluciones", nav_pricing: "Planes", nav_portfolio: "Portafolio", nav_clients: "Clientes", nav_faq: "FAQs", nav_blog: "Blog",
+
+                privacy_title: "Política de Privacidad",
+                last_updated: "Última actualización: 5 de Noviembre de 2025",
+                privacy_intro: "FM Tech (\"nosotros\", \"nuestro\") opera el sitio web fmtech.com (en adelante, el \"Servicio\"). Esta página te informa sobre nuestras políticas con respecto a la recopilación, uso y divulgación de datos personales cuando utilizas nuestro Servicio y las opciones que tienes asociadas con esos datos.",
+
+                info_collection_title: "Recopilación y Uso de Información",
+                info_collection_desc: "Recopilamos varios tipos diferentes de información para diversos fines para proporcionar y mejorar nuestro Servicio para ti.",
+                personal_data_desc: "Mientras utilizas nuestro Servicio, podemos pedirte que nos proporciones cierta información de identificación personal que se puede utilizar para contactarte o identificarte (\"Datos Personales\"). La información de identificación personal puede incluir, entre otros:",
+                data_item1: "Dirección de correo electrónico",
+                data_item2: "Nombre y apellido",
+                data_item3: "Número de teléfono",
+                data_item4: "Cookies y Datos de Uso",
+                usage_data_desc: "También podemos recopilar información sobre cómo se accede y utiliza el Servicio (\"Datos de Uso\"). Estos Datos de Uso pueden incluir información como la dirección de Protocolo de Internet de tu computadora (por ejemplo, dirección IP), tipo de navegador, versión del navegador, las páginas de nuestro Servicio que visitas, la hora y fecha de tu visita, el tiempo dedicado a esas páginas, identificadores únicos de dispositivos y otros datos de diagnóstico.",
+
+                use_of_data_title: "Uso de Datos",
+                use_of_data_desc: "FM Tech utiliza los datos recopilados para diversos fines:",
+                use_item1: "Para proporcionar y mantener el Servicio",
+                use_item2: "Para notificarte sobre cambios en nuestro Servicio",
+                use_item3: "Para proporcionar atención y soporte al cliente",
+                use_item4: "Para proporcionar análisis o información valiosa para que podamos mejorar el Servicio",
+                use_item5: "Para monitorear el uso del Servicio",
+                use_item6: "Para detectar, prevenir y abordar problemas técnicos",
+
+                security_title: "Seguridad de los Datos",
+                security_desc: "La seguridad de tus datos es importante para nosotros, pero recuerda que ningún método de transmisión por Internet o método de almacenamiento electrónico es 100% seguro. Si bien nos esforzamos por utilizar medios comercialmente aceptables para proteger tus Datos Personales, no podemos garantizar su seguridad absoluta.",
+
+                contact_title: "Contáctanos",
+                contact_desc: "Si tienes alguna pregunta sobre esta Política de Privacidad, por favor contáctanos:",
+            }
+        };
+
+        function setLanguage(lang) {
+            localStorage.setItem('preferredLang', lang);
+            document.documentElement.lang = lang;
+            document.querySelectorAll('[data-translate-key]').forEach(el => {
+                const key = el.getAttribute('data-translate-key');
+                if (translations[lang] && translations[lang][key]) el.innerHTML = translations[lang][key];
+            });
+            document.querySelectorAll('.lang-switcher a').forEach(a => a.classList.remove('active'));
+            document.querySelector(`#lang-${lang}`).classList.add('active');
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('preferredLang');
+            // Establecer 'en' (inglés) como idioma por defecto
+            setLanguage(savedLang || 'en'); 
+            
+            document.getElementById('lang-en').addEventListener('click', (e) => { e.preventDefault(); setLanguage('en'); });
+            document.getElementById('lang-es').addEventListener('click', (e) => { e.preventDefault(); setLanguage('es'); });
+
+            // --- INICIO: Lógica Menú Móvil ---
+            ['lang-en-mobile', 'lang-es-mobile'].forEach(id => {
+                const el = document.getElementById(id);
+                if(el) {
+                    el.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        setLanguage(id.includes('en') ? 'en' : 'es');
+                        document.getElementById('mobile-menu').classList.add('hidden');
+                    });
+                }
+            });
+
+            const menuBtn = document.getElementById('menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            document.querySelectorAll('.mobile-menu-link, #menu-btn').forEach(el => {
+                el.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            });
+            // --- FIN: Lógica Menú Móvil ---
+        });
+    </script>
+</body>
+</html>
