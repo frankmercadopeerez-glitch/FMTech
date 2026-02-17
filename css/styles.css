@@ -536,7 +536,16 @@ header {
 }
 
 /* ===== Smooth Transitions ===== */
-* {
+/* Apply transitions only to interactive and animated elements */
+a, button,
+.action-button,
+.secondary-button,
+.service-card,
+.plan-card,
+.article-card,
+.faq-item,
+.reveal,
+.card-body {
     transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     transition-duration: 150ms;
