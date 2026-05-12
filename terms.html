@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms and Conditions - FM Tech</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'DM Sans', sans-serif; background-color: #0D1117; color: #C9D1D9; }
+        .brand-text { color: #58A6FF; }
+        .logo-text { font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 1.75rem; letter-spacing: -0.05em; }
+        .action-button { background-color: #2563EB; color: white; font-weight: 500; padding: 0.75rem 2rem; border-radius: 0.5rem; transition: all 0.3s ease; display: inline-block; }
+        .action-button:hover { background-color: #1D4ED8; transform: translateY(-2px); }
+        .lang-switcher a.active { color: #58A6FF; font-weight: 700; }
+        
+        /* Estilos para el texto legal (prose) */
+        .prose { color: #C9D1D9; max-width: 80ch; }
+        .prose h1 { color: white; font-size: 2.5rem; font-weight: 700; }
+        .prose h2 { color: #58A6FF; font-size: 1.875rem; font-weight: 600; margin-top: 2.5em; border-bottom: 1px solid #30363d; padding-bottom: 0.5rem; }
+        .prose h3 { color: white; font-size: 1.5rem; font-weight: 600; }
+        .prose p, .prose li { font-size: 1.125rem; line-height: 1.75; }
+        .prose a { color: #58A6FF; text-decoration: none; }
+        .prose a:hover { text-decoration: underline; }
+        .prose strong { color: white; }
+        .prose ul { list-style-type: disc; padding-left: 1.5rem; }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-200">
+    <header class="bg-opacity-80 backdrop-blur-lg shadow-lg sticky top-0 z-50 border-b border-gray-800">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+             <a href="index.html" class="logo-text text-white">FM <span class="brand-text">Tech</span></a>
+            <div class="hidden md:flex items-center space-x-8 text-sm font-medium">
+                <a href="index.html#soluciones" data-translate-key="nav_solutions" class="text-gray-300 hover:text-white transition duration-300">Solutions</a>
+                <a href="index.html#pricing" data-translate-key="nav_pricing" class="text-gray-300 hover:text-white transition duration-300">Pricing</a>
+                <a href="portfolio.html" data-translate-key="nav_portfolio" class="text-gray-300 hover:text-white transition duration-300">Portfolio</a>
+                <a href="index.html#clientes" data-translate-key="nav_clients" class="text-gray-300 hover:text-white transition duration-300">Clients</a>
+                <a href="index.html#faq" data-translate-key="nav_faq" class="text-gray-300 hover:text-white transition duration-300">FAQs</a>
+                <a href="blog.html" data-translate-key="nav_blog" class="text-gray-300 hover:text-white transition duration-300">Blog</a>
+                <a href="index.html#contacto" data-translate-key="nav_contact" class="text-gray-300 hover:text-white transition duration-300">Contact</a>
+            </div>
+            <div class="hidden md:flex items-center space-x-4 text-sm font-semibold lang-switcher">
+                    <a href="#" id="lang-en" class="text-gray-400 hover:text-white transition">EN</a>
+                    <span class="text-gray-600">|</span>
+                    <a href="#" id="lang-es" class="text-gray-400 hover:text-white transition">ES</a>
+            </div>
+            <div class="md:hidden">
+                <button id="menu-btn" class="text-white focus:outline-none"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg></button>
+            </div>
+        </nav>
+    </header>
+
+    <div id="mobile-menu" class="hidden fixed inset-0 bg-black bg-opacity-95 z-40 flex flex-col items-center justify-center space-y-8">
+        <a href="index.html#soluciones" data-translate-key="nav_solutions" class="mobile-menu-link text-2xl text-gray-300 hover:text-white">Solutions</a>
+        <a href="index.html#pricing" data-translate-key="nav_pricing" class="mobile-menu-link text-2xl text-gray-300 hover:text-white">Pricing</a>
+        <a href="portfolio.html" data-translate-key="nav_portfolio" class="mobile-menu-link text-2xl text-gray-300 hover:text-white">Portfolio</a>
+        <a href="index.html#clientes" data-translate-key="nav_clients" class="mobile-menu-link text-2xl text-gray-300 hover:text-white">Clients</a>
+        <a href="index.html#faq" data-translate-key="nav_faq" class="mobile-menu-link text-2xl text-gray-300 hover:text-white">FAQs</a>
+        <a href="blog.html" data-translate-key="nav_blog" class="mobile-menu-link text-2xl text-gray-300 hover:text-white">Blog</a>
+        <a href="index.html#contacto" data-translate-key="nav_contact" class="mobile-menu-link text-2xl text-gray-300 hover:text-white">Contact</a>
+        <div class="flex items-center space-x-4 text-lg font-semibold lang-switcher mt-8">
+            <a href="#" id="lang-en-mobile" class="text-gray-400 hover:text-white transition">EN</a>
+            <span class="text-gray-600">|</span>
+            <a href="#" id="lang-es-mobile" class="text-gray-400 hover:text-white transition">ES</a>
+        </div>
+    </div>
+
+    <main class="py-20">
+        <div class="container mx-auto px-6 prose">
+            <h1 data-translate-key="terms_title">Terms and Conditions</h1>
+            <p data-translate-key="terms_updated">Last updated: November 5, 2025</p>
+
+            <p data-translate-key="terms_intro">Please read these Terms and Conditions ("Terms") carefully before using the services offered by FM Tech ("us", "we", or "our"). Your access to and use of the Service is conditioned on your acceptance of and compliance with these Terms. By purchasing or using our services, you agree to be bound by these Terms.</p>
+
+            <h2 data-translate-key="h2_services">1. Services</h2>
+            <p data-translate-key="p_services_1">FM Tech provides web design and development services as outlined in our "Basic", "Standard", and "Premium" plans. Services include, but are not limited to, website creation, responsive design, social media integration, and e-commerce functionalities as specified in each plan.</p>
+            <p data-translate-key="p_services_2"><strong>Hosting and Domain:</strong> All plans include one (1) year of free web hosting and one (1) free domain name registration. After the first year, the client is responsible for all domain and hosting renewal fees at the standard rate. FM Tech will notify the client 30 days prior to the expiration date.</p>
+            <p data-translate-key="p_services_3"><strong>Delivery Times:</strong> The stated delivery times (e.g., 3, 5, or 8 days) are estimates and begin once the client has provided all necessary materials (logo, text, images).</p>
+
+            <h2 data-translate-key="h2_client_resp">2. Client Responsibilities</h2>
+            <p data-translate-key="p_client_resp_1">The client agrees to provide all necessary content, including but not limited to logo, text for all pages, and images, in a timely manner. FM Tech is not responsible for delays in project completion caused by the client's failure to provide materials.</p>
+            <p data-translate-key="p_client_resp_2">The client warrants that all materials provided to FM Tech are owned by the client or that the client has the necessary permissions to use them.</p>
+
+            <h2 data-translate-key="h2_payments">3. Payments and Refunds</h2>
+            <p data-translate-key="p_payments_1">Payments for web design plans are due in full before work begins, unless otherwise agreed upon. All payments are processed through PayPal or other mutually agreed-upon methods.</p>
+            <p data-translate-key="p_payments_2">All prices are listed in USD. Approximate prices in COP are for reference only and may vary based on the current exchange rate at the time of payment.</p>
+            <p data-translate-key="p_payments_3"><strong>Refund Policy:</strong> Due to the digital nature of our services and the resources allocated upon project initiation, all payments are non-refundable once work has commenced.</p>
+
+            <h2 data-translate-key="h2_maintenance">4. Optional Maintenance Plan</h2>
+            <p data-translate-key="p_maintenance_1">The client may opt-in to a monthly maintenance plan for an additional fee of $20 USD per month. This plan includes up to four (4) hours of support for content updates, minor changes, and technical assistance. Unused hours do not roll over to the next month.</p>
+
+            <h2 data-translate-key="h2_liability">5. Limitation of Liability</h2>
+            <p data-translate-key="p_liability_1">FM Tech will not be liable for any indirect, incidental, special, consequential, or punitive damages, including without limitation, loss of profits, data, or other intangibles, resulting from the use of our services.</p>
+
+            <h2 data-translate-key="h2_changes">6. Changes to Terms</h2>
+            <p data-translate-key="p_changes_1">We reserve the right, at our sole discretion, to modify or replace these Terms at any time. We will provide at least 30 days' notice of any changes by posting the new Terms on this page.</p>
+            
+            <h2 data-translate-key="h2_contact_us">7. Contact Us</h2>
+            <p data-translate-key="p_contact_us_1">If you have any questions about these Terms, please contact us at <a href="mailto:frankmercadotech@gmail.com">frankmercadotech@gmail.com</a>.</p>
+        </div>
+    </main>
+
+    <footer class="bg-black text-gray-400 py-16 border-t border-gray-800">
+        <div class="container mx-auto px-6 text-center text-sm flex flex-col items-center">
+             <div class="flex flex-wrap justify-center gap-x-6 gap-y-2 mb-8">
+                <a href="index.html#soluciones" data-translate-key="nav_solutions" class="hover:text-white">Solutions</a>
+                <a href="index.html#pricing" data-translate-key="nav_pricing" class="hover:text-white">Pricing</a>
+                <a href="portfolio.html" data-translate-key="nav_portfolio" class="hover:text-white">Portfolio</a>
+                <a href="index.html#clientes" data-translate-key="nav_clients" class="hover:text-white">Clients</a>
+                <a href="index.html#faq" data-translate-key="nav_faq" class="hover:text-white">FAQs</a>
+                <a href="blog.html" data-translate-key="nav_blog" class="hover:text-white">Blog</a>
+                <a href="index.html#contacto" data-translate-key="nav_contact" class="hover:text-white">Contact</a>
+            </div>
+            <!-- Iconos de Redes Sociales -->
+            <div class="mb-6 flex justify-center gap-6">
+                <a href="https://wa.me/573044301112" target="_blank" class="transition-transform duration-300 hover:scale-110">
+                    <img src="images/whatsapp-logo.png" alt="WhatsApp FM Tech" class="w-10 h-10" onerror="this.src='https://placehold.co/40x40/000000/FFFFFF?text=WA'">
+                </a>
+                <a href="https://www.instagram.com/frankmercadotech/" target="_blank" class="transition-transform duration-300 hover:scale-110">
+                    <img src="images/instagram-logo.png" alt="Instagram FM Tech" class="w-10 h-10" onerror="this.src='https://placehold.co/40x40/000000/FFFFFF?text=IG'">
+                </a>
+                <a href="https://www.facebook.com/profile.php?id=61581838763338" target="_blank" class="transition-transform duration-300 hover:scale-110">
+                    <img src="images/logo-facebook.png" alt="Facebook FM Tech" class="w-10 h-10" onerror="this.src='https://placehold.co/40x40/000000/FFFFFF?text=FB'">
+                </a>
+                <a href="https://x.com/fmtechcol" target="_blank" class="transition-transform duration-300 hover:scale-110">
+                    <img src="images/X.png" alt="X (Twitter) FM Tech" class="w-10 h-10" onerror="this.src='https://placehold.co/40x40/000000/FFFFFF?text=X'">
+                </a>
+            </div>
+            <p class="mb-4"><strong>Email:</strong> <a href="mailto:frankmercadotech@gmail.com" class="hover:text-white">frankmercadotech@gmail.com</a></p>
+            <!-- Enlaces a Nuevas Páginas Legales -->
+            <div class="flex justify-center gap-x-4 gap-y-2 mb-4 text-xs">
+                <a href="privacy.html" data-translate-key="footer_privacy" class="hover:text-white">Privacy Policy</a>
+                <a href="terms.html" data-translate-key="footer_terms" class="hover:text-white">Terms & Conditions</a>
+            </div>
+            <p>&copy; 2025 FM Tech. <span data-translate-key="footer_rights">All rights reserved.</span></p>
+        </div>
+    </footer>
+    <script>
+        const translations = {
+            en: {
+                nav_home: "Home", 
+                nav_contact: "Contact", 
+                footer_privacy: "Privacy Policy",
+                footer_terms: "Terms & Conditions",
+                footer_rights: "All rights reserved.",
+                nav_solutions: "Solutions", nav_pricing: "Pricing", nav_portfolio: "Portfolio", nav_clients: "Clients", nav_faq: "FAQs", nav_blog: "Blog",
+                
+                terms_title: "Terms and Conditions",
+                terms_updated: "Last updated: November 5, 2025",
+                terms_intro: "Please read these Terms and Conditions (\"Terms\") carefully before using the services offered by FM Tech (\"us\", \"we\", or \"our\"). Your access to and use of the Service is conditioned on your acceptance of and compliance with these Terms. By purchasing or using our services, you agree to be bound by these Terms.",
+                
+                h2_services: "1. Services",
+                p_services_1: "FM Tech provides web design and development services as outlined in our \"Basic\", \"Standard\", and \"Premium\" plans. Services include, but are not limited to, website creation, responsive design, social media integration, and e-commerce functionalities as specified in each plan.",
+                p_services_2: "<strong>Hosting and Domain:</strong> All plans include one (1) year of free web hosting and one (1) free domain name registration. After the first year, the client is responsible for all domain and hosting renewal fees at the standard rate. FM Tech will notify the client 30 days prior to the expiration date.",
+                p_services_3: "<strong>Delivery Times:</strong> The stated delivery times (e.g., 3, 5, or 8 days) are estimates and begin once the client has provided all necessary materials (logo, text, images).",
+
+                h2_client_resp: "2. Client Responsibilities",
+                p_client_resp_1: "The client agrees to provide all necessary content, including but not limited to logo, text for all pages, and images, in a timely manner. FM Tech is not responsible for delays in project completion caused by the client's failure to provide materials.",
+                p_client_resp_2: "The client warrants that all materials provided to FM Tech are owned by the client or that the client has the necessary permissions to use them.",
+                
+                h2_payments: "3. Payments and Refunds",
+                p_payments_1: "Payments for web design plans are due in full before work begins, unless otherwise agreed upon. All payments are processed through PayPal or other mutually agreed-upon methods.",
+                p_payments_2: "All prices are listed in USD. Approximate prices in COP are for reference only and may vary based on the current exchange rate at the time of payment.",
+                p_payments_3: "<strong>Refund Policy:</strong> Due to the digital nature of our services and the resources allocated upon project initiation, all payments are non-refundable once work has commenced.",
+
+                h2_maintenance: "4. Optional Maintenance Plan",
+                p_maintenance_1: "The client may opt-in to a monthly maintenance plan for an additional fee of $20 USD per month. This plan includes up to four (4) hours of support for content updates, minor changes, and technical assistance. Unused hours do not roll over to the next month.",
+
+                h2_liability: "5. Limitation of Liability",
+                p_liability_1: "FM Tech will not be liable for any indirect, incidental, special, consequential, or punitive damages, including without limitation, loss of profits, data, or other intangibles, resulting from the use of our services.",
+                
+                h2_changes: "6. Changes to Terms",
+                p_changes_1: "We reserve the right, at our sole discretion, to modify or replace these Terms at any time. We will provide at least 30 days' notice of any changes by posting the new Terms on this page.",
+                
+                h2_contact_us: "7. Contact Us",
+                p_contact_us_1: "If you have any questions about these Terms, please contact us at <a href=\"mailto:frankmercadotech@gmail.com\">frankmercadotech@gmail.com</a>."
+            },
+            es: {
+                nav_home: "Inicio", 
+                nav_contact: "Contacto", 
+                footer_privacy: "Política de Privacidad",
+                footer_terms: "Términos y Condiciones",
+                footer_rights: "Todos los derechos reservados.",
+                nav_solutions: "Soluciones", nav_pricing: "Planes", nav_portfolio: "Portafolio", nav_clients: "Clientes", nav_faq: "FAQs", nav_blog: "Blog",
+                
+                terms_title: "Términos y Condiciones",
+                terms_updated: "Última actualización: 5 de Noviembre de 2025",
+                terms_intro: "Por favor, lee estos Términos y Condiciones (\"Términos\") cuidadosamente antes de usar los servicios ofrecidos por FM Tech (\"nosotros\", \"nuestro\"). Tu acceso y uso del Servicio está condicionado a tu aceptación y cumplimiento de estos Términos. Al comprar o utilizar nuestros servicios, aceptas estar sujeto a estos Términos.",
+                
+                h2_services: "1. Servicios",
+                p_services_1: "FM Tech ofrece servicios de diseño y desarrollo web como se describe en nuestros planes \"Basic\", \"Standard\" y \"Premium\". Los servicios incluyen, entre otros, creación de sitios web, diseño adaptable, integración de redes sociales y funcionalidades de comercio electrónico según se especifica en cada plan.",
+                p_services_2: "<strong>Hosting y Dominio:</strong> Todos los planes incluyen un (1) año de hosting web gratuito y un (1) registro de nombre de dominio gratuito. Después del primer año, el cliente es responsable de todas las tarifas de renovación de dominio y hosting al precio estándar. FM Tech notificará al cliente 30 días antes de la fecha de vencimiento.",
+                p_services_3: "<strong>Tiempos de Entrega:</strong> Los tiempos de entrega establecidos (ej. 3, 5 u 8 días) son estimaciones y comienzan una vez que el cliente ha proporcionado todos los materiales necesarios (logo, texto, imágenes).",
+
+                h2_client_resp: "2. Responsabilidades del Cliente",
+                p_client_resp_1: "El cliente se compromete a proporcionar todo el contenido necesario, incluyendo, entre otros, logo, texto para todas las páginas e imágenes, de manera oportuna. FM Tech no se hace responsable de los retrasos en la finalización del proyecto causados por la falta de entrega de materiales por parte del cliente.",
+                p_client_resp_2: "El cliente garantiza que todos los materiales proporcionados a FM Tech son de su propiedad o que tiene los permisos necesarios para usarlos.",
+                
+                h2_payments: "3. Pagos y Reembolsos",
+                p_payments_1: "Los pagos para los planes de diseño web se deben realizar en su totalidad antes de comenzar el trabajo, a menos que se acuerde lo contrario. Todos los pagos se procesan a través de PayPal u otros métodos mutuamente acordados.",
+                p_payments_2: "Todos los precios están listados en USD. Los precios aproximados en COP son solo de referencia y pueden variar según la tasa de cambio vigente al momento del pago.",
+                p_payments_3: "<strong>Política de Reembolso:</strong> Debido a la naturaleza digital de nuestros servicios y los recursos asignados al inicio del proyecto, todos los pagos no son reembolsables una vez que el trabajo ha comenzado.",
+
+                h2_maintenance: "4. Plan de Mantenimiento Opcional",
+                p_maintenance_1: "El cliente puede optar por un plan de mantenimiento mensual por una tarifa adicional de $20 USD al mes. Este plan incluye hasta cuatro (4) horas de soporte para actualizaciones de contenido, cambios menores y asistencia técnica. Las horas no utilizadas no se acumulan para el mes siguiente.",
+
+                h2_liability: "5. Limitación de Responsabilidad",
+                p_liability_1: "FM Tech no será responsable de ningún daño indirecto, incidental, especial, consecuente o punitivo, incluyendo, entre otros, pérdida de beneficios, datos u otros intangibles, resultantes del uso de nuestros servicios.",
+                
+                h2_changes: "6. Cambios a los Términos",
+                p_changes_1: "Nos reservamos el derecho, a nuestra entera discreción, de modificar o reemplazar estos Términos en cualquier momento. Proporcionaremos un aviso de al menos 30 días sobre cualquier cambio publicando los nuevos Términos en esta página.",
+                
+                h2_contact_us: "7. Contáctanos",
+                p_contact_us_1: "Si tienes alguna pregunta sobre estos Términos, por favor contáctanos en <a href=\"mailto:frankmercadotech@gmail.com\">frankmercadotech@gmail.com</a>."
+            }
+        };
+
+        function setLanguage(lang) {
+            localStorage.setItem('preferredLang', lang);
+            document.documentElement.lang = lang;
+            document.querySelectorAll('[data-translate-key]').forEach(el => {
+                const key = el.getAttribute('data-translate-key');
+                if (translations[lang] && translations[lang][key]) el.innerHTML = translations[lang][key];
+            });
+            document.querySelectorAll('.lang-switcher a').forEach(a => a.classList.remove('active'));
+            document.querySelector(`#lang-${lang}`).classList.add('active');
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('preferredLang');
+            // Establecer 'en' (inglés) como idioma por defecto
+            setLanguage(savedLang || 'en'); 
+            
+            document.getElementById('lang-en').addEventListener('click', (e) => { e.preventDefault(); setLanguage('en'); });
+            document.getElementById('lang-es').addEventListener('click', (e) => { e.preventDefault(); setLanguage('es'); });
+
+            // --- INICIO: Lógica Menú Móvil ---
+            ['lang-en-mobile', 'lang-es-mobile'].forEach(id => {
+                const el = document.getElementById(id);
+                if(el) {
+                    el.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        setLanguage(id.includes('en') ? 'en' : 'es');
+                        document.getElementById('mobile-menu').classList.add('hidden');
+                    });
+                }
+            });
+
+            const menuBtn = document.getElementById('menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            document.querySelectorAll('.mobile-menu-link, #menu-btn').forEach(el => {
+                el.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            });
+            // --- FIN: Lógica Menú Móvil ---
+        });
+    </script>
+</body>
+</html>

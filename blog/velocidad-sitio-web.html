@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="es" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>
+      Por Qué la Velocidad de tu Sitio Web es Crítica para SEO y Ventas | FMTech
+    </title>
+    <meta
+      name="description"
+      content="Descubre cómo la velocidad de carga afecta tu posicionamiento en Google y tus conversiones. Guía práctica para optimizar el rendimiento de tu sitio web."
+    />
+    <meta
+      name="keywords"
+      content="velocidad sitio web, web performance, core web vitals, optimización web, página lenta SEO"
+    />
+    <meta name="author" content="Frank Mercado - FMTech" />
+    <meta name="robots" content="index, follow" />
+    <link rel="icon" type="image/png" href="../images/2.png" />
+    <link
+      rel="canonical"
+      href="https://tech.frankmercado.com/blog/velocidad-sitio-web.html"
+    />
+
+    <meta property="og:type" content="article" />
+    <meta
+      property="og:title"
+      content="Por Qué la Velocidad de tu Sitio Web es Crítica"
+    />
+    <meta
+      property="og:description"
+      content="Cómo la velocidad de carga afecta tu SEO y conversiones."
+    />
+    <meta
+      property="og:image"
+      content="https://tech.frankmercado.com/images/blog4.webp"
+    />
+    <meta property="article:published_time" content="2026-02-12" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Por Qué la Velocidad Web es Crítica" />
+    <meta
+      name="twitter:image"
+      content="https://tech.frankmercado.com/images/blog4.webp"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Por Qué la Velocidad de tu Sitio Web es Crítica",
+        "image": "https://tech.frankmercado.com/images/blog4.webp",
+        "author": { "@type": "Person", "name": "Frank Mercado" },
+        "datePublished": "2026-02-12"
+      }
+    </script>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Inter", sans-serif;
+        background: linear-gradient(
+          135deg,
+          #0f172a 0%,
+          #1e1b4b 50%,
+          #0f172a 100%
+        );
+        color: #e2e8f0;
+        min-height: 100vh;
+      }
+      .font-display {
+        font-family: "Space Grotesk", sans-serif;
+      }
+      .gradient-text {
+        background: linear-gradient(135deg, #818cf8 0%, #06b6d4 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .glass-card {
+        background: rgba(30, 41, 59, 0.5);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(148, 163, 184, 0.1);
+      }
+      .prose h2 {
+        color: #f8fafc;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        font-size: 1.5rem;
+        font-weight: 700;
+      }
+      .prose h3 {
+        color: #e2e8f0;
+        margin-top: 1.5rem;
+        margin-bottom: 0.75rem;
+        font-size: 1.125rem;
+        font-weight: 600;
+      }
+      .prose p {
+        color: #94a3b8;
+        line-height: 1.8;
+        margin-bottom: 1.25rem;
+      }
+      .prose ul {
+        color: #94a3b8;
+        margin-bottom: 1.25rem;
+        padding-left: 1.5rem;
+      }
+      .prose li {
+        margin-bottom: 0.5rem;
+      }
+      .prose strong {
+        color: #f8fafc;
+      }
+      .prose a {
+        color: #818cf8;
+        text-decoration: underline;
+      }
+      .stat-card {
+        background: rgba(99, 102, 241, 0.1);
+        border: 1px solid rgba(99, 102, 241, 0.3);
+      }
+    </style>
+  </head>
+  <body class="bg-slate-950 antialiased">
+    <header
+      class="fixed w-full top-0 z-50 bg-slate-950/80 backdrop-blur-xl border-b border-slate-800/50"
+    >
+      <div class="container mx-auto px-4 lg:px-8">
+        <div class="flex justify-between items-center py-3">
+          <a href="../index.html"
+            ><img src="../images/4.png" alt="FMTech" class="h-10 md:h-12"
+          /></a>
+          <nav class="hidden lg:flex items-center gap-8">
+            <a
+              href="../index.html#servicios"
+              class="text-sm text-slate-300 hover:text-white"
+              >Servicios</a
+            >
+            <a
+              href="../portfolio.html"
+              class="text-sm text-slate-300 hover:text-white"
+              >Portafolio</a
+            >
+            <a href="../blog.html" class="text-sm text-white">Blog</a>
+            <a
+              href="../index.html#contacto"
+              class="bg-gradient-to-r from-indigo-600 to-indigo-500 text-white px-6 py-3 rounded-full text-sm font-semibold"
+              >Agendar Llamada</a
+            >
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main class="pt-24 pb-16">
+      <article class="container mx-auto px-4 lg:px-8 max-w-4xl">
+        <nav class="text-sm text-slate-400 mb-8">
+          <a href="../index.html" class="hover:text-white">Inicio</a> /
+          <a href="../blog.html" class="hover:text-white">Blog</a> /
+          <span class="text-indigo-400">Velocidad Web</span>
+        </nav>
+
+        <header class="mb-12">
+          <span
+            class="inline-block px-4 py-1 bg-orange-500/20 text-orange-400 rounded-full text-sm font-bold mb-4"
+            >Performance</span
+          >
+          <h1
+            class="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white mb-6"
+          >
+            Por Qué la <span class="gradient-text">Velocidad</span> es Crítica
+          </h1>
+          <div class="flex items-center gap-4 text-slate-400 text-sm">
+            <span>Por Frank Mercado</span> •
+            <time datetime="2026-02-12">12 de Febrero, 2026</time> •
+            <span>3 min</span>
+          </div>
+        </header>
+
+        <div class="rounded-2xl overflow-hidden mb-12">
+          <img
+            src="../images/blog4.webp"
+            alt="Velocidad del Sitio Web"
+            class="w-full h-64 md:h-96 object-cover"
+            loading="lazy"
+          />
+        </div>
+
+        <!-- Stats Grid -->
+        <div class="grid md:grid-cols-3 gap-4 mb-12">
+          <div class="stat-card rounded-xl p-6 text-center">
+            <div class="text-3xl font-bold text-indigo-400 mb-2">53%</div>
+            <p class="text-slate-400 text-sm">
+              de usuarios abandonan si carga más de 3 segundos
+            </p>
+          </div>
+          <div class="stat-card rounded-xl p-6 text-center">
+            <div class="text-3xl font-bold text-cyan-400 mb-2">-7%</div>
+            <p class="text-slate-400 text-sm">
+              conversiones por cada segundo adicional de carga
+            </p>
+          </div>
+          <div class="stat-card rounded-xl p-6 text-center">
+            <div class="text-3xl font-bold text-emerald-400 mb-2">2x</div>
+            <p class="text-slate-400 text-sm">
+              mejores rankings en Google con Core Web Vitals optimizados
+            </p>
+          </div>
+        </div>
+
+        <div class="prose max-w-none">
+          <p class="text-lg text-slate-300 mb-8">
+            En 2026, la velocidad de tu sitio web no es un lujo técnico - es un
+            factor crítico de negocio. Google la usa para rankear tu sitio, y
+            tus clientes la usan para decidir si quedarse o irse a la
+            competencia.
+          </p>
+
+          <h2>¿Qué son los Core Web Vitals?</h2>
+          <p>
+            Google mide la experiencia de usuario con tres métricas principales
+            que ahora son factores de ranking:
+          </p>
+          <ul>
+            <li>
+              <strong>LCP (Largest Contentful Paint):</strong> Tiempo hasta que
+              el contenido principal es visible. Ideal: menos de 2.5 segundos.
+            </li>
+            <li>
+              <strong>INP (Interaction to Next Paint):</strong> Qué tan rápido
+              responde la página a interacciones. Ideal: menos de 200ms.
+            </li>
+            <li>
+              <strong>CLS (Cumulative Layout Shift):</strong> Estabilidad visual
+              - que los elementos no "salten" mientras carga. Ideal: menos de
+              0.1.
+            </li>
+          </ul>
+
+          <h2>El Impacto Real en tu Negocio</h2>
+          <p>
+            Estos no son números abstractos. Walmart descubrió que por cada
+            segundo de mejora en velocidad, sus conversiones aumentaban un 2%.
+            Amazon calculó que un retraso de 100ms les costaba 1% en ventas.
+          </p>
+          <p>Para un negocio local en Cartagena, un sitio lento significa:</p>
+          <ul>
+            <li>
+              Clientes que se van a la competencia (que probablemente tiene
+              mejor sitio)
+            </li>
+            <li>Menor posicionamiento en búsquedas locales</li>
+            <li>
+              Mayor costo por clic en Google Ads (Google penaliza páginas
+              lentas)
+            </li>
+            <li>Peor experiencia en móviles con conexiones 3G/4G</li>
+          </ul>
+
+          <h2>Cómo Diagnosticar tu Velocidad</h2>
+          <p>Usa estas herramientas gratuitas para ver cómo está tu sitio:</p>
+          <ul>
+            <li>
+              <strong>PageSpeed Insights:</strong> pagespeed.web.dev - El
+              diagnóstico oficial de Google
+            </li>
+            <li>
+              <strong>GTmetrix:</strong> Análisis detallado con waterfall de
+              carga
+            </li>
+            <li>
+              <strong>WebPageTest:</strong> Test desde diferentes ubicaciones y
+              conexiones
+            </li>
+          </ul>
+
+          <h2>7 Optimizaciones que Puedes Hacer Hoy</h2>
+
+          <h3>1. Optimiza Imágenes</h3>
+          <p>
+            Las imágenes son típicamente el 50-80% del peso de una página. Usa
+            formatos WebP, comprime, y carga lazy loading.
+          </p>
+
+          <h3>2. Minimiza CSS y JavaScript</h3>
+          <p>
+            Elimina código no usado y combina archivos para reducir peticiones
+            HTTP.
+          </p>
+
+          <h3>3. Usa un CDN</h3>
+          <p>
+            Cloudflare (gratuito) sirve tu contenido desde servidores cercanos a
+            tus usuarios.
+          </p>
+
+          <h3>4. Habilita Compresión Gzip</h3>
+          <p>Reduce el tamaño de archivos de texto en 70-90%.</p>
+
+          <h3>5. Cachea Agresivamente</h3>
+          <p>
+            Configura headers de caché para que los navegadores guarden recursos
+            estáticos.
+          </p>
+
+          <h3>6. Preconecta a Recursos Externos</h3>
+          <p>
+            Usa rel="preconnect" para Google Fonts y otros recursos de terceros.
+          </p>
+
+          <h3>7. Elimina Render-Blocking Resources</h3>
+          <p>Carga CSS crítico inline y difiere JavaScript no esencial.</p>
+
+          <h2>¿Cuándo es "Suficientemente Rápido"?</h2>
+          <p>Para la mayoría de negocios, estos son buenos objetivos:</p>
+          <ul>
+            <li><strong>Tiempo de carga:</strong> Menos de 3 segundos en 3G</li>
+            <li>
+              <strong>PageSpeed Score:</strong> 80+ en móvil, 90+ en desktop
+            </li>
+            <li>
+              <strong>Peso total:</strong> Menos de 3MB para la página inicial
+            </li>
+          </ul>
+
+          <h2>Conclusión</h2>
+          <p>
+            La velocidad de tu sitio web es una inversión con retorno medible.
+            Cada mejora se traduce directamente en mejor SEO, más conversiones,
+            y clientes más satisfechos.
+          </p>
+          <p>
+            <strong>¿Necesitas optimizar tu sitio?</strong> En FMTech
+            construimos sitios web rápidos desde el inicio, y optimizamos sitios
+            existentes.
+            <a href="../index.html#contacto">Agenda tu consulta gratis</a> y
+            analizamos tu velocidad actual.
+          </p>
+        </div>
+
+        <div class="glass-card rounded-2xl p-8 md:p-12 mt-12 text-center">
+          <h3 class="text-2xl font-display font-bold text-white mb-4">
+            ¿Tu Sitio es Lento?
+          </h3>
+          <p class="text-slate-400 mb-6">
+            Analizo tu velocidad gratis y te digo exactamente qué mejorar.
+          </p>
+          <a
+            href="../index.html#contacto"
+            class="inline-block bg-gradient-to-r from-indigo-600 to-cyan-500 text-white px-8 py-4 rounded-full font-bold"
+          >
+            Análisis de Velocidad Gratis
+          </a>
+        </div>
+      </article>
+    </main>
+
+    <footer class="bg-slate-900 border-t border-slate-800 py-8">
+      <div class="container mx-auto px-4 text-center text-slate-500 text-sm">
+        &copy; 2026 FMTech.
+      </div>
+    </footer>
+
+    <a
+      href="https://wa.me/573044301112"
+      target="_blank"
+      class="fixed bottom-6 right-6 z-50"
+    >
+      <img
+        src="../images/whatsapp-logo%20copy.png"
+        alt="WhatsApp"
+        class="w-14 h-14 hover:scale-110 transition-all"
+      />
+    </a>
+  </body>
+</html>

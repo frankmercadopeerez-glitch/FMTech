@@ -1,0 +1,11 @@
+# Robots.txt for tech.frankmercado.com
+# FMTech - Agencia de Diseño Web en Cartagena
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://tech.frankmercado.com/sitemap.xml
+
+# Crawl-delay (optional, for courteous crawling)
+Crawl-delay: 10

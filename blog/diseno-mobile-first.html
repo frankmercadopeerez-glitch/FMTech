@@ -1,0 +1,564 @@
+<!doctype html>
+<html lang="es" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Diseño Mobile-First: Guía Completa 2026 | FMTech</title>
+    <meta
+      name="description"
+      content="Guía definitiva de diseño mobile-first. Aprende por qué el 80% del tráfico es móvil y cómo diseñar sitios web que funcionen perfectamente en smartphones."
+    />
+    <meta
+      name="keywords"
+      content="diseño mobile first, responsive design, diseño web móvil, sitio web móvil, mobile friendly"
+    />
+    <meta name="author" content="Frank Mercado - FMTech" />
+    <meta name="robots" content="index, follow" />
+    <link rel="icon" type="image/png" href="../images/2.png" />
+    <link
+      rel="canonical"
+      href="https://tech.frankmercado.com/blog/diseno-mobile-first.html"
+    />
+
+    <meta property="og:type" content="article" />
+    <meta
+      property="og:title"
+      content="Diseño Mobile-First: Guía Completa 2026"
+    />
+    <meta
+      property="og:description"
+      content="Por qué el 80% del tráfico es móvil y cómo optimizar tu sitio."
+    />
+    <meta
+      property="og:image"
+      content="https://tech.frankmercado.com/images/blog6.webp"
+    />
+    <meta property="article:published_time" content="2026-02-08" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Diseño Mobile-First: Guía Completa" />
+    <meta
+      name="twitter:image"
+      content="https://tech.frankmercado.com/images/blog6.webp"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Diseño Mobile-First: Guía Completa 2026",
+        "image": "https://tech.frankmercado.com/images/blog6.webp",
+        "author": { "@type": "Person", "name": "Frank Mercado" },
+        "datePublished": "2026-02-08"
+      }
+    </script>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Inter", sans-serif;
+        background: linear-gradient(
+          135deg,
+          #0f172a 0%,
+          #1e1b4b 50%,
+          #0f172a 100%
+        );
+        color: #e2e8f0;
+        min-height: 100vh;
+      }
+      .font-display {
+        font-family: "Space Grotesk", sans-serif;
+      }
+      .gradient-text {
+        background: linear-gradient(135deg, #a855f7 0%, #06b6d4 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .glass-card {
+        background: rgba(30, 41, 59, 0.5);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(148, 163, 184, 0.1);
+      }
+      .prose h2 {
+        color: #f8fafc;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        font-size: 1.5rem;
+        font-weight: 700;
+      }
+      .prose h3 {
+        color: #e2e8f0;
+        margin-top: 1.5rem;
+        margin-bottom: 0.75rem;
+        font-size: 1.125rem;
+        font-weight: 600;
+      }
+      .prose p {
+        color: #94a3b8;
+        line-height: 1.8;
+        margin-bottom: 1.25rem;
+      }
+      .prose ul,
+      .prose ol {
+        color: #94a3b8;
+        margin-bottom: 1.25rem;
+        padding-left: 1.5rem;
+      }
+      .prose li {
+        margin-bottom: 0.5rem;
+      }
+      .prose strong {
+        color: #f8fafc;
+      }
+      .prose a {
+        color: #a855f7;
+        text-decoration: underline;
+      }
+      .check-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.75rem;
+        margin-bottom: 0.75rem;
+      }
+      .check-icon {
+        color: #22c55e;
+        flex-shrink: 0;
+        margin-top: 0.25rem;
+      }
+    </style>
+  </head>
+  <body class="bg-slate-950 antialiased">
+    <header
+      class="fixed w-full top-0 z-50 bg-slate-950/80 backdrop-blur-xl border-b border-slate-800/50"
+    >
+      <div class="container mx-auto px-4 lg:px-8">
+        <div class="flex justify-between items-center py-3">
+          <a href="../index.html"
+            ><img src="../images/4.png" alt="FMTech" class="h-10 md:h-12"
+          /></a>
+          <nav class="hidden lg:flex items-center gap-8">
+            <a
+              href="../index.html#servicios"
+              class="text-sm text-slate-300 hover:text-white"
+              >Servicios</a
+            >
+            <a
+              href="../portfolio.html"
+              class="text-sm text-slate-300 hover:text-white"
+              >Portafolio</a
+            >
+            <a href="../blog.html" class="text-sm text-white">Blog</a>
+            <a
+              href="../index.html#contacto"
+              class="bg-gradient-to-r from-indigo-600 to-indigo-500 text-white px-6 py-3 rounded-full text-sm font-semibold"
+              >Agendar Llamada</a
+            >
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main class="pt-24 pb-16">
+      <article class="container mx-auto px-4 lg:px-8 max-w-4xl">
+        <nav class="text-sm text-slate-400 mb-8">
+          <a href="../index.html" class="hover:text-white">Inicio</a> /
+          <a href="../blog.html" class="hover:text-white">Blog</a> /
+          <span class="text-purple-400">Diseño Mobile-First</span>
+        </nav>
+
+        <header class="mb-12">
+          <span
+            class="inline-block px-4 py-1 bg-purple-500/20 text-purple-400 rounded-full text-sm font-bold mb-4"
+            >Mobile</span
+          >
+          <h1
+            class="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white mb-6"
+          >
+            Diseño <span class="gradient-text">Mobile-First</span>: Guía
+            Completa
+          </h1>
+          <div class="flex items-center gap-4 text-slate-400 text-sm">
+            <span>Por Frank Mercado</span> •
+            <time datetime="2026-02-08">8 de Febrero, 2026</time> •
+            <span>7 min</span>
+          </div>
+        </header>
+
+        <div class="rounded-2xl overflow-hidden mb-12">
+          <img
+            src="../images/blog6.webp"
+            alt="Diseño Mobile-First"
+            class="w-full h-64 md:h-96 object-cover"
+            loading="lazy"
+          />
+        </div>
+
+        <div class="prose max-w-none">
+          <p class="text-lg text-slate-300 mb-8">
+            El 80% del tráfico web en Colombia viene de dispositivos móviles. Si
+            tu sitio no está optimizado para móviles, estás perdiendo 8 de cada
+            10 clientes potenciales. En esta guía aprenderás exactamente cómo
+            diseñar pensando primero en móviles.
+          </p>
+
+          <h2>¿Qué es Mobile-First?</h2>
+          <p>
+            Mobile-first es una filosofía de diseño donde empiezas diseñando
+            para pantallas pequeñas (móviles) y luego escalas hacia arriba
+            (tablets, desktops). Es lo opuesto al enfoque tradicional de diseñar
+            para desktop y "achicarlo" después.
+          </p>
+          <p>
+            <strong>¿Por qué importa?</strong> Porque es más fácil escalar un
+            diseño simple hacia uno complejo que al revés. Cuando diseñas para
+            móvil primero, te obligas a priorizar lo esencial.
+          </p>
+
+          <h2>El Cambio de Mentalidad</h2>
+          <p>Diseñar mobile-first requiere pensar diferente:</p>
+          <ul>
+            <li>
+              <strong>Menos es más:</strong> En una pantalla pequeña, cada
+              elemento debe justificar su existencia
+            </li>
+            <li>
+              <strong>Contenido primero:</strong> El texto y la información son
+              el rey, no la decoración
+            </li>
+            <li>
+              <strong>Thumb-friendly:</strong> Todo debe ser fácil de tocar con
+              el pulgar
+            </li>
+            <li>
+              <strong>Carga rápida:</strong> La conexión móvil puede ser lenta -
+              cada KB cuenta
+            </li>
+          </ul>
+
+          <h2>Principios de Diseño Mobile-First</h2>
+
+          <h3>1. Tamaño de Toque Adecuado</h3>
+          <p>
+            Los dedos no son tan precisos como un cursor. Apple y Google
+            recomiendan un área de toque mínima de 44x44 píxeles. Los botones y
+            links deben ser fáciles de presionar.
+          </p>
+
+          <h3>2. Tipografía Legible</h3>
+          <p>
+            El tamaño mínimo de fuente para el cuerpo de texto debe ser 16px. En
+            titulares, usa tamaños que sean legibles sin hacer zoom. El
+            line-height debe ser generoso (1.5-1.8).
+          </p>
+
+          <h3>3. Navegación Simplificada</h3>
+          <p>El menú hamburger es estándar en móviles. Pero considera:</p>
+          <ul>
+            <li>Un máximo de 5-7 items en el menú</li>
+            <li>
+              CTAs importantes (como "Contactar") siempre visibles, fuera del
+              menú
+            </li>
+            <li>Navegación sticky para acceso rápido</li>
+          </ul>
+
+          <h3>4. Imágenes Optimizadas</h3>
+          <p>
+            Las imágenes que se ven bien en desktop pueden ser excesivas en
+            móvil:
+          </p>
+          <ul>
+            <li>Usa srcset para servir diferentes tamaños según la pantalla</li>
+            <li>Formato WebP para mejor compresión</li>
+            <li>Lazy loading para imágenes fuera de la vista</li>
+            <li>Placeholder de baja resolución mientras carga</li>
+          </ul>
+
+          <h3>5. Formularios Móvil-Friendly</h3>
+          <p>
+            Los formularios son donde muchos sitios pierden usuarios móviles:
+          </p>
+          <ul>
+            <li>Campos grandes y separados</li>
+            <li>Labels siempre visibles (no solo placeholder)</li>
+            <li>
+              Tipo de input correcto (email, tel, number) para mostrar el
+              teclado apropiado
+            </li>
+            <li>Autocompletar habilitado</li>
+          </ul>
+
+          <h2>Checklist Mobile-First</h2>
+          <div class="glass-card rounded-xl p-6 my-8">
+            <div class="check-item">
+              <svg
+                class="check-icon w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M5 13l4 4L19 7"
+                />
+              </svg>
+              <span class="text-slate-300"
+                >Viewport meta tag configurado correctamente</span
+              >
+            </div>
+            <div class="check-item">
+              <svg
+                class="check-icon w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M5 13l4 4L19 7"
+                />
+              </svg>
+              <span class="text-slate-300">Fuente base de 16px o más</span>
+            </div>
+            <div class="check-item">
+              <svg
+                class="check-icon w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M5 13l4 4L19 7"
+                />
+              </svg>
+              <span class="text-slate-300"
+                >Botones y links con área de toque de 44px mínimo</span
+              >
+            </div>
+            <div class="check-item">
+              <svg
+                class="check-icon w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M5 13l4 4L19 7"
+                />
+              </svg>
+              <span class="text-slate-300"
+                >Imágenes responsive con múltiples tamaños</span
+              >
+            </div>
+            <div class="check-item">
+              <svg
+                class="check-icon w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M5 13l4 4L19 7"
+                />
+              </svg>
+              <span class="text-slate-300"
+                >Sin scroll horizontal en ningún breakpoint</span
+              >
+            </div>
+            <div class="check-item">
+              <svg
+                class="check-icon w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M5 13l4 4L19 7"
+                />
+              </svg>
+              <span class="text-slate-300"
+                >Formularios con inputs del tipo correcto</span
+              >
+            </div>
+            <div class="check-item">
+              <svg
+                class="check-icon w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M5 13l4 4L19 7"
+                />
+              </svg>
+              <span class="text-slate-300"
+                >Menú de navegación funcional en móvil</span
+              >
+            </div>
+            <div class="check-item">
+              <svg
+                class="check-icon w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M5 13l4 4L19 7"
+                />
+              </svg>
+              <span class="text-slate-300"
+                >Velocidad de carga menor a 3 segundos en 3G</span
+              >
+            </div>
+          </div>
+
+          <h2>Herramientas para Probar tu Sitio Móvil</h2>
+          <ul>
+            <li>
+              <strong>Chrome DevTools:</strong> F12 → Toggle device toolbar para
+              simular cualquier dispositivo
+            </li>
+            <li>
+              <strong>Google Mobile-Friendly Test:</strong>
+              search.google.com/test/mobile-friendly
+            </li>
+            <li>
+              <strong>BrowserStack:</strong> Prueba en dispositivos reales
+              remotos
+            </li>
+            <li>
+              <strong>Tu propio teléfono:</strong> Nada reemplaza probar en un
+              dispositivo real
+            </li>
+          </ul>
+
+          <h2>Google Mobile-First Indexing</h2>
+          <p>
+            Desde 2021, Google usa la versión móvil de tu sitio para determinar
+            tu ranking. Esto significa que si tu sitio desktop es perfecto pero
+            el móvil es pobre, tu SEO sufrirá.
+          </p>
+          <p>
+            <strong>Lo que Google revisa:</strong>
+          </p>
+          <ul>
+            <li>Que el contenido sea el mismo en móvil y desktop</li>
+            <li>Que los structured data estén presentes en la versión móvil</li>
+            <li>Que las imágenes tengan alt text en móvil</li>
+            <li>Que el sitio cargue rápido en conexiones móviles</li>
+          </ul>
+
+          <h2>Conclusión</h2>
+          <p>
+            El diseño mobile-first no es una tendencia - es el estándar. Con la
+            mayoría del tráfico web viniendo de móviles, ignorar la experiencia
+            móvil es ignorar a la mayoría de tus clientes.
+          </p>
+          <p>
+            <strong>¿Tu sitio no es mobile-friendly?</strong> En FMTech
+            diseñamos todos nuestros sitios con enfoque mobile-first.
+            <a href="../index.html#contacto">Agenda una consulta</a> y
+            transformamos tu presencia digital.
+          </p>
+        </div>
+
+        <div
+          class="glass-card rounded-2xl p-8 md:p-12 mt-12 text-center"
+          style="border-color: rgba(168, 85, 247, 0.3)"
+        >
+          <h3 class="text-2xl font-display font-bold text-white mb-4">
+            ¿Tu Sitio Funciona en Móviles?
+          </h3>
+          <p class="text-slate-400 mb-6">
+            Revisamos tu sitio gratis y te damos recomendaciones específicas.
+          </p>
+          <a
+            href="../index.html#contacto"
+            class="inline-block bg-gradient-to-r from-purple-600 to-cyan-500 text-white px-8 py-4 rounded-full font-bold transition-all hover:scale-105"
+          >
+            Auditoría Móvil Gratis
+          </a>
+        </div>
+
+        <div class="mt-16">
+          <h3 class="text-xl font-display font-bold text-white mb-6">
+            Artículos Relacionados
+          </h3>
+          <div class="grid md:grid-cols-2 gap-6">
+            <a
+              href="velocidad-sitio-web.html"
+              class="glass-card rounded-xl p-6 hover:border-purple-500/50 transition-all"
+            >
+              <span class="text-xs font-bold text-orange-400">Performance</span>
+              <h4 class="text-white font-bold mt-2">
+                Por Qué la Velocidad es Crítica
+              </h4>
+            </a>
+            <a
+              href="tendencias-diseno-web-2026.html"
+              class="glass-card rounded-xl p-6 hover:border-purple-500/50 transition-all"
+            >
+              <span class="text-xs font-bold text-cyan-400">Diseño</span>
+              <h4 class="text-white font-bold mt-2">
+                Tendencias de Diseño Web 2026
+              </h4>
+            </a>
+          </div>
+        </div>
+      </article>
+    </main>
+
+    <footer class="bg-slate-900 border-t border-slate-800 py-8">
+      <div class="container mx-auto px-4 text-center text-slate-500 text-sm">
+        &copy; 2026 FMTech. Todos los derechos reservados.
+      </div>
+    </footer>
+
+    <a
+      href="https://wa.me/573044301112"
+      target="_blank"
+      class="fixed bottom-6 right-6 z-50"
+    >
+      <img
+        src="../images/whatsapp-logo%20copy.png"
+        alt="WhatsApp"
+        class="w-14 h-14 hover:scale-110 transition-all"
+      />
+    </a>
+  </body>
+</html>
