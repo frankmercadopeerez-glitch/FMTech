@@ -243,7 +243,7 @@ document.addEventListener("DOMContentLoaded", () => {
       q5: "What is included in the service?",
       a5: "It's tailored to you. Can range from SEO audits to full web development, content creation, and lead generation setups.",
       q6: "What is the minimum investment?",
-      a6: "Our custom engagements start at $150 USD. We focus on delivering value that exceeds the investment.",
+      a6: "Our web projects start at COP $1,200,000. The final price depends on scope, content, languages and integrations.",
       q7: "What if I am not satisfied?",
       a7: "We work in milestones. You approve designs and strategies before we build. Your satisfaction is our priority.",
       q8: "Is there support after launch?",
@@ -268,7 +268,7 @@ document.addEventListener("DOMContentLoaded", () => {
       // Portfolio Page
       port_page_title: "Success Cases",
       port_filter_all: "All",
-      view_site: "View Site →",
+      view_site: "View Site",
 
       // Blog Page
       blog_page_title: "Digital Strategy: Trends & Tips",
@@ -432,7 +432,7 @@ document.addEventListener("DOMContentLoaded", () => {
       q5: "¿Qué incluye el servicio?",
       a5: "Está hecho a medida. Puede ir desde auditorías SEO hasta desarrollo web completo, creación de contenido y configuración de generación de leads.",
       q6: "¿Cuál es el mínimo de inversión?",
-      a6: "Nuestros compromisos personalizados comienzan en $600.000 COP. Nos enfocamos en entregar valor que supere la inversión.",
+      a6: "Nuestros proyectos web comienzan desde $1.200.000 COP. El precio final depende del alcance, contenido, idiomas e integraciones.",
       q7: "¿Qué pasa si no estoy satisfecho?",
       a7: "Trabajamos por hitos. Apruebas diseños y estrategias antes de que construyamos. Tu satisfacción es nuestra prioridad.",
       q8: "¿Hay soporte después del lanzamiento?",
@@ -457,7 +457,7 @@ document.addEventListener("DOMContentLoaded", () => {
       // Portfolio Page
       port_page_title: "Casos de Éxito",
       port_filter_all: "Todos",
-      view_site: "Ver Sitio →",
+      view_site: "Ver sitio",
 
       // Blog Page
       blog_page_title: "Estrategia Digital: Tendencias y Tips",
@@ -716,11 +716,9 @@ document.addEventListener("DOMContentLoaded", () => {
         (t, i) => `
             <div class="flex-shrink-0 w-[320px] md:w-[400px] snap-start bg-slate-800/50 border border-slate-700 rounded-2xl p-8 backdrop-blur-sm">
                 <div class="flex gap-1 mb-4">
-                    ${"★"
-                      .repeat(5)
-                      .split("")
-                      .map(() => '<span class="text-amber-400">★</span>')
-                      .join("")}
+                    ${Array.from({ length: 5 }, () =>
+                      '<svg class="w-4 h-4 text-amber-400 fill-current" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2.6 2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3-5.8 3 1.1-6.5-4.7-4.6 6.5-.9L12 2.6Z"/></svg>',
+                    ).join("")}
                 </div>
                 <p class="text-slate-300 mb-6 leading-relaxed">"${currentLang === "en" ? t.text_en : t.text_es}"</p>
                 <div class="flex items-center gap-4">
@@ -912,5 +910,5 @@ ${data.message || "Me gustaría más información"}`;
       });
   }
 
-  console.log("🚀 FMTech - Sitio cargado correctamente");
+  console.log("FMTech - Sitio cargado correctamente");
 });
