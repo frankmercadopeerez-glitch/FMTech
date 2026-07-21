@@ -179,7 +179,10 @@
       footer { padding: 28px 0; color: #9fb0c0; background: #04111f; border-top: 1px solid rgba(255,255,255,.08); }
       .footer-grid { display: flex; justify-content: space-between; gap: 20px; align-items: center; }
       .footer-links { display: flex; flex-wrap: wrap; gap: 20px; font-size: .84rem; }
-      .whatsapp-float { position: fixed; z-index: 45; right: 22px; bottom: 22px; display: flex; align-items: center; gap: 9px; padding: 13px 17px; color: white; border-radius: 999px; background: #17ad65; box-shadow: 0 16px 36px rgba(0,0,0,.24); font-weight: 800; }
+      .whatsapp-float { position: fixed; z-index: 45; right: 22px; bottom: 22px; width: 58px; height: 58px; display: grid; place-items: center; color: white; border-radius: 50%; background: #25d366; box-shadow: 0 16px 36px rgba(0,0,0,.24); transition: transform .2s ease, box-shadow .2s ease; }
+      .whatsapp-float:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 20px 42px rgba(0,0,0,.3); }
+      .whatsapp-float:focus-visible { outline: 3px solid white; outline-offset: 3px; }
+      .whatsapp-float svg { width: 32px; height: 32px; fill: currentColor; }
       .reveal { opacity: 1; transform: none; transition: .35s ease; }
       @media (max-width: 980px) {
         .nav-links { position: fixed; inset: 78px 0 auto; padding: 28px 20px; display: none; flex-direction: column; align-items: stretch; background: #061528; border-top: 1px solid var(--line); }
@@ -211,8 +214,8 @@
         .maintenance,.footer-grid { align-items: flex-start; flex-direction: column; }
         .form-grid { grid-template-columns: 1fr; }
         .field.full { grid-column: auto; }
-        .whatsapp-float span { display: none; }
-        .whatsapp-float { width: 54px; height: 54px; justify-content: center; padding: 0; font-size: 1.3rem; }
+        .whatsapp-float { width: 54px; height: 54px; }
+        .whatsapp-float svg { width: 30px; height: 30px; }
       }
     </style>
   </head>
@@ -409,7 +412,11 @@
     </main>
 
     <footer><div class="container footer-grid"><div>© <span id="year"></span> FMTECH · Cartagena, Colombia</div><div class="footer-links"><a href="portfolio.html">Portafolio</a><a href="blog.html">Blog</a><a href="privacy.html">Privacidad</a><a href="terms.html">Términos</a><a href="https://www.instagram.com/fmtechcolombia/" target="_blank" rel="noopener">Instagram</a></div></div></footer>
-    <a class="whatsapp-float" href="https://wa.me/573044301112?text=Hola%2C%20quiero%20una%20auditor%C3%ADa%20gratuita%20para%20mi%20negocio%20de%20turismo" target="_blank" rel="noopener" aria-label="Escribir a FMTECH por WhatsApp">✆ <span>WhatsApp</span></a>
+    <a class="whatsapp-float" href="https://wa.me/573044301112?text=Hola%2C%20quiero%20una%20auditor%C3%ADa%20gratuita%20para%20mi%20negocio%20de%20turismo" target="_blank" rel="noopener" aria-label="Escribir a FMTECH por WhatsApp" title="Escribir por WhatsApp">
+      <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+        <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.366 0 7.926-3.558 7.93-7.93a7.898 7.898 0 0 0-2.327-5.607zm-5.607 12.2a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.25a6.56 6.56 0 0 1-1.007-3.505c0-3.63 2.957-6.587 6.591-6.587a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.594-6.592 6.594zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.066-.315-.099-.445.099-.133.197-.513.646-.627.775-.116.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985a5.3 5.3 0 0 1-1.1-1.372c-.116-.198-.012-.305.087-.403.09-.088.197-.232.296-.346.1-.116.133-.198.198-.33.066-.133.033-.248-.016-.347-.05-.099-.445-1.075-.61-1.47-.16-.389-.323-.335-.445-.34-.116-.006-.248-.006-.38-.006a.729.729 0 0 0-.529.248c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.132 1.396 2.132 3.383 2.992.472.205.84.326 1.129.418.474.15.905.129 1.246.078.38-.058 1.171-.48 1.338-.943.164-.462.164-.858.114-.943-.049-.084-.182-.132-.38-.231z"/>
+      </svg>
+    </a>
     <script>
       const header = document.getElementById('header');
       const menuBtn = document.getElementById('menuBtn');
