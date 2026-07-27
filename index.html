@@ -192,9 +192,12 @@
       .step p { margin: 0; color: #96aabd; font-size: .9rem; line-height: 1.55; }
       .about { background: linear-gradient(180deg,#071b30,#061426); }
       .about-grid { display: grid; grid-template-columns: .75fr 1.25fr; gap: 64px; align-items: center; }
-      .about-visual { min-height: 390px; padding: 30px; display: flex; align-items: end; border-radius: 26px; color: white; background: radial-gradient(circle at 75% 20%, rgba(19,197,211,.38), transparent 32%), linear-gradient(145deg,var(--navy),#0b4658); }
-      .about-monogram { font-family: "Manrope"; font-size: clamp(5rem,12vw,9rem); line-height: .8; font-weight: 800; color: var(--cyan); }
-      .about-visual p { max-width: 270px; margin: 18px 0 0; color: #c2d1dc; }
+      .about-visual { position: relative; width: 100%; min-height: 430px; margin: 0; overflow: hidden; border: 1px solid rgba(105,230,239,.18); border-radius: 26px; color: white; background: #071b30; box-shadow: 0 28px 70px rgba(0,0,0,.32); }
+      .about-photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; transition: transform .8s cubic-bezier(.2,.7,.2,1), filter .8s ease; }
+      .about-visual::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg,transparent 48%,rgba(4,15,28,.9) 100%); pointer-events: none; }
+      .about-visual:hover .about-photo { transform: scale(1.045); filter: saturate(1.07); }
+      .about-caption { position: absolute; z-index: 1; right: 24px; bottom: 22px; left: 24px; display: flex; align-items: center; gap: 12px; color: #e8fbff; font-size: .88rem; font-weight: 700; letter-spacing: .02em; }
+      .about-caption::before { content: ""; width: 34px; height: 2px; flex: 0 0 34px; background: var(--cyan); box-shadow: 0 0 14px rgba(19,197,211,.75); }
       .faq-grid { display: grid; grid-template-columns: .72fr 1.28fr; gap: 60px; }
       details { border-bottom: 1px solid var(--line); }
       summary { padding: 20px 4px; cursor: pointer; list-style: none; font-family: "Manrope"; font-weight: 700; }
@@ -464,7 +467,10 @@
 
       <section class="section about">
         <div class="container about-grid">
-          <div class="about-visual reveal"><div><div class="about-monogram">FM</div><p>Tecnología aplicada a la forma en que Cartagena vende experiencias.</p></div></div>
+          <figure class="about-visual reveal">
+            <img class="about-photo" src="images/frank-programador-2026.webp" alt="Frank Mercado, fundador de FMTECH, desarrollando una página web" width="1448" height="1086" loading="lazy" decoding="async" />
+            <figcaption class="about-caption">Tecnología aplicada al turismo de Cartagena.</figcaption>
+          </figure>
           <div class="reveal"><span class="eyebrow">Quién está detrás</span><h2 class="section-title">Soy Frank, fundador de FMTECH.</h2><p class="section-lead">Conozco de cerca el turismo y el sector náutico de Cartagena. Por eso decidí especializar la agencia: no ofrecer páginas genéricas, sino herramientas pensadas para la manera en que aquí se presentan tours, lanchas y experiencias.</p><p class="section-lead" style="margin-top:16px">Nuestro trabajo no promete reservas automáticas. Construye una presencia más clara, profesional y medible para apoyar tu proceso comercial.</p></div>
         </div>
       </section>
