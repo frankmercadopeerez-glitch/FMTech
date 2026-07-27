@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 170" role="img" aria-labelledby="title desc">
+  <title id="title">FMTECH Web Design</title>
+  <desc id="desc">Logotipo blanco de FMTECH con símbolo de nodos conectados</desc>
+  <g fill="none" stroke="#F4F8FC" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M48 86 82 45l44 44M48 86l42 42 36-39M82 45l8 83"/>
+  </g>
+  <g fill="#F4F8FC">
+    <circle cx="48" cy="86" r="16"/>
+    <circle cx="82" cy="45" r="16"/>
+    <circle cx="90" cy="128" r="16"/>
+    <circle cx="126" cy="89" r="16"/>
+    <text x="165" y="105" font-family="Arial, Helvetica, sans-serif" font-size="92" font-weight="800" letter-spacing="-3">FMT</text>
+    <text x="330" y="105" font-family="Arial, Helvetica, sans-serif" font-size="92" font-weight="300" letter-spacing="-3">ECH</text>
+    <text x="205" y="151" font-family="Arial, Helvetica, sans-serif" font-size="25" font-weight="700" letter-spacing="19">WEB DESIGN</text>
+  </g>
+</svg>

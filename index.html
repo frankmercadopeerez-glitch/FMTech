@@ -147,6 +147,15 @@
       .service-icon svg.fill-icon { fill: currentColor; stroke: none; }
       .service h3 { margin: 20px 0 9px; font-size: 1.12rem; }
       .service p { margin: 0; color: #9caec1; line-height: 1.65; }
+      .studio { background: #051426; overflow: hidden; }
+      .studio-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; margin-top: 44px; }
+      .studio-card { position: relative; min-height: 390px; overflow: hidden; border: 1px solid var(--line); border-radius: 24px; background: var(--surface); box-shadow: var(--shadow); }
+      .studio-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 1s cubic-bezier(.16,1,.3,1), filter .6s ease; }
+      .studio-card::after { content: ""; position: absolute; inset: 35% 0 0; background: linear-gradient(transparent,rgba(2,10,20,.94)); }
+      .studio-card:hover img { transform: scale(1.08); filter: saturate(1.12); }
+      .studio-card-copy { position: absolute; z-index: 2; inset: auto 24px 24px; }
+      .studio-card-copy span { color: var(--cyan-2); font-size: .76rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+      .studio-card-copy h3 { margin: 8px 0 0; color: #edf6fc; font-size: 1.22rem; line-height: 1.25; }
       .demo { color: white; background: var(--navy); }
       .demo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
       .demo .section-lead { color: #afc0d0; }
@@ -214,6 +223,7 @@
       .whatsapp-float:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 20px 42px rgba(0,0,0,.3); }
       .whatsapp-float:focus-visible { outline: 3px solid white; outline-offset: 3px; }
       .whatsapp-float svg { width: 32px; height: 32px; fill: currentColor; }
+      .whatsapp-service-icon { color: white; border-color: rgba(37,211,102,.42); border-radius: 50%; background: #25d366; box-shadow: 0 10px 28px rgba(37,211,102,.2); }
       .reveal { opacity: 0; transform: translateY(34px); transition: opacity .8s cubic-bezier(.16,1,.3,1), transform .8s cubic-bezier(.16,1,.3,1); }
       .reveal.visible { opacity: 1; transform: translateY(0); }
       @keyframes chat-float { 0%,100% { transform: rotate(-2deg) translateY(0); } 50% { transform: rotate(-1deg) translateY(-10px); } }
@@ -228,6 +238,7 @@
         .hero-grid { gap: 54px; }
         .hero-visual { max-width: 680px; margin: 0 auto; }
         .services-grid,.pricing-grid { grid-template-columns: 1fr 1fr; }
+        .studio-grid { grid-template-columns: 1fr 1fr; }
         .price-card.featured { transform: none; }
         .process-grid { grid-template-columns: repeat(3,1fr); }
       }
@@ -246,22 +257,39 @@
         .trust-item { padding: 12px; }
         .trust-item:nth-child(2) { border-right: 0; }
         .services-grid,.pricing-grid,.process-grid { grid-template-columns: 1fr; }
+        .studio-grid { grid-template-columns: 1fr; }
+        .studio-card { min-height: 340px; }
         .maintenance,.footer-grid { align-items: flex-start; flex-direction: column; }
         .form-grid { grid-template-columns: 1fr; }
         .field.full { grid-column: auto; }
         .whatsapp-float { right: 10px; bottom: 10px; width: 46px; height: 46px; }
         .whatsapp-float svg { width: 26px; height: 26px; }
+        body { text-align: center; }
+        .section-title,.section-lead,.hero-copy > p { margin-left: auto; margin-right: auto; }
+        .hero-actions,.hero-note { justify-content: center; }
+        .hero-badge,.eyebrow { justify-content: center; }
+        .trust-item { border-right: 0; }
+        .problem-card { display: block; text-align: center; }
+        .problem-card .number,.service-icon { margin-left: auto; margin-right: auto; }
+        .service,.price-card,.step,.maintenance,.contact-info,.studio-card-copy { text-align: center; }
+        .price-list li,.demo-point { justify-content: center; text-align: left; }
+        .maintenance { align-items: center; }
+        .faq-grid summary,details p { text-align: center; }
+        .contact-card label { text-align: center; }
+        .footer-grid { align-items: center; text-align: center; }
+        .footer-links { justify-content: center; }
       }
       @media (prefers-reduced-motion: reduce) {
         *,*::before,*::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
         .reveal { opacity: 1; transform: none; }
       }
     </style>
+      <link rel="stylesheet" href="mobile-polish.css" />
   </head>
   <body>
     <header class="header" id="header">
       <div class="container nav">
-        <a class="logo" href="#inicio" aria-label="FMTECH inicio"><img src="images/4.png" alt="FMTECH Web Design" /></a>
+        <a class="logo" href="#inicio" aria-label="FMTECH inicio"><img src="images/fmtech-logo-hd.svg" alt="FMTECH Web Design" /></a>
         <button class="menu-btn" id="menuBtn" aria-label="Abrir menú" aria-expanded="false"><span class="menu-icon" aria-hidden="true"><span></span></span></button>
         <nav class="nav-links" id="navLinks" aria-label="Navegación principal">
           <a href="#solucion">Solución</a>
@@ -341,10 +369,34 @@
           <div class="services-grid">
             <article class="service reveal"><div class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 4v16"/></svg></div><h3>Catálogo de tours</h3><p>Experiencias organizadas por categorías, con fotos, itinerario, duración y condiciones.</p></article>
             <article class="service reveal"><div class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg></div><h3>Web bilingüe</h3><p>Contenido en español e inglés para atender al viajero antes de llegar a Cartagena.</p></article>
-            <article class="service reveal"><div class="service-icon" aria-hidden="true"><svg class="fill-icon" viewBox="0 0 16 16"><path d="M13.6 2.3A7.85 7.85 0 0 0 8 0a7.93 7.93 0 0 0-6.87 11.89L0 16l4.2-1.1A7.93 7.93 0 1 0 13.6 2.3Zm-5.6 12.2a6.6 6.6 0 0 1-3.36-.92l-.24-.14-2.5.65.67-2.43-.16-.25A6.59 6.59 0 1 1 8 14.5Zm3.61-4.93c-.2-.1-1.17-.58-1.35-.65-.18-.06-.32-.1-.45.1-.13.2-.51.65-.63.78-.11.13-.23.15-.43.05-.2-.1-.84-.31-1.59-.99a5.3 5.3 0 0 1-1.1-1.37c-.12-.2-.01-.31.09-.4.09-.09.2-.23.3-.35.1-.12.13-.2.2-.33.06-.13.03-.25-.02-.35-.05-.1-.45-1.07-.61-1.47-.16-.39-.32-.34-.45-.34h-.38a.73.73 0 0 0-.53.25c-.18.2-.69.68-.69 1.65s.71 1.92.81 2.05c.1.13 1.4 2.13 3.38 2.99.47.21.84.33 1.13.42.47.15.91.13 1.25.08.38-.06 1.17-.48 1.34-.94.16-.46.16-.86.11-.94-.05-.09-.18-.13-.38-.23Z"/></svg></div><h3>WhatsApp contextual</h3><p>Cada tour prepara un mensaje distinto para que sepas exactamente qué le interesa al cliente.</p></article>
+            <article class="service reveal"><div class="service-icon whatsapp-service-icon" aria-hidden="true"><svg class="fill-icon" viewBox="0 0 16 16"><path d="M13.6 2.3A7.85 7.85 0 0 0 8 0a7.93 7.93 0 0 0-6.87 11.89L0 16l4.2-1.1A7.93 7.93 0 1 0 13.6 2.3Zm-5.6 12.2a6.6 6.6 0 0 1-3.36-.92l-.24-.14-2.5.65.67-2.43-.16-.25A6.59 6.59 0 1 1 8 14.5Zm3.61-4.93c-.2-.1-1.17-.58-1.35-.65-.18-.06-.32-.1-.45.1-.13.2-.51.65-.63.78-.11.13-.23.15-.43.05-.2-.1-.84-.31-1.59-.99a5.3 5.3 0 0 1-1.1-1.37c-.12-.2-.01-.31.09-.4.09-.09.2-.23.3-.35.1-.12.13-.2.2-.33.06-.13.03-.25-.02-.35-.05-.1-.45-1.07-.61-1.47-.16-.39-.32-.34-.45-.34h-.38a.73.73 0 0 0-.53.25c-.18.2-.69.68-.69 1.65s.71 1.92.81 2.05c.1.13 1.4 2.13 3.38 2.99.47.21.84.33 1.13.42.47.15.91.13 1.25.08.38-.06 1.17-.48 1.34-.94.16-.46.16-.86.11-.94-.05-.09-.18-.13-.38-.23Z"/></svg></div><h3>WhatsApp contextual</h3><p>Cada tour prepara un mensaje distinto para que sepas exactamente qué le interesa al cliente.</p></article>
             <article class="service reveal"><div class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 3h10v4H7zM5 5H3v16h18V5h-2M7 12h10M7 16h7"/></svg></div><h3>Formularios de cotización</h3><p>Captura fecha, cantidad de personas, experiencia y datos necesarios para responder mejor.</p></article>
             <article class="service reveal"><div class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></div><h3>Medición digital</h3><p>Meta Pixel, Google Analytics y página de gracias para entender visitas y consultas.</p></article>
             <article class="service reveal"><div class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 13a8 8 0 0 1 16 0v5a2 2 0 0 1-2 2h-3M4 13v5M4 16H2v-4h2M20 16h2v-4h-2M15 20h-4"/></svg></div><h3>Soporte mensual</h3><p>Actualización de precios, nuevos tours, seguridad, respaldos y pequeños ajustes.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section studio" id="estudio">
+        <div class="container">
+          <div class="reveal">
+            <span class="eyebrow">Desarrollo real</span>
+            <h2 class="section-title">Diseño, estrategia y código trabajando para tus tours.</h2>
+            <p class="section-lead">Cada proyecto combina experiencia visual, desarrollo responsive, medición y optimización para convertir información dispersa en una herramienta comercial clara.</p>
+          </div>
+          <div class="studio-grid">
+            <article class="studio-card reveal">
+              <img src="images/service-web-design-2026.webp" alt="Diseñador desarrollando una web adaptable para turismo" width="900" height="675" loading="lazy" decoding="async" />
+              <div class="studio-card-copy"><span>Diseño responsive</span><h3>Tu oferta se entiende en computador, tableta y celular.</h3></div>
+            </article>
+            <article class="studio-card reveal">
+              <img src="images/agency-hero-2026.webp" alt="Equipo de FMTECH diseñando y programando experiencias web" width="1920" height="1080" loading="lazy" decoding="async" />
+              <div class="studio-card-copy"><span>Desarrollo especializado</span><h3>Construimos cada experiencia alrededor de tu operación turística.</h3></div>
+            </article>
+            <article class="studio-card reveal">
+              <img src="images/service-performance-2026.webp" alt="Desarrollador optimizando velocidad y rendimiento web" width="900" height="675" loading="lazy" decoding="async" />
+              <div class="studio-card-copy"><span>Rendimiento</span><h3>Velocidad, medición y soporte después del lanzamiento.</h3></div>
+            </article>
           </div>
         </div>
       </section>

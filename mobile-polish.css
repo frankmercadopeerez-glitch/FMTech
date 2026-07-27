@@ -1,0 +1,82 @@
+/* Shared responsive polish for every FMTECH page */
+img,
+svg,
+video {
+  max-width: 100%;
+}
+
+img[src$="fmtech-logo-hd.svg"] {
+  width: clamp(160px, 18vw, 210px);
+  height: auto;
+  object-fit: contain;
+}
+
+@media (max-width: 680px) {
+  html,
+  body {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  body,
+  main,
+  main section,
+  main article,
+  header,
+  footer,
+  h1,
+  h2,
+  h3,
+  h4,
+  p,
+  li,
+  blockquote,
+  figcaption,
+  summary,
+  label {
+    text-align: center !important;
+  }
+
+  ul,
+  ol {
+    padding-left: 0 !important;
+    list-style-position: inside;
+  }
+
+  main section > div,
+  main article,
+  .container,
+  .section-header,
+  .hero-content {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  a,
+  button {
+    max-width: 100%;
+  }
+
+  input,
+  select,
+  textarea {
+    width: 100%;
+    max-width: 100%;
+    text-align: center !important;
+  }
+
+  img[src$="fmtech-logo-hd.svg"] {
+    width: 170px !important;
+    height: auto !important;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+  }
+}
