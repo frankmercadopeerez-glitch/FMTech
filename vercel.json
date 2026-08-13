@@ -1,6 +1,5 @@
 {
-  "rewrites": [
-    { "source": "/finanzas", "destination": "/finanzas-frank.html" },
-    { "source": "/finanzas/", "destination": "/finanzas-frank.html" }
+  "redirects": [
+    { "source": "/index.html", "destination": "/", "permanent": true }
   ]
 }

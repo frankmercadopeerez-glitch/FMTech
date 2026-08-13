@@ -1,20 +1,14 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="es" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- SEO Principal -->
-    <title>
-      Blog | FMTech - Tips de Diseño Web y Marketing Digital en Cartagena
-    </title>
+    <title>SEO y marketing digital para turismo | Blog FMTECH</title>
     <meta
       name="description"
-      content="Aprende sobre diseño web, SEO local y marketing digital para negocios en Cartagena y Colombia. Guías prácticas, tendencias 2026 y consejos de expertos."
-    />
-    <meta
-      name="keywords"
-      content="blog diseño web, tips SEO local, marketing digital cartagena, tendencias web 2026, desarrollo web colombia, optimización sitios web"
+      content="Guías de FMTECH sobre SEO local, páginas web, velocidad, conversión y WhatsApp para agencias de turismo y negocios de Cartagena."
     />
     <meta name="author" content="Frank Mercado - FMTech" />
     <meta name="robots" content="index, follow" />
@@ -26,40 +20,37 @@
     <meta property="og:type" content="website" />
     <meta
       property="og:title"
-      content="Blog | FMTech - Tips de Diseño Web y Marketing Digital"
+      content="SEO y marketing digital para turismo | Blog FMTECH"
     />
     <meta
       property="og:description"
-      content="Aprende sobre diseño web, SEO local y marketing digital para negocios en Cartagena. Guías prácticas y tendencias 2026."
+      content="Guías de SEO, páginas web y conversión para agencias de turismo y negocios de Cartagena."
     />
     <meta property="og:url" content="https://tech.frankmercado.com/blog.html" />
     <meta property="og:site_name" content="FMTech" />
     <meta property="og:locale" content="es_CO" />
     <meta
       property="og:image"
-      content="https://tech.frankmercado.com/images/FMT%20WEB%20LOGO%20.png"
+      content="https://tech.frankmercado.com/images/fmtech-social-preview-v2.png"
     />
-    <meta property="og:image:alt" content="FMTech Blog - Diseño Web" />
+    <meta property="og:image:alt" content="Blog de diseño web y SEO de FMTECH Cartagena" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Blog | FMTech - Tips de Diseño Web" />
+    <meta name="twitter:title" content="SEO y marketing digital para turismo | Blog FMTECH" />
     <meta
       name="twitter:description"
       content="Aprende sobre diseño web, SEO y marketing digital para tu negocio."
     />
     <meta
       name="twitter:image"
-      content="https://tech.frankmercado.com/images/FMT%20WEB%20LOGO%20.png"
+      content="https://tech.frankmercado.com/images/fmtech-social-preview-v2.png"
     />
 
     <!-- Preconnect para performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="dns-prefetch" href="https://cdn.tailwindcss.com" />
-
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="tailwind.min.css" />
 
     <!-- Fuentes -->
     <link
@@ -86,8 +77,8 @@
         "blogPost": [
           {
             "@type": "BlogPosting",
-            "headline": "Cómo Dominar el SEO Local en Cartagena",
-            "description": "Estrategias probadas para aparecer primero cuando buscan tu negocio en Google.",
+            "headline": "Guía de SEO local en Cartagena para negocios",
+            "description": "Acciones prácticas para mejorar la presencia de un negocio de Cartagena en Google y Maps.",
             "author": { "@type": "Person", "name": "Frank Mercado" },
             "datePublished": "2026-02-20",
             "url": "https://tech.frankmercado.com/blog/seo-local-cartagena.html"
@@ -196,7 +187,7 @@
               href="index.html#solucion"
               class="text-sm font-medium text-slate-300 hover:text-white transition-colors"
               data-translate-key="nav_services"
-              >Servicios</a
+              >Páginas web en Cartagena</a
             >
             <a
               href="portfolio.html"
@@ -224,19 +215,9 @@
             >
             <div
               class="flex items-center gap-1 px-3 py-1.5 bg-slate-800/50 rounded-full border border-slate-700/50"
+              aria-label="Idioma del sitio: español"
             >
-              <button
-                class="lang-toggle px-2 py-1 text-xs font-bold rounded-full transition-all"
-                data-lang="es"
-              >
-                ES
-              </button>
-              <button
-                class="lang-toggle px-2 py-1 text-xs font-bold rounded-full transition-all"
-                data-lang="en"
-              >
-                EN
-              </button>
+              <span class="px-2 py-1 text-xs font-bold">ES</span>
             </div>
             <a
               href="index.html#contacto"
@@ -247,6 +228,10 @@
           </nav>
           <button
             id="menu-btn"
+            type="button"
+            aria-label="Abrir menú de navegación"
+            aria-controls="mobile-menu"
+            aria-expanded="false"
             class="lg:hidden relative w-10 h-10 flex items-center justify-center"
           >
             <div class="w-6 flex flex-col gap-1.5">
@@ -271,7 +256,7 @@
               href="index.html#solucion"
           class="text-2xl font-display font-bold text-white hover:text-indigo-400 transition-colors"
           data-translate-key="nav_services"
-          >Servicios</a
+          >Páginas web en Cartagena</a
         >
         <a
           href="portfolio.html"
@@ -297,20 +282,7 @@
           data-translate-key="nav_blog"
           >Blog</a
         >
-        <div class="flex gap-3 mt-4">
-          <button
-            class="lang-toggle px-4 py-2 bg-slate-800 rounded-full text-sm font-bold"
-            data-lang="es"
-          >
-            ES
-          </button>
-          <button
-            class="lang-toggle px-4 py-2 bg-slate-800 rounded-full text-sm font-bold"
-            data-lang="en"
-          >
-            EN
-          </button>
-        </div>
+        <span class="mt-4 px-4 py-2 bg-slate-800 rounded-full text-sm font-bold" aria-label="Idioma del sitio: español">ES</span>
         <a
           href="index.html#contacto"
           class="mt-6 bg-gradient-to-r from-indigo-600 to-indigo-500 text-white px-6 py-4 rounded-full text-center font-semibold"
@@ -328,14 +300,13 @@
             class="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6"
             data-translate-key="blog_title"
           >
-            Blog & <span class="gradient-text">Recursos</span>
+            SEO y marketing digital <span class="gradient-text">para turismo</span>
           </h1>
           <p
             class="text-lg text-slate-400 max-w-2xl mx-auto"
             data-translate-key="blog_subtitle"
           >
-            Tips, estrategias y tendencias de diseño web y marketing digital
-            para hacer crecer tu negocio.
+            Guías prácticas de FMTECH sobre páginas web, SEO local, velocidad, conversión y WhatsApp para negocios de Cartagena.
           </p>
         </div>
 
@@ -363,7 +334,7 @@
                 class="text-lg font-display font-bold text-white mt-2 mb-3 group-hover:text-indigo-400 transition-colors"
                 data-translate-key="blog1_title"
               >
-                Cómo Dominar el SEO Local en Cartagena
+                Guía de SEO local en Cartagena para negocios
               </h3>
               <p
                 class="text-sm text-slate-400 mb-4"
@@ -579,35 +550,27 @@
           </a>
         </div>
 
-        <!-- Newsletter CTA -->
+        <!-- Content CTA -->
         <div class="mt-16 glass-card rounded-2xl p-8 md:p-12 text-center">
           <h2
             class="text-2xl md:text-3xl font-display font-bold text-white mb-4"
             data-translate-key="newsletter_title"
           >
-            Recibe Tips Semanales
+            Recibe una recomendación para tu web
           </h2>
           <p
             class="text-slate-400 mb-6 max-w-xl mx-auto"
             data-translate-key="newsletter_desc"
           >
-            Suscríbete para recibir consejos de diseño web y marketing digital
-            directamente en tu correo.
+            Cuéntanos qué vendes y revisamos la oportunidad principal de tu
+            presencia digital. Recibe una recomendación clara y sin compromiso.
           </p>
-          <form class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-            <input
-              type="email"
-              placeholder="tu@email.com"
-              class="flex-1 bg-slate-800/50 border border-slate-700 rounded-full px-6 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 transition-colors"
-            />
-            <button
-              type="submit"
-              class="bg-gradient-to-r from-indigo-600 to-cyan-500 hover:from-indigo-500 hover:to-cyan-400 text-white px-8 py-3 rounded-full font-bold transition-all duration-300"
-              data-translate-key="newsletter_btn"
-            >
-              Suscribirse
-            </button>
-          </form>
+          <a
+            href="index.html#contacto"
+            class="inline-flex bg-gradient-to-r from-indigo-600 to-cyan-500 hover:from-indigo-500 hover:to-cyan-400 text-white px-8 py-3 rounded-full font-bold transition-all duration-300"
+          >
+            Solicitar auditoría gratuita
+          </a>
         </div>
       </div>
     </main>
@@ -633,19 +596,13 @@
             </p>
             <div class="flex gap-4">
               <a
-                href="#"
+                href="https://www.instagram.com/fmtechcolombia/"
+                target="_blank"
+                rel="noopener noreferrer"
                 class="hover:opacity-100 opacity-70 transition-opacity"
                 ><img
                   src="images/instagram-logo%20copy.png"
                   alt="Instagram"
-                  class="w-5 h-5 object-contain"
-              /></a>
-              <a
-                href="#"
-                class="hover:opacity-100 opacity-70 transition-opacity"
-                ><img
-                  src="images/logo-facebook%20copy.png"
-                  alt="Facebook"
                   class="w-5 h-5 object-contain"
               /></a>
               <a
@@ -671,7 +628,7 @@
               href="index.html#solucion"
                   class="text-slate-400 hover:text-white transition-colors"
                   data-translate-key="nav_services"
-                  >Servicios</a
+                  >Páginas web en Cartagena</a
                 >
               </li>
               <li>
@@ -799,6 +756,7 @@
     <a
       href="https://wa.me/573044301112"
       target="_blank"
+      rel="noopener noreferrer"
       class="fixed bottom-6 right-6 z-50 flex flex-col items-center gap-1 group"
     >
       <div
@@ -813,14 +771,5 @@
     </a>
 
     <script src="scripts.js"></script>
-    <script>
-      const menuBtn = document.getElementById("menu-btn");
-      const mobileMenu = document.getElementById("mobile-menu");
-      if (menuBtn && mobileMenu) {
-        menuBtn.addEventListener("click", () => {
-          mobileMenu.classList.toggle("translate-x-full");
-        });
-      }
-    </script>
   </body>
 </html>

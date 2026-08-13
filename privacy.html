@@ -1,13 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
+﻿<!DOCTYPE html>
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy - FM Tech</title>
-    <meta name="description" content="Privacy policy for FMTECH and the website tech.frankmercado.com.">
+    <title>Política de privacidad | FMTECH</title>
+    <meta name="description" content="Política de privacidad y tratamiento de datos del sitio web de FMTECH.">
     <link rel="canonical" href="https://tech.frankmercado.com/privacy.html">
     <link rel="icon" type="image/png" href="images/2.png">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="tailwind.min.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
@@ -17,7 +17,7 @@
         .logo-text { font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 1.75rem; letter-spacing: -0.05em; }
         .action-button { background-color: #2563EB; color: white; font-weight: 500; padding: 0.75rem 2rem; border-radius: 0.5rem; transition: all 0.3s ease; display: inline-block; }
         .action-button:hover { background-color: #1D4ED8; transform: translateY(-2px); }
-        .lang-switcher a.active { color: #58A6FF; font-weight: 700; }
+        .lang-switcher .active { color: #58A6FF; font-weight: 700; }
         
         /* Estilos para el texto legal (prose) */
         .prose { color: #C9D1D9; max-width: 80ch; }
@@ -47,12 +47,12 @@
                 <a href="index.html#contacto" data-translate-key="nav_contact" class="text-gray-300 hover:text-white transition duration-300">Contact</a>
             </div>
             <div class="hidden md:flex items-center space-x-4 text-sm font-semibold lang-switcher">
-                    <a href="#" id="lang-en" class="text-gray-400 hover:text-white transition">EN</a>
+                    <button type="button" id="lang-en" class="text-gray-400 hover:text-white transition">EN</button>
                     <span class="text-gray-600">|</span>
-                    <a href="#" id="lang-es" class="text-gray-400 hover:text-white transition">ES</a>
+                    <button type="button" id="lang-es" class="text-gray-400 hover:text-white transition">ES</button>
             </div>
             <div class="md:hidden">
-                <button id="menu-btn" class="text-white focus:outline-none"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg></button>
+                <button type="button" id="menu-btn" aria-label="Abrir menú de navegación" aria-controls="mobile-menu" aria-expanded="false" class="text-white focus:outline-none"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg></button>
             </div>
         </nav>
     </header>
@@ -66,16 +66,16 @@
         <a href="blog.html" data-translate-key="nav_blog" class="mobile-menu-link text-2xl text-gray-300 hover:text-white">Blog</a>
         <a href="index.html#contacto" data-translate-key="nav_contact" class="mobile-menu-link text-2xl text-gray-300 hover:text-white">Contact</a>
         <div class="flex items-center space-x-4 text-lg font-semibold lang-switcher mt-8">
-            <a href="#" id="lang-en-mobile" class="text-gray-400 hover:text-white transition">EN</a>
+            <button type="button" id="lang-en-mobile" class="text-gray-400 hover:text-white transition">EN</button>
             <span class="text-gray-600">|</span>
-            <a href="#" id="lang-es-mobile" class="text-gray-400 hover:text-white transition">ES</a>
+            <button type="button" id="lang-es-mobile" class="text-gray-400 hover:text-white transition">ES</button>
         </div>
     </div>
 
     <main class="py-20">
         <div class="container mx-auto px-6 prose">
             <h1 data-translate-key="privacy_title">Privacy Policy</h1>
-            <p data-translate-key="last_updated">Last updated: July 20, 2026</p>
+            <p data-translate-key="last_updated">Last updated: August 13, 2026</p>
 
             <p data-translate-key="privacy_intro">FM Tech ("us", "we", or "our") operates the tech.frankmercado.com website (hereinafter referred to as the "Service"). This page informs you of our policies regarding the collection, use, and disclosure of personal data when you use our Service and the choices you have associated with that data.</p>
 
@@ -110,7 +110,7 @@
             <h2 data-translate-key="contact_title">Contact Us</h2>
             <p data-translate-key="contact_desc">If you have any questions about this Privacy Policy, please contact us:</p>
             <ul>
-                <li>By email: frankmercadotech@gmail.com</li>
+                <li>By email: <a href="mailto:hola@frankmercado.com">hola@frankmercado.com</a></li>
                 <li>By visiting the contact section of <a href="index.html#contacto">tech.frankmercado.com</a></li>
             </ul>
         </div>
@@ -130,20 +130,20 @@
             </div>
             <!-- Iconos de Redes Sociales -->
             <div class="mb-6 flex justify-center gap-6">
-                <a href="https://wa.me/573044301112" target="_blank" class="transition-transform duration-300 hover:scale-110">
-                    <img src="images/whatsapp-logo.png" alt="WhatsApp FM Tech" class="w-10 h-10" onerror="this.src='https://placehold.co/40x40/000000/FFFFFF?text=WA'">
+                <a href="https://wa.me/573044301112" target="_blank" rel="noopener noreferrer" class="transition-transform duration-300 hover:scale-110">
+                    <img src="images/whatsapp-logo.png" alt="WhatsApp FM Tech" class="w-10 h-10">
                 </a>
                 <a href="https://www.instagram.com/fmtechcolombia/" target="_blank" rel="noopener" class="transition-transform duration-300 hover:scale-110">
-                    <img src="images/instagram-logo.png" alt="Instagram FM Tech" class="w-10 h-10" onerror="this.src='https://placehold.co/40x40/000000/FFFFFF?text=IG'">
+                    <img src="images/instagram-logo.png" alt="Instagram FM Tech" class="w-10 h-10">
                 </a>
-                <a href="https://www.facebook.com/profile.php?id=61581838763338" target="_blank" class="transition-transform duration-300 hover:scale-110">
-                    <img src="images/logo-facebook.png" alt="Facebook FM Tech" class="w-10 h-10" onerror="this.src='https://placehold.co/40x40/000000/FFFFFF?text=FB'">
+                <a href="https://www.facebook.com/profile.php?id=61581838763338" target="_blank" rel="noopener noreferrer" class="transition-transform duration-300 hover:scale-110">
+                    <img src="images/logo-facebook.png" alt="Facebook FM Tech" class="w-10 h-10">
                 </a>
-                <a href="https://x.com/fmtechcol" target="_blank" class="transition-transform duration-300 hover:scale-110">
-                    <img src="images/X.png" alt="X (Twitter) FM Tech" class="w-10 h-10" onerror="this.src='https://placehold.co/40x40/000000/FFFFFF?text=X'">
+                <a href="https://x.com/fmtechcol" target="_blank" rel="noopener noreferrer" class="transition-transform duration-300 hover:scale-110">
+                    <img src="images/X.png" alt="X (Twitter) FM Tech" class="w-10 h-10">
                 </a>
             </div>
-            <p class="mb-4"><strong>Email:</strong> <a href="mailto:frankmercadotech@gmail.com" class="hover:text-white">frankmercadotech@gmail.com</a></p>
+            <p class="mb-4"><strong>Email:</strong> <a href="mailto:hola@frankmercado.com" class="hover:text-white">hola@frankmercado.com</a></p>
             <!-- Enlaces a Nuevas Páginas Legales -->
             <div class="flex justify-center gap-x-4 gap-y-2 mb-4 text-xs">
                 <a href="privacy.html" data-translate-key="footer_privacy" class="hover:text-white">Privacy Policy</a>
@@ -165,7 +165,7 @@
                 nav_solutions: "Solutions", nav_pricing: "Pricing", nav_portfolio: "Portfolio", nav_clients: "Clients", nav_faq: "FAQs", nav_blog: "Blog",
                 
                 privacy_title: "Privacy Policy",
-                last_updated: "Last updated: July 20, 2026",
+                last_updated: "Last updated: August 13, 2026",
                 privacy_intro: "FM Tech (\"us\", \"we\", or \"our\") operates the tech.frankmercado.com website (hereinafter referred to as the \"Service\"). This page informs you of our policies regarding the collection, use, and disclosure of personal data when you use our Service and the choices you have associated with that data.",
                 
                 info_collection_title: "Information Collection and Use",
@@ -201,7 +201,7 @@
                 nav_solutions: "Soluciones", nav_pricing: "Planes", nav_portfolio: "Portafolio", nav_clients: "Clientes", nav_faq: "FAQs", nav_blog: "Blog",
 
                 privacy_title: "Política de Privacidad",
-                last_updated: "Última actualización: 20 de julio de 2026",
+                last_updated: "Última actualización: 13 de agosto de 2026",
                 privacy_intro: "FM Tech (\"nosotros\", \"nuestro\") opera el sitio web tech.frankmercado.com (en adelante, el \"Servicio\"). Esta página te informa sobre nuestras políticas con respecto a la recopilación, uso y divulgación de datos personales cuando utilizas nuestro Servicio y las opciones que tienes asociadas con esos datos.",
 
                 info_collection_title: "Recopilación y Uso de Información",
@@ -243,8 +243,8 @@
 
         document.addEventListener('DOMContentLoaded', () => {
             const savedLang = localStorage.getItem('preferredLang');
-            // Establecer 'en' (inglés) como idioma por defecto
-            setLanguage(savedLang || 'en'); 
+            // El contenido canónico es español; el inglés se activa por elección.
+            setLanguage(savedLang === 'en' ? 'en' : 'es');
             
             document.getElementById('lang-en').addEventListener('click', (e) => { e.preventDefault(); setLanguage('en'); });
             document.getElementById('lang-es').addEventListener('click', (e) => { e.preventDefault(); setLanguage('es'); });
@@ -266,6 +266,9 @@
             document.querySelectorAll('.mobile-menu-link, #menu-btn').forEach(el => {
                 el.addEventListener('click', () => {
                     mobileMenu.classList.toggle('hidden');
+                    const isOpen = !mobileMenu.classList.contains('hidden');
+                    menuBtn.setAttribute('aria-expanded', String(isOpen));
+                    menuBtn.setAttribute('aria-label', isOpen ? 'Cerrar menú de navegación' : 'Abrir menú de navegación');
                 });
             });
             // --- FIN: Lógica Menú Móvil ---

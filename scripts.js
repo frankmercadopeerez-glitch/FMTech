@@ -90,14 +90,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // Header
       header_tagline: "Web Design",
-      nav_services: "Services",
+      nav_services: "Websites in Cartagena",
       nav_portfolio: "Portfolio",
       nav_process: "Process",
       nav_faq: "FAQ",
       nav_cta: "Schedule Call",
 
       // Hero
-      hero_badge: "#1 Agency in Cartagena, Colombia",
+      hero_badge: "Web design specialized in Cartagena",
       hero_title_1: "We create websites that",
       hero_title_2: "convert visitors into customers",
       hero_subtitle:
@@ -150,7 +150,7 @@ document.addEventListener("DOMContentLoaded", () => {
       service_1_f3: "Ultra-fast on Google",
       service_2_title: "Local SEO Cartagena",
       service_2_desc:
-        "Google ranking so customers in Cartagena find you first. Technical and content SEO.",
+        "Technical, content, and local SEO so your business can compete for relevant searches in Cartagena.",
       service_2_f1: "Google My Business",
       service_2_f2: "Local keywords",
       service_2_f3: "Measurable results",
@@ -163,7 +163,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // Portfolio
       portfolio_label: "Portfolio",
-      portfolio_title: "Projects that speak for themselves",
+      portfolio_title: "Visual direction and demos for tourism and the marine sector",
       portfolio_view_all: "View all projects",
 
       // Clients
@@ -171,9 +171,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // Process
       process_label: "Process",
-      process_title: "Simple, fast and effective",
+      process_title: "How we build websites for tourism agencies",
       process_subtitle:
-        "A clear process so you know exactly what to expect at each step.",
+        "A clear process from audit and strategy to mobile design, development, measurement, and launch.",
       step_1_title: "Free Call",
       step_1_desc: "We discuss your business and goals with no commitment",
       step_2_title: "Proposal",
@@ -279,14 +279,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // Header
       header_tagline: "Web Design",
-      nav_services: "Servicios",
+      nav_services: "Páginas web en Cartagena",
       nav_portfolio: "Portafolio",
       nav_process: "Proceso",
       nav_faq: "FAQ",
       nav_cta: "Agendar Llamada",
 
       // Hero
-      hero_badge: "Agencia #1 en Cartagena, Colombia",
+      hero_badge: "Diseño web especializado en Cartagena",
       hero_title_1: "Creamos sitios web que",
       hero_title_2: "convierten visitantes en clientes",
       hero_subtitle:
@@ -339,7 +339,7 @@ document.addEventListener("DOMContentLoaded", () => {
       service_1_f3: "Ultra rápido en Google",
       service_2_title: "SEO Local Cartagena",
       service_2_desc:
-        "Posicionamiento en Google para que clientes en Cartagena te encuentren primero. SEO técnico y de contenido.",
+        "SEO técnico, de contenido y local para competir en búsquedas relevantes de Cartagena.",
       service_2_f1: "Google My Business",
       service_2_f2: "Keywords locales",
       service_2_f3: "Resultados medibles",
@@ -352,7 +352,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // Portfolio
       portfolio_label: "Portafolio",
-      portfolio_title: "Proyectos que hablan por sí solos",
+      portfolio_title: "Dirección visual y demos para turismo y sector náutico",
       portfolio_view_all: "Ver todos los proyectos",
 
       // Clients
@@ -360,9 +360,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // Process
       process_label: "Proceso",
-      process_title: "Simple, rápido y efectivo",
+      process_title: "Cómo creamos webs para agencias de turismo",
       process_subtitle:
-        "Un proceso claro para que sepas exactamente qué esperar en cada paso.",
+        "Un proceso claro desde la auditoría y la estrategia hasta el diseño móvil, el desarrollo, la medición y la publicación.",
       step_1_title: "Llamada Gratis",
       step_1_desc: "Hablamos de tu negocio y objetivos sin compromiso",
       step_2_title: "Propuesta",
@@ -465,60 +465,16 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   // Testimonials data
-  const testimonialsData = [
-    {
-      author: "Carlos Mendoza",
-      role: "CEO, TechDiving",
-      text_en:
-        "Our bookings increased by 40% since we launched the new website. Professional, fast, and precise.",
-      text_es:
-        "Nuestras reservas aumentaron un 40% desde que lanzamos el nuevo sitio web. Profesionales, rápidos y precisos.",
-    },
-    {
-      author: "María Rodríguez",
-      role: "Directora, Restaurante El Caribe",
-      text_en:
-        "Now customers find us on Google first. The investment was worth every peso.",
-      text_es:
-        "Ahora los clientes nos encuentran primero en Google. La inversión valió cada peso.",
-    },
-    {
-      author: "James Willis",
-      role: "CEO, Willis Custom Yachts",
-      text_en:
-        "Finally, an agency that understands what we need. The website is a masterpiece.",
-      text_es:
-        "Finalmente, una agencia que entiende lo que necesitamos. El sitio web es una obra maestra.",
-    },
-    {
-      author: "Ana García",
-      role: "Fundadora, Boutique Elegance",
-      text_en:
-        "They completely transformed our online presence. Sales doubled in 3 months.",
-      text_es:
-        "Transformaron completamente nuestra presencia online. Las ventas se duplicaron en 3 meses.",
-    },
-    {
-      author: "Roberto Jiménez",
-      role: "Owner, Caribe Tours",
-      text_en:
-        "We were invisible on Google. FMTech fixed that and now we're #1 for our keywords.",
-      text_es:
-        "Éramos invisibles en Google. FMTech arregló eso y ahora somos #1 para nuestras palabras clave.",
-    },
-  ];
+  // Los testimonios se incorporan únicamente cuando exista autorización y
+  // evidencia verificable del cliente.
+  const testimonialsData = [];
 
   // ============================================
-  // LANGUAGE DETECTION & MANAGEMENT
+  // CANONICAL SITE LANGUAGE
   // ============================================
-  let currentLang = localStorage.getItem("fmtech-lang");
-
-  // Auto-detect language from browser if not set
-  if (!currentLang) {
-    const browserLang = navigator.language || navigator.userLanguage;
-    currentLang = browserLang.startsWith("es") ? "es" : "en";
-    localStorage.setItem("fmtech-lang", currentLang);
-  }
+  // Estas URLs tienen contenido y metadata canónicos en español. Mantener
+  // español evita que buscadores reciban contenido mezclado bajo una misma URL.
+  const currentLang = "es";
 
   function applyTranslations(lang) {
     const elements = document.querySelectorAll("[data-translate-key]");
@@ -536,29 +492,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Update HTML lang attribute
     document.documentElement.lang = lang;
 
-    // Update language toggle buttons
-    document.querySelectorAll(".lang-toggle").forEach((btn) => {
-      const btnLang = btn.getAttribute("data-lang");
-      if (btnLang === lang) {
-        btn.classList.add("bg-indigo-500", "text-white");
-        btn.classList.remove("text-slate-400");
-      } else {
-        btn.classList.remove("bg-indigo-500", "text-white");
-        btn.classList.add("text-slate-400");
-      }
-    });
   }
-
-  // Language toggle click handler
-  document.querySelectorAll(".lang-toggle").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const lang = btn.getAttribute("data-lang");
-      currentLang = lang;
-      localStorage.setItem("fmtech-lang", lang);
-      applyTranslations(lang);
-      renderTestimonials();
-    });
-  });
 
   // Apply initial translations
   applyTranslations(currentLang);
@@ -607,18 +541,32 @@ document.addEventListener("DOMContentLoaded", () => {
   if (menuBtn && mobileMenu) {
     let menuOpen = false;
 
-    menuBtn.addEventListener("click", () => {
-      menuOpen = !menuOpen;
-      mobileMenu.classList.toggle("active", menuOpen);
+    const setMenuState = (open) => {
+      menuOpen = open;
+      const usesDrawerTransform =
+        mobileMenu.classList.contains("translate-x-full") ||
+        mobileMenu.className.includes("transition-transform");
+
+      if (usesDrawerTransform) {
+        mobileMenu.classList.toggle("translate-x-full", !menuOpen);
+      } else {
+        mobileMenu.classList.toggle("active", menuOpen);
+      }
+
+      menuBtn.setAttribute("aria-expanded", String(menuOpen));
+      menuBtn.setAttribute(
+        "aria-label",
+        menuOpen ? "Cerrar menú de navegación" : "Abrir menú de navegación",
+      );
 
       // Animate hamburger icon
       const lines = menuBtn.querySelectorAll(".menu-line");
-      if (menuOpen) {
+      if (lines.length >= 3 && menuOpen) {
         lines[0].style.transform = "rotate(45deg) translate(4px, 4px)";
         lines[1].style.opacity = "0";
         lines[2].style.transform = "rotate(-45deg) translate(4px, -4px)";
         lines[2].style.width = "100%";
-      } else {
+      } else if (lines.length >= 3) {
         lines[0].style.transform = "";
         lines[1].style.opacity = "1";
         lines[2].style.transform = "";
@@ -627,20 +575,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // Prevent body scroll when menu is open
       document.body.style.overflow = menuOpen ? "hidden" : "";
+    };
+
+    menuBtn.addEventListener("click", () => {
+      setMenuState(!menuOpen);
     });
 
     // Close menu when clicking on links
-    mobileMenu.querySelectorAll("a").forEach((link) => {
+    mobileMenu.querySelectorAll("a, button").forEach((link) => {
       link.addEventListener("click", () => {
-        menuOpen = false;
-        mobileMenu.classList.remove("active");
-        document.body.style.overflow = "";
-
-        const lines = menuBtn.querySelectorAll(".menu-line");
-        lines[0].style.transform = "";
-        lines[1].style.opacity = "1";
-        lines[2].style.transform = "";
-        lines[2].style.width = "";
+        setMenuState(false);
       });
     });
   }
@@ -800,13 +744,22 @@ ${data.message || "Me gustaría más información"}`;
   document.querySelectorAll(".accordion-btn").forEach((btn) => {
     btn.addEventListener("click", function () {
       const content = this.nextElementSibling;
-      const icon = this.querySelector(".icon-plus");
+      const icon = this.querySelector(".accordion-icon");
+      const plusIcon = this.querySelector(".icon-plus");
       const isOpen =
-        content.style.maxHeight && content.style.maxHeight !== "0px";
+        this.getAttribute("aria-expanded") === "true" ||
+        content.classList.contains("open");
 
       // Close all others
       document.querySelectorAll(".accordion-content").forEach((c) => {
+        c.classList.remove("open");
         c.style.maxHeight = "0px";
+      });
+      document.querySelectorAll(".accordion-btn").forEach((button) => {
+        button.setAttribute("aria-expanded", "false");
+      });
+      document.querySelectorAll(".accordion-icon").forEach((i) => {
+        i.style.transform = "rotate(0)";
       });
       document.querySelectorAll(".icon-plus").forEach((i) => {
         i.textContent = "+";
@@ -814,8 +767,11 @@ ${data.message || "Me gustaría más información"}`;
 
       // Toggle current
       if (!isOpen) {
+        content.classList.add("open");
         content.style.maxHeight = content.scrollHeight + "px";
-        if (icon) icon.textContent = "−";
+        this.setAttribute("aria-expanded", "true");
+        if (icon) icon.style.transform = "rotate(180deg)";
+        if (plusIcon) plusIcon.textContent = "−";
       }
     });
   });
