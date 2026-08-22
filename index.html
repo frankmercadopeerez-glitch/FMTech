@@ -190,7 +190,7 @@
       img { max-width: 100%; display: block; }
       a { color: inherit; text-decoration: none; }
       button,input,select,textarea { font: inherit; }
-      .container { width: min(1160px, calc(100% - 40px)); margin: 0 auto; }
+      .container { width: min(1280px, calc(100% - 48px)); margin: 0 auto; }
       .section { padding: 96px 0; }
       .eyebrow { display: inline-flex; align-items: center; gap: 8px; color: var(--cyan-2); font-size: .78rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
       .eyebrow::before { content: ""; width: 28px; height: 2px; background: var(--cyan); }
@@ -218,27 +218,27 @@
       .menu-btn.open .menu-icon::before { top: 6px; transform: rotate(45deg); }
       .menu-btn.open .menu-icon span { opacity: 0; }
       .menu-btn.open .menu-icon::after { top: 6px; transform: rotate(-45deg); }
-      .hero { min-height: 780px; padding: 148px 0 86px; color: #eaf3fb; background: radial-gradient(circle at 82% 22%, rgba(19,197,211,.18), transparent 32%), linear-gradient(135deg, #020b16 0%, #06182c 50%, #082d46 100%); overflow: hidden; position: relative; }
+      .hero { min-height: 620px; padding: 92px 0 42px; color: #eaf3fb; background: radial-gradient(circle at 82% 22%, rgba(19,197,211,.18), transparent 32%), linear-gradient(135deg, #020b16 0%, #06182c 50%, #082d46 100%); overflow: hidden; position: relative; }
       .hero::after { content: ""; position: absolute; width: 520px; height: 520px; border: 1px solid rgba(255,255,255,.07); border-radius: 50%; right: -210px; bottom: -240px; }
-      .hero-grid { position: relative; z-index: 1; display: grid; grid-template-columns: 1.05fr .95fr; align-items: center; gap: 64px; }
+      .hero-grid { position: relative; z-index: 1; display: grid; grid-template-columns: 1.04fr .96fr; align-items: center; gap: 44px; }
       .hero-badge { display: inline-flex; align-items: center; gap: 9px; padding: 8px 12px; border: 1px solid rgba(108,231,236,.28); border-radius: 999px; color: #bff8fa; background: rgba(19,197,211,.08); font-size: .82rem; font-weight: 700; }
       .hero-badge span { width: 8px; height: 8px; border-radius: 50%; background: var(--cyan); box-shadow: 0 0 0 6px rgba(19,197,211,.12); }
-      .hero h1 { margin: 24px 0 22px; font-size: clamp(2.85rem, 6.2vw, 5.5rem); line-height: .98; letter-spacing: -.058em; }
+      .hero h1 { margin: 18px 0 16px; font-size: clamp(2.75rem, 4.25vw, 4rem); line-height: .98; letter-spacing: -.052em; }
       .hero h1 em { color: var(--cyan-2); font-style: normal; }
-      .hero-copy > p { max-width: 640px; margin: 0 0 30px; color: #c0cede; font-size: 1.14rem; line-height: 1.72; }
+      .hero-copy > p { max-width: 650px; margin: 0 0 20px; color: #c0cede; font-size: 1rem; line-height: 1.52; }
       .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
-      .hero-note { margin-top: 20px; display: flex; gap: 18px; flex-wrap: wrap; color: #9fb3c8; font-size: .88rem; }
-      .hero-note span::before,.contact-info span::before { content: ""; display: inline-block; width: 8px; height: 4px; margin: 0 9px 3px 0; border-right: 2px solid var(--cyan); border-bottom: 2px solid var(--cyan); transform: rotate(45deg); }
+      .hero-note { margin-top: 13px; display: flex; gap: 14px; flex-wrap: wrap; color: #9fb3c8; font-size: .82rem; }
+      .hero-note span::before,.contact-info span::before { content: ""; display: inline-block; width: 5px; height: 9px; margin: 0 9px 2px 1px; border-right: 2px solid var(--cyan); border-bottom: 2px solid var(--cyan); transform: rotate(45deg); transform-origin: center; }
       .browser { border: 1px solid rgba(108,231,236,.2); border-radius: 22px; background: #07182b; box-shadow: 0 34px 90px rgba(0,0,0,.48); overflow: hidden; transform: rotate(1.2deg); transition: transform .7s cubic-bezier(.16,1,.3,1), box-shadow .7s ease; }
       .browser:hover { transform: rotate(0) translateY(-8px); box-shadow: 0 42px 110px rgba(0,0,0,.58), 0 0 45px rgba(19,197,211,.12); }
       .browser-top { height: 40px; padding: 0 14px; display: flex; align-items: center; gap: 6px; background: #0d2945; }
       .browser-top i { width: 9px; height: 9px; border-radius: 50%; background: #9fb3c8; }
-      .mock-hero { position: relative; min-height: 460px; padding: 26px; background: linear-gradient(rgba(4,18,34,.22), rgba(4,18,34,.64)), url('images/cartagena-tour-hero.webp') center/cover; }
+      .mock-hero { position: relative; min-height: 350px; padding: 22px; background: linear-gradient(rgba(4,18,34,.22), rgba(4,18,34,.64)), url('images/cartagena-tour-hero.webp') center/cover; }
       .mock-nav { display: flex; justify-content: space-between; color: white; font-weight: 800; }
-      .mock-tag { display: inline-flex; margin-top: 86px; padding: 7px 10px; border-radius: 999px; background: rgba(19,197,211,.9); color: #052438; font-size: .72rem; font-weight: 800; }
-      .mock-hero h3 { max-width: 410px; margin: 12px 0 16px; color: white; font-size: 2.35rem; line-height: 1.05; }
+      .mock-tag { display: inline-flex; margin-top: 42px; padding: 7px 10px; border-radius: 999px; background: rgba(19,197,211,.9); color: #052438; font-size: .72rem; font-weight: 800; }
+      .mock-hero h3 { max-width: 410px; margin: 10px 0; color: white; font-size: 1.9rem; line-height: 1.06; }
       .mock-hero p { max-width: 380px; color: #d7e3ea; line-height: 1.55; }
-      .mock-cards { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; margin-top: 28px; }
+      .mock-cards { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; margin-top: 16px; }
       .mock-card { min-height: 90px; padding: 12px; border: 1px solid rgba(108,231,236,.14); border-radius: 12px; background: rgba(7,24,43,.9); color: #dceaf5; box-shadow: 0 10px 26px rgba(0,0,0,.22); }
       .mock-card b { display: block; font-size: .78rem; }
       .mock-card small { color: #91a8bd; }
@@ -378,7 +378,8 @@
         .nav-links .btn { width: 100%; }
         .menu-btn { display: grid; }
         .hero-grid,.local-seo-grid,.problem-grid,.demo-grid,.about-grid,.faq-grid,.contact-grid { grid-template-columns: 1fr; }
-        .hero-grid { gap: 54px; }
+        .hero { padding-top: 104px; }
+        .hero-grid { gap: 42px; }
         .hero-visual { max-width: 680px; margin: 0 auto; }
         .services-grid,.pricing-grid { grid-template-columns: 1fr 1fr; }
         .studio-grid { grid-template-columns: 1fr 1fr; }
@@ -386,10 +387,10 @@
         .process-grid { grid-template-columns: repeat(3,1fr); }
       }
       @media (max-width: 680px) {
-        .container { width: min(100% - 28px,1160px); }
+        .container { width: min(100% - 28px,1280px); }
         .section { padding: 72px 0; }
-        .hero { min-height: auto; padding-top: 126px; }
-        .hero h1 { font-size: clamp(2.65rem,13vw,4.2rem); }
+        .hero { min-height: auto; padding: 96px 0 54px; }
+        .hero h1 { font-size: clamp(2.45rem,11.5vw,3.5rem); }
         .hero-actions .btn { width: 100%; }
         .chat-bubble { right: 10px; bottom: 28px; width: 195px; }
         .mock-hero { min-height: 400px; padding: 20px; }
@@ -430,11 +431,12 @@
       }
     </style>
       <link rel="stylesheet" href="mobile-polish.css" />
+      <link rel="stylesheet" href="redesign.css" />
   </head>
   <body>
     <header class="header" id="header">
       <div class="container nav">
-        <a class="logo" href="#inicio" aria-label="FMTECH inicio"><img src="images/fmtech-logo-hd.svg" alt="FMTECH Web Design" /></a>
+        <a class="logo" href="#inicio" aria-label="FMTECH inicio"><img src="images/fmtech-logo-hd.svg?v=2" alt="FMTECH Web Design" /></a>
         <button class="menu-btn" id="menuBtn" aria-label="Abrir menú" aria-expanded="false"><span class="menu-icon" aria-hidden="true"><span></span></span></button>
         <nav class="nav-links" id="navLinks" aria-label="Navegación principal">
           <a href="#solucion">Servicios</a>
@@ -586,7 +588,12 @@
             </div>
             <a class="btn btn-primary" data-arrow data-whatsapp="demo" href="https://wa.me/573044301112?text=Hola%2C%20quiero%20ver%20una%20demo%20para%20mi%20agencia%20de%20turismo" target="_blank" rel="noopener">Quiero ver una demo</a>
           </div>
-          <figure class="comparison reveal"><img src="images/fmtech-antes-despues.webp" alt="Comparación entre tours desorganizados y una página web turística organizada" width="900" height="1125" loading="lazy" decoding="async" /></figure>
+          <aside class="demo-panel reveal" aria-label="Entregables de la demostración">
+            <span class="demo-panel-kicker">LO QUE RECIBES</span>
+            <div class="demo-panel-row"><b>01</b><div><strong>Diagnóstico directo</strong><span>Qué está frenando hoy la claridad y la conversión.</span></div></div>
+            <div class="demo-panel-row"><b>02</b><div><strong>Propuesta visual</strong><span>Una dirección concreta aplicada a uno de tus tours.</span></div></div>
+            <div class="demo-panel-row"><b>03</b><div><strong>Próximo paso claro</strong><span>Alcance, inversión y tiempos sin compromisos ocultos.</span></div></div>
+          </aside>
         </div>
       </section>
 

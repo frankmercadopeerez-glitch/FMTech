@@ -1,18 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 580 162" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 150" role="img" aria-labelledby="title desc">
   <title id="title">FMTECH Web Design</title>
-  <desc id="desc">Logotipo blanco de FMTECH con símbolo de nodos conectados</desc>
-  <g fill="none" stroke="#FFFFFF" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M35 123 60 82l25 42 48-1M60 82l25-45 31 45M60 82h56M85 37v87"/>
-  </g>
-  <g fill="#FFFFFF">
-    <circle cx="35" cy="123" r="16"/>
-    <circle cx="60" cy="82" r="16"/>
-    <circle cx="85" cy="37" r="16"/>
-    <circle cx="85" cy="124" r="16"/>
-    <circle cx="116" cy="82" r="16"/>
-    <circle cx="133" cy="123" r="16"/>
-    <text x="171" y="92" font-family="Arial, Helvetica, sans-serif" font-size="91" font-weight="800" letter-spacing="-3">FMT</text>
-    <text x="366" y="92" font-family="Arial, Helvetica, sans-serif" font-size="91" font-weight="300" letter-spacing="-3">ECH</text>
-    <text x="211" y="136" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" letter-spacing="16.5">WEB DESIGN</text>
-  </g>
+  <desc id="desc">Logotipo corporativo FMTECH con símbolo geométrico azul</desc>
+  <rect x="8" y="18" width="112" height="112" fill="#0B5CFF"/>
+  <path fill="#FFFFFF" d="M29 43h70v18H74v48H54V61H29z"/>
+  <rect x="29" y="82" width="14" height="27" fill="#FFFFFF"/>
+  <rect x="86" y="82" width="13" height="27" fill="#FFFFFF"/>
+  <rect x="134" y="37" width="4" height="76" fill="#0B5CFF"/>
+  <text x="158" y="91" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="74" font-weight="800" letter-spacing="1">FMTECH</text>
+  <text x="162" y="126" fill="#9FB7D7" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" letter-spacing="11">WEB DESIGN</text>
 </svg>
