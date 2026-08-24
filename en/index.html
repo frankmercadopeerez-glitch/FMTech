@@ -15,7 +15,15 @@
       hreflang="en"
       href="https://tech.frankmercado.com/en/"
     />
+    <link rel="alternate" hreflang="x-default" href="https://tech.frankmercado.com/" />
     <meta name="robots" content="index,follow" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:title" content="Websites, web apps and automation | FMTECH" />
+    <meta property="og:description" content="Web development and white-label delivery for service businesses and agencies worldwide." />
+    <meta property="og:url" content="https://tech.frankmercado.com/en/" />
+    <meta property="og:image" content="https://tech.frankmercado.com/images/fmtech-social-preview-2026.png" />
+    <meta name="twitter:card" content="summary_large_image" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -24,6 +32,8 @@
     />
     <link rel="stylesheet" href="../fmtech-system.css" />
     <link rel="stylesheet" href="../fmtech-mobile-fix.css" />
+    <link rel="icon" href="../images/2.png" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"FMTECH","url":"https://tech.frankmercado.com/en/","email":"hola@frankmercado.com","description":"Web development, web applications, automation and white-label delivery for service businesses and agencies.","areaServed":"Worldwide","sameAs":["https://www.instagram.com/fmtechcolombia/"]}</script>
   </head>
   <body>
     <header class="site-header">
@@ -36,7 +46,7 @@
           ><a href="../" class="lang">ES</a
           ><a
             class="btn"
-            href="mailto:hola@frankmercado.com?subject=Project%20with%20FMTECH"
+            href="#contact"
             >Start a conversation</a
           >
         </nav>
@@ -61,7 +71,7 @@
             <div class="actions">
               <a
                 class="btn"
-                href="mailto:hola@frankmercado.com?subject=Tell%20me%20about%20your%20project"
+                href="#contact"
                 >Tell us about your project</a
               ><a class="btn btn-outline" href="#services">Explore services</a>
             </div>
@@ -191,21 +201,31 @@
           </div>
         </div>
       </section>
-      <section class="section">
+      <section class="section" id="contact">
         <div class="container">
-          <div class="cta">
-            <div>
-              <h2>What should your next system solve?</h2>
-              <p>
-                Send the business context, the bottleneck and the outcome you
-                need. We will reply with a practical first recommendation.
-              </p>
+          <div class="lead-layout">
+            <div class="lead-copy">
+              <div class="eyebrow">Free initial review</div>
+              <h2>Tell us what the project needs to solve.</h2>
+              <p>Share the business context, the current bottleneck and the outcome you need. We will reply with a practical first recommendation.</p>
+              <div class="lead-points"><span>Reply to your email</span><span>English or Spanish</span><span>No hiring commitment</span></div>
             </div>
-            <a
-              class="btn btn-light"
-              href="mailto:hola@frankmercado.com?subject=New%20FMTECH%20project"
-              >hola@frankmercado.com</a
-            >
+            <form class="lead-form" action="https://formsubmit.co/hola@frankmercado.com" method="POST">
+              <input type="hidden" name="_subject" value="New English lead from FMTECH" />
+              <input type="hidden" name="_next" value="https://tech.frankmercado.com/en/thank-you.html" />
+              <input type="hidden" name="_template" value="table" />
+              <input type="text" name="_honey" tabindex="-1" autocomplete="off" style="display:none" />
+              <div class="form-grid">
+                <div class="field"><label for="name">Name</label><input id="name" name="name" autocomplete="name" required /></div>
+                <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" required /></div>
+                <div class="field"><label for="company">Company or project</label><input id="company" name="company" autocomplete="organization" required /></div>
+                <div class="field"><label for="service">What do you need?</label><select id="service" name="service" required><option value="">Select one</option><option>Business website</option><option>Web application</option><option>Automation or integration</option><option>White-label development</option><option>Not sure yet</option></select></div>
+                <div class="field full"><label for="current-site">Current website or profile</label><input id="current-site" name="current_presence" type="url" inputmode="url" placeholder="https://" /></div>
+                <div class="field full"><label for="message">Project context</label><textarea id="message" name="message" required placeholder="Describe the problem, desired outcome and any important timeline."></textarea></div>
+                <div class="field full"><label class="consent"><input type="checkbox" name="privacy_consent" value="Yes" required /><span>I agree that FMTECH may use these details only to respond to my request, under its <a href="privacy.html">privacy policy</a>.</span></label></div>
+                <div class="field full"><button class="btn" type="submit">Send project brief</button><p class="form-note">FormSubmit securely processes the request and delivers it to hola@frankmercado.com.</p></div>
+              </div>
+            </form>
           </div>
         </div>
       </section>
@@ -215,7 +235,7 @@
         <div>© FMTECH · Cartagena, Colombia · Remote worldwide</div>
         <div class="footer-links">
           <a href="../">Español</a
-          ><a href="https://www.instagram.com/frankmercadotech/">Instagram</a>
+          ><a href="https://www.instagram.com/fmtechcolombia/">Instagram</a>
         </div>
       </div>
     </footer>

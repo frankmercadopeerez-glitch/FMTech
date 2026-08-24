@@ -40,7 +40,7 @@
   
   <url>
     <loc>https://tech.frankmercado.com/blog.html</loc>
-    <lastmod>2026-08-13</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
@@ -60,6 +60,20 @@
   </url>
   
   <!-- Blog Articles -->
+  <url>
+    <loc>https://tech.frankmercado.com/blog/pagina-web-odontologos-cartagena.html</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <url>
+    <loc>https://tech.frankmercado.com/blog/service-business-website-checklist.html</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
   <url>
     <loc>https://tech.frankmercado.com/blog/seo-local-cartagena.html</loc>
     <lastmod>2026-08-13</lastmod>
@@ -104,7 +118,14 @@
   
   <url>
     <loc>https://tech.frankmercado.com/privacy.html</loc>
-    <lastmod>2026-08-13</lastmod>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.30</priority>
+  </url>
+
+  <url>
+    <loc>https://tech.frankmercado.com/en/privacy.html</loc>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.30</priority>
   </url>

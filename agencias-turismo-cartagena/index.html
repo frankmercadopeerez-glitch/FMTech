@@ -53,7 +53,7 @@
               {"@type": "City", "name": "Cartagena de Indias"},
               {"@type": "AdministrativeArea", "name": "Bolívar, Colombia"}
             ],
-            "sameAs": ["https://www.instagram.com/frankmercadotech/"],
+            "sameAs": ["https://www.instagram.com/fmtechcolombia/"],
             "founder": {"@id": "https://tech.frankmercado.com/#frank-mercado"},
             "knowsAbout": [
               "Diseño de páginas web",
@@ -358,6 +358,9 @@
       textarea { min-height: 108px; resize: vertical; }
       option { color: #dce8f3; background: #081b30; }
       .form-help { margin: 12px 0 0; color: #91a6b8; font-size: .78rem; }
+      .consent { display:flex; align-items:flex-start; gap:10px; color:#b9cad8; font-size:.85rem; }
+      .consent input { width:18px; height:18px; margin-top:2px; }
+      .consent a { color:#6ce7ec; }
       footer { padding: 28px 0; color: #9fb0c0; background: #04111f; border-top: 1px solid rgba(255,255,255,.08); }
       .footer-grid { display: flex; justify-content: space-between; gap: 20px; align-items: center; }
       .footer-links { display: flex; flex-wrap: wrap; gap: 20px; font-size: .84rem; }
@@ -670,24 +673,30 @@
 
       <section class="section contact" id="contacto">
         <div class="container contact-grid">
-          <div class="reveal"><span class="eyebrow" style="color:#6ce7ec">Auditoría inicial gratuita</span><h2 class="section-title">Envíanos tu Instagram y revisemos tu agencia.</h2><p class="section-lead">Completa los datos. Al enviar, abriremos tu correo con el resumen para comenzar la conversación.</p><div class="contact-info"><span>Revisión de claridad de tus tours</span><span>Oportunidades para turistas internacionales</span><span>Recomendación del plan adecuado</span></div></div>
-          <form class="contact-card reveal" id="leadForm">
+          <div class="reveal"><span class="eyebrow" style="color:#6ce7ec">Auditoría inicial gratuita</span><h2 class="section-title">Envíanos tu Instagram y revisemos tu agencia.</h2><p class="section-lead">Completa los datos y la solicitud llegará directamente a FMTECH para responderte por correo.</p><div class="contact-info"><span>Revisión de claridad de tus tours</span><span>Oportunidades para turistas internacionales</span><span>Recomendación del plan adecuado</span></div></div>
+          <form class="contact-card reveal" id="leadForm" action="https://formsubmit.co/hola@frankmercado.com" method="POST">
+            <input type="hidden" name="_subject" value="Auditoría para negocio de turismo" />
+            <input type="hidden" name="_next" value="https://tech.frankmercado.com/gracias.html" />
+            <input type="hidden" name="_template" value="table" />
+            <input type="text" name="_honey" tabindex="-1" autocomplete="off" style="display:none" />
             <div class="form-grid">
               <div class="field"><label for="name">Nombre</label><input id="name" name="name" required placeholder="Tu nombre" /></div>
               <div class="field"><label for="business">Negocio</label><input id="business" name="business" required placeholder="Nombre de tu agencia" /></div>
+              <div class="field"><label for="email">Correo</label><input id="email" name="email" type="email" autocomplete="email" required placeholder="nombre@empresa.com" /></div>
               <div class="field"><label for="instagram">Instagram</label><input id="instagram" name="instagram" placeholder="@tuagencia" /></div>
               <div class="field"><label for="website">¿Ya tienes web?</label><select id="website" name="website"><option>No</option><option>Sí, pero quiero mejorarla</option><option>Está en construcción</option></select></div>
               <div class="field"><label for="tours">Cantidad de tours</label><select id="tours" name="tours"><option>1–5</option><option>6–15</option><option>Más de 15</option></select></div>
               <div class="field"><label for="goal">Prioridad</label><select id="goal" name="goal"><option>Organizar mis tours</option><option>Atender turistas extranjeros</option><option>Recibir mejores consultas</option><option>Rediseñar mi web</option></select></div>
               <div class="field full"><label for="message">Información adicional</label><textarea id="message" name="message" placeholder="Cuéntanos qué vendes y qué quieres mejorar"></textarea></div>
-              <div class="field full"><button class="btn btn-primary" data-arrow type="submit">Enviar por correo</button><p class="form-help">No guardamos estos datos en la web. Se incluirán únicamente en el correo que tú abras y decidas enviar.</p></div>
+              <div class="field full"><label class="consent"><input type="checkbox" name="acepta_privacidad" value="Sí" required /><span>Acepto que FMTECH use estos datos únicamente para responder mi solicitud, según la <a href="../privacy.html">política de privacidad</a>.</span></label></div>
+              <div class="field full"><button class="btn btn-primary" data-arrow type="submit">Enviar solicitud</button><p class="form-help">El envío se procesa mediante FormSubmit y llega a hola@frankmercado.com.</p></div>
             </div>
           </form>
         </div>
       </section>
     </main>
 
-    <footer><div class="container footer-grid"><div>© <span id="year"></span> FMTECH · Cartagena, Colombia</div><div class="footer-links"><a href="../odontologos-cartagena/">Odontología</a><a href="#diseno-web-cartagena">Diseño web Cartagena</a><a href="../portfolio.html">Portafolio</a><a href="../blog.html">Blog</a><a href="../privacy.html">Privacidad</a><a href="../terms.html">Términos</a><a href="https://www.instagram.com/frankmercadotech/" target="_blank" rel="noopener">Instagram</a></div></div></footer>
+    <footer><div class="container footer-grid"><div>© <span id="year"></span> FMTECH · Cartagena, Colombia</div><div class="footer-links"><a href="../odontologos-cartagena/">Odontología</a><a href="#diseno-web-cartagena">Diseño web Cartagena</a><a href="../portfolio.html">Portafolio</a><a href="../blog.html">Blog</a><a href="../privacy.html">Privacidad</a><a href="../terms.html">Términos</a><a href="https://www.instagram.com/fmtechcolombia/" target="_blank" rel="noopener">Instagram</a></div></div></footer>
     <script>
       const header = document.getElementById('header');
       const menuBtn = document.getElementById('menuBtn');
@@ -706,12 +715,6 @@
         navLinks.classList.remove('open'); document.body.classList.remove('menu-open'); menuBtn.classList.remove('open'); menuBtn.setAttribute('aria-label','Abrir menú'); menuBtn.setAttribute('aria-expanded','false');
       }));
       document.getElementById('year').textContent = new Date().getFullYear();
-      document.getElementById('leadForm').addEventListener('submit', event => {
-        event.preventDefault();
-        const data = Object.fromEntries(new FormData(event.currentTarget));
-        const text = `Hola, quiero una auditoría gratuita para mi negocio de turismo.\n\nNombre: ${data.name}\nNegocio: ${data.business}\nInstagram: ${data.instagram || 'No indicado'}\n¿Tiene web?: ${data.website}\nCantidad de tours: ${data.tours}\nPrioridad: ${data.goal}\nInformación: ${data.message || 'Sin información adicional'}`;
-        window.location.href = `mailto:hola@frankmercado.com?subject=${encodeURIComponent('Auditoría para negocio de turismo')}&body=${encodeURIComponent(text)}`;
-      });
       const observer = new IntersectionObserver(entries => entries.forEach(entry => { if(entry.isIntersecting){ entry.target.classList.add('visible'); observer.unobserve(entry.target); } }), { threshold: .12 });
       document.querySelectorAll('.reveal').forEach((element, index) => {
         element.style.transitionDelay = `${Math.min(index % 4, 3) * 80}ms`;

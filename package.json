@@ -2,7 +2,8 @@
   "name": "fmtech-static-site",
   "private": true,
   "scripts": {
-    "build:css": "tailwindcss -i ./tailwind-input.css -o ./tailwind.min.css --minify"
+    "build:css": "tailwindcss -i ./tailwind-input.css -o ./tailwind.min.css --minify",
+    "audit:site": "node scripts/audit-site.mjs"
   },
   "devDependencies": {
     "tailwindcss": "3.4.17"
