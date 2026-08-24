@@ -22,6 +22,14 @@
     <changefreq>monthly</changefreq>
     <priority>0.90</priority>
   </url>
+
+  <url><loc>https://tech.frankmercado.com/servicios/sitios-web/</loc><lastmod>2026-08-24</lastmod><changefreq>monthly</changefreq><priority>0.90</priority></url>
+  <url><loc>https://tech.frankmercado.com/servicios/aplicaciones-web/</loc><lastmod>2026-08-24</lastmod><changefreq>monthly</changefreq><priority>0.90</priority></url>
+  <url><loc>https://tech.frankmercado.com/servicios/automatizacion-integraciones/</loc><lastmod>2026-08-24</lastmod><changefreq>monthly</changefreq><priority>0.90</priority></url>
+  <url><loc>https://tech.frankmercado.com/servicios/desarrollo-white-label/</loc><lastmod>2026-08-24</lastmod><changefreq>monthly</changefreq><priority>0.90</priority></url>
+  <url><loc>https://tech.frankmercado.com/sectores/marino-nautico/</loc><lastmod>2026-08-24</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://tech.frankmercado.com/sectores/negocios-de-servicios/</loc><lastmod>2026-08-24</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://tech.frankmercado.com/en/</loc><lastmod>2026-08-24</lastmod><changefreq>weekly</changefreq><priority>0.90</priority></url>
   
   <url>
     <loc>https://tech.frankmercado.com/portfolio.html</loc>
