@@ -731,7 +731,7 @@ ${data.message || "Me gustaría más información"}`;
 
       // Encode and open WhatsApp
       const encodedMsg = encodeURIComponent(message);
-      window.open(`https://wa.me/573044301112?text=${encodedMsg}`, "_blank");
+      window.open(`https://wa.me/573018638164?text=${encodedMsg}`, "_blank");
 
       // Reset form
       this.reset();
