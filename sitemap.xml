@@ -4,9 +4,16 @@
   
   <url>
     <loc>https://tech.frankmercado.com/</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.00</priority>
+  </url>
+
+  <url>
+    <loc>https://tech.frankmercado.com/paraguay/</loc>
+    <lastmod>2026-08-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
   </url>
 
   <url>
@@ -18,43 +25,64 @@
 
   <url>
     <loc>https://tech.frankmercado.com/agencias-turismo-cartagena/</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.90</priority>
   </url>
 
-  <url><loc>https://tech.frankmercado.com/servicios/sitios-web/</loc><lastmod>2026-08-24</lastmod><changefreq>monthly</changefreq><priority>0.90</priority></url>
-  <url><loc>https://tech.frankmercado.com/servicios/aplicaciones-web/</loc><lastmod>2026-08-24</lastmod><changefreq>monthly</changefreq><priority>0.90</priority></url>
-  <url><loc>https://tech.frankmercado.com/servicios/automatizacion-integraciones/</loc><lastmod>2026-08-24</lastmod><changefreq>monthly</changefreq><priority>0.90</priority></url>
-  <url><loc>https://tech.frankmercado.com/servicios/desarrollo-white-label/</loc><lastmod>2026-08-24</lastmod><changefreq>monthly</changefreq><priority>0.90</priority></url>
-  <url><loc>https://tech.frankmercado.com/sectores/marino-nautico/</loc><lastmod>2026-08-24</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://tech.frankmercado.com/sectores/negocios-de-servicios/</loc><lastmod>2026-08-24</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://tech.frankmercado.com/servicios/sitios-web/</loc><lastmod>2026-08-25</lastmod><changefreq>monthly</changefreq><priority>0.90</priority></url>
+  <url><loc>https://tech.frankmercado.com/servicios/aplicaciones-web/</loc><lastmod>2026-08-25</lastmod><changefreq>monthly</changefreq><priority>0.90</priority></url>
+  <url><loc>https://tech.frankmercado.com/servicios/automatizacion-integraciones/</loc><lastmod>2026-08-25</lastmod><changefreq>monthly</changefreq><priority>0.90</priority></url>
+  <url><loc>https://tech.frankmercado.com/servicios/desarrollo-white-label/</loc><lastmod>2026-08-25</lastmod><changefreq>monthly</changefreq><priority>0.90</priority></url>
+  <url><loc>https://tech.frankmercado.com/sectores/marino-nautico/</loc><lastmod>2026-08-25</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://tech.frankmercado.com/sectores/negocios-de-servicios/</loc><lastmod>2026-08-25</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
   <url><loc>https://tech.frankmercado.com/en/</loc><lastmod>2026-08-24</lastmod><changefreq>weekly</changefreq><priority>0.90</priority></url>
   
   <url>
     <loc>https://tech.frankmercado.com/portfolio.html</loc>
-    <lastmod>2026-08-13</lastmod>
+    <lastmod>2026-08-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.90</priority>
   </url>
   
   <url>
     <loc>https://tech.frankmercado.com/blog.html</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://tech.frankmercado.com/blog/cuanto-cuesta-pagina-web-paraguay-2026.html</loc>
+    <lastmod>2026-08-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <url>
+    <loc>https://tech.frankmercado.com/blog/pagina-web-o-instagram-paraguay.html</loc>
+    <lastmod>2026-08-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <url>
+    <loc>https://tech.frankmercado.com/blog/landing-meta-ads-paraguay.html</loc>
+    <lastmod>2026-08-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
   </url>
   
   <url>
     <loc>https://tech.frankmercado.com/how-it-works.html</loc>
-    <lastmod>2026-08-13</lastmod>
+    <lastmod>2026-08-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
   </url>
   
   <url>
     <loc>https://tech.frankmercado.com/faq.html</loc>
-    <lastmod>2026-08-13</lastmod>
+    <lastmod>2026-08-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.70</priority>
   </url>
@@ -76,7 +104,7 @@
 
   <url>
     <loc>https://tech.frankmercado.com/blog/seo-local-cartagena.html</loc>
-    <lastmod>2026-08-13</lastmod>
+    <lastmod>2026-08-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
@@ -118,7 +146,7 @@
   
   <url>
     <loc>https://tech.frankmercado.com/privacy.html</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-25</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.30</priority>
   </url>
@@ -132,7 +160,7 @@
 
   <url>
     <loc>https://tech.frankmercado.com/terms.html</loc>
-    <lastmod>2026-08-13</lastmod>
+    <lastmod>2026-08-25</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.30</priority>
   </url>

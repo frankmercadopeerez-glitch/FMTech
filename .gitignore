@@ -2,7 +2,9 @@
 .env*
 node_modules/
 prospeccion/
+comercial/
 audit-*.png
 visual-*.png
 qa-*.png
+qa-release/
 homepage-*.png

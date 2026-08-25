@@ -242,6 +242,35 @@ img {
 .trust-grid div:last-child {
   border-right: 1px solid var(--line);
 }
+.market-strip {
+  background: var(--blue);
+  color: #fff;
+  border-bottom: 1px solid #003da9;
+}
+.market-strip-grid {
+  min-height: 190px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 40px;
+  padding-block: 34px;
+}
+.market-strip span {
+  color: #a9f3ff;
+  font-size: 0.76rem;
+  font-weight: 900;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+.market-strip h2 {
+  margin: 9px 0 7px;
+  font: 900 clamp(1.9rem, 3vw, 3rem) / 1 Manrope, Arial, sans-serif;
+  letter-spacing: -0.045em;
+}
+.market-strip p {
+  margin: 0;
+  color: #d5e6ff;
+}
 .section {
   padding: 92px 0;
 }
@@ -591,6 +620,9 @@ img {
     grid-template-columns: repeat(2, 1fr);
   }
   .cta {
+    grid-template-columns: 1fr;
+  }
+  .market-strip-grid {
     grid-template-columns: 1fr;
   }
   .lead-layout {
