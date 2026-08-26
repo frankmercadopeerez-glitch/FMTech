@@ -15,7 +15,7 @@ img[src$="fmtech-logo-hd.svg"] {
   html,
   body {
     max-width: 100%;
-    overflow-x: hidden;
+    overflow-x: clip;
   }
 
   body,
@@ -77,6 +77,17 @@ img[src$="fmtech-logo-hd.svg"] {
     bottom: 0.75rem !important;
     transform: scale(0.84);
     transform-origin: bottom right;
+  }
+}
+
+/* Match the compact spacing used by the current FMTECH navigation. */
+main.pt-24 {
+  padding-top: 5.25rem;
+}
+
+@media (max-width: 680px) {
+  main.pt-24 {
+    padding-top: 4.75rem;
   }
 }
 

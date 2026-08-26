@@ -1,29 +1,29 @@
-.py-article-hero { padding: 90px 0 76px; background: #10150f; color: #fff; }
+.py-article-hero { padding: 62px 0 58px; background: var(--py-ink); color: #fff; }
 .py-article-nav { margin-left: auto; display: flex; align-items: center; gap: 25px; font-weight: 800; font-size: .94rem; }
-.py-article-nav a:not(.py-button) { color: #dce1d7; }
-.py-article-nav a:hover { color: #c7f92a; }
+.py-article-nav a:not(.py-button) { color: #d7e4f1; }
+.py-article-nav a:hover { color: var(--py-lime); }
 .py-article-shell { width: min(100%,820px); margin-inline: auto; }
-.py-article-meta { color: #c7f92a; font-weight: 900; letter-spacing: .13em; text-transform: uppercase; font-size: .78rem; }
+.py-article-meta { color: var(--py-lime); font-weight: 900; letter-spacing: .13em; text-transform: uppercase; font-size: .78rem; }
 .py-article-hero h1 { margin: 19px 0 22px; font: 900 clamp(3rem,7vw,6rem)/.93 "Manrope",sans-serif; letter-spacing: -.07em; }
-.py-article-hero p { max-width: 760px; margin: 0; color: #d6ddd2; font-size: 1.18rem; }
+.py-article-hero p { max-width: 760px; margin: 0; color: #c7d8e9; font-size: 1.18rem; }
 .py-article-body { padding: 80px 0; background: #fff; }
 .py-article-body h2 { margin: 54px 0 14px; font: 900 clamp(1.75rem,3vw,2.45rem)/1.05 "Manrope",sans-serif; letter-spacing: -.035em; }
 .py-article-body h2:first-child { margin-top: 0; }
 .py-article-body h3 { margin: 35px 0 10px; font: 900 1.3rem "Manrope",sans-serif; }
-.py-article-body p,.py-article-body li { color: #41483e; font-size: 1.04rem; }
-.py-article-body a { text-decoration: underline; text-decoration-color: #98c900; text-decoration-thickness: 3px; text-underline-offset: 4px; }
+.py-article-body p,.py-article-body li { color: var(--py-muted); font-size: 1.04rem; }
+.py-article-body a { text-decoration: underline; text-decoration-color: var(--py-lime-dark); text-decoration-thickness: 3px; text-underline-offset: 4px; }
 .py-article-body ul,.py-article-body ol { padding-left: 24px; }
 .py-article-body li + li { margin-top: 8px; }
 .py-article-table { width: 100%; border-collapse: collapse; margin: 28px 0; font-size: .94rem; }
-.py-article-table th,.py-article-table td { padding: 14px; text-align: left; vertical-align: top; border: 1px solid #c9ccbd; }
-.py-article-table th { background: #eef6d7; font-weight: 900; }
-.py-article-note { margin: 36px 0; padding: 25px; border-left: 6px solid #c7f92a; background: #f7f3e9; }
+.py-article-table th,.py-article-table td { padding: 14px; text-align: left; vertical-align: top; border: 1px solid var(--py-line); }
+.py-article-table th { background: #e8eef6; font-weight: 900; }
+.py-article-note { margin: 36px 0; padding: 25px; border-left: 6px solid var(--py-lime); background: var(--py-paper); }
 .py-article-note strong { display: block; font: 900 1.15rem "Manrope",sans-serif; }
 .py-article-note p { margin-bottom: 0; }
-.py-article-sources { margin-top: 55px; padding-top: 25px; border-top: 1px solid #c9ccbd; }
+.py-article-sources { margin-top: 55px; padding-top: 25px; border-top: 1px solid var(--py-line); }
 .py-article-sources h2 { margin-top: 0; font-size: 1.4rem; }
-.py-article-cta { padding: 70px 0; background: #c7f92a; }
+.py-article-cta { padding: 70px 0; background: var(--py-lime-dark); color: #fff; }
 .py-article-cta-grid { display: flex; align-items: center; justify-content: space-between; gap: 35px; }
 .py-article-cta h2 { max-width: 760px; margin: 0 0 9px; font: 900 clamp(2rem,4vw,3.6rem)/.95 "Manrope",sans-serif; letter-spacing: -.05em; }
 .py-article-cta p { margin: 0; }
-@media (max-width:700px) { .py-article-nav a:not(.py-button) { display: none; } .py-article-nav .py-button { min-height: 42px; padding: 0 14px; font-size: .78rem; } .py-article-hero { padding: 65px 0 58px; } .py-article-body { padding: 60px 0; } .py-article-table { display: block; overflow-x: auto; } .py-article-cta-grid { align-items: flex-start; flex-direction: column; } }
+@media (max-width:700px) { .py-article-nav a:not(.py-button) { display: none; } .py-article-nav .py-button { min-height: 42px; padding: 0 14px; font-size: .78rem; } .py-article-hero { padding: 44px 0 48px; } .py-article-body { padding: 60px 0; } .py-article-table { display: block; overflow-x: auto; } .py-article-cta-grid { align-items: flex-start; flex-direction: column; } }
